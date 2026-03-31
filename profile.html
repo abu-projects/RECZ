@@ -1,0 +1,1966 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recz - Premium Social Discovery App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            /* Using standard tailwind font weights directly in classes as requested, but setting base here */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hide scrollbar for smooth UI */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Custom utilities for liquid glass */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-nav {
+            background: linear-gradient(180deg, rgba(5, 5, 5, 0.8) 0%, rgba(5, 5, 5, 0) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .glass-bottom {
+            background: linear-gradient(0deg, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0) 100%);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(244, 63, 94, 0.4);
+        }
+
+        .accent-gradient {
+            background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+        }
+
+        /* iPhone Mockup Container - Auto Expands */
+        .iphone-frame {
+            width: 375px;
+            min-height: 812px;
+            height: max-content;
+            border-radius: 3rem;
+            border: 8px solid #1a1a1a;
+            overflow: hidden;
+            position: relative;
+            background-color: #000;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 0 0 2px rgba(255, 255, 255, 0.05);
+        }
+
+        .iphone-frame .overflow-y-auto {
+            overflow: visible !important;
+            height: max-content !important;
+        }
+
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background-color: #1a1a1a;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 50;
+        }
+
+        /* Taste Aura Effects */
+        .aura-rose {
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .aura-purple {
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .aura-blue {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: scaleY(0.4);
+            }
+
+            50% {
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="p-8 lg:p-12 xl:p-16 text-neutral-200">
+
+    <div class="mb-16 max-w-4xl">
+        <h1 class="text-4xl tracking-tight font-medium text-white mb-4">Recz - profile - plans </h1>
+   
+    </div>
+
+    <div class="flex flex-wrap gap-12 justify-center items-start">
+
+
+    <!-- 19. My Profile -->
+    <div class="flex flex-col items-center gap-4">
+        <span class="text-xs text-neutral-500 font-medium tracking-tight">25. Profile &amp; Identity</span>
+        <div class="iphone-frame relative bg-neutral-950 flex flex-col">
+            <div class="notch"></div>
+
+            <div class="h-full overflow-y-auto pb-24">
+                <!-- Hero Section -->
+                <div class="relative pt-20 pb-6 px-6 flex flex-col items-center">
+                    <div class="absolute top-0 w-full h-48 bg-gradient-to-b from-rose-900/20 to-transparent"></div>
+
+                    <!-- Top Actions Header -->
+                    <div class="absolute top-14 left-0 w-full px-6 flex justify-between z-20">
+                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
+                            <iconify-icon icon="solar:pen-new-square-linear" class="text-white text-lg"></iconify-icon>
+                        </button>
+                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
+                            <iconify-icon icon="solar:settings-linear" class="text-white text-lg"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div class="relative w-24 h-24 mb-4">
+                        <div class="absolute inset-0 aura-rose blur-xl rounded-full opacity-50"></div>
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&amp;h=200&amp;fit=crop"
+                            class="relative z-10 w-full h-full rounded-full object-cover border-2 border-white/10">
+                    </div>
+
+                    <h1 class="text-xl tracking-tight font-medium mb-1 relative z-10">Alex Carter</h1>
+                    <p class="text-xs text-neutral-400 relative z-10 mb-4">Curating good vibes only.</p>
+
+                    <div class="flex gap-6 relative z-10 text-center">
+                        <div><span class="block text-sm font-medium">142</span><span
+                                class="text-[10px] text-neutral-500">Followers</span></div>
+                        <div><span class="block text-sm font-medium">84</span><span
+                                class="text-[10px] text-neutral-500">Following</span></div>
+                        <div><span class="block text-sm font-medium">36</span><span
+                                class="text-[10px] text-neutral-500">Recs</span></div>
+                    </div>
+                </div>
+
+                <!-- Taste Identity Hero Section (Redesigned) -->
+                <div class="px-6 mb-8 mt-2">
+                    <div
+                        class="glass-panel rounded-[2rem] p-6 relative overflow-hidden border-rose-500/20 shadow-[0_10px_40px_rgba(244,63,94,0.1)]">
+                        <!-- Background Aura Rings -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-white/5 animate-[spin_10s_linear_infinite]">
+                        </div>
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-rose-500/10 animate-[spin_8s_linear_infinite_reverse]">
+                        </div>
+
+                        <div class="flex justify-between items-start relative z-10 mb-6">
+                            <div>
+                                <h3 class="text-lg tracking-tight font-medium flex items-center gap-2">
+                                    <iconify-icon icon="solar:radar-linear" class="text-rose-400"></iconify-icon>
+                                    Taste Identity
+                                </h3>
+                                <p class="text-[10px] text-neutral-400 mt-1">Your signature vibe footprint</p>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full glass-panel flex items-center justify-center border-white/10">
+                                <iconify-icon icon="solar:share-linear" class="text-neutral-400 text-xs"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Liquid Glass Orbit System -->
+                        <div class="relative h-48 flex items-center justify-center">
+                            <!-- Core Vibe -->
+                            <div
+                                class="absolute w-20 h-20 rounded-full bg-gradient-to-br from-rose-500/30 to-purple-500/30 backdrop-blur-md border border-white/10 flex flex-col items-center justify-center z-20 shadow-[0_0_30px_rgba(244,63,94,0.3)]">
+                                <iconify-icon icon="solar:chef-hat-bold"
+                                    class="text-rose-200 text-xl mb-1"></iconify-icon>
+                                <span class="text-[9px] font-bold text-white uppercase tracking-wider">Aesthetic</span>
+                            </div>
+
+                            <!-- Orbiting Clusters -->
+                            <div
+                                class="absolute top-2 left-6 w-14 h-14 rounded-full glass-panel border-amber-500/30 bg-amber-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[8px] text-amber-200 font-medium">Coffee</span>
+                            </div>
+                            <div
+                                class="absolute bottom-6 left-2 w-16 h-16 rounded-full glass-panel border-blue-500/30 bg-blue-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[9px] text-blue-200 font-medium">Outdoors</span>
+                            </div>
+                            <div
+                                class="absolute top-8 right-4 w-15 h-15 rounded-full glass-panel border-purple-500/30 bg-purple-500/10 flex flex-col items-center justify-center z-10 p-2 text-center text-[8px] text-purple-200 font-medium leading-tight">
+                                Fine Dining
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-8 w-12 h-12 rounded-full glass-panel border-emerald-500/30 bg-emerald-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[8px] text-emerald-200 font-medium">Art</span>
+                            </div>
+
+                            <!-- Connection lines (svg overlay) -->
+                            <svg class="absolute inset-0 w-full h-full opacity-30 z-0">
+                                <line x1="50%" y1="50%" x2="25%" y2="25%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="20%" y2="70%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                            </svg>
+                        </div>
+
+                        <div
+                            class="mt-4 flex items-center justify-between relative z-10 glass-panel p-3 rounded-2xl bg-white/[0.02]">
+                            <div class="flex items-center gap-2">
+                                <div class="flex -space-x-1">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50"
+                                        class="w-5 h-5 rounded-full border border-black">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50"
+                                        class="w-5 h-5 rounded-full border border-black">
+                                </div>
+                                <span class="text-[10px] text-neutral-400">High match with 8 friends</span>
+                            </div>
+                            <button class="text-[10px] font-medium text-rose-400">Compare Taste</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex border-b border-white/10 px-6 mb-4">
+                    <button class="pb-3 text-sm font-medium text-white border-b-2 border-rose-500 mr-6">My Recs</button>
+                    <button class="pb-3 text-sm font-medium text-neutral-500 mr-6">Lists</button>
+                    <button class="pb-3 text-sm font-medium text-neutral-500">Plans</button>
+                </div>
+
+                <!-- Add Button -->
+                <div class="px-6 mx-auto w-[86%] mb-3.5 flex items-center justify-between glass-panel p-3 rounded-2xl border border-white/5 bg-white/[0.02]">
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium text-white">Share a new Rec</span>
+                    </div>
+                    <button class="w-10 h-10 rounded-full accent-gradient flex items-center justify-center shadow-[0_4px_15px_rgba(244,63,94,0.4)] active:scale-95 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Grid -->
+                <div class="px-6 grid grid-cols-2 gap-3">
+                    <div class="aspect-square rounded-2xl glass-panel relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&amp;h=300&amp;fit=crop"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square rounded-2xl glass-panel relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&amp;h=300&amp;fit=crop"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Nav -->
+            <div class="absolute bottom-6 left-6 right-6 h-16 glass-panel rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10">
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:home-smile-linear" class="text-xl"></iconify-icon>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                </button>
+                <!-- Create Button FAB -->
+                <button class="w-12 h-12 rounded-full accent-gradient flex items-center justify-center transform -translate-y-4 shadow-[0_8px_20px_rgba(244,63,94,0.4)] border-2 border-neutral-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-xl"></iconify-icon>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-white">
+                    <iconify-icon icon="solar:user-linear" class="text-xl" stroke-width="2"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 19b. My Profile - Lists -->
+    <div class="flex flex-col items-center gap-4">
+        <span class="text-xs text-neutral-500 font-medium tracking-tight">25b. Profile - Lists Tab</span>
+        <div class="iphone-frame relative bg-neutral-950 flex flex-col">
+            <div class="notch"></div>
+
+            <div class="h-full overflow-y-auto pb-24">
+                <!-- Hero Section -->
+                <div class="relative pt-20 pb-6 px-6 flex flex-col items-center">
+                    <div class="absolute top-0 w-full h-48 bg-gradient-to-b from-rose-900/20 to-transparent"></div>
+
+                    <!-- Top Actions Header -->
+                    <div class="absolute top-14 left-0 w-full px-6 flex justify-between z-20">
+                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
+                            <iconify-icon icon="solar:pen-new-square-linear" class="text-white text-lg"></iconify-icon>
+                        </button>
+                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
+                            <iconify-icon icon="solar:settings-linear" class="text-white text-lg"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div class="relative w-24 h-24 mb-4">
+                        <div class="absolute inset-0 aura-rose blur-xl rounded-full opacity-50"></div>
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&amp;h=200&amp;fit=crop"
+                            class="relative z-10 w-full h-full rounded-full object-cover border-2 border-white/10">
+                    </div>
+
+                    <h1 class="text-xl tracking-tight font-medium mb-1 relative z-10">Alex Carter</h1>
+                    <p class="text-xs text-neutral-400 relative z-10 mb-4">Curating good vibes only.</p>
+
+                    <div class="flex gap-6 relative z-10 text-center">
+                        <div><span class="block text-sm font-medium">142</span><span
+                                class="text-[10px] text-neutral-500">Followers</span></div>
+                        <div><span class="block text-sm font-medium">84</span><span
+                                class="text-[10px] text-neutral-500">Following</span></div>
+                        <div><span class="block text-sm font-medium">36</span><span
+                                class="text-[10px] text-neutral-500">Recs</span></div>
+                    </div>
+                </div>
+
+                <!-- Taste Identity Hero Section (Redesigned) -->
+                <div class="px-6 mb-8 mt-2">
+                    <div
+                        class="glass-panel rounded-[2rem] p-6 relative overflow-hidden border-rose-500/20 shadow-[0_10px_40px_rgba(244,63,94,0.1)]">
+                        <!-- Background Aura Rings -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-white/5 animate-[spin_10s_linear_infinite]">
+                        </div>
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-rose-500/10 animate-[spin_8s_linear_infinite_reverse]">
+                        </div>
+
+                        <div class="flex justify-between items-start relative z-10 mb-6">
+                            <div>
+                                <h3 class="text-lg tracking-tight font-medium flex items-center gap-2">
+                                    <iconify-icon icon="solar:radar-linear" class="text-rose-400"></iconify-icon>
+                                    Taste Identity
+                                </h3>
+                                <p class="text-[10px] text-neutral-400 mt-1">Your signature vibe footprint</p>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full glass-panel flex items-center justify-center border-white/10">
+                                <iconify-icon icon="solar:share-linear" class="text-neutral-400 text-xs"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Liquid Glass Orbit System -->
+                        <div class="relative h-48 flex items-center justify-center">
+                            <!-- Core Vibe -->
+                            <div
+                                class="absolute w-20 h-20 rounded-full bg-gradient-to-br from-rose-500/30 to-purple-500/30 backdrop-blur-md border border-white/10 flex flex-col items-center justify-center z-20 shadow-[0_0_30px_rgba(244,63,94,0.3)]">
+                                <iconify-icon icon="solar:chef-hat-bold"
+                                    class="text-rose-200 text-xl mb-1"></iconify-icon>
+                                <span class="text-[9px] font-bold text-white uppercase tracking-wider">Aesthetic</span>
+                            </div>
+
+                            <!-- Orbiting Clusters -->
+                            <div
+                                class="absolute top-2 left-6 w-14 h-14 rounded-full glass-panel border-amber-500/30 bg-amber-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[8px] text-amber-200 font-medium">Coffee</span>
+                            </div>
+                            <div
+                                class="absolute bottom-6 left-2 w-16 h-16 rounded-full glass-panel border-blue-500/30 bg-blue-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[9px] text-blue-200 font-medium">Outdoors</span>
+                            </div>
+                            <div
+                                class="absolute top-8 right-4 w-15 h-15 rounded-full glass-panel border-purple-500/30 bg-purple-500/10 flex flex-col items-center justify-center z-10 p-2 text-center text-[8px] text-purple-200 font-medium leading-tight">
+                                Fine Dining
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-8 w-12 h-12 rounded-full glass-panel border-emerald-500/30 bg-emerald-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[8px] text-emerald-200 font-medium">Art</span>
+                            </div>
+
+                            <!-- Connection lines (svg overlay) -->
+                            <svg class="absolute inset-0 w-full h-full opacity-30 z-0">
+                                <line x1="50%" y1="50%" x2="25%" y2="25%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="20%" y2="70%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="white" stroke-width="0.5"
+                                    stroke-dasharray="2 2" />
+                            </svg>
+                        </div>
+
+                        <div
+                            class="mt-4 flex items-center justify-between relative z-10 glass-panel p-3 rounded-2xl bg-white/[0.02]">
+                            <div class="flex items-center gap-2">
+                                <div class="flex -space-x-1">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50"
+                                        class="w-5 h-5 rounded-full border border-black">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50"
+                                        class="w-5 h-5 rounded-full border border-black">
+                                </div>
+                                <span class="text-[10px] text-neutral-400">High match with 8 friends</span>
+                            </div>
+                            <button class="text-[10px] font-medium text-rose-400">Compare Taste</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs (LIST TAB ACTIVE) -->
+                <div class="flex border-b border-white/10 px-6 mb-4">
+                    <button class="pb-3 text-sm font-medium text-neutral-500 mr-6">My Recs</button>
+                    <button class="pb-3 text-sm font-medium text-white border-b-2 border-rose-500 mr-6">Lists</button>
+                    <button class="pb-3 text-sm font-medium text-neutral-500">Plans</button>
+                </div>
+
+                <!-- Add Button (Creates List) -->
+                <div class="px-6 mx-auto w-[86%] mb-4 flex items-center justify-between glass-panel p-3 rounded-2xl border border-white/5 bg-white/[0.02]">
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium text-white">Create new List</span>
+                    </div>
+                    <button class="w-10 h-10 rounded-full accent-gradient flex items-center justify-center shadow-[0_4px_15px_rgba(244,63,94,0.4)] active:scale-95 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Lists View (List cards with delete buttons) -->
+                <div class="px-6 flex flex-col gap-3">
+                    <!-- List Item -->
+                    <div class="glass-panel p-3 rounded-2xl flex items-center gap-4 relative overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop"
+                            class="w-14 h-14 rounded-xl object-cover border border-white/10 shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-medium text-white truncate">Best Cafes ☕</h3>
+                            <p class="text-[10px] text-neutral-400 mt-0.5">14 items • Public</p>
+                        </div>
+                        <button class="w-9 h-9 shrink-0 rounded-full flex items-center justify-center border border-white/10 hover:bg-rose-500/20 hover:border-rose-500/40 transition active:scale-95 group/btn" style="background:rgba(255,255,255,0.03)">
+                            <iconify-icon icon="solar:trash-bin-trash-linear" class="text-neutral-400 group-hover/btn:text-rose-400 text-sm transition"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <!-- List Item -->
+                    <div class="glass-panel p-3 rounded-2xl flex items-center gap-4 relative overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=100&h=100&fit=crop"
+                            class="w-14 h-14 rounded-xl object-cover border border-white/10 shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-medium text-white truncate">Summer Trips ✈️</h3>
+                            <p class="text-[10px] text-neutral-400 mt-0.5">8 items • Friends only</p>
+                        </div>
+                        <button class="w-9 h-9 shrink-0 rounded-full flex items-center justify-center border border-white/10 hover:bg-rose-500/20 hover:border-rose-500/40 transition active:scale-95 group/btn" style="background:rgba(255,255,255,0.03)">
+                            <iconify-icon icon="solar:trash-bin-trash-linear" class="text-neutral-400 group-hover/btn:text-rose-400 text-sm transition"></iconify-icon>
+                        </button>
+                    </div>
+
+                   
+                </div>
+            </div>
+
+            <!-- Bottom Nav -->
+            <div class="absolute bottom-6 left-6 right-6 h-16 glass-panel rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10">
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:home-smile-linear" class="text-xl"></iconify-icon>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                </button>
+                <!-- Create Button FAB -->
+                <button class="w-12 h-12 rounded-full accent-gradient flex items-center justify-center transform -translate-y-4 shadow-[0_8px_20px_rgba(244,63,94,0.4)] border-2 border-neutral-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-xl"></iconify-icon>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-white">
+                    <iconify-icon icon="solar:user-linear" class="text-xl" stroke-width="2"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 19c. My Profile - Plans -->
+    <div class="flex flex-col items-center gap-4">
+        <span class="text-xs text-neutral-500 font-medium tracking-tight">25c. Profile - Plans Tab</span>
+        <div class="iphone-frame relative bg-neutral-950 flex flex-col">
+            <div class="notch"></div>
+
+            <div class="h-full overflow-y-auto pb-24">
+                <!-- Hero Section -->
+                <div class="relative pt-20 pb-6 px-6 flex flex-col items-center">
+                    <div class="absolute top-0 w-full h-48 bg-gradient-to-b from-rose-900/20 to-transparent"></div>
+
+                    <!-- Top Actions Header -->
+                    <div class="absolute top-14 left-0 w-full px-6 flex justify-between z-20">
+                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
+                            <iconify-icon icon="solar:pen-new-square-linear" class="text-white text-lg"></iconify-icon>
+                        </button>
+                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
+                            <iconify-icon icon="solar:settings-linear" class="text-white text-lg"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div class="relative w-24 h-24 mb-4">
+                        <div class="absolute inset-0 aura-rose blur-xl rounded-full opacity-50"></div>
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&h=200&fit=crop"
+                            class="relative z-10 w-full h-full rounded-full object-cover border-2 border-white/10">
+                    </div>
+
+                    <h1 class="text-xl tracking-tight font-medium mb-1 relative z-10">Alex Carter</h1>
+                    <p class="text-xs text-neutral-400 relative z-10 mb-4">Curating good vibes only.</p>
+
+                    <div class="flex gap-6 relative z-10 text-center">
+                        <div><span class="block text-sm font-medium">142</span><span
+                                class="text-[10px] text-neutral-500">Followers</span></div>
+                        <div><span class="block text-sm font-medium">84</span><span
+                                class="text-[10px] text-neutral-500">Following</span></div>
+                        <div><span class="block text-sm font-medium">36</span><span
+                                class="text-[10px] text-neutral-500">Recs</span></div>
+                    </div>
+                </div>
+
+                <!-- Taste Identity Hero Section -->
+                <div class="px-6 mb-8 mt-2">
+                    <div
+                        class="glass-panel rounded-[2rem] p-6 relative overflow-hidden border-rose-500/20 shadow-[0_10px_40px_rgba(244,63,94,0.1)]">
+                        <!-- Background Aura Rings -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-white/5 animate-[spin_10s_linear_infinite]">
+                        </div>
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-rose-500/10 animate-[spin_8s_linear_infinite_reverse]">
+                        </div>
+
+                        <div class="flex justify-between items-start relative z-10 mb-6">
+                            <div>
+                                <h3 class="text-lg tracking-tight font-medium flex items-center gap-2">
+                                    <iconify-icon icon="solar:radar-linear" class="text-rose-400"></iconify-icon>
+                                    Taste Identity
+                                </h3>
+                                <p class="text-[10px] text-neutral-400 mt-1">Your signature vibe footprint</p>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full glass-panel flex items-center justify-center border-white/10">
+                                <iconify-icon icon="solar:share-linear" class="text-neutral-400 text-xs"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <!-- Liquid Glass Orbit System -->
+                        <div class="relative h-48 flex items-center justify-center">
+                            <!-- Core Vibe -->
+                            <div
+                                class="absolute w-20 h-20 rounded-full bg-gradient-to-br from-rose-500/30 to-purple-500/30 backdrop-blur-md border border-white/10 flex flex-col items-center justify-center z-20 shadow-[0_0_30px_rgba(244,63,94,0.3)]">
+                                <iconify-icon icon="solar:chef-hat-bold"
+                                    class="text-rose-200 text-xl mb-1"></iconify-icon>
+                                <span class="text-[9px] font-bold text-white uppercase tracking-wider">Aesthetic</span>
+                            </div>
+
+                            <!-- Orbiting Clusters -->
+                            <div
+                                class="absolute top-2 left-6 w-14 h-14 rounded-full glass-panel border-amber-500/30 bg-amber-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[8px] text-amber-200 font-medium">Coffee</span>
+                            </div>
+                            <div
+                                class="absolute bottom-6 left-2 w-16 h-16 rounded-full glass-panel border-blue-500/30 bg-blue-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[9px] text-blue-200 font-medium">Outdoors</span>
+                            </div>
+                            <div
+                                class="absolute top-8 right-4 w-15 h-15 rounded-full glass-panel border-purple-500/30 bg-purple-500/10 flex flex-col items-center justify-center z-10 p-2 text-center text-[8px] text-purple-200 font-medium leading-tight">
+                                Fine Dining
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-8 w-12 h-12 rounded-full glass-panel border-emerald-500/30 bg-emerald-500/10 flex flex-col items-center justify-center z-10">
+                                <span class="text-[8px] text-emerald-200 font-medium">Art</span>
+                            </div>
+
+                            <!-- Connection lines -->
+                            <svg class="absolute inset-0 w-full h-full opacity-30 z-0">
+                                <line x1="50%" y1="50%" x2="25%" y2="25%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="20%" y2="70%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2" />
+                                <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2" />
+                            </svg>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between relative z-10 glass-panel p-3 rounded-2xl bg-white/[0.02]">
+                            <div class="flex items-center gap-2">
+                                <div class="flex -space-x-1">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50" class="w-5 h-5 rounded-full border border-black">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-5 h-5 rounded-full border border-black">
+                                </div>
+                                <span class="text-[10px] text-neutral-400">High match with 8 friends</span>
+                            </div>
+                            <button class="text-[10px] font-medium text-rose-400">Compare Taste</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs (PLANS TAB ACTIVE) -->
+                <div class="flex border-b border-white/10 px-6 mb-4">
+                    <button class="pb-3 text-sm font-medium text-neutral-500 mr-6">My Recs</button>
+                    <button class="pb-3 text-sm font-medium text-neutral-500 mr-6">Lists</button>
+                    <button class="pb-3 text-sm font-medium text-white border-b-2 border-rose-500">Plans</button>
+                </div>
+
+                <!-- Add Button (Creates Plan) -->
+                <div class="px-6 mx-auto w-[86%] mb-4 flex items-center justify-between glass-panel p-3 rounded-2xl border border-white/5 bg-white/[0.02]">
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium text-white">Create new Plan</span>
+                    </div>
+                    <button class="w-10 h-10 rounded-full accent-gradient flex items-center justify-center shadow-[0_4px_15px_rgba(244,63,94,0.4)] active:scale-95 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Plans View (Plans cards with delete buttons) -->
+                <div class="px-6 flex flex-col gap-3">
+                    <!-- My Plan Item -->
+                    <div class="glass-panel p-3 rounded-2xl flex items-center gap-4 relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl border border-rose-500/20 bg-rose-500/10 shrink-0 flex items-center justify-center">
+                            <iconify-icon icon="solar:cake-linear" class="text-2xl text-rose-400"></iconify-icon>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-medium text-white truncate">My Birthday Dinner 🎂</h3>
+                            <p class="text-[10px] text-neutral-400 mt-0.5"><span class="text-rose-400 font-medium">My Plan</span> • Oct 24 • 8 Guests</p>
+                        </div>
+                        <button class="w-9 h-9 shrink-0 rounded-full flex items-center justify-center border border-white/10 hover:bg-rose-500/20 hover:border-rose-500/40 transition active:scale-95 group/btn" style="background:rgba(255,255,255,0.03)">
+                            <iconify-icon icon="solar:trash-bin-trash-linear" class="text-neutral-400 group-hover/btn:text-rose-400 text-sm transition"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <!-- Friend's Plan Item -->
+                    <div class="glass-panel p-3 rounded-2xl flex items-center gap-4 relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl border border-blue-500/20 bg-blue-500/10 shrink-0 flex items-center justify-center">
+                            <iconify-icon icon="solar:city-linear" class="text-2xl text-blue-400"></iconify-icon>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-sm font-medium text-white truncate">Dubai Trip 2026 ✈️</h3>
+                            <p class="text-[10px] text-neutral-400 mt-0.5"><span class="text-blue-400 font-medium">From Sarah</span> • Nov 10 • 4 Guests</p>
+                        </div>
+                        <button class="w-9 h-9 shrink-0 rounded-full flex items-center justify-center border border-white/10 hover:bg-rose-500/20 hover:border-rose-500/40 transition active:scale-95 group/btn" style="background:rgba(255,255,255,0.03)">
+                            <iconify-icon icon="solar:trash-bin-trash-linear" class="text-neutral-400 group-hover/btn:text-rose-400 text-sm transition"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Nav -->
+            <div class="absolute bottom-6 left-6 right-6 h-16 glass-panel rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10">
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:home-smile-linear" class="text-xl"></iconify-icon>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                </button>
+                <!-- Create Button FAB -->
+                <button class="w-12 h-12 rounded-full accent-gradient flex items-center justify-center transform -translate-y-4 shadow-[0_8px_20px_rgba(244,63,94,0.4)] border-2 border-neutral-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-xl"></iconify-icon>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-white">
+                    <iconify-icon icon="solar:user-linear" class="text-xl" stroke-width="2"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 19d. My Profile - Plan Details -->
+    <div class="flex flex-col items-center gap-4">
+        <span class="text-xs text-neutral-500 font-medium tracking-tight">25d. Profile - Plan Details Tab</span>
+        <div class="iphone-frame relative bg-neutral-950 flex flex-col">
+            <div class="notch"></div>
+
+            <!-- Top Navigation (Glass Nav) -->
+            <div class="absolute top-0 left-0 right-0 pt-12 pb-4 px-6 glass-nav z-40 flex items-center justify-between">
+                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-all active:scale-95 border border-white/10 z-50 relative group">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-xl text-white group-hover:-translate-x-0.5 transition-transform"></iconify-icon>
+                </button>
+                <div class="absolute inset-x-0 top-12 flex justify-center items-center pointer-events-none z-40">
+                    <h2 class="text-sm font-medium tracking-tight text-white drop-shadow-md">Event Plan</h2>
+                </div>
+                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-all active:scale-95 border border-white/10 z-50 relative">
+                    <iconify-icon icon="solar:menu-dots-bold" class="text-xl text-white"></iconify-icon>
+                </button>
+            </div>
+
+            <div class="h-full overflow-y-auto pb-40">
+                <!-- Hero Section: Cover Image & Title -->
+                <div class="relative w-full h-72">
+                    <img src="https://images.unsplash.com/photo-1543689436-bd13e007d4dc?w=800&h=800&fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 mb-3 bg-white/[0.05] backdrop-blur-md relative overflow-hidden">
+                            <!-- aura effect -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-rose-500/20 to-transparent opacity-50"></div>
+                            <span class="text-[10px] font-medium text-white relative z-10">Upcoming Event</span>
+                        </div>
+                        <h1 class="text-2xl font-semibold tracking-tight text-white mb-2 text-glow">My Birthday Dinner 🎂</h1>
+                        <p class="text-xs text-neutral-300 flex items-center gap-3 font-medium">
+                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:calendar-date-bold" class="text-rose-400"></iconify-icon> Oct 24</span>
+                            <span class="w-1 h-1 rounded-full bg-white/30"></span>
+                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:clock-circle-bold" class="text-rose-400"></iconify-icon> 7:30 PM</span>
+                            <span class="w-1 h-1 rounded-full bg-white/30"></span>
+                            <span class="flex items-center gap-1.5"><iconify-icon icon="solar:users-group-two-rounded-bold" class="text-rose-400"></iconify-icon> 8 Guests</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="px-6 space-y-5 mt-2 relative z-10">
+                    
+                    <!-- Plan Info Card & Description -->
+                    <div class="glass-panel p-5 rounded-3xl border border-white/10 relative overflow-hidden backdrop-blur-xl">
+                        <!-- glow inside -->
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-rose-500/20 blur-3xl rounded-full"></div>
+                        
+                        <div class="flex items-start gap-3 mb-5 relative z-10">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+                                <iconify-icon icon="solar:map-point-bold" class="text-rose-400 text-lg"></iconify-icon>
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <h4 class="text-sm font-medium text-white leading-tight mb-0.5">Location to be decided</h4>
+                                <p class="text-[10px] text-neutral-400">Vote on suggestions below</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-neutral-300 leading-relaxed relative z-10 mb-5 pb-5 border-b border-white/10">
+                            Dinner at a cozy Italian place to celebrate! 🎉 Let's gather around and enjoy some great food and wine. Can't wait to see everyone.
+                        </p>
+                        
+                        <div class="flex items-center gap-3 relative z-10">
+                            <div class="w-8 h-8 rounded-full bg-white/10 overflow-hidden border border-white/20 relative shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-[10px] text-neutral-400">Created by <span class="text-white font-medium">You</span></p>
+                            </div>
+                            <div class="px-2 py-0.5 rounded text-[9px] bg-rose-500/10 text-rose-300 border border-rose-500/20 font-medium">
+                                Organizer
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Participants Section -->
+                    <div class="glass-panel p-5 rounded-3xl border border-white/10 relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-medium text-white flex items-center gap-2">
+                                <iconify-icon icon="solar:users-group-rounded-bold" class="text-neutral-400"></iconify-icon>
+                                Guest List
+                            </h3>
+                            <span class="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300 font-medium shadow-inner">8 joining</span>
+                        </div>
+                        <div class="flex items-center gap-3 overflow-x-auto pb-2 -mx-2 px-2 no-scrollbar">
+                            <!-- Add Friend Button -->
+                            <button class="w-11 h-11 shrink-0 rounded-full border border-dashed border-white/30 flex items-center justify-center hover:bg-white/5 transition-all outline-none">
+                                <iconify-icon icon="solar:user-plus-rounded-linear" class="text-xl text-white"></iconify-icon>
+                            </button>
+                            
+                            <!-- Avatars -->
+                            <div class="relative w-11 h-11 shrink-0 rounded-full border-2 border-rose-500 p-0.5 shadow-[0_0_10px_rgba(244,63,94,0.3)]">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" class="w-full h-full rounded-full object-cover">
+                                <div class="absolute -bottom-1 -right-1 bg-neutral-900 rounded-full w-4 h-4 flex items-center justify-center border border-neutral-700 shadow-sm">
+                                    <iconify-icon icon="solar:crown-star-bold" class="text-[8px] text-amber-400"></iconify-icon>
+                                </div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-11 h-11 shrink-0 rounded-full border border-white/10 object-cover shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-11 h-11 shrink-0 rounded-full border border-white/10 object-cover shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop" class="w-11 h-11 shrink-0 rounded-full border border-white/10 object-cover shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+                            <div class="w-11 h-11 shrink-0 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-[10px] font-medium text-white shadow-[0_4px_10px_rgba(0,0,0,0.2)] backdrop-blur-md">
+                                +3
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shared Recommendations / Voting -->
+                    <div>
+                        <div class="flex items-center justify-between mb-4 px-1 mt-2">
+                            <h3 class="text-sm font-medium text-white flex items-center gap-2">
+                                <iconify-icon icon="solar:fire-bold" class="text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]"></iconify-icon>
+                                Top Suggestions
+                            </h3>
+                            <button class="text-xs text-none text-neutral-400 flex items-center gap-1 hover:text-white transition-colors">
+                                <iconify-icon icon="solar:sort-by-time-linear"></iconify-icon> Most Voted
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <!-- Card 1 (Leading) -->
+                            <div class="glass-panel p-3 rounded-2xl border border-rose-500/30 flex items-center gap-3 relative overflow-hidden bg-gradient-to-r from-rose-500/10 to-transparent">
+                                <div class="w-16 h-16 rounded-xl object-cover shrink-0 relative shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop" class="w-full h-full rounded-xl object-cover">
+                                    <div class="absolute -top-1.5 -left-1.5 bg-rose-500 text-white text-[9px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow-[0_2px_8px_rgba(244,63,94,0.6)] border border-rose-400">1</div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-sm font-medium text-white truncate">Osteria Mozza</h4>
+                                    <p class="text-[10px] text-neutral-400 mt-0.5 truncate flex items-center gap-1.5">
+                                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=50&h=50&fit=crop" class="w-3.5 h-3.5 rounded-full object-cover">
+                                        Suggested by You
+                                    </p>
+                                </div>
+                                <div class="flex flex-col items-center gap-1.5 pr-1">
+                                    <button class="w-8 h-8 rounded-full bg-rose-500 shrink-0 flex items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.4)] active:scale-95 transition-transform">
+                                        <iconify-icon icon="solar:heart-bold" class="text-white text-sm"></iconify-icon>
+                                    </button>
+                                    <span class="text-[10px] text-rose-400 font-semibold tracking-tight">5 votes</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2 -->
+                            <div class="glass-panel p-3 rounded-2xl border border-white/5 flex items-center gap-3 relative overflow-hidden transition-colors hover:bg-white/[0.05]">
+                                <div class="w-16 h-16 rounded-xl object-cover shrink-0 relative shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop" class="w-full h-full rounded-xl object-cover">
+                                    <div class="absolute -top-1.5 -left-1.5 bg-neutral-800 text-white text-[9px] w-5 h-5 flex items-center justify-center rounded-full font-bold border border-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">2</div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-sm font-medium text-white truncate">Golden Hour</h4>
+                                    <p class="text-[10px] text-neutral-400 mt-0.5 truncate flex items-center gap-1.5">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50&h=50&fit=crop" class="w-3.5 h-3.5 rounded-full object-cover border border-white/10">
+                                        Suggested by Sarah
+                                    </p>
+                                </div>
+                                <div class="flex flex-col items-center gap-1.5 pr-1">
+                                    <button class="w-8 h-8 rounded-full border border-white/20 shrink-0 flex items-center justify-center bg-white/5 active:scale-95 transition-all">
+                                        <iconify-icon icon="solar:heart-linear" class="text-neutral-400 text-sm"></iconify-icon>
+                                    </button>
+                                    <span class="text-[10px] text-neutral-400 font-medium tracking-tight">3 votes</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="glass-panel p-3 rounded-2xl border border-white/5 flex items-center gap-3 relative overflow-hidden transition-colors hover:bg-white/[0.05]">
+                                <div class="w-16 h-16 rounded-xl object-cover shrink-0 relative shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=200&h=200&fit=crop" class="w-full h-full rounded-xl object-cover">
+                                    <div class="absolute -top-1.5 -left-1.5 bg-neutral-800 text-white text-[9px] w-5 h-5 flex items-center justify-center rounded-full font-bold border border-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">3</div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-sm font-medium text-white truncate">Lumina Resto</h4>
+                                    <p class="text-[10px] text-neutral-400 mt-0.5 truncate flex items-center gap-1.5">
+                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50&h=50&fit=crop" class="w-3.5 h-3.5 rounded-full object-cover border border-white/10">
+                                        Suggested by David
+                                    </p>
+                                </div>
+                                <div class="flex flex-col items-center gap-1.5 pr-1">
+                                    <button class="w-8 h-8 rounded-full border border-white/20 shrink-0 flex items-center justify-center bg-white/5 active:scale-95 transition-all">
+                                        <iconify-icon icon="solar:heart-linear" class="text-neutral-400 text-sm"></iconify-icon>
+                                    </button>
+                                    <span class="text-[10px] text-neutral-400 font-medium tracking-tight">2 votes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ask Rexy AI component -->
+                        <div class="mt-4 py-4 px-5 rounded-3xl border border-purple-500/20 bg-gradient-to-tr from-purple-900/10 to-transparent flex items-center gap-4 relative overflow-hidden group cursor-pointer hover:bg-purple-900/20 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                            <!-- Animated Glow Background -->
+                            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-purple-500/20 blur-[30px] rounded-full group-hover:bg-purple-500/30 transition-colors"></div>
+                            
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-purple-500/20 border border-purple-500/40 shrink-0 relative overflow-hidden shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                                <iconify-icon icon="solar:magic-stick-3-bold" class="text-lg text-purple-300"></iconify-icon>
+                                <!-- Shimmer effect -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 animate-[spin_3s_linear_infinite]"></div>
+                            </div>
+                            <div class="flex-1 min-w-0 relative z-10">
+                                <h3 class="text-sm font-medium text-white shadow-sm flex items-center gap-1.5">Can't decide? <iconify-icon icon="solar:stars-bold" class="text-purple-400 text-[10px] animate-pulse"></iconify-icon></h3>
+                                <p class="text-[10px] text-neutral-300 mt-0.5 opacity-90">Ask Rexy to find a place that fits all 8 friends' tastes.</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-purple-400 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+       
+            
+        </div>
+    </div>
+
+    <!-- 25e. My Profile - Activity / Invitations -->
+    <div class="flex flex-col items-center gap-4">
+        <span class="text-xs text-neutral-500 font-medium tracking-tight">25e. Profile - Activity / Invitations</span>
+        <div class="iphone-frame relative bg-neutral-950 flex flex-col">
+            <div class="notch"></div>
+
+            <!-- Header -->
+            <div class="pt-16 pb-4 px-6 flex items-center justify-between border-b border-white/5 relative z-10 glass-panel bg-neutral-950/80 sticky top-0">
+                <h1 class="text-xl tracking-tight font-medium text-white">Activity</h1>
+                <button class="text-[11px] font-medium text-rose-400">Mark all read</button>
+            </div>
+
+            <div class="h-full overflow-y-auto pb-28 px-6 mt-4">
+
+                <!-- Sections -->
+                <h2 class="text-xs font-semibold tracking-wider text-neutral-500 uppercase mb-4">Today</h2>
+
+                <div class="flex flex-col gap-4">
+                    <!-- Activity Card (Plan Invite) -->
+                    <div class="glass-panel p-4 rounded-3xl border border-rose-500/20 relative overflow-hidden bg-gradient-to-b from-rose-500/5 to-transparent">
+                        <!-- glow inside -->
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-rose-500/10 blur-3xl rounded-full"></div>
+                        
+                        <div class="flex items-start gap-4 mb-3 relative z-10">
+                            <!-- Avatar of sender -->
+                            <div class="relative shrink-0">
+                                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full border border-white/10 object-cover shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+                                <div class="absolute -bottom-1 -right-1 bg-neutral-900 rounded-full w-5 h-5 flex items-center justify-center border border-neutral-700 shadow-sm">
+                                    <iconify-icon icon="solar:letter-opened-bold" class="text-[10px] text-rose-400"></iconify-icon>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-sm font-medium text-white leading-tight">
+                                    <span class="font-bold text-rose-300">Sarah</span> invited you to <span class="font-bold">Dubai Trip 2026 ✈️</span>
+                                </h3>
+                                <p class="text-[10px] text-neutral-400 mt-1">2 hours ago</p>
+                            </div>
+                        </div>
+
+                        <!-- Plan preview -->
+                        <div class="bg-black/20 border border-white/5 rounded-2xl p-3 mb-4 flex items-center gap-3 relative z-10 shadow-inner">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex flex-col items-center justify-center shrink-0">
+                                <iconify-icon icon="solar:calendar-date-bold" class="text-blue-400 text-lg"></iconify-icon>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-xs font-medium text-white">Nov 10 • 4 Participants</p>
+                                <p class="text-[10px] text-neutral-400 truncate mt-0.5"><span class="text-emerald-400">•</span> Vibe: Lively & Scenic</p>
+                            </div>
+                        </div>
+
+                        <!-- Actions (Critical) -->
+                        <div class="flex items-center gap-3 relative z-10">
+                            <button class="flex-1 py-2.5 rounded-xl text-sm font-medium text-white accent-gradient shadow-[0_4px_15px_rgba(244,63,94,0.3)] active:scale-95 transition-transform flex items-center justify-center gap-2">
+                                Accept
+                            </button>
+                            <button class="flex-1 py-2.5 rounded-xl text-sm font-medium text-neutral-300 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-2">
+                                Reject
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-px bg-white/5 my-2"></div>
+                    
+                    <h2 class="text-xs font-semibold tracking-wider text-neutral-500 uppercase mb-4 mt-2">Yesterday</h2>
+
+                    <!-- Other Activity Types -->
+                    <!-- "Lina joined your plan" -->
+                    <div class="glass-panel p-3 rounded-2xl border border-white/5 flex items-center gap-4 relative overflow-hidden transition-colors hover:bg-white/[0.05]">
+                        <div class="relative shrink-0">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" class="w-11 h-11 rounded-full border border-white/10 object-cover shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+                            <div class="absolute -bottom-1 -right-1 bg-neutral-900 rounded-full w-4 h-4 flex items-center justify-center border border-neutral-700 shadow-sm">
+                                <iconify-icon icon="solar:user-check-bold" class="text-[8px] text-emerald-400"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[13px] text-white leading-tight">
+                                <span class="font-semibold text-rose-300">Lina</span> joined your plan <span class="font-medium text-white">My Birthday Dinner 🎂</span>
+                            </p>
+                            <p class="text-[10px] text-neutral-500 mt-1">Yesterday</p>
+                        </div>
+                    </div>
+
+                    <!-- "Omar added a new place" -->
+                    <div class="glass-panel p-3 rounded-2xl border border-white/5 flex items-center gap-4 relative overflow-hidden transition-colors hover:bg-white/[0.05]">
+                        <div class="relative shrink-0">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-11 h-11 rounded-full border border-white/10 object-cover shadow-[0_4px_10px_rgba(0,0,0,0.2)]">
+                            <div class="absolute -bottom-1 -right-1 bg-neutral-900 rounded-full w-4 h-4 flex items-center justify-center border border-neutral-700 shadow-sm">
+                                <iconify-icon icon="solar:map-point-add-bold" class="text-[8px] text-purple-400"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[13px] text-white leading-tight">
+                                <span class="font-semibold text-rose-300">Omar</span> added <span class="font-medium text-white">Osteria Mozza</span> to the plan.
+                            </p>
+                            <p class="text-[10px] text-neutral-500 mt-1">Yesterday</p>
+                        </div>
+                    </div>
+
+                    <!-- "Your plan got 3 new saves" -->
+                    <div class="glass-panel p-3 rounded-2xl border border-white/5 flex items-center gap-4 relative overflow-hidden transition-colors hover:bg-white/[0.05]">
+                        <div class="w-11 h-11 rounded-full border border-white/10 bg-rose-500/10 flex items-center justify-center shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.2)] text-rose-400 text-lg">
+                            <iconify-icon icon="solar:bookmark-bold"></iconify-icon>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[13px] text-white leading-tight">
+                                Your list <span class="font-medium text-white">Best Cafes ☕</span> got 3 new saves
+                            </p>
+                            <p class="text-[10px] text-neutral-500 mt-1">2 days ago</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Bottom Nav -->
+            <div class="absolute bottom-6 left-6 right-6 h-16 glass-panel rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10">
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:home-smile-linear" class="text-xl"></iconify-icon>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500">
+                    <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                </button>
+                <!-- Create Button FAB -->
+                <button class="w-12 h-12 rounded-full accent-gradient flex items-center justify-center transform -translate-y-4 shadow-[0_8px_20px_rgba(244,63,94,0.4)] border-2 border-neutral-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-neutral-500 relative">
+                    <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-xl"></iconify-icon>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-rose-500 rounded-full border border-neutral-900"></span>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-white">
+                    <iconify-icon icon="solar:user-linear" class="text-xl" stroke-width="2"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 25f. Create Plan -->
+    <div class="flex flex-col items-center gap-4">
+        <span class="text-xs text-neutral-500 font-medium tracking-tight">25f. Create Plan</span>
+        <div class="iphone-frame relative bg-neutral-950 flex flex-col">
+            <div class="notch"></div>
+
+            <!-- Top Nav -->
+            <div class="absolute top-0 left-0 right-0 pt-12 pb-4 px-6 glass-nav z-40 flex items-center justify-between">
+                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-all active:scale-95 border border-white/10 z-50 relative group">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-xl text-white group-hover:-translate-x-0.5 transition-transform"></iconify-icon>
+                </button>
+                <div class="absolute inset-x-0 top-12 flex justify-center items-center pointer-events-none z-40">
+                    <h2 class="text-sm font-medium tracking-tight text-white drop-shadow-md">Create Plan</h2>
+                </div>
+                <div class="w-10 h-10"></div>
+            </div>
+
+            <div class="h-full overflow-y-auto pb-32 pt-28 px-5 space-y-6">
+
+            
+
+                <!-- ── STEP 1: Plan Basics ── -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-5 h-5 rounded-full accent-gradient flex items-center justify-center text-[9px] font-bold text-white shrink-0">1</span>
+                        <h3 class="text-sm font-medium text-white tracking-tight">Plan Basics</h3>
+                    </div>
+
+                    <!-- Plan Name -->
+                    <div class="glass-panel rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/8">
+                        <iconify-icon icon="solar:notebook-linear" class="text-rose-400 text-lg shrink-0"></iconify-icon>
+                        <input
+                            type="text"
+                            placeholder="Plan name…"
+                            class="bg-transparent text-sm text-white placeholder-neutral-500 outline-none flex-1 min-w-0"
+                            id="cp-plan-name"
+                        />
+                    </div>
+
+                    <!-- Date & Time -->
+                    <div class="flex gap-2.5">
+                        <div class="flex-1 glass-panel rounded-2xl px-3.5 py-3 flex items-center gap-2.5 border border-white/8">
+                            <iconify-icon icon="solar:calendar-date-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                            <input type="text" placeholder="Date" class="bg-transparent text-xs text-white placeholder-neutral-500 outline-none w-full" />
+                        </div>
+                        <div class="flex-1 glass-panel rounded-2xl px-3.5 py-3 flex items-center gap-2.5 border border-white/8">
+                            <iconify-icon icon="solar:clock-circle-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                            <input type="text" placeholder="Time" class="bg-transparent text-xs text-white placeholder-neutral-500 outline-none w-full" />
+                        </div>
+                    </div>
+
+                    <!-- Plan Type chips -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <button onclick="cpSelectType(this,'Dinner')" class="cp-type-chip px-3.5 py-2 rounded-full text-xs font-medium border border-rose-500/50 bg-rose-500/15 text-rose-300 flex items-center gap-1.5 transition-all active:scale-95">
+                            <iconify-icon icon="solar:chef-hat-linear" class="text-sm"></iconify-icon> Dinner
+                        </button>
+                        <button onclick="cpSelectType(this,'Travel')" class="cp-type-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">
+                            <iconify-icon icon="solar:plain-2-linear" class="text-sm"></iconify-icon> Travel
+                        </button>
+                        <button onclick="cpSelectType(this,'Chill')" class="cp-type-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">
+                            <iconify-icon icon="solar:sofa-linear" class="text-sm"></iconify-icon> Chill
+                        </button>
+                        <button onclick="cpSelectType(this,'Custom')" class="cp-type-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">
+                            <iconify-icon icon="solar:pen-new-square-linear" class="text-sm"></iconify-icon> Custom
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="w-full h-px bg-white/5"></div>
+
+                <!-- ── STEP 2: Vibe ── -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-5 h-5 rounded-full accent-gradient flex items-center justify-center text-[9px] font-bold text-white shrink-0">2</span>
+                        <h3 class="text-sm font-medium text-white tracking-tight">Vibe <span class="text-rose-400">🔥</span></h3>
+                    </div>
+                    <p class="text-[11px] text-neutral-500 -mt-1">Pick the energy you're going for</p>
+
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="cpToggleVibe(this)" class="cp-vibe-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">☕ Cozy</button>
+                        <button onclick="cpToggleVibe(this)" class="cp-vibe-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">🎉 Social</button>
+                        <button onclick="cpToggleVibe(this)" class="cp-vibe-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">✨ Fancy</button>
+                        <button onclick="cpToggleVibe(this)" class="cp-vibe-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">🌿 Outdoor</button>
+                        <button onclick="cpToggleVibe(this)" class="cp-vibe-chip px-3.5 py-2 rounded-full text-xs font-medium border border-white/10 bg-white/[0.04] text-neutral-400 flex items-center gap-1.5 transition-all active:scale-95">💸 Budget-friendly</button>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="w-full h-px bg-white/5"></div>
+
+                <!-- ── STEP 3: Add Friends ── -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-5 h-5 rounded-full accent-gradient flex items-center justify-center text-[9px] font-bold text-white shrink-0">3</span>
+                        <h3 class="text-sm font-medium text-white tracking-tight">Add Friends</h3>
+                    </div>
+
+                    <p class="text-[11px] text-neutral-500 -mt-1">Invite people with a similar vibe</p>
+
+                    <!-- Suggested friend list -->
+                    <div class="space-y-2.5">
+
+                        <!-- Friend row -->
+                        <div onclick="cpToggleFriend(this)" class="cp-friend-row glass-panel rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/8 cursor-pointer transition-all active:scale-[0.98]">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full object-cover border border-white/10 shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-white leading-tight">Sarah</p>
+                                <p class="text-[10px] text-neutral-500 mt-0.5">96% taste match</p>
+                            </div>
+                            <div class="cp-friend-check w-6 h-6 rounded-full border border-white/20 flex items-center justify-center bg-white/[0.04] transition-all shrink-0">
+                                <iconify-icon icon="solar:check-read-linear" class="text-[10px] text-neutral-500 cp-friend-icon"></iconify-icon>
+                            </div>
+                        </div>
+
+                        <!-- Friend row -->
+                        <div onclick="cpToggleFriend(this)" class="cp-friend-row glass-panel rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/8 cursor-pointer transition-all active:scale-[0.98]">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full object-cover border border-white/10 shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-white leading-tight">David</p>
+                                <p class="text-[10px] text-neutral-500 mt-0.5">91% taste match</p>
+                            </div>
+                            <div class="cp-friend-check w-6 h-6 rounded-full border border-white/20 flex items-center justify-center bg-white/[0.04] transition-all shrink-0">
+                                <iconify-icon icon="solar:check-read-linear" class="text-[10px] text-neutral-500 cp-friend-icon"></iconify-icon>
+                            </div>
+                        </div>
+
+                        <!-- Friend row -->
+                        <div onclick="cpToggleFriend(this)" class="cp-friend-row glass-panel rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/8 cursor-pointer transition-all active:scale-[0.98]">
+                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full object-cover border border-white/10 shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-white leading-tight">Lina</p>
+                                <p class="text-[10px] text-neutral-500 mt-0.5">88% taste match</p>
+                            </div>
+                            <div class="cp-friend-check w-6 h-6 rounded-full border border-white/20 flex items-center justify-center bg-white/[0.04] transition-all shrink-0">
+                                <iconify-icon icon="solar:check-read-linear" class="text-[10px] text-neutral-500 cp-friend-icon"></iconify-icon>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="w-full h-px bg-white/5"></div>
+
+                <!-- ── STEP 4: Add Content ── -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-5 h-5 rounded-full accent-gradient flex items-center justify-center text-[9px] font-bold text-white shrink-0">4</span>
+                        <h3 class="text-sm font-medium text-white tracking-tight">Add Places</h3>
+                    </div>
+                    <p class="text-[11px] text-neutral-500 -mt-1">Optional — add spots or skip</p>
+
+                    <!-- Added place pill -->
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl border border-white/10 bg-white/[0.04]">
+                            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=80&h=80&fit=crop" class="w-6 h-6 rounded-lg object-cover">
+                            <span class="text-xs text-white font-medium">Osteria Mozza</span>
+                            <button class="text-neutral-500 hover:text-rose-400 transition ml-1">
+                                <iconify-icon icon="solar:close-circle-linear" class="text-sm"></iconify-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Add Place Button -->
+                    <button class="w-full glass-panel rounded-2xl px-4 py-3 flex items-center gap-3 border border-dashed border-white/15 hover:border-rose-500/40 hover:bg-rose-500/5 transition-all group">
+                        <div class="w-8 h-8 rounded-full border border-dashed border-white/20 group-hover:border-rose-500/40 flex items-center justify-center transition-colors">
+                            <iconify-icon icon="solar:add-circle-linear" class="text-neutral-500 group-hover:text-rose-400 text-base transition-colors"></iconify-icon>
+                        </div>
+                        <span class="text-xs text-neutral-500 group-hover:text-neutral-300 transition-colors">Search and add a place</span>
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="w-full h-px bg-white/5"></div>
+
+                <!-- ── STEP 5: Rexy CTA ── -->
+                <div class="relative rounded-3xl overflow-hidden border border-purple-500/25 bg-gradient-to-br from-purple-900/20 via-neutral-950 to-rose-900/10 p-5 cursor-pointer group transition-all hover:border-purple-500/40 shadow-[0_4px_30px_rgba(168,85,247,0.1)]">
+                    <!-- Animated glow -->
+                    <div class="absolute -top-8 -right-8 w-40 h-40 bg-purple-500/20 blur-[40px] rounded-full group-hover:bg-purple-500/30 transition-colors pointer-events-none"></div>
+                    <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-rose-500/15 blur-[40px] rounded-full pointer-events-none"></div>
+
+                    <div class="relative z-10 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/30 to-rose-500/20 border border-purple-500/30 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.25)] relative overflow-hidden">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-xl text-purple-300 relative z-10"></iconify-icon>
+                            <!-- shimmer -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/15 to-white/0 animate-[spin_4s_linear_infinite]"></div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[10px] font-semibold text-purple-400 uppercase tracking-widest mb-1">AI-Powered</p>
+                            <h3 class="text-base font-semibold text-white tracking-tight leading-snug mb-1.5">✨ Let Rexy plan this</h3>
+                            <p class="text-[11px] text-neutral-400 leading-relaxed">Rexy will suggest the perfect spots, timing, and surprise your guests — based on everyone's taste.</p>
+                        </div>
+                    </div>
+
+              
+
+                    <iconify-icon icon="solar:alt-arrow-right-linear" class="absolute right-4 top-5 text-purple-400/40 group-hover:text-purple-400 group-hover:translate-x-1 transition-all"></iconify-icon>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 glass-bottom z-50">
+                <button class="w-full py-4 rounded-2xl accent-gradient text-sm font-semibold text-white shadow-[0_8px_24px_rgba(244,63,94,0.4)] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all">
+                    <iconify-icon icon="solar:calendar-add-bold" class="text-lg"></iconify-icon>
+                    Create Plan
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 25g. Rexy Plan Assistant -->
+    <div class="flex flex-col items-center gap-4">
+        <span class="text-xs text-neutral-500 font-medium tracking-tight">25g. Rexy Plan Assistant</span>
+        <div class="iphone-frame relative bg-neutral-950 flex flex-col overflow-hidden">
+            <div class="notch"></div>
+
+            <!-- Cinematic background glow -->
+            <div class="absolute inset-0 pointer-events-none z-0">
+                <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-purple-600/10 blur-[60px]"></div>
+                <div class="absolute top-40 -right-20 w-56 h-56 rounded-full bg-rose-600/8 blur-[50px]"></div>
+                <div class="absolute bottom-32 left-10 w-48 h-48 rounded-full bg-blue-600/8 blur-[50px]"></div>
+            </div>
+
+            <!-- ── Header ── -->
+            <div class="absolute top-0 left-0 right-0 pt-11 pb-3 px-5 z-40 flex items-center gap-3"
+                style="background:linear-gradient(180deg,rgba(5,5,5,0.92) 0%,rgba(5,5,5,0) 100%);backdrop-filter:blur(12px)">
+                <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border border-white/10 shrink-0 group">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg text-white group-hover:-translate-x-0.5 transition-transform"></iconify-icon>
+                </button>
+
+                <!-- Avatar + status -->
+                <div class="flex items-center gap-2.5 flex-1">
+                    <div class="relative shrink-0">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shadow-[0_0_14px_rgba(168,85,247,0.5)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-base"></iconify-icon>
+                        </div>
+                        <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 rounded-full border-2 border-neutral-950 shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>
+                    </div>
+                    <div>
+                        <p class="text-[13px] font-semibold text-white leading-tight">Rexy</p>
+                        <p class="text-[10px] text-emerald-400 font-medium flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse inline-block"></span>
+                            online · planning mode
+                        </p>
+                    </div>
+                </div>
+
+                <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border border-white/10">
+                    <iconify-icon icon="solar:menu-dots-bold" class="text-neutral-400 text-base"></iconify-icon>
+                </button>
+            </div>
+
+            <!-- ── Chat Body ── -->
+            <div class="relative z-10 flex flex-col h-full overflow-y-auto pt-28 pb-28 px-4 gap-5">
+
+                <!-- ── Intro hero ── -->
+                <div class="flex flex-col items-center text-center pt-2 pb-1">
+                    <div class="w-16 h-16 rounded-3xl bg-gradient-to-br from-purple-600/40 to-rose-500/30 border border-purple-500/30 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(168,85,247,0.3)] relative overflow-hidden">
+                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-2xl text-purple-200 relative z-10"></iconify-icon>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 animate-[spin_5s_linear_infinite]"></div>
+                    </div>
+                    <h2 class="text-lg font-semibold text-white tracking-tight leading-snug mb-1">Let's plan something<br>together ✨</h2>
+                    <p class="text-[11px] text-neutral-400">Tell me what you're thinking</p>
+                </div>
+
+                <!-- ── Quick prompts ── -->
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button onclick="rpaQuickPrompt(this, 'Birthday dinner')" class="rpa-prompt px-3 py-1.5 rounded-full text-[11px] font-medium border border-purple-500/30 bg-purple-500/10 text-purple-300 transition-all active:scale-95 hover:bg-purple-500/20">🎂 Plan a birthday</button>
+                    <button onclick="rpaQuickPrompt(this, 'Weekend trip')" class="rpa-prompt px-3 py-1.5 rounded-full text-[11px] font-medium border border-white/10 bg-white/[0.04] text-neutral-400 transition-all active:scale-95 hover:bg-white/10">✈️ Weekend trip</button>
+                    <button onclick="rpaQuickPrompt(this, 'Dinner with friends')" class="rpa-prompt px-3 py-1.5 rounded-full text-[11px] font-medium border border-white/10 bg-white/[0.04] text-neutral-400 transition-all active:scale-95 hover:bg-white/10">🍽️ Dinner with friends</button>
+                    <button onclick="rpaQuickPrompt(this, 'Surprise plan')" class="rpa-prompt px-3 py-1.5 rounded-full text-[11px] font-medium border border-white/10 bg-white/[0.04] text-neutral-400 transition-all active:scale-95 hover:bg-white/10">🎁 Surprise plan</button>
+                </div>
+
+                <!-- ── Chat messages ── -->
+                <div id="rpa-chat" class="flex flex-col gap-3">
+
+                    <!-- User bubble -->
+                    <div class="flex justify-end">
+                        <div class="max-w-[75%] px-4 py-2.5 rounded-[1.25rem] rounded-br-md bg-gradient-to-br from-rose-500 to-rose-600 shadow-[0_4px_16px_rgba(244,63,94,0.3)]">
+                            <p class="text-xs text-white leading-relaxed">I want a birthday dinner 🎂</p>
+                        </div>
+                    </div>
+
+                    <!-- Rexy typing then response -->
+                    <div class="flex items-end gap-2">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(168,85,247,0.4)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-xs"></iconify-icon>
+                        </div>
+                        <div class="max-w-[78%] px-4 py-3 rounded-[1.25rem] rounded-bl-md glass-panel border border-purple-500/20 bg-gradient-to-br from-purple-900/20 to-transparent shadow-[0_4px_20px_rgba(168,85,247,0.1)]">
+                            <p class="text-xs text-neutral-200 leading-relaxed">Love it! 🎉 A birthday dinner sounds amazing. A few quick questions to build the perfect plan:</p>
+                            <ul class="mt-2 space-y-1.5">
+                                <li class="flex items-start gap-2 text-[11px] text-neutral-300">
+                                    <iconify-icon icon="solar:users-group-rounded-linear" class="text-purple-400 shrink-0 mt-0.5"></iconify-icon>
+                                    How many guests?
+                                </li>
+                                <li class="flex items-start gap-2 text-[11px] text-neutral-300">
+                                    <iconify-icon icon="solar:radar-linear" class="text-purple-400 shrink-0 mt-0.5"></iconify-icon>
+                                    Vibe — cozy &amp; intimate, lively &amp; social, or fancy?
+                                </li>
+                                <li class="flex items-start gap-2 text-[11px] text-neutral-300">
+                                    <iconify-icon icon="solar:calendar-date-linear" class="text-purple-400 shrink-0 mt-0.5"></iconify-icon>
+                                    Any date in mind?
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- User reply -->
+                    <div class="flex justify-end">
+                        <div class="max-w-[75%] px-4 py-2.5 rounded-[1.25rem] rounded-br-md bg-gradient-to-br from-rose-500 to-rose-600 shadow-[0_4px_16px_rgba(244,63,94,0.3)]">
+                            <p class="text-xs text-white leading-relaxed">8 people, fancy vibes, October 24</p>
+                        </div>
+                    </div>
+
+                    <!-- Rexy final response with plan card -->
+                    <div class="flex items-end gap-2">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(168,85,247,0.4)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-xs"></iconify-icon>
+                        </div>
+                        <div class="max-w-[78%] px-4 py-3 rounded-[1.25rem] rounded-bl-md glass-panel border border-purple-500/20 bg-gradient-to-br from-purple-900/20 to-transparent shadow-[0_4px_20px_rgba(168,85,247,0.1)]">
+                            <p class="text-xs text-neutral-200 leading-relaxed">Perfect ✨ Here's what I've put together for you:</p>
+                        </div>
+                    </div>
+
+                    <!-- ── Structured Plan Card ── -->
+                    <div class="ml-9 relative rounded-3xl overflow-hidden border border-rose-500/25 bg-gradient-to-br from-rose-900/20 via-neutral-950 to-purple-900/15 shadow-[0_8px_32px_rgba(244,63,94,0.15)]">
+                        <!-- glow -->
+                        <div class="absolute -top-10 -right-10 w-36 h-36 bg-rose-500/20 blur-[40px] rounded-full pointer-events-none"></div>
+                        <div class="absolute -bottom-10 -left-8 w-28 h-28 bg-purple-500/15 blur-[35px] rounded-full pointer-events-none"></div>
+
+                        <!-- Cover image -->
+                        <div class="relative h-28 w-full">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=300&fit=crop" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2.5 py-1 rounded-full text-[9px] font-semibold bg-rose-500/80 text-white uppercase tracking-wider backdrop-blur-sm">Rexy Draft</span>
+                            </div>
+                        </div>
+
+                        <div class="px-4 pb-4 pt-2 relative z-10">
+                            <h3 class="text-sm font-semibold text-white tracking-tight mb-3">My Birthday Dinner 🎂</h3>
+
+                            <!-- Meta row -->
+                            <div class="flex items-center gap-3 mb-4 text-[10px] text-neutral-400 font-medium">
+                                <span class="flex items-center gap-1.5"><iconify-icon icon="solar:calendar-date-bold" class="text-rose-400"></iconify-icon> Oct 24</span>
+                                <span class="w-1 h-1 rounded-full bg-white/20"></span>
+                                <span class="flex items-center gap-1.5"><iconify-icon icon="solar:clock-circle-bold" class="text-rose-400"></iconify-icon> 7:30 PM</span>
+                                <span class="w-1 h-1 rounded-full bg-white/20"></span>
+                                <span class="flex items-center gap-1.5"><iconify-icon icon="solar:users-group-two-rounded-bold" class="text-rose-400"></iconify-icon> 8 guests</span>
+                            </div>
+
+                            <!-- Suggested Places -->
+                            <p class="text-[9px] font-semibold text-neutral-500 uppercase tracking-wider mb-2">Suggested Places</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center gap-2.5 p-2 rounded-xl bg-white/[0.04] border border-white/8">
+                                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=80&h=80&fit=crop" class="w-8 h-8 rounded-lg object-cover shrink-0">
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[11px] font-medium text-white truncate">Pitti Restaurant</p>
+                                        <p class="text-[9px] text-neutral-500">Italian · Fancy · $$$</p>
+                                    </div>
+                                    <span class="text-[9px] text-rose-400 font-semibold px-1.5 py-0.5 rounded bg-rose-500/10">#1</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 p-2 rounded-xl bg-white/[0.04] border border-white/8">
+                                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=80&h=80&fit=crop" class="w-8 h-8 rounded-lg object-cover shrink-0">
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[11px] font-medium text-white truncate">Osteria Mozza</p>
+                                        <p class="text-[9px] text-neutral-500">Fine Dining · $$$ </p>
+                                    </div>
+                                    <span class="text-[9px] text-neutral-500 font-semibold px-1.5 py-0.5 rounded bg-white/5">#2</span>
+                                </div>
+                            </div>
+
+                            <!-- Invite suggestions -->
+                            <p class="text-[9px] font-semibold text-neutral-500 uppercase tracking-wider mb-2">Suggested Invites</p>
+                            <div class="flex items-center gap-1.5 mb-4">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop" class="w-7 h-7 rounded-full border-2 border-rose-500/50 object-cover">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&h=60&fit=crop" class="w-7 h-7 rounded-full border-2 border-neutral-800 -ml-2 object-cover">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=60&h=60&fit=crop" class="w-7 h-7 rounded-full border-2 border-neutral-800 -ml-2 object-cover">
+                                <div class="w-7 h-7 rounded-full border-2 border-neutral-800 -ml-2 bg-white/10 flex items-center justify-center text-[9px] text-white font-medium">+5</div>
+                                <span class="ml-1 text-[10px] text-neutral-500">Based on taste match</span>
+                            </div>
+
+                            <!-- Action row -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="py-2.5 rounded-xl text-[11px] font-semibold text-white accent-gradient shadow-[0_4px_12px_rgba(244,63,94,0.3)] flex items-center justify-center gap-1.5 active:scale-95 transition-all">
+                                    <iconify-icon icon="solar:check-circle-bold" class="text-sm"></iconify-icon>
+                                    Confirm Plan
+                                </button>
+                                <button class="py-2.5 rounded-xl text-[11px] font-medium text-neutral-300 glass-panel border border-white/10 flex items-center justify-center gap-1.5 active:scale-95 transition-all hover:bg-white/10">
+                                    <iconify-icon icon="solar:pen-new-square-linear" class="text-sm"></iconify-icon>
+                                    Edit Plan
+                                </button>
+                                <button class="py-2.5 rounded-xl text-[11px] font-medium text-neutral-300 glass-panel border border-white/10 flex items-center justify-center gap-1.5 active:scale-95 transition-all hover:bg-white/10">
+                                    <iconify-icon icon="solar:users-group-rounded-linear" class="text-sm"></iconify-icon>
+                                    Add Friends
+                                </button>
+                                <button class="py-2.5 rounded-xl text-[11px] font-medium text-neutral-300 glass-panel border border-white/10 flex items-center justify-center gap-1.5 active:scale-95 transition-all hover:bg-white/10">
+                                    <iconify-icon icon="solar:radar-linear" class="text-sm"></iconify-icon>
+                                    Change Vibe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rexy follow-up -->
+                    <div class="flex items-end gap-2">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(168,85,247,0.4)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-xs"></iconify-icon>
+                        </div>
+                        <div class="px-4 py-2.5 rounded-[1.25rem] rounded-bl-md glass-panel border border-purple-500/20 bg-gradient-to-br from-purple-900/20 to-transparent">
+                            <p class="text-xs text-neutral-300 leading-relaxed">Want me to book a table or send invites? 🎉</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end chat -->
+
+            </div>
+
+            <!-- ── Input Bar ── -->
+            <div class="absolute bottom-0 left-0 right-0 px-4 pb-7 pt-3 z-50"
+                style="background:linear-gradient(0deg,rgba(5,5,5,0.95) 60%,rgba(5,5,5,0) 100%);backdrop-filter:blur(8px)">
+
+                <!-- Typing suggestion chips -->
+                <div class="flex gap-2 mb-3 overflow-x-auto no-scrollbar pb-0.5">
+                    <button class="shrink-0 px-3 py-1.5 rounded-full text-[10px] font-medium border border-purple-500/25 bg-purple-500/10 text-purple-300 whitespace-nowrap active:scale-95 transition-all">Book a table</button>
+                    <button class="shrink-0 px-3 py-1.5 rounded-full text-[10px] font-medium border border-white/10 bg-white/[0.04] text-neutral-400 whitespace-nowrap active:scale-95 transition-all">Change the vibe</button>
+                    <button class="shrink-0 px-3 py-1.5 rounded-full text-[10px] font-medium border border-white/10 bg-white/[0.04] text-neutral-400 whitespace-nowrap active:scale-95 transition-all">Invite friends</button>
+                </div>
+
+                <div class="flex items-center gap-2.5">
+                    <!-- Text input -->
+                    <div class="flex-1 glass-panel rounded-2xl px-4 py-3 flex items-center gap-2.5 border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                        <input
+                            type="text"
+                            placeholder="Message Rexy…"
+                            class="bg-transparent text-sm text-white placeholder-neutral-600 outline-none flex-1 min-w-0"
+                        />
+                        <!-- Voice button -->
+                        <button class="w-7 h-7 rounded-full border border-rose-500/30 bg-rose-500/10 flex items-center justify-center shrink-0 hover:bg-rose-500/20 transition-all active:scale-90">
+                            <iconify-icon icon="solar:microphone-linear" class="text-rose-400 text-sm"></iconify-icon>
+                        </button>
+                    </div>
+                    <!-- Send button -->
+                    <button class="w-11 h-11 rounded-2xl accent-gradient flex items-center justify-center shrink-0 shadow-[0_4px_16px_rgba(244,63,94,0.4)] active:scale-90 transition-all">
+                        <iconify-icon icon="solar:arrow-up-bold" class="text-white text-lg"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div><!-- end flex-wrap container -->
+
+    <!-- Global Rexy backdrop -->
+    <div id="rexy-global-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] hidden"
+        onclick="closeRexySheet()"></div>
+    <script>
+        var REXY_DATA = {
+            "The Morning Co.": { sub: "Café · Midtown · $", rating: "4.9 · 96% match", why: "You're a morning person who loves a cozy café vibe. The Morning Co. is your kind of spot — great pour-overs, warm lighting, and a crowd that's actually there to enjoy the coffee.", vibe: "Cozy & Warm", time: "7am – noon", crowd: "Calm, regulars", price: "~$12 / person", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&h=200&fit=crop" },
+            "Golden Hour": { sub: "Brunch · West End · $$", rating: "4.7 · 98% match", why: "Your taste profile screams brunch lover. Golden Hour's aesthetic fits your vibe perfectly — natural light, seasonal menus, and a crowd that appreciates good food.", vibe: "Bright & Aesthetic", time: "9am – 2pm", crowd: "Trendy, 20s–30s", price: "~$25 / person", img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop" },
+            "Lumina Resto": { sub: "Mediterranean · Lively · $$$", rating: "4.8 · 91% match", why: "You enjoy lively, social dining with bold flavors. Lumina's open kitchen and rooftop terrace match your energy — great for groups or a memorable evening out.", vibe: "Lively & Social", time: "6pm – 10pm", crowd: "Social, mixed", price: "~$55 / person", img: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=200&h=200&fit=crop" },
+            "Patio Kitchen": { sub: "Garden Restaurant · 0.5 miles · $$", rating: "4.9 · 92% match", why: "You love intimate, aesthetic spots with a warm, welcoming atmosphere. Patio Kitchen nails that — warm lighting, curated menus, and a crowd that's there to actually enjoy the meal.", vibe: "Intimate & Warm", time: "6pm – 10pm", crowd: "Relaxed, 25–35", price: "~$40 / person", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&h=200&fit=crop" },
+            "Nori Handrolls": { sub: "Japanese · Intimate · $$", rating: "4.8 · 92% match", why: "Lina & Omar both love this spot and your taste aligns closely with theirs. Nori Handrolls is intimate, precise, and exactly the kind of hidden gem you gravitate toward.", vibe: "Intimate & Precise", time: "6pm – 10pm", crowd: "Foodies, quiet", price: "~$35 / person", img: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=200&h=200&fit=crop" },
+            "Café Flora": { sub: "Café · Aesthetic · $", rating: "4.6 · 88% match", why: "You and Sara share a love for aesthetic cafés with great natural light. Café Flora is exactly that — a calm, beautiful space perfect for a slow morning or a catch-up.", vibe: "Calm & Aesthetic", time: "8am – 3pm", crowd: "Relaxed, creative", price: "~$15 / person", img: "https://images.unsplash.com/photo-1560624052-449f5ddf0c31?w=200&h=200&fit=crop" },
+            "Sky Lounge": { sub: "Rooftop Restaurant · Downtown", rating: "4.8 · 89% match", why: "Lina saved this and your taste overlaps significantly. Sky Lounge offers panoramic views and a refined menu — perfect for a special evening or impressing someone.", vibe: "Elevated & Scenic", time: "6pm – 11pm", crowd: "Upscale, 25–40", price: "~$60 / person", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&h=200&fit=crop" },
+            "Cloud Nine Terrace": { sub: "Rooftop Restaurant · Midtown", rating: "4.9 · 87% match", why: "High match score and a rooftop setting you'd love. Cloud Nine Terrace has the views, the vibe, and the menu to make any evening feel special.", vibe: "Breezy & Scenic", time: "5pm – 10pm", crowd: "Trendy, social", price: "~$50 / person", img: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=200&h=200&fit=crop" },
+            "Elevate Rooftop": { sub: "Fine Dining · East Side", rating: "4.7 · 85% match", why: "Two friends recommend this and your taste aligns. Elevate Rooftop combines fine dining with an open-air setting — a rare combo that fits your aesthetic perfectly.", vibe: "Refined & Open-air", time: "6pm – 11pm", crowd: "Sophisticated", price: "~$70 / person", img: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=200&h=200&fit=crop" },
+            "Osteria Mozza": { sub: "Italian · Fine Dining · $$$", rating: "4.8 · 96% match", why: "Your love for Italian cuisine and intimate fine dining makes Osteria Mozza a near-perfect match. Lina's glowing review seals it — this is a must-visit.", vibe: "Intimate & Refined", time: "6pm – 10pm", crowd: "Sophisticated, 30s", price: "~$80 / person", img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop" },
+            "Egg Society": { sub: "Brunch · Downtown · $$", rating: "4.7 · 90% match", why: "Your brunch taste profile is a strong match here. Egg Society is known for creative egg dishes and a warm, welcoming atmosphere that fits your weekend vibe.", vibe: "Warm & Creative", time: "8am – 2pm", crowd: "Relaxed, foodies", price: "~$22 / person", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop" },
+            "Golden Hour Bistro": { sub: "Brunch · West End · $$", rating: "4.8 · 93% match", why: "A rooftop brunch spot that matches your aesthetic taste perfectly. Golden Hour Bistro has the views, the food, and the vibe you love on a weekend morning.", vibe: "Bright & Rooftop", time: "9am – 2pm", crowd: "Trendy, 20s–30s", price: "~$28 / person", img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop" },
+            "Pitti Restaurant": { sub: "Italian · Intimate · $$$", rating: "4.9 · 94% match", why: "Based on your shared taste in Italian spots and intimate vibes with Lina, Pitti Restaurant is a near-perfect match for both of you.", vibe: "Intimate & Italian", time: "7pm – 11pm", crowd: "Romantic, 25–40", price: "~$65 / person", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&h=200&fit=crop" },
+            "Boutique Cinemas": { sub: "Cinema · Intimate · $$", rating: "4.8 · 95% match", why: "You consistently engage with indie films and intimate cultural experiences. Boutique cinemas are a natural extension of your taste — curated screenings, no blockbusters, just great cinema.", vibe: "Intimate & Cultural", time: "Evenings & weekends", crowd: "Cinephiles, calm", price: "~$18 / ticket", img: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=200&h=200&fit=crop" },
+            "Elevate Rooftop": { sub: "Fine Dining · East Side", rating: "4.7 · 85% match", why: "Two friends recommend this and your taste aligns. Elevate Rooftop combines fine dining with an open-air setting — a rare combo that fits your aesthetic perfectly.", vibe: "Refined & Open-air", time: "6pm – 11pm", crowd: "Sophisticated", price: "~$70 / person", img: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=200&h=200&fit=crop" }
+        };
+        function openRexySheet(name) {
+            var d = REXY_DATA[name] || { sub: "", rating: "", why: "Great match for your taste profile.", vibe: "Curated", time: "Anytime", crowd: "Mixed", price: "Varies", img: "" };
+            document.getElementById("rexy-sheet-title").textContent = "Rexy on " + name;
+            document.getElementById("rexy-sheet-name").textContent = name;
+            document.getElementById("rexy-sheet-sub").textContent = d.sub;
+            document.getElementById("rexy-sheet-rating").textContent = d.rating;
+            document.getElementById("rexy-sheet-why").textContent = d.why;
+            document.getElementById("rexy-vibe").textContent = d.vibe;
+            document.getElementById("rexy-time").textContent = d.time;
+            document.getElementById("rexy-crowd").textContent = d.crowd;
+            document.getElementById("rexy-price").textContent = d.price;
+            document.getElementById("rexy-sheet-img").src = d.img;
+            document.getElementById("rexy-global-sheet").classList.remove("translate-y-full");
+            document.getElementById("rexy-global-backdrop").classList.remove("hidden");
+            // Reset booking flow
+            _rexyBooking = { date: '', time: '', persons: '' };
+            rexyBookingStep(0);
+            var w = document.getElementById('rexy-booking-suggestion');
+            if (w) w.style.display = '';
+            document.getElementById('rexy-booking-msg').textContent = "Looks like a great spot — want me to book a table for you? 🍽️";
+        }
+        function closeRexySheet() {
+            document.getElementById("rexy-global-sheet").classList.add("translate-y-full");
+            document.getElementById("rexy-global-backdrop").classList.add("hidden");
+        }
+
+        // Voice toggle for global Rexy sheet
+        function toggleRexyVoice() {
+            var btn = document.getElementById("rexy-voice-btn");
+            var icon = btn.querySelector("iconify-icon");
+            var isRecording = btn.dataset.recording === "true";
+            if (!isRecording) {
+                btn.dataset.recording = "true";
+                btn.style.background = "rgba(244,63,94,0.35)";
+                btn.style.borderColor = "rgba(244,63,94,0.8)";
+                btn.style.boxShadow = "0 0 16px rgba(244,63,94,0.5)";
+                icon.setAttribute("icon", "solar:microphone-bold");
+                icon.classList.add("animate-pulse");
+            } else {
+                btn.dataset.recording = "false";
+                btn.style.background = "rgba(244,63,94,0.12)";
+                btn.style.borderColor = "rgba(244,63,94,0.4)";
+                btn.style.boxShadow = "";
+                icon.setAttribute("icon", "solar:microphone-linear");
+                icon.classList.remove("animate-pulse");
+            }
+        }
+
+        // Voice toggle for R3 screen
+        function toggleR3Voice(btn) {
+            var icon = btn.querySelector("iconify-icon");
+            var isRecording = btn.dataset.recording === "true";
+            if (!isRecording) {
+                btn.dataset.recording = "true";
+                btn.style.background = "rgba(244,63,94,0.35)";
+                btn.style.borderColor = "rgba(244,63,94,0.8)";
+                btn.style.boxShadow = "0 0 16px rgba(244,63,94,0.5)";
+                icon.setAttribute("icon", "solar:microphone-bold");
+                icon.classList.add("animate-pulse");
+            } else {
+                btn.dataset.recording = "false";
+                btn.style.background = "rgba(244,63,94,0.1)";
+                btn.style.borderColor = "rgba(244,63,94,0.3)";
+                btn.style.boxShadow = "";
+                icon.setAttribute("icon", "solar:microphone-linear");
+                icon.classList.remove("animate-pulse");
+            }
+        }
+
+        // Conversational booking flow
+        var _rexyBooking = { date: '', time: '', persons: '' };
+        function rexyBookingStep(step) {
+            for (var i = 0; i <= 5; i++) { var el = document.getElementById('rexy-step-' + i); if (el) el.classList.add('hidden'); }
+            var target = document.getElementById('rexy-step-' + step);
+            if (target) target.classList.remove('hidden');
+            var msgs = { 1: "Great! When would you like to go?", 2: "Perfect. What time works for you?", 3: "Nice! How many people?", 4: "Here's your booking summary — looks good?", 5: "" };
+            if (msgs[step] !== undefined) document.getElementById('rexy-booking-msg').textContent = msgs[step];
+        }
+        function rexyBookingDismiss() { var w = document.getElementById('rexy-booking-suggestion'); if (w) w.style.display = 'none'; }
+        function rexySelectDate(d) { _rexyBooking.date = d; rexyBookingStep(2); }
+        function rexySelectTime(t) { _rexyBooking.time = t; rexyBookingStep(3); }
+        function rexySelectPersons(p) {
+            _rexyBooking.persons = p + (p === '5+' ? ' people' : (p === '1' ? ' person' : ' people'));
+            document.getElementById('rexy-confirm-date').textContent = _rexyBooking.date;
+            document.getElementById('rexy-confirm-time').textContent = _rexyBooking.time;
+            document.getElementById('rexy-confirm-persons').textContent = _rexyBooking.persons;
+            rexyBookingStep(4);
+        }
+        function rexyConfirmBooking() {
+            var name = document.getElementById('rexy-sheet-name').textContent;
+            document.getElementById('rexy-booking-msg').textContent = "You're all set! 🎉";
+            document.getElementById('rexy-done-summary').textContent = name + ' · ' + _rexyBooking.date + ' · ' + _rexyBooking.time + ' · ' + _rexyBooking.persons;
+            rexyBookingStep(5);
+        }
+
+        // R3 screen booking flow
+        var _r3Booking = { date: '', time: '', persons: '' };
+        function r3BookingStep(step) {
+            for (var i = 0; i <= 5; i++) { var el = document.getElementById('r3-step-' + i); if (el) el.classList.add('hidden'); }
+            var target = document.getElementById('r3-step-' + step);
+            if (target) target.classList.remove('hidden');
+            var msgs = { 1: "When would you like to go?", 2: "Perfect. What time works for you?", 3: "Almost there — how many people?", 4: "Here's your booking summary:", 5: "" };
+            if (msgs[step] !== undefined && msgs[step]) document.getElementById('r3-booking-msg').textContent = msgs[step];
+        }
+        function r3SelectDate(d) { _r3Booking.date = d; r3BookingStep(2); }
+        function r3SelectTime(t) { _r3Booking.time = t; r3BookingStep(3); }
+        function r3SelectPersons(p) {
+            _r3Booking.persons = p + (p === '5+' ? ' people' : (p === '1' ? ' person' : ' people'));
+            document.getElementById('r3-confirm-date').textContent = _r3Booking.date;
+            document.getElementById('r3-confirm-time').textContent = _r3Booking.time;
+            document.getElementById('r3-confirm-persons').textContent = _r3Booking.persons;
+            r3BookingStep(4);
+        }
+        function r3ConfirmBooking() {
+            document.getElementById('r3-booking-msg').textContent = "You're all set! 🎉";
+            document.getElementById('r3-done-summary').textContent = 'Patio Kitchen · ' + _r3Booking.date + ' · ' + _r3Booking.time + ' · ' + _r3Booking.persons;
+            r3BookingStep(5);
+        }
+
+        // ── Create List (CL) logic ──
+        var _clItems = [];
+        var _clPrivacy = 'public';
+        var _clCollab = false;
+
+        function clOnNameInput(el) {
+            var val = el.value.trim();
+            document.getElementById('cl-name-count').textContent = el.value.length + '/40';
+            document.getElementById('cl-preview-name').textContent = val || 'Your list name';
+            if (val.length > 0) {
+                el.style.borderColor = 'rgba(244,63,94,0.4)';
+                document.getElementById('cl-name-hint').textContent = '';
+            } else {
+                el.style.borderColor = 'rgba(255,255,255,0.1)';
+                document.getElementById('cl-name-hint').textContent = 'Give your list a clear, catchy name';
+            }
+            clUpdateState();
+        }
+
+        function clOnDescInput(el) {
+            document.getElementById('cl-desc-count').textContent = el.value.length + '/120';
+        }
+
+        function clSetCover(url, label) {
+            document.getElementById('cl-cover-img').src = url;
+            document.getElementById('cl-preview-cover').src = url;
+            document.querySelectorAll('.cl-cover-pill').forEach(function (b) {
+                b.style.background = 'rgba(255,255,255,0.06)';
+                b.style.borderColor = 'rgba(255,255,255,0.15)';
+                b.classList.remove('text-white');
+                b.classList.add('text-neutral-300');
+            });
+            event.currentTarget.style.background = 'rgba(244,63,94,0.25)';
+            event.currentTarget.style.borderColor = 'rgba(244,63,94,0.5)';
+            event.currentTarget.classList.add('text-white');
+        }
+
+        function clToggleTag(btn, tag) {
+            var active = btn.dataset.active === 'true';
+            if (active) {
+                btn.dataset.active = 'false';
+                btn.style.background = 'rgba(255,255,255,0.04)';
+                btn.style.borderColor = 'rgba(255,255,255,0.1)';
+                btn.classList.remove('text-white');
+                btn.classList.add('text-neutral-400');
+            } else {
+                btn.dataset.active = 'true';
+                btn.style.background = 'rgba(244,63,94,0.15)';
+                btn.style.borderColor = 'rgba(244,63,94,0.4)';
+                btn.classList.add('text-white');
+                btn.classList.remove('text-neutral-400');
+            }
+        }
+
+        function clSetPrivacy(btn, mode) {
+            _clPrivacy = mode;
+            document.querySelectorAll('.cl-privacy-btn').forEach(function (b) {
+                b.style.background = 'rgba(255,255,255,0.04)';
+                b.style.borderColor = 'rgba(255,255,255,0.1)';
+                b.querySelector('iconify-icon').classList.remove('text-rose-400', 'text-purple-400', 'text-blue-400');
+                b.querySelector('iconify-icon').classList.add('text-neutral-400');
+                b.querySelector('span').classList.remove('text-white');
+                b.querySelector('span').classList.add('text-neutral-400');
+            });
+            var colors = { public: 'rgba(244,63,94,0.12)', friends: 'rgba(168,85,247,0.12)', private: 'rgba(59,130,246,0.12)' };
+            var borders = { public: 'rgba(244,63,94,0.4)', friends: 'rgba(168,85,247,0.4)', private: 'rgba(59,130,246,0.4)' };
+            var iconColors = { public: 'text-rose-400', friends: 'text-purple-400', private: 'text-blue-400' };
+            btn.style.background = colors[mode];
+            btn.style.borderColor = borders[mode];
+            btn.querySelector('iconify-icon').classList.remove('text-neutral-400');
+            btn.querySelector('iconify-icon').classList.add(iconColors[mode]);
+            btn.querySelector('span').classList.remove('text-neutral-400');
+            btn.querySelector('span').classList.add('text-white');
+            clUpdatePreviewMeta();
+        }
+
+        function clToggleCollab() {
+            _clCollab = !_clCollab;
+            var toggle = document.getElementById('cl-collab-toggle');
+            var knob = document.getElementById('cl-collab-knob');
+            if (_clCollab) {
+                toggle.style.background = 'rgba(168,85,247,0.6)';
+                toggle.style.borderColor = 'rgba(168,85,247,0.5)';
+                knob.style.transform = 'translateX(20px)';
+                knob.style.background = '#fff';
+            } else {
+                toggle.style.background = 'rgba(255,255,255,0.08)';
+                toggle.style.borderColor = 'rgba(255,255,255,0.1)';
+                knob.style.transform = 'translateX(0)';
+                knob.style.background = '#6b7280';
+            }
+        }
+
+        function clAddItem(name, sub, img) {
+            if (_clItems.find(function (i) { return i.name === name; })) return;
+            _clItems.push({ name: name, sub: sub, img: img });
+            clRenderItems();
+            clUpdateState();
+            clUpdatePreviewMeta();
+        }
+
+        function clRemoveItem(name) {
+            _clItems = _clItems.filter(function (i) { return i.name !== name; });
+            clRenderItems();
+            clUpdateState();
+            clUpdatePreviewMeta();
+        }
+
+        function clRenderItems() {
+            var list = document.getElementById('cl-items-list');
+            document.getElementById('cl-item-count-label').textContent = _clItems.length + ' item' + (_clItems.length !== 1 ? 's' : '');
+            if (_clItems.length === 0) { list.innerHTML = ''; return; }
+            list.innerHTML = _clItems.map(function (item, idx) {
+                return '<div class="flex items-center gap-3 p-3 rounded-2xl border border-white/8 transition-all" style="background:rgba(255,255,255,0.03)">' +
+                    '<span class="text-[11px] font-medium text-rose-400 w-5 text-center shrink-0">' + (idx + 1) + '</span>' +
+                    '<img src="' + item.img + '" class="w-11 h-11 rounded-xl object-cover shrink-0">' +
+                    '<div class="flex-1 min-w-0">' +
+                    '<h4 class="text-[13px] font-medium text-white truncate">' + item.name + '</h4>' +
+                    '<p class="text-[10px] text-neutral-500">' + item.sub + '</p>' +
+                    '</div>' +
+                    '<button onclick="clRemoveItem(\'' + item.name.replace(/'/g, "\\'") + '\')" class="w-7 h-7 rounded-full flex items-center justify-center border border-white/10 hover:bg-rose-500/15 hover:border-rose-500/30 transition active:scale-95" style="background:rgba(255,255,255,0.04)">' +
+                    '<iconify-icon icon="solar:close-linear" class="text-neutral-500 text-xs"></iconify-icon>' +
+                    '</button>' +
+                    '</div>';
+            }).join('');
+        }
+
+        function clUpdatePreviewMeta() {
+            var privacyLabel = { public: 'Public', friends: 'Friends only', private: 'Private' }[_clPrivacy];
+            document.getElementById('cl-preview-meta').textContent = _clItems.length + ' item' + (_clItems.length !== 1 ? 's' : '') + ' · ' + privacyLabel;
+        }
+
+        function clUpdateState() {
+            var nameVal = (document.getElementById('cl-name-input').value || '').trim();
+            var valid = nameVal.length > 0;
+            var createBtn = document.getElementById('cl-create-btn');
+            var ctaBtn = document.getElementById('cl-cta-btn');
+            var preview = document.getElementById('cl-preview-wrap');
+            if (valid) {
+                createBtn.disabled = false;
+                createBtn.classList.remove('opacity-50', 'pointer-events-none');
+                ctaBtn.disabled = false;
+                ctaBtn.classList.remove('opacity-40');
+                preview.classList.remove('opacity-40');
+                preview.classList.add('opacity-100');
+            } else {
+                createBtn.disabled = true;
+                createBtn.classList.add('opacity-50', 'pointer-events-none');
+                ctaBtn.disabled = true;
+                ctaBtn.classList.add('opacity-40');
+                preview.classList.add('opacity-40');
+                preview.classList.remove('opacity-100');
+            }
+        }
+
+        function clHandleCreate() {
+            var nameVal = (document.getElementById('cl-name-input').value || '').trim();
+            if (!nameVal) return;
+            var success = document.getElementById('cl-success');
+            document.getElementById('cl-success-title').textContent = '"' + nameVal + '" is live!';
+            document.getElementById('cl-success-sub').textContent = _clItems.length > 0
+                ? _clItems.length + ' item' + (_clItems.length !== 1 ? 's' : '') + ' added · Ready to share with your circle.'
+                : 'Your list is live. Start adding items anytime.';
+            success.classList.remove('hidden');
+        }
+
+        function clReset() {
+            document.getElementById('cl-success').classList.add('hidden');
+            document.getElementById('cl-name-input').value = '';
+            document.getElementById('cl-desc-input').value = '';
+            document.getElementById('cl-name-count').textContent = '0/40';
+            document.getElementById('cl-desc-count').textContent = '0/120';
+            document.getElementById('cl-preview-name').textContent = 'Your list name';
+            _clItems = [];
+            clRenderItems();
+            clUpdateState();
+            clUpdatePreviewMeta();
+            document.querySelectorAll('.cl-tag').forEach(function (b) {
+                b.dataset.active = 'false';
+                b.style.background = 'rgba(255,255,255,0.04)';
+                b.style.borderColor = 'rgba(255,255,255,0.1)';
+                b.classList.remove('text-white');
+                b.classList.add('text-neutral-400');
+            });
+            document.getElementById('cl-scroll').scrollTop = 0;
+        }
+
+        function clToggleSearch() {
+            // Visual feedback only — search bar pulse
+            var bar = document.getElementById('cl-search-bar');
+            bar.style.borderColor = 'rgba(244,63,94,0.4)';
+            bar.style.background = 'rgba(244,63,94,0.06)';
+            setTimeout(function () { bar.style.borderColor = 'rgba(255,255,255,0.1)'; bar.style.background = 'rgba(255,255,255,0.04)'; }, 600);
+        }
+
+        // ── Create Plan (CP) logic ──
+        function cpSelectType(btn, type) {
+            document.querySelectorAll('.cp-type-chip').forEach(function(b) {
+                b.style.borderColor = 'rgba(255,255,255,0.10)';
+                b.style.background = 'rgba(255,255,255,0.04)';
+                b.classList.remove('text-rose-300');
+                b.classList.add('text-neutral-400');
+            });
+            btn.style.borderColor = 'rgba(244,63,94,0.50)';
+            btn.style.background = 'rgba(244,63,94,0.15)';
+            btn.classList.remove('text-neutral-400');
+            btn.classList.add('text-rose-300');
+        }
+
+        function cpToggleVibe(btn) {
+            var active = btn.dataset.active === 'true';
+            if (active) {
+                btn.dataset.active = 'false';
+                btn.style.borderColor = 'rgba(255,255,255,0.10)';
+                btn.style.background = 'rgba(255,255,255,0.04)';
+                btn.classList.remove('text-white');
+                btn.classList.add('text-neutral-400');
+            } else {
+                btn.dataset.active = 'true';
+                btn.style.borderColor = 'rgba(244,63,94,0.45)';
+                btn.style.background = 'rgba(244,63,94,0.14)';
+                btn.classList.remove('text-neutral-400');
+                btn.classList.add('text-white');
+            }
+        }
+
+        function cpToggleFriend(row) {
+            var check = row.querySelector('.cp-friend-check');
+            var icon  = row.querySelector('.cp-friend-icon');
+            var active = row.dataset.active === 'true';
+            if (active) {
+                row.dataset.active = 'false';
+                row.style.borderColor = 'rgba(255,255,255,0.08)';
+                row.style.background = '';
+                check.style.borderColor = 'rgba(255,255,255,0.20)';
+                check.style.background = 'rgba(255,255,255,0.04)';
+                icon.style.color = 'rgba(255,255,255,0.3)';
+            } else {
+                row.dataset.active = 'true';
+                row.style.borderColor = 'rgba(244,63,94,0.40)';
+                row.style.background = 'rgba(244,63,94,0.06)';
+                check.style.borderColor = 'rgba(244,63,94,0.60)';
+                check.style.background = 'rgba(244,63,94,0.20)';
+                check.style.boxShadow = '0 0 10px rgba(244,63,94,0.25)';
+                icon.style.color = 'rgb(244,63,94)';
+            }
+        }
+
+        var _cpRexyOn = true;
+        function cpToggleRexy() {
+            _cpRexyOn = !_cpRexyOn;
+            var toggle = document.getElementById('cp-rexy-toggle');
+            var knob   = document.getElementById('cp-rexy-knob');
+            if (_cpRexyOn) {
+                toggle.style.background = 'rgba(168,85,247,0.20)';
+                toggle.style.borderColor = 'rgba(168,85,247,0.50)';
+                knob.style.transform = 'translateX(20px)';
+            } else {
+                toggle.style.background = 'rgba(255,255,255,0.06)';
+                toggle.style.borderColor = 'rgba(255,255,255,0.15)';
+                knob.style.transform = 'translateX(0)';
+            }
+        }
+
+        // ── Rexy Plan Assistant (RPA) logic ──
+        function rpaQuickPrompt(btn, label) {
+            // Highlight selected prompt
+            document.querySelectorAll('.rpa-prompt').forEach(function(b) {
+                b.style.borderColor = 'rgba(255,255,255,0.10)';
+                b.style.background = 'rgba(255,255,255,0.04)';
+                b.classList.remove('text-purple-300');
+                b.classList.add('text-neutral-400');
+            });
+            btn.style.borderColor = 'rgba(168,85,247,0.40)';
+            btn.style.background = 'rgba(168,85,247,0.15)';
+            btn.classList.remove('text-neutral-400');
+            btn.classList.add('text-purple-300');
+
+            var chat = document.getElementById('rpa-chat');
+            if (!chat) return;
+
+            // User bubble
+            var userDiv = document.createElement('div');
+            userDiv.className = 'flex justify-end';
+            userDiv.innerHTML = '<div class="max-w-[75%] px-4 py-2.5 rounded-[1.25rem] rounded-br-md bg-gradient-to-br from-rose-500 to-rose-600 shadow-[0_4px_16px_rgba(244,63,94,0.3)]"><p class="text-xs text-white leading-relaxed">' + btn.textContent.trim() + '</p></div>';
+            chat.appendChild(userDiv);
+
+            // Typing indicator
+            var typingDiv = document.createElement('div');
+            typingDiv.className = 'flex items-end gap-2';
+            typingDiv.innerHTML = '<div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(168,85,247,0.4)]"><iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-xs"></iconify-icon></div><div class="px-4 py-3 rounded-[1.25rem] rounded-bl-md glass-panel border border-purple-500/20 bg-gradient-to-br from-purple-900/20 to-transparent flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce" style="animation-delay:0ms"></span><span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce" style="animation-delay:150ms"></span><span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce" style="animation-delay:300ms"></span></div>';
+            chat.appendChild(typingDiv);
+            chat.scrollTop = chat.scrollHeight;
+
+            // Replace typing with real response after delay
+            var replies = {
+                'Birthday dinner': "Great choice 🎂 I'll need a couple of details — how many guests, what vibe, and any date in mind?",
+                'Weekend trip': "A weekend trip sounds amazing ✈️ Where are you thinking — city break, nature escape, or beach?",
+                'Dinner with friends': "Let's make it special 🍽️ How many friends, and do you want a lively spot or something cozy?",
+                'Surprise plan': "Ooh, a surprise! 🎁 Tell me about the person — their taste, favourite vibes, and I'll handle the rest."
+            };
+            var replyText = replies[label] || "Tell me more and I'll start building your plan ✨";
+
+            setTimeout(function() {
+                typingDiv.innerHTML = '<div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(168,85,247,0.4)]"><iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-xs"></iconify-icon></div><div class="max-w-[78%] px-4 py-3 rounded-[1.25rem] rounded-bl-md glass-panel border border-purple-500/20 bg-gradient-to-br from-purple-900/20 to-transparent shadow-[0_4px_20px_rgba(168,85,247,0.1)]"><p class="text-xs text-neutral-200 leading-relaxed">' + replyText + '</p></div>';
+                chat.scrollTop = chat.scrollHeight;
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
