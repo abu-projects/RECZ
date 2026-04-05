@@ -1,0 +1,718 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recz - UI System 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; background-color: #050505; color: #ffffff; -webkit-font-smoothing: antialiased; }
+        ::-webkit-scrollbar { display: none; }
+        .glass-panel { background-color: rgba(255,255,255,0.03); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+        .glass-nav { background: linear-gradient(180deg, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0) 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .glass-bottom { background: linear-gradient(0deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0) 100%); }
+        .text-glow { text-shadow: 0 0 20px rgba(244,63,94,0.4); }
+        .accent-gradient { background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%); }
+        .iphone-frame { width: 375px; min-height: 812px; height: max-content; border-radius: 3rem; border: 8px solid #1a1a1a; overflow: hidden; position: relative; background-color: #050505; box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 0 2px rgba(255,255,255,0.05); }
+        .notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 150px; height: 30px; background-color: #1a1a1a; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; z-index: 50; }
+        .aura-rose { background: radial-gradient(circle, rgba(244,63,94,0.4) 0%, rgba(0,0,0,0) 70%); }
+        .aura-purple { background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, rgba(0,0,0,0) 70%); }
+        .no-scrollbar { scrollbar-width: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        @keyframes wave { 0%, 100% { transform: scaleY(1); opacity: 0.5; } 50% { transform: scaleY(1.5); opacity: 1; } }
+    </style>
+</head>
+<body class="p-8 lg:p-12 xl:p-16 text-neutral-200">
+
+    <div class="mb-16 max-w-4xl">
+        <h1 class="text-4xl tracking-tight font-medium text-white mb-4">Recz - UI System 2026</h1>
+        <p class="text-neutral-400 text-sm leading-relaxed">Screens 08, 12, 18 — Home, Explore, Create Post.</p>
+    </div>
+
+    <div class="flex flex-wrap gap-12 justify-center items-start">
+
+        <!-- 08. Home / For You -->
+        <div class="flex flex-col items-center gap-4">
+            <span class="text-xs text-rose-500 font-medium tracking-tight">08. Home / For You (Core)</span>
+            <div class="iphone-frame relative bg-neutral-950">
+                <div class="notch"></div>
+
+                <!-- Scrollable Content — header is inline, not fixed -->
+                <div class="h-full overflow-y-auto pb-32 no-scrollbar">
+
+                    <!-- Header: greeting + headline + mood -->
+                    <div class="px-6 pt-16 pb-4">
+                        <div class="flex items-center justify-between mb-1">
+                            <p class="text-[13px] text-neutral-400">Good evening, Alex</p>
+                            <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10 hover:bg-white/5 transition">
+                                <iconify-icon icon="solar:magnifer-linear" class="text-lg text-neutral-300"></iconify-icon>
+                            </button>
+                        </div>
+                        <div class="flex items-end justify-between gap-3 mb-5">
+                            <h1 class="text-[28px] font-semibold tracking-tight text-white leading-tight uppercase" style="max-width:200px">The Latest Vibe,<br>Just For You</h1>
+                            <button class="glass-panel flex items-center gap-2 px-4 py-2 rounded-full border-white/15 shrink-0 hover:bg-white/5 transition">
+                                <span class="text-[13px] font-medium text-neutral-200">Mood</span>
+                                <span class="text-lg">😊</span>
+                            </button>
+                        </div>
+
+                        <!-- Category pills -->
+                        <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+                            <button class="accent-gradient px-5 py-2 rounded-full text-xs font-medium text-white whitespace-nowrap shadow-[0_4px_15px_rgba(244,63,94,0.3)]">Food</button>
+                            <button class="glass-panel border-transparent hover:bg-white/5 px-5 py-2 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap">All</button>
+                            <button class="glass-panel border-transparent hover:bg-white/5 px-5 py-2 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap">Movies</button>
+                            <button class="glass-panel border-transparent hover:bg-white/5 px-5 py-2 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap">Books</button>
+                            <button class="glass-panel border-transparent hover:bg-white/5 px-5 py-2 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap">Books</button>
+                            <button class="glass-panel border-transparent hover:bg-white/5 px-5 py-2 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap">Experience</button>
+                        </div>
+                    </div>
+
+                    <!-- Featured friend review card -->
+                    <div class="px-6 mb-6">
+                        <div class="glass-panel p-4 rounded-3xl border-white/8 flex items-start gap-3">
+                            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=100&h=100&fit=crop" class="w-14 h-14 rounded-2xl object-cover shrink-0">
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="text-[14px] font-semibold text-white">Lina K.</h4>
+                                    <div class="flex items-center gap-0.5">
+                                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-xs"></iconify-icon>
+                                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-xs"></iconify-icon>
+                                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-xs"></iconify-icon>
+                                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-xs"></iconify-icon>
+                                        <iconify-icon icon="solar:star-linear" class="text-neutral-500 text-xs"></iconify-icon>
+                                    </div>
+                                </div>
+                                <p class="text-[12px] text-neutral-300 leading-relaxed">The most authentic tacos I've had outside Mexico! 🌮 at <span class="text-rose-400 font-medium">Nori Handrolls</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Latest Vibes strip -->
+                    <div class="px-6 mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h2 class="text-[15px] font-semibold text-white">Latest Vibes</h2>
+                            <span class="text-[12px] text-rose-400 font-medium">See All</span>
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+                            <div class="glass-panel min-w-[150px] p-3 rounded-2xl flex items-center gap-3 border-white/8 cursor-pointer hover:bg-white/5 transition shrink-0">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&h=100&fit=crop" class="w-10 h-10 rounded-xl object-cover shrink-0">
+                                <div>
+                                    <p class="text-[11px] font-medium text-white leading-tight">Omar just discovered</p>
+                                    <p class="text-[11px] text-rose-400 font-medium">4 new spots</p>
+                                </div>
+                            </div>
+                            <div class="glass-panel min-w-[150px] p-3 rounded-2xl flex items-center gap-3 border-white/8 cursor-pointer hover:bg-white/5 transition shrink-0">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-10 h-10 rounded-xl object-cover shrink-0">
+                                <div>
+                                    <p class="text-[11px] font-medium text-white leading-tight">Sara started a new</p>
+                                    <p class="text-[11px] text-rose-400 font-medium">Live stream</p>
+                                </div>
+                            </div>
+                            <div class="glass-panel min-w-[52px] w-[52px] h-[52px] rounded-2xl flex items-center justify-center border-white/8 cursor-pointer hover:bg-white/5 transition shrink-0 self-center">
+                                <iconify-icon icon="solar:book-bookmark-linear" class="text-neutral-400 text-xl"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+
+                    <!-- Quick Picks -->
+                    <div class="pl-6">
+                        <div class="flex justify-between items-end mb-4 pr-6">
+                            <h2 class="text-sm font-medium text-neutral-400 uppercase tracking-widest flex items-center gap-2">
+                                <iconify-icon icon="solar:bolt-linear" class="text-rose-400"></iconify-icon> Quick Picks
+                            </h2>
+                        </div>
+                        <div class="flex gap-4 overflow-x-auto no-scrollbar pr-6 pb-2 snap-x">
+                            <div class="glass-panel min-w-[160px] p-2.5 rounded-3xl relative border-white/5 hover:border-rose-500/20 transition-all duration-300 group snap-start cursor-pointer hover:-translate-y-1 flex flex-col">
+                                <div class="relative mb-3">
+                                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&h=200&fit=crop" class="w-full h-28 object-cover rounded-2xl">
+                                    <div class="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded-full" style="background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);border:1px solid rgba(244,63,94,0.3);">
+                                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-[8px] text-rose-400"></iconify-icon>
+                                        <span class="text-[8px] font-bold text-rose-200 uppercase tracking-wide">Matches your vibe</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-[13px] font-medium leading-tight mb-1">The Morning Co.</h3>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-medium px-2 py-1 rounded-lg" style="background:rgba(255,255,255,0.05)"><iconify-icon icon="solar:star-bold" class="text-amber-400"></iconify-icon> 4.9</div>
+                                    <span class="text-[10px] glass-panel px-2 py-1 rounded-lg text-white border-white/10 font-medium">Café</span>
+                                </div>
+                                <button onclick="openRexySheet('The Morning Co.')" class="mt-auto w-full flex items-center justify-center gap-1.5 py-2.5 rounded-2xl border border-rose-500/40 hover:bg-rose-500/20 transition active:scale-95" style="background:rgba(244,63,94,0.12);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400 text-[11px]"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-rose-200">Ask Rexy</span>
+                                </button>
+                            </div>
+                            <div class="glass-panel min-w-[160px] p-2.5 rounded-3xl relative border-transparent hover:border-purple-500/30 transition-all duration-300 group bg-purple-900/10 snap-start cursor-pointer hover:-translate-y-1 flex flex-col">
+                                <div class="relative mb-3">
+                                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop" class="w-full h-28 object-cover rounded-2xl">
+                                    <div class="absolute top-2 left-2 text-[10px] font-bold text-purple-200 bg-purple-500/80 px-2 py-1 rounded-lg backdrop-blur shadow-[0_5px_15px_rgba(168,85,247,0.4)]">98% Match</div>
+                                </div>
+                                <h3 class="text-[13px] font-medium leading-tight mb-1">Golden Hour</h3>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-medium px-2 py-1 rounded-lg" style="background:rgba(255,255,255,0.05)"><iconify-icon icon="solar:star-bold" class="text-amber-400"></iconify-icon> 4.7</div>
+                                    <span class="text-[10px] glass-panel px-2 py-1 rounded-lg text-purple-200 border-purple-500/20 font-medium">Brunch</span>
+                                </div>
+                                <button onclick="openRexySheet('Golden Hour')" class="mt-auto w-full flex items-center justify-center gap-1.5 py-2.5 rounded-2xl border border-rose-500/40 hover:bg-rose-500/20 transition active:scale-95" style="background:rgba(244,63,94,0.12);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400 text-[11px]"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-rose-200">Ask Rexy</span>
+                                </button>
+                            </div>
+                            <div class="glass-panel min-w-[160px] p-2.5 rounded-3xl relative border-white/5 hover:border-white/20 transition-all duration-300 group snap-start cursor-pointer hover:-translate-y-1 flex flex-col">
+                                <div class="relative mb-3">
+                                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=200&h=200&fit=crop" class="w-full h-28 object-cover rounded-2xl">
+                                    <div class="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded-full" style="background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);">
+                                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-[8px] text-neutral-300"></iconify-icon>
+                                        <span class="text-[8px] font-bold text-neutral-200 uppercase tracking-wide">Trending nearby</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-[13px] font-medium leading-tight mb-1">Lumina Resto</h3>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-medium px-2 py-1 rounded-lg" style="background:rgba(255,255,255,0.05)"><iconify-icon icon="solar:star-bold" class="text-amber-400"></iconify-icon> 4.8</div>
+                                    <span class="text-[10px] glass-panel px-2 py-1 rounded-lg text-white border-white/10 font-medium">Dining</span>
+                                </div>
+                                <button onclick="openRexySheet('Lumina Resto')" class="mt-auto w-full flex items-center justify-center gap-1.5 py-2.5 rounded-2xl border border-rose-500/40 hover:bg-rose-500/20 transition active:scale-95" style="background:rgba(244,63,94,0.12);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400 text-[11px]"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-rose-200">Ask Rexy</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Friends' Picks -->
+                    <div class="px-6 pt-2">
+                        <div class="flex justify-between items-end mb-4">
+                            <h2 class="text-lg tracking-tight font-medium max-w-[75%] leading-tight text-white">Friends' Picks</h2>
+                            <button class="text-[11px] font-medium text-rose-400 hover:text-rose-300 transition-colors uppercase tracking-wider">See all</button>
+                        </div>
+                        <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2 snap-x pr-6 -mr-6">
+                            <div class="glass-panel min-w-[260px] p-2.5 rounded-3xl relative overflow-hidden group hover:border-white/20 transition-all cursor-pointer hover:-translate-y-1 snap-start bg-white/[0.01]">
+                                <div class="relative w-full h-32 mb-3 rounded-[1.25rem] overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&h=400&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                                    <div class="absolute top-2 left-2 glass-panel px-2 py-1 rounded-lg backdrop-blur-md bg-black/40 border-white/10 flex items-center gap-1">
+                                        <iconify-icon icon="solar:graph-new-up-bold" class="text-[10px] text-purple-300"></iconify-icon>
+                                        <span class="text-[10px] font-bold text-white tracking-wide">92%</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-[15px] font-medium leading-tight mb-2.5 px-1 text-white">Nori Handrolls</h4>
+                                <div class="glass-panel border-white/5 bg-white/[0.03] p-3 rounded-2xl flex flex-col gap-2 mb-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex -space-x-1.5 shrink-0">
+                                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-6 h-6 rounded-full border border-neutral-800 z-20">
+                                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50" class="w-6 h-6 rounded-full border border-neutral-800 z-10">
+                                        </div>
+                                        <p class="text-[11px] text-neutral-400 leading-[1.3]">Suggested because <span class="font-medium text-white">Lina &amp; Omar</span> love similar spots.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 px-1">
+                                    <button class="flex-1 py-2 rounded-xl text-[11px] font-medium text-white border border-white/10 flex items-center justify-center gap-1 hover:bg-white/5 active:scale-95 transition-all" style="background:rgba(255,255,255,0.03)"><iconify-icon icon="solar:bookmark-linear" class="text-xs text-rose-400"></iconify-icon> Save</button>
+                                    <button onclick="openRexySheet('Nori Handrolls')" class="flex-1 py-2 rounded-xl text-[11px] font-medium text-rose-200 border border-rose-500/25 flex items-center justify-center gap-1 hover:bg-rose-500/15 active:scale-95 transition-all" style="background:rgba(244,63,94,0.08)"><iconify-icon icon="solar:magic-stick-3-bold" class="text-xs text-rose-400"></iconify-icon> Ask Rexy</button>
+                                </div>
+                            </div>
+                            <div class="glass-panel min-w-[260px] p-2.5 rounded-3xl relative overflow-hidden group hover:border-white/20 transition-all cursor-pointer hover:-translate-y-1 snap-start bg-white/[0.01]">
+                                <div class="relative w-full h-32 mb-3 rounded-[1.25rem] overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1560624052-449f5ddf0c31?w=400&h=400&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                                    <div class="absolute top-2 left-2 glass-panel px-2 py-1 rounded-lg backdrop-blur-md bg-black/40 border-white/10 flex items-center gap-1">
+                                        <iconify-icon icon="solar:graph-new-up-bold" class="text-[10px] text-purple-300"></iconify-icon>
+                                        <span class="text-[10px] font-bold text-white tracking-wide">88%</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-[15px] font-medium leading-tight mb-2.5 px-1 text-white">Café Flora</h4>
+                                <div class="glass-panel border-white/5 bg-white/[0.03] p-3 rounded-2xl flex flex-col gap-2 mb-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex -space-x-1.5 shrink-0">
+                                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50" class="w-6 h-6 rounded-full border border-neutral-800 z-20">
+                                        </div>
+                                        <p class="text-[11px] text-neutral-400 leading-[1.3]">You and <span class="font-medium text-white">Sara</span> have similar taste in cafés.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 px-1">
+                                    <button class="flex-1 py-2 rounded-xl text-[11px] font-medium text-white border border-white/10 flex items-center justify-center gap-1 hover:bg-white/5 active:scale-95 transition-all" style="background:rgba(255,255,255,0.03)"><iconify-icon icon="solar:bookmark-linear" class="text-xs text-rose-400"></iconify-icon> Save</button>
+                                    <button onclick="openRexySheet('Café Flora')" class="flex-1 py-2 rounded-xl text-[11px] font-medium text-rose-200 border border-rose-500/25 flex items-center justify-center gap-1 hover:bg-rose-500/15 active:scale-95 transition-all" style="background:rgba(244,63,94,0.08)"><iconify-icon icon="solar:magic-stick-3-bold" class="text-xs text-rose-400"></iconify-icon> Ask Rexy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Joyful Dining grid -->
+                    <div class="px-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-[15px] font-semibold text-white">Joyful Dining</h2>
+                            <span class="text-[12px] text-rose-400 font-medium">See All</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <!-- Large card top-left -->
+                            <div class="relative rounded-3xl overflow-hidden cursor-pointer group" style="aspect-ratio:0.75">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=500&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                                <div class="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 rounded-full" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:star-bold" class="text-amber-400 text-[10px]"></iconify-icon>
+                                    <span class="text-[11px] font-bold text-white">4.7</span>
+                                </div>
+                                <button class="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center" style="background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:heart-linear" class="text-white text-sm"></iconify-icon>
+                                </button>
+                                <div class="absolute bottom-0 left-0 right-0 p-3">
+                                    <h4 class="text-[13px] font-semibold text-white leading-tight">The Morning Co.</h4>
+                                    <p class="text-[11px] text-neutral-300">Midtown • $$</p>
+                                    <div class="flex gap-1 mt-1">
+                                        <span class="text-[10px] text-neutral-300">#Cozy</span>
+                                        <span class="text-[10px] text-neutral-300">#Coffee</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Top-right -->
+                            <div class="relative rounded-3xl overflow-hidden cursor-pointer group" style="aspect-ratio:0.75">
+                                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&h=500&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                <div class="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 rounded-full" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:star-bold" class="text-amber-400 text-[10px]"></iconify-icon>
+                                    <span class="text-[11px] font-bold text-white">4.8</span>
+                                </div>
+                                <button class="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center" style="background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:heart-linear" class="text-white text-sm"></iconify-icon>
+                                </button>
+                            </div>
+                            <!-- Bottom-left -->
+                            <div class="relative rounded-3xl overflow-hidden cursor-pointer group" style="aspect-ratio:0.75">
+                                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=400&h=500&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                <div class="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 rounded-full" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:star-bold" class="text-amber-400 text-[10px]"></iconify-icon>
+                                    <span class="text-[11px] font-bold text-white">4.8</span>
+                                </div>
+                                <button class="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center" style="background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:heart-linear" class="text-white text-sm"></iconify-icon>
+                                </button>
+                            </div>
+                            <!-- Bottom-right -->
+                            <div class="relative rounded-3xl overflow-hidden cursor-pointer group" style="aspect-ratio:0.75">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=500&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                <div class="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 rounded-full" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:star-bold" class="text-amber-400 text-[10px]"></iconify-icon>
+                                    <span class="text-[11px] font-bold text-white">4.8</span>
+                                </div>
+                                <button class="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center" style="background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:heart-linear" class="text-white text-sm"></iconify-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rexy AI Inline Card -->
+                    <div class="px-6 pt-2 pb-4">
+                        <div class="glass-panel p-4 rounded-[2rem] relative overflow-hidden flex items-center justify-between border-rose-500/20 bg-gradient-to-r from-rose-500/5 to-transparent hover:border-rose-500/40 transition-all cursor-pointer group shadow-[0_10px_30px_rgba(244,63,94,0.05)] hover:-translate-y-1">
+                            <div class="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-rose-500/10 to-transparent"></div>
+                            <div class="flex gap-4 relative z-10 w-full items-center">
+                                <div class="w-12 h-12 rounded-full glass-panel flex flex-col items-center justify-center border-rose-500/30 bg-black/40 shrink-0 shadow-[0_0_20px_rgba(244,63,94,0.3)] backdrop-blur-md group-hover:scale-105 transition-transform">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-[22px] text-rose-400 drop-shadow-[0_0_8px_rgba(244,63,94,0.6)]"></iconify-icon>
+                                </div>
+                                <div class="flex-1 flex flex-col justify-center">
+                                    <h3 class="text-[14px] font-medium text-white leading-tight mb-1">Not sure what to do?</h3>
+                                    <p class="text-[11px] text-neutral-400 leading-tight">Ask Rexy for instant personalized ideas.</p>
+                                </div>
+                                <div class="flex items-center shrink-0">
+                                    <button onclick="openRexySheet('Surprise me')" class="glass-panel px-3.5 py-2 rounded-xl text-[11px] font-bold tracking-wide text-rose-100 border-rose-500/30 hover:bg-rose-500/20 transition-all shadow-[0_4px_15px_rgba(244,63,94,0.15)] active:scale-95 border uppercase flex items-center gap-1.5 focus:outline-none">
+                                        Ask Rexy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div><!-- end space-y-8 -->
+
+                </div><!-- end scrollable -->
+
+                <!-- Bottom Nav -->
+                <div class="absolute bottom-6 left-6 right-6 h-16 glass-panel rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10">
+                    <button class="flex flex-col items-center gap-1 text-white">
+                        <iconify-icon icon="solar:home-smile-linear" class="text-xl" stroke-width="2"></iconify-icon>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <button class="w-12 h-12 rounded-full accent-gradient flex items-center justify-center transform -translate-y-4 shadow-[0_8px_20px_rgba(244,63,94,0.4)] border-2 border-neutral-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Explore -->
+        <div class="flex flex-col items-center gap-4">
+            <span class="text-xs text-neutral-500 font-medium tracking-tight">12. Explore</span>
+            <div class="iphone-frame relative flex flex-col pt-14">
+                <div class="notch"></div>
+                <div class="px-6 mb-4">
+                    <h1 class="text-xl tracking-tight font-medium">Explore</h1>
+                </div>
+                <div class="px-6 mb-6">
+                    <div class="glass-panel rounded-2xl flex items-center px-4 py-3">
+                        <iconify-icon icon="solar:magnifer-linear" class="text-neutral-500 text-lg"></iconify-icon>
+                        <span class="text-sm text-neutral-500 ml-3">Destinations, books, or vibes...</span>
+                    </div>
+                </div>
+                <div class="h-full overflow-y-auto px-6 pb-24 space-y-6">
+                    <!-- Main Rexy Block -->
+                    <div class="glass-panel p-5 rounded-[2rem] border-rose-500/30 bg-rose-500/10 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 aura-rose blur-2xl rounded-full -translate-y-1/2 translate-x-1/2 opacity-50 group-hover:opacity-80 transition-opacity"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 aura-purple blur-2xl rounded-full translate-y-1/2 -translate-x-1/2 opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                        <div class="relative z-10 flex flex-col items-center text-center">
+                            <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center bg-rose-500/20 shadow-[0_0_20px_rgba(244,63,94,0.4)] border border-rose-500/30 mb-3">
+                                <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400 text-2xl drop-shadow-[0_0_8px_rgba(244,63,94,0.6)]"></iconify-icon>
+                            </div>
+                            <h2 class="text-lg tracking-tight font-medium text-white mb-1">Not sure what to explore?</h2>
+                            <p class="text-[13px] text-neutral-300 mb-4">Ask Rexy for personalized ideas</p>
+                            <button onclick="openRexySheet('Surprise me')" class="w-full accent-gradient py-3.5 rounded-2xl text-sm font-medium text-white shadow-[0_8px_25px_rgba(244,63,94,0.4)] mb-4 active:scale-95 transition-transform flex items-center justify-center gap-2 hover:brightness-110">
+                                <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-lg"></iconify-icon> Ask Rexy
+                            </button>
+                            <div class="flex flex-wrap justify-center gap-2">
+                                <button onclick="openRexySheet('Travel ideas')" class="glass-panel px-3 py-1.5 rounded-xl text-[11px] font-medium text-neutral-300 hover:text-white border-white/10 hover:border-white/30 transition-all bg-white/5 active:scale-95">🌍 Travel ideas</button>
+                                <button onclick="openRexySheet('What to read')" class="glass-panel px-3 py-1.5 rounded-xl text-[11px] font-medium text-neutral-300 hover:text-white border-white/10 hover:border-white/30 transition-all bg-white/5 active:scale-95">📚 What to read</button>
+                                <button onclick="openRexySheet('Chill spots')" class="glass-panel px-3 py-1.5 rounded-xl text-[11px] font-medium text-neutral-300 hover:text-white border-white/10 hover:border-white/30 transition-all bg-white/5 active:scale-95">☕ Chill spots</button>
+                                <button onclick="openRexySheet('Weekend escape')" class="glass-panel px-3 py-1.5 rounded-xl text-[11px] font-medium text-neutral-300 hover:text-white border-white/10 hover:border-white/30 transition-all bg-white/5 active:scale-95">✈️ Weekend escape</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Browse by Mood -->
+                    <div>
+                        <h3 class="text-sm font-medium mb-3">Browse by Mood</h3>
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+                            <div class="glass-panel min-w-[140px] p-4 rounded-3xl flex flex-col justify-end h-32 relative overflow-hidden bg-gradient-to-b from-transparent to-blue-900/50">
+                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400')] bg-cover opacity-50"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <span class="text-sm font-medium relative z-10">Weekend Escape</span>
+                            </div>
+                            <div class="glass-panel min-w-[140px] p-4 rounded-3xl flex flex-col justify-end h-32 relative overflow-hidden bg-gradient-to-b from-transparent to-amber-900/50">
+                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400')] bg-cover opacity-50"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <span class="text-sm font-medium relative z-10">Reading</span>
+                            </div>
+                            <div class="glass-panel min-w-[140px] p-4 rounded-3xl flex flex-col justify-end h-32 relative overflow-hidden bg-gradient-to-b from-transparent to-rose-900/50">
+                                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400')] bg-cover opacity-50"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <span class="text-sm font-medium relative z-10">Quiet Read</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trending Destinations -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="text-sm font-medium">Trending Destinations</h3>
+                            <button class="text-[11px] text-rose-400 font-medium hover:text-rose-300 transition-colors uppercase tracking-wider">See all</button>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[11px] text-neutral-400">Not feeling these?</span>
+                            <button onclick="openRexySheet('Suggest different destinations')" class="text-[11px] font-medium text-rose-400 flex items-center gap-1 hover:text-rose-300 transition-colors bg-rose-500/10 px-2 py-1.5 rounded-lg border border-rose-500/20 active:scale-95 shadow-sm">
+                                <iconify-icon icon="solar:magic-stick-3-bold"></iconify-icon> Ask Rexy for better
+                            </button>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="glass-panel p-3 rounded-[1.25rem] flex flex-col gap-3 border-white/5 hover:border-white/10 transition-all cursor-pointer group">
+                                <div class="flex gap-3">
+                                    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=200&h=200&fit=crop" class="w-16 h-16 rounded-xl object-cover shrink-0">
+                                    <div class="flex-1">
+                                        <h4 class="text-sm font-medium group-hover:text-rose-100 transition-colors">Paris, France</h4>
+                                        <p class="text-[10px] text-neutral-400 mt-0.5">Art, cafés &amp; hidden bookshops</p>
+                                        <div class="flex items-center gap-1 mt-1.5">
+                                            <iconify-icon icon="solar:users-group-rounded-linear" class="text-[10px] text-rose-400"></iconify-icon>
+                                            <span class="text-[10px] text-neutral-400">12 friends have been</span>
+                                        </div>
+                                    </div>
+                                    <div class="self-start w-7 h-7 rounded-full glass-panel flex items-center justify-center shrink-0 border-white/10 hover:bg-white/10 transition-all shadow-sm">
+                                        <iconify-icon icon="solar:bookmark-linear" class="text-xs text-white"></iconify-icon>
+                                    </div>
+                                </div>
+                                <button onclick="openRexySheet('Is Paris good for my vibe?')" class="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-gradient-to-r from-rose-500/10 to-purple-500/10 border border-rose-500/20 hover:from-rose-500/20 hover:to-purple-500/20 transition-all text-rose-200 text-[11px] font-medium active:scale-95">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400"></iconify-icon> Is Paris good for my vibe?
+                                </button>
+                            </div>
+                            <div class="glass-panel p-3 rounded-[1.25rem] flex flex-col gap-3 border-white/5 hover:border-white/10 transition-all cursor-pointer group">
+                                <div class="flex gap-3">
+                                    <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=200&h=200&fit=crop" class="w-16 h-16 rounded-xl object-cover shrink-0">
+                                    <div class="flex-1">
+                                        <h4 class="text-sm font-medium group-hover:text-rose-100 transition-colors">Kyoto, Japan</h4>
+                                        <p class="text-[10px] text-neutral-400 mt-0.5">Temples, tea &amp; tranquility</p>
+                                        <div class="flex items-center gap-1 mt-1.5">
+                                            <iconify-icon icon="solar:star-bold" class="text-[10px] text-amber-400"></iconify-icon>
+                                            <span class="text-[10px] text-neutral-400">94% match with your vibe</span>
+                                        </div>
+                                    </div>
+                                    <div class="self-start w-7 h-7 rounded-full glass-panel flex items-center justify-center shrink-0 border-white/10 hover:bg-white/10 transition-all shadow-sm">
+                                        <iconify-icon icon="solar:bookmark-linear" class="text-xs text-white"></iconify-icon>
+                                    </div>
+                                </div>
+                                <button onclick="openRexySheet('Is Kyoto good for my vibe?')" class="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-gradient-to-r from-rose-500/10 to-purple-500/10 border border-rose-500/20 hover:from-rose-500/20 hover:to-purple-500/20 transition-all text-rose-200 text-[11px] font-medium active:scale-95">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400"></iconify-icon> Is Kyoto good for my vibe?
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Books Categories -->
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-sm font-medium">Books</h3>
+                            <span class="text-xs text-rose-400">See all</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="glass-panel p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-white/5 transition">
+                                <div class="w-8 h-8 rounded-full bg-rose-500/10 flex items-center justify-center shrink-0"><iconify-icon icon="solar:book-linear" class="text-rose-400"></iconify-icon></div>
+                                <span class="text-sm font-medium">Fiction</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-white/5 transition">
+                                <div class="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0"><iconify-icon icon="solar:map-point-wave-linear" class="text-amber-400"></iconify-icon></div>
+                                <span class="text-sm font-medium">Travel Lit</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-white/5 transition">
+                                <div class="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0"><iconify-icon icon="solar:stars-linear" class="text-purple-400"></iconify-icon></div>
+                                <span class="text-sm font-medium">Philosophy</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-white/5 transition">
+                                <div class="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0"><iconify-icon icon="solar:graph-new-up-linear" class="text-blue-400"></iconify-icon></div>
+                                <span class="text-sm font-medium">Non-fiction</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trending Books -->
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-sm font-medium">Trending in your circle</h3>
+                            <span class="text-xs text-rose-400">See all</span>
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+                            <div class="glass-panel min-w-[110px] p-2.5 rounded-2xl flex flex-col gap-2 cursor-pointer hover:bg-white/5 transition">
+                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=200&h=260&fit=crop" class="w-full h-28 object-cover rounded-xl">
+                                <p class="text-[11px] font-medium text-white leading-tight">The Alchemist</p>
+                                <p class="text-[9px] text-neutral-500">Paulo Coelho</p>
+                            </div>
+                            <div class="glass-panel min-w-[110px] p-2.5 rounded-2xl flex flex-col gap-2 cursor-pointer hover:bg-white/5 transition">
+                                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200&h=260&fit=crop" class="w-full h-28 object-cover rounded-xl">
+                                <p class="text-[11px] font-medium text-white leading-tight">Sapiens</p>
+                                <p class="text-[9px] text-neutral-500">Yuval Noah Harari</p>
+                            </div>
+                            <div class="glass-panel min-w-[110px] p-2.5 rounded-2xl flex flex-col gap-2 cursor-pointer hover:bg-white/5 transition">
+                                <img src="https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=200&h=260&fit=crop" class="w-full h-28 object-cover rounded-xl">
+                                <p class="text-[11px] font-medium text-white leading-tight">Eat Pray Love</p>
+                                <p class="text-[9px] text-neutral-500">Elizabeth Gilbert</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18. Create Post -->
+        <div class="flex flex-col items-center gap-4">
+            <span class="text-xs text-neutral-500 font-medium tracking-tight">18. Create Post</span>
+            <div class="iphone-frame relative flex flex-col bg-neutral-950">
+                <div class="notch"></div>
+                <div class="pt-14 pb-4 px-5 flex items-center justify-between border-b border-white/5 shrink-0">
+                    <button class="text-[13px] text-neutral-400 hover:text-white transition">Cancel</button>
+                    <h1 class="text-[14px] font-medium text-white">New Post</h1>
+                    <button class="text-[13px] font-medium text-rose-400 hover:text-rose-300 transition">Post</button>
+                </div>
+                <div class="flex-1 overflow-y-auto px-6 pt-6 pb-24 space-y-6">
+                    <!-- Location Selector -->
+                    <div class="glass-panel p-4 rounded-2xl flex items-center gap-3 border-white/10">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                            <iconify-icon icon="solar:map-point-search-linear" class="text-xl text-neutral-400"></iconify-icon>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium text-neutral-400">Find a place or item...</p>
+                        </div>
+                        <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-500"></iconify-icon>
+                    </div>
+                    <!-- Media Upload -->
+                    <div class="h-48 glass-panel rounded-3xl border-dashed border-2 border-white/10 flex flex-col items-center justify-center gap-2 bg-white/[0.01]">
+                        <iconify-icon icon="solar:gallery-add-linear" class="text-3xl text-neutral-500"></iconify-icon>
+                        <span class="text-xs text-neutral-400 font-medium">Add photos or video</span>
+                    </div>
+                    <!-- Rating -->
+                    <div>
+                        <h3 class="text-xs font-medium text-neutral-400 mb-3">Your Rating</h3>
+                        <div class="flex gap-2">
+                            <iconify-icon icon="solar:star-bold" class="text-3xl text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-3xl text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-3xl text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-3xl text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]"></iconify-icon>
+                            <iconify-icon icon="solar:star-linear" class="text-3xl text-neutral-600"></iconify-icon>
+                        </div>
+                    </div>
+                    <!-- Review Text -->
+                    <textarea class="w-full glass-panel bg-transparent rounded-2xl p-4 text-sm outline-none placeholder:text-neutral-500 border-white/5 min-h-[100px]" placeholder="Why do you recommend this?"></textarea>
+                    <!-- Context Tags -->
+                    <div>
+                        <h3 class="text-xs font-medium text-neutral-400 mb-3">Perfect for</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="glass-panel px-4 py-2 rounded-full border-rose-500/30 bg-rose-500/10 text-xs font-medium text-white">Reading</div>
+                            <div class="glass-panel px-4 py-2 rounded-full border-white/5 text-xs font-medium text-neutral-400">+ Add tag</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-3 border-t border-white/5 bg-neutral-950/95 backdrop-blur-xl shrink-0">
+                    <button class="w-full accent-gradient py-4 rounded-2xl text-sm font-medium text-white flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(244,63,94,0.3)]">
+                        <iconify-icon icon="solar:share-linear" class="text-lg"></iconify-icon> Post
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end flex-wrap container -->
+
+    <!-- Global Rexy backdrop -->
+    <div id="rexy-global-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] hidden" onclick="closeRexySheet()"></div>
+
+    <!-- GLOBAL REXY AI BOTTOM SHEET -->
+    <div id="rexy-global-sheet"
+        class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[375px] rounded-t-[2.5rem] z-[9999] transform translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+        style="background:linear-gradient(180deg,rgba(10,10,14,0.98) 0%,rgba(6,6,8,1) 100%);backdrop-filter:blur(40px);border-top:1px solid rgba(255,255,255,0.08);box-shadow:0 -20px 60px rgba(0,0,0,0.9);max-height:88vh;display:flex;flex-direction:column;">
+        <div class="flex justify-center pt-3 pb-1 shrink-0">
+            <div class="w-10 h-1 rounded-full bg-white/20"></div>
+        </div>
+        <div class="px-5 pt-3 pb-4 flex items-center justify-between border-b border-white/5 shrink-0">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.4)]" style="background:linear-gradient(135deg,#f43f5e,#db2777)">
+                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-sm"></iconify-icon>
+                </div>
+                <div>
+                    <h3 id="rexy-sheet-title" class="text-[14px] font-medium text-white leading-tight">Rexy Insight</h3>
+                    <p class="text-[10px] text-neutral-500">AI-powered insight</p>
+                </div>
+            </div>
+            <button onclick="closeRexySheet()" class="w-8 h-8 rounded-full flex items-center justify-center border border-white/10 hover:bg-white/10 transition" style="background:rgba(255,255,255,0.03)">
+                <iconify-icon icon="solar:close-linear" class="text-neutral-400 text-sm"></iconify-icon>
+            </button>
+        </div>
+        <div class="overflow-y-auto flex-1" style="-webkit-overflow-scrolling:touch;">
+            <div class="px-5 pt-4 flex gap-3 items-center">
+                <img id="rexy-sheet-img" src="" class="w-14 h-14 rounded-2xl object-cover border border-white/10 shrink-0">
+                <div>
+                    <h4 id="rexy-sheet-name" class="text-[15px] font-medium text-white"></h4>
+                    <p id="rexy-sheet-sub" class="text-[11px] text-neutral-400"></p>
+                    <div class="flex items-center gap-1 mt-1">
+                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-[10px]"></iconify-icon>
+                        <span id="rexy-sheet-rating" class="text-[10px] text-neutral-300"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="px-5 pt-4">
+                <div class="rounded-2xl p-4 border border-white/8" style="background:linear-gradient(135deg,rgba(244,63,94,0.08),rgba(168,85,247,0.05));backdrop-filter:blur(12px);">
+                    <div class="flex items-center gap-2 mb-2">
+                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400 text-sm"></iconify-icon>
+                        <span class="text-[10px] font-bold text-rose-400 uppercase tracking-widest">Why it fits you</span>
+                    </div>
+                    <p id="rexy-sheet-why" class="text-[13px] text-neutral-200 leading-relaxed"></p>
+                </div>
+            </div>
+            <div class="px-5 pt-3 grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-2.5 p-3 rounded-2xl border border-white/5" style="background:rgba(255,255,255,0.03)">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style="background:rgba(244,63,94,0.15)"><iconify-icon icon="solar:moon-stars-linear" class="text-rose-400 text-sm"></iconify-icon></div>
+                    <div><p class="text-[9px] text-neutral-500 uppercase tracking-wide font-bold">Vibe</p><p id="rexy-vibe" class="text-[12px] text-white font-medium"></p></div>
+                </div>
+                <div class="flex items-center gap-2.5 p-3 rounded-2xl border border-white/5" style="background:rgba(255,255,255,0.03)">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style="background:rgba(251,191,36,0.15)"><iconify-icon icon="solar:clock-circle-linear" class="text-amber-400 text-sm"></iconify-icon></div>
+                    <div><p class="text-[9px] text-neutral-500 uppercase tracking-wide font-bold">Best Time</p><p id="rexy-time" class="text-[12px] text-white font-medium"></p></div>
+                </div>
+                <div class="flex items-center gap-2.5 p-3 rounded-2xl border border-white/5" style="background:rgba(255,255,255,0.03)">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style="background:rgba(59,130,246,0.15)"><iconify-icon icon="solar:users-group-rounded-linear" class="text-blue-400 text-sm"></iconify-icon></div>
+                    <div><p class="text-[9px] text-neutral-500 uppercase tracking-wide font-bold">Crowd</p><p id="rexy-crowd" class="text-[12px] text-white font-medium"></p></div>
+                </div>
+                <div class="flex items-center gap-2.5 p-3 rounded-2xl border border-white/5" style="background:rgba(255,255,255,0.03)">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style="background:rgba(52,211,153,0.15)"><iconify-icon icon="solar:wallet-linear" class="text-emerald-400 text-sm"></iconify-icon></div>
+                    <div><p class="text-[9px] text-neutral-500 uppercase tracking-wide font-bold">Pricing</p><p id="rexy-price" class="text-[12px] text-white font-medium"></p></div>
+                </div>
+            </div>
+            <div class="px-5 pt-4 pb-8 flex flex-col gap-2.5">
+                <div class="flex gap-2.5">
+                    <button class="flex-1 py-3.5 rounded-2xl text-[12px] font-medium text-white flex items-center justify-center gap-1.5 active:scale-95 transition-transform shadow-[0_6px_20px_rgba(244,63,94,0.3)]" style="background:linear-gradient(135deg,#f43f5e,#db2777)">
+                        <iconify-icon icon="solar:bookmark-linear" class="text-sm"></iconify-icon> Save
+                    </button>
+                    <button class="flex-1 py-3.5 rounded-2xl text-[12px] font-medium text-white border border-white/10 flex items-center justify-center gap-1.5 hover:bg-white/5 active:scale-95 transition-all" style="background:rgba(255,255,255,0.03)">
+                        <iconify-icon icon="solar:share-linear" class="text-sm text-purple-400"></iconify-icon> Share
+                    </button>
+                </div>
+                <div class="glass-panel rounded-2xl flex items-center px-4 py-3 border-white/10 bg-black/40 gap-3 mt-1">
+                    <button id="rexy-voice-btn" onclick="toggleRexyVoice()" class="w-9 h-9 rounded-full flex items-center justify-center shrink-0 border border-rose-500/40 hover:bg-rose-500/20 transition active:scale-95" style="background:rgba(244,63,94,0.12)">
+                        <iconify-icon icon="solar:microphone-linear" class="text-rose-400 text-base"></iconify-icon>
+                    </button>
+                    <input type="text" placeholder="Ask Rexy anything..." class="flex-1 bg-transparent text-[12px] outline-none placeholder:text-neutral-500 py-1">
+                    <button class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(244,63,94,0.3)]" style="background:linear-gradient(135deg,#f43f5e,#db2777)">
+                        <iconify-icon icon="solar:arrow-up-linear" class="text-white text-sm"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var REXY_DATA = {
+            "The Morning Co.": { sub: "Café · Midtown · $", rating: "4.9 · 96% match", why: "You're a morning person who loves a cozy café vibe. The Morning Co. is your kind of spot — great pour-overs, warm lighting, and a crowd that's actually there to enjoy the coffee.", vibe: "Cozy & Warm", time: "7am – noon", crowd: "Calm, regulars", price: "~$12 / person", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&h=200&fit=crop" },
+            "Golden Hour": { sub: "Brunch · West End · $$", rating: "4.7 · 98% match", why: "Your taste profile screams brunch lover. Golden Hour's aesthetic fits your vibe perfectly — natural light, seasonal menus, and a crowd that appreciates good food.", vibe: "Bright & Aesthetic", time: "9am – 2pm", crowd: "Trendy, 20s–30s", price: "~$25 / person", img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop" },
+            "Lumina Resto": { sub: "Mediterranean · Lively · $$$", rating: "4.8 · 91% match", why: "You enjoy lively, social dining with bold flavors. Lumina's open kitchen and rooftop terrace match your energy — great for groups or a memorable evening out.", vibe: "Lively & Social", time: "6pm – 10pm", crowd: "Social, mixed", price: "~$55 / person", img: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=200&h=200&fit=crop" },
+            "Patio Kitchen": { sub: "Garden Restaurant · 0.5 miles · $$", rating: "4.9 · 92% match", why: "You love intimate, aesthetic spots with a warm, welcoming atmosphere. Patio Kitchen nails that — warm lighting, curated menus, and a crowd that's there to actually enjoy the meal.", vibe: "Intimate & Warm", time: "6pm – 10pm", crowd: "Relaxed, 25–35", price: "~$40 / person", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&h=200&fit=crop" },
+            "Nori Handrolls": { sub: "Japanese · Intimate · $$", rating: "4.8 · 92% match", why: "Lina & Omar both love this spot and your taste aligns closely with theirs. Nori Handrolls is intimate, precise, and exactly the kind of hidden gem you gravitate toward.", vibe: "Intimate & Precise", time: "6pm – 10pm", crowd: "Foodies, quiet", price: "~$35 / person", img: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=200&h=200&fit=crop" },
+            "Café Flora": { sub: "Café · Aesthetic · $", rating: "4.6 · 88% match", why: "You and Sara share a love for aesthetic cafés with great natural light. Café Flora is exactly that — a calm, beautiful space perfect for a slow morning or a catch-up.", vibe: "Calm & Aesthetic", time: "8am – 3pm", crowd: "Relaxed, creative", price: "~$15 / person", img: "https://images.unsplash.com/photo-1560624052-449f5ddf0c31?w=200&h=200&fit=crop" },
+            "Surprise me": { sub: "AI-curated · Just for you", rating: "Personalized", why: "Rexy is scanning your taste profile, recent saves, and what your circle is loving right now to find the perfect match.", vibe: "Surprise!", time: "Anytime", crowd: "Your vibe", price: "Varies", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&h=200&fit=crop" },
+            "Travel ideas": { sub: "Destinations · Curated for you", rating: "Personalized", why: "Based on your love of aesthetic spots and cultural experiences, Rexy has curated a list of destinations that match your travel style.", vibe: "Adventurous", time: "Anytime", crowd: "Your vibe", price: "Varies", img: "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200&h=200&fit=crop" },
+            "What to read": { sub: "Books · Matched to your taste", rating: "Personalized", why: "Your reading history and interests suggest you'd love a mix of literary fiction and travel narratives. Rexy has some great picks.", vibe: "Thoughtful", time: "Anytime", crowd: "Solo", price: "~$15 / book", img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200&h=200&fit=crop" },
+            "Chill spots": { sub: "Cafés & Lounges · Nearby", rating: "Personalized", why: "You gravitate toward calm, aesthetic spaces. Rexy found 5 spots nearby that match your cozy vibe perfectly.", vibe: "Cozy & Calm", time: "Anytime", crowd: "Relaxed", price: "~$15 / person", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&h=200&fit=crop" },
+            "Weekend escape": { sub: "Short trips · Curated", rating: "Personalized", why: "Based on your taste for intimate, aesthetic experiences, Rexy found some perfect weekend getaways within a few hours of you.", vibe: "Refreshing", time: "Weekends", crowd: "Small group", price: "Varies", img: "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200&h=200&fit=crop" },
+            "Is Paris good for my vibe?": { sub: "Paris, France · City break", rating: "94% match", why: "Paris is a near-perfect match for your taste. You love art, intimate cafés, and aesthetic spaces — Paris has all of that in abundance. Your friends Lina and Omar both loved it.", vibe: "Romantic & Cultural", time: "Spring or Fall", crowd: "Cosmopolitan", price: "~$150 / day", img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=200&h=200&fit=crop" },
+            "Is Kyoto good for my vibe?": { sub: "Kyoto, Japan · Cultural escape", rating: "94% match", why: "Kyoto is an exceptional match for your taste. The quiet temples, tea ceremonies, and intimate ryokans align perfectly with your love of calm, aesthetic, and culturally rich experiences.", vibe: "Serene & Cultural", time: "Spring (cherry blossom)", crowd: "Mindful travelers", price: "~$120 / day", img: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=200&h=200&fit=crop" },
+            "Suggest different destinations": { sub: "Alternative picks · Just for you", rating: "Personalized", why: "No problem! Based on your taste for intimate, aesthetic, and culturally rich experiences, here are some alternative destinations you might love even more.", vibe: "Adventurous", time: "Anytime", crowd: "Your vibe", price: "Varies", img: "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200&h=200&fit=crop" }
+        };
+
+        function openRexySheet(name) {
+            var d = REXY_DATA[name] || { sub: "", rating: "", why: "Great match for your taste profile.", vibe: "Curated", time: "Anytime", crowd: "Mixed", price: "Varies", img: "" };
+            document.getElementById("rexy-sheet-title").textContent = "Rexy on " + name;
+            document.getElementById("rexy-sheet-name").textContent = name;
+            document.getElementById("rexy-sheet-sub").textContent = d.sub;
+            document.getElementById("rexy-sheet-rating").textContent = d.rating;
+            document.getElementById("rexy-sheet-why").textContent = d.why;
+            document.getElementById("rexy-vibe").textContent = d.vibe;
+            document.getElementById("rexy-time").textContent = d.time;
+            document.getElementById("rexy-crowd").textContent = d.crowd;
+            document.getElementById("rexy-price").textContent = d.price;
+            document.getElementById("rexy-sheet-img").src = d.img;
+            document.getElementById("rexy-global-sheet").classList.remove("translate-y-full");
+            document.getElementById("rexy-global-backdrop").classList.remove("hidden");
+        }
+
+        function closeRexySheet() {
+            document.getElementById("rexy-global-sheet").classList.add("translate-y-full");
+            document.getElementById("rexy-global-backdrop").classList.add("hidden");
+        }
+
+        function toggleRexyVoice() {
+            var btn = document.getElementById("rexy-voice-btn");
+            var icon = btn.querySelector("iconify-icon");
+            var isRecording = btn.dataset.recording === "true";
+            if (!isRecording) {
+                btn.dataset.recording = "true";
+                btn.style.background = "rgba(244,63,94,0.35)";
+                btn.style.borderColor = "rgba(244,63,94,0.8)";
+                btn.style.boxShadow = "0 0 16px rgba(244,63,94,0.5)";
+                icon.setAttribute("icon", "solar:microphone-bold");
+                icon.classList.add("animate-pulse");
+            } else {
+                btn.dataset.recording = "false";
+                btn.style.background = "rgba(244,63,94,0.12)";
+                btn.style.borderColor = "rgba(244,63,94,0.4)";
+                btn.style.boxShadow = "";
+                icon.setAttribute("icon", "solar:microphone-linear");
+                icon.classList.remove("animate-pulse");
+            }
+        }
+    </script>
+</body>
+</html>
