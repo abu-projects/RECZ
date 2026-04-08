@@ -152,6 +152,47 @@
         .animate-fade-up-delay {
             animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
         }
+
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-nav {
+            background: linear-gradient(180deg, rgba(5, 5, 5, 0.85) 0%, rgba(5, 5, 5, 0) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .aura-rose {
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .aura-purple {
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .no-scrollbar { scrollbar-width: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        .waveform { display: flex; align-items: center; gap: 2px; }
+        .waveform-bar { width: 3px; border-radius: 2px; background: rgba(244,63,94,0.5); animation: wave 1.2s ease-in-out infinite; }
+        .waveform-bar.played { background: #f43f5e; animation: none; }
+        .waveform-bar.b1{height:8px} .waveform-bar.b2{height:14px;animation-delay:.1s} .waveform-bar.b3{height:20px;animation-delay:.2s}
+        .waveform-bar.b4{height:12px;animation-delay:.3s} .waveform-bar.b5{height:24px;animation-delay:.15s} .waveform-bar.b6{height:16px;animation-delay:.25s}
+        .waveform-bar.b7{height:10px;animation-delay:.05s} .waveform-bar.b8{height:18px;animation-delay:.35s} .waveform-bar.b9{height:22px;animation-delay:.1s}
+        .waveform-bar.b10{height:14px;animation-delay:.2s} .waveform-bar.b11{height:8px;animation-delay:.3s} .waveform-bar.b12{height:20px;animation-delay:.15s}
+        .waveform-bar.b13{height:16px;animation-delay:.25s} .waveform-bar.b14{height:12px;animation-delay:.05s} .waveform-bar.b15{height:24px;animation-delay:.35s}
+        .waveform-bar.b16{height:10px;animation-delay:.1s} .waveform-bar.b17{height:18px;animation-delay:.2s} .waveform-bar.b18{height:14px;animation-delay:.3s}
+        .waveform-bar.b19{height:8px;animation-delay:.15s} .waveform-bar.b20{height:20px;animation-delay:.25s}
+
+        @keyframes wave { 0%,100%{transform:scaleY(1);opacity:.5} 50%{transform:scaleY(1.5);opacity:1} }
+
+        .rec-pulse { animation: recpulse 1s ease-in-out infinite; }
+        @keyframes recpulse { 0%,100%{box-shadow:0 0 0 0 rgba(244,63,94,0.5)} 50%{box-shadow:0 0 0 12px rgba(244,63,94,0)} }
     </style>
 </head>
 
@@ -896,7 +937,7 @@
                 </div>
 
                 <!-- Sticky Header -->
-                <div class="sticky-blur px-6 pt-14 pb-4 z-40 border-b border-white/5 flex flex-col gap-4">
+                <div class="sticky-blur px-2 pt-14 pb-4 z-40 border-b border-white/5 flex flex-col gap-4">
                     <!-- Greeting + Action Buttons -->
                     <div class="flex justify-between items-start">
                         <div>
@@ -1140,7 +1181,7 @@
                     </script>
 
                     <!-- Feed Item: Check-in Post -->
-                    <div class="px-5 mb-2">
+                    <div class="px-2 mb-2">
                         <div class="flex items-center justify-between mb-3">
                             <p class="text-sm text-white font-medium">Check-ins</p>
                             <button class="text-xs text-rose-400 font-normal hover:text-rose-300 transition-colors">See
@@ -1203,6 +1244,11 @@
                                 class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-neutral-900 border border-white/5 shadow-inner">
                                 <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=800&amp;q=80"
                                     class="w-full h-full object-cover" alt="Store view">
+
+                                <!-- Top Right AI Button -->
+                                <button class="absolute top-3 right-3 w-8 h-8 bg-gradient-accent rounded-xl flex items-center justify-center shadow-[0_4px_12px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-105 transition-transform z-10">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-sm"></iconify-icon>
+                                </button>
 
                                 <!-- Top Left View Count -->
                                 <div
@@ -1276,7 +1322,7 @@
 
                     <!-- Feed Item: Horizontal Recommendations List -->
                     <div class="mb-6">
-                        <div class="flex items-center justify-between px-5 mb-3">
+                        <div class="flex items-center justify-between px-2 mb-3">
                             <div class="flex items-center gap-2">
                                 <img src="https://i.pravatar.cc/100?img=9"
                                     class="w-5 h-5 rounded-full object-cover border border-white/10" alt="Lina">
@@ -1287,7 +1333,7 @@
                         </div>
 
                         <!-- Horizontal Scroll Container -->
-                        <div class="flex gap-4 px-5 overflow-x-auto hide-scrollbar pb-4">
+                        <div class="flex gap-4 px-2 overflow-x-auto hide-scrollbar pb-4">
                             <!-- Movie Card 1 -->
                             <div class="w-[150px] flex-shrink-0 flex flex-col gap-3 cursor-pointer group">
                                 <div
@@ -1375,7 +1421,7 @@
 
 
                     <!-- § Lina rated — Food & Drinks post -->
-                    <div class="px-5 mb-6">
+                    <div class="px-2 mb-6">
                         <div class="flex items-center justify-between mb-3">
                             <p class="text-sm text-white font-medium">From Your Circle</p>
                             <button class="text-xs text-rose-400 font-normal hover:text-rose-300 transition-colors">See
@@ -1395,7 +1441,19 @@
                                         class="text-lg"></iconify-icon></button>
                             </div>
                             <div>
-                                <p class="text-sm text-white font-normal">Haraz Coffee House</p>
+                                <div class="flex items-center gap-2 mb-0.5">
+                                    <p class="text-sm text-white font-normal">Haraz Coffee House</p>
+                                    <div class="bg-rose-500/10 text-rose-400 text-xs px-2 py-0.5 rounded flex items-center gap-1 border border-rose-500/20 shadow-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="star"
+                                            aria-hidden="true" class="lucide lucide-star w-3 h-3 fill-rose-400">
+                                            <path
+                                                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                                            </path>
+                                        </svg> 4.8
+                                    </div>
+                                </div>
                                 <p class="text-sm text-white font-light">Mango matcha</p>
                                 <p class="text-xs text-rose-400 font-normal mt-0.5">Read More</p>
                                 <p class="text-xs text-neutral-400 font-light flex items-center gap-1 mt-1">
@@ -1407,6 +1465,10 @@
                             <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/5">
                                 <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&q=80"
                                     class="w-full h-full object-cover" alt="Haraz Coffee">
+                                <!-- Top Right AI Button -->
+                                <button class="absolute top-3 right-3 w-8 h-8 bg-gradient-accent rounded-xl flex items-center justify-center shadow-[0_4px_12px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-105 transition-transform z-10">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-sm"></iconify-icon>
+                                </button>
                                 <div
                                     class="absolute top-3 left-3 apple-glass px-2.5 py-1.5 rounded-xl flex items-center gap-1.5">
                                     <iconify-icon icon="solar:eye-linear" class="text-xs text-white"></iconify-icon>
@@ -1433,7 +1495,7 @@
 
                     <!-- § Suggested for you -->
                     <div class="mb-6">
-                        <div class="flex items-center justify-between px-5 mb-3">
+                        <div class="flex items-center justify-between px-2 mb-3">
                             <p class="text-sm text-white font-medium">Suggested for You</p>
                             <div class="flex items-center gap-3">
                                 <button
@@ -1443,7 +1505,7 @@
                                         icon="solar:close-circle-linear" class="text-lg"></iconify-icon></button>
                             </div>
                         </div>
-                        <div class="flex gap-3 px-5 overflow-x-auto hide-scrollbar pb-2">
+                        <div class="flex gap-3 px-2 overflow-x-auto hide-scrollbar pb-2">
                             <!-- Invite card — wider so next card peeks -->
                             <div class="flex-shrink-0 w-[210px] apple-glass rounded-[1.5rem] p-4 flex flex-col justify-between"
                                 style="min-height:180px">
@@ -1484,10 +1546,10 @@
 
                     <!-- § Videos -->
                     <div class="mb-6">
-                        <div class="px-5 mb-3">
+                        <div class="px-2 mb-3">
                             <p class="text-sm text-white font-medium">Videos</p>
                         </div>
-                        <div class="flex gap-3 px-5 overflow-x-auto hide-scrollbar pb-2">
+                        <div class="flex gap-3 px-2 overflow-x-auto hide-scrollbar pb-2">
                             <!-- Video Card 1 -->
                             <div class="flex-shrink-0 w-[220px] relative rounded-2xl overflow-hidden border border-white/5 cursor-pointer group"
                                 style="height:320px">
@@ -1558,10 +1620,10 @@
 
                     <!-- § Photos -->
                     <div class="mb-6">
-                        <div class="px-5 mb-3">
+                        <div class="px-2 mb-3">
                             <p class="text-sm text-white font-medium">Photos</p>
                         </div>
-                        <div class="flex gap-3 px-5 overflow-x-auto hide-scrollbar pb-2">
+                        <div class="flex gap-3 px-2 overflow-x-auto hide-scrollbar pb-2">
                             <!-- Photo Card 1 -->
                             <div class="flex-shrink-0 w-[220px] relative rounded-2xl overflow-hidden border border-white/5 cursor-pointer group"
                                 style="height:320px">
@@ -1639,10 +1701,10 @@
 
                     <!-- § Featured List -->
                     <div class="mb-6">
-                        <div class="px-5 mb-3">
+                        <div class="px-2 mb-3">
                             <p class="text-sm text-white font-medium">Featured List</p>
                         </div>
-                        <div class="flex gap-3 px-5 overflow-x-auto hide-scrollbar pb-2">
+                        <div class="flex gap-3 px-2 overflow-x-auto hide-scrollbar pb-2">
                             <!-- Card 1 -->
                             <div
                                 class="flex-shrink-0 w-[200px] relative rounded-2xl overflow-hidden aspect-[3/4] border border-white/10 cursor-pointer group">
@@ -2389,6 +2451,10 @@
                                     <iconify-icon icon="solar:eye-bold" class="text-white text-sm"></iconify-icon>
                                     <span class="text-xs text-white font-medium">435</span>
                                 </div>
+                                <!-- AI Button -->
+                                <button class="w-10 h-10 rounded-xl bg-gradient-accent flex items-center justify-center shadow-[0_4px_12px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-105 transition-transform">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-lg"></iconify-icon>
+                                </button>
                                 <button class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-lg">
                                     <iconify-icon icon="solar:share-linear" class="text-xl"></iconify-icon>
                                 </button>
@@ -2689,6 +2755,68 @@
                         </button>
                     </div>
 
+                    <!-- TASTE IDENTITY -->
+                    <div class="px-6 mb-8">
+                        <div class="apple-glass rounded-[2rem] p-6 relative overflow-hidden border border-rose-500/20 shadow-[0_10px_40px_rgba(244,63,94,0.1)]">
+                            <!-- Background Aura Rings -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-white/5 animate-[spin_10s_linear_infinite]"></div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-rose-500/10 animate-[spin_8s_linear_infinite_reverse]"></div>
+
+                            <div class="flex justify-between items-start relative z-10 mb-6">
+                                <div>
+                                    <h3 class="text-lg tracking-tight font-medium flex items-center gap-2">
+                                        <iconify-icon icon="solar:radar-linear" class="text-rose-400"></iconify-icon>
+                                        Taste Identity
+                                    </h3>
+                                    <p class="text-[10px] text-neutral-400 mt-1">Your signature vibe footprint</p>
+                                </div>
+                                <button class="w-8 h-8 rounded-full apple-glass-light flex items-center justify-center border border-white/10">
+                                    <iconify-icon icon="solar:share-linear" class="text-neutral-400 text-xs"></iconify-icon>
+                                </button>
+                            </div>
+
+                            <!-- Orbit System -->
+                            <div class="relative h-48 flex items-center justify-center">
+                                <!-- Core -->
+                                <div class="absolute w-20 h-20 rounded-full bg-gradient-to-br from-rose-500/30 to-purple-500/30 backdrop-blur-md border border-white/10 flex flex-col items-center justify-center z-20 shadow-[0_0_30px_rgba(244,63,94,0.3)]">
+                                    <iconify-icon icon="solar:chef-hat-bold" class="text-rose-200 text-xl mb-1"></iconify-icon>
+                                    <span class="text-[9px] font-bold text-white uppercase tracking-wider">Aesthetic</span>
+                                </div>
+                                <!-- Orbiting Clusters -->
+                                <div class="absolute top-2 left-6 w-14 h-14 rounded-full apple-glass-light border border-amber-500/30 bg-amber-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[8px] text-amber-200 font-medium">Coffee</span>
+                                </div>
+                                <div class="absolute bottom-6 left-2 w-16 h-16 rounded-full apple-glass-light border border-blue-500/30 bg-blue-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[9px] text-blue-200 font-medium">Outdoors</span>
+                                </div>
+                                <div class="absolute top-8 right-4 w-14 h-14 rounded-full apple-glass-light border border-purple-500/30 bg-purple-500/10 flex flex-col items-center justify-center z-10 p-2 text-center text-[8px] text-purple-200 font-medium leading-tight">
+                                    Fine Dining
+                                </div>
+                                <div class="absolute bottom-4 right-8 w-12 h-12 rounded-full apple-glass-light border border-emerald-500/30 bg-emerald-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[8px] text-emerald-200 font-medium">Art</span>
+                                </div>
+                                <!-- Connection lines -->
+                                <svg class="absolute inset-0 w-full h-full opacity-30 z-0">
+                                    <line x1="50%" y1="50%" x2="25%" y2="25%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                    <line x1="50%" y1="50%" x2="20%" y2="70%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                    <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                    <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                </svg>
+                            </div>
+
+                            <div class="mt-4 flex items-center justify-between relative z-10 apple-glass-light p-3 rounded-2xl bg-white/[0.02]">
+                                <div class="flex items-center gap-2">
+                                    <div class="flex -space-x-1">
+                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50" class="w-5 h-5 rounded-full border border-black">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-5 h-5 rounded-full border border-black">
+                                    </div>
+                                    <span class="text-[10px] text-neutral-400">High match with 8 friends</span>
+                                </div>
+                                <button class="text-[10px] font-medium text-rose-400">Compare Taste</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- 4. TABS SECTION -->
                     <div class="flex border-b border-white/10 mb-6 mx-2 px-2 pb-0.5 relative">
                         <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-rose-400 group relative">
@@ -2820,7 +2948,7 @@
                         <p class="text-sm text-neutral-200 leading-relaxed font-light">Yemeni specialty coffee spot known for authentic beans and modern café vibe.</p>
                     </div>
 
-                    <!-- 🟡 WHY GO -->
+                    <!--  WHY GO -->
                     <div class="apple-glass rounded-3xl p-5 border border-white/5 relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 blur-[40px] pointer-events-none"></div>
                         <div class="flex items-center gap-2 mb-4">
@@ -2919,6 +3047,1078 @@
 
             </div>
         </div>
+
+        <!-- ═══════════════════════════════════════════
+     23 · TASTE DNA
+═══════════════════════════════════════════ -->
+        <div class="flex flex-col items-center gap-5">
+            <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">23. Taste DNA</span>
+            <div class="iphone-frame relative bg-[#060608]" style="height:auto;">
+                <div class="notch"></div>
+
+                <!-- Ambient background -->
+                <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                    <div class="absolute top-[-10%] left-[-20%] w-[340px] h-[340px] rounded-full blur-[80px] opacity-30"
+                        style="background:radial-gradient(circle, #a855f7 0%, transparent 70%)"></div>
+                    <div class="absolute top-[5%] right-[-15%] w-[280px] h-[280px] rounded-full blur-[80px] opacity-25"
+                        style="background:radial-gradient(circle, #f43f5e 0%, transparent 70%)"></div>
+                    <div class="absolute bottom-[20%] left-[10%] w-[200px] h-[200px] rounded-full blur-[60px] opacity-20"
+                        style="background:radial-gradient(circle, #3b82f6 0%, transparent 70%)"></div>
+                </div>
+
+                <!-- Top Bar -->
+                <div class="sticky top-0 w-full pt-12 pb-3 px-5 z-40 flex items-center justify-between"
+                    style="background:linear-gradient(180deg,rgba(6,6,8,0.95) 60%,transparent 100%)">
+                    <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10">
+                        <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg"></iconify-icon>
+                    </button>
+                    <div class="text-center">
+                        <h1 class="text-[13px] font-medium text-white tracking-tight">Taste DNA</h1>
+                        <p class="text-[10px] text-neutral-500">Comparison Mode</p>
+                    </div>
+                    <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10">
+                        <iconify-icon icon="solar:share-linear" class="text-base"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="pb-28">
+
+                    <!-- Taste Orbit -->
+                    <div class="relative flex items-center justify-center" style="height:340px;">
+                        <div class="absolute rounded-full border border-white/[0.04]" style="width:300px;height:300px;"></div>
+                        <div class="absolute rounded-full border border-white/[0.03]" style="width:240px;height:240px;"></div>
+                        <div class="absolute rounded-full blur-[40px] opacity-50 animate-pulse"
+                            style="width:180px;height:180px;background:radial-gradient(circle, rgba(244,63,94,0.6) 0%, transparent 70%);animation-duration:3s;left:calc(50% - 110px);top:calc(50% - 90px);"></div>
+                        <div class="absolute rounded-full blur-[40px] opacity-50 animate-pulse"
+                            style="width:180px;height:180px;background:radial-gradient(circle, rgba(168,85,247,0.6) 0%, transparent 70%);animation-duration:3.5s;left:calc(50% - 70px);top:calc(50% - 90px);"></div>
+                        <div class="absolute rounded-full blur-[30px] opacity-70"
+                            style="width:100px;height:100px;background:radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);left:calc(50% - 50px);top:calc(50% - 50px);"></div>
+
+                        <!-- Node: Italian -->
+                        <div class="absolute flex flex-col items-center gap-1 cursor-pointer" style="top:28px;left:calc(50% - 22px);">
+                            <div class="w-11 h-11 rounded-full flex items-center justify-center border border-white/20 shadow-[0_0_18px_rgba(244,63,94,0.6)]"
+                                style="background:linear-gradient(135deg,rgba(244,63,94,0.3),rgba(168,85,247,0.3));backdrop-filter:blur(12px);">
+                                <iconify-icon icon="solar:chef-hat-linear" class="text-lg text-white"></iconify-icon>
+                            </div>
+                            <span class="text-[9px] font-medium text-white/80 tracking-wide">Italian</span>
+                            <div class="absolute bottom-[-30px] left-1/2 w-px h-7 opacity-30"
+                                style="background:linear-gradient(to bottom,rgba(244,63,94,0.8),transparent);transform:translateX(-50%);"></div>
+                        </div>
+
+                        <!-- Node: Indie Films -->
+                        <div class="absolute flex flex-col items-center gap-1 cursor-pointer" style="top:80px;right:28px;">
+                            <div class="w-11 h-11 rounded-full flex items-center justify-center border border-white/20 shadow-[0_0_18px_rgba(168,85,247,0.6)]"
+                                style="background:linear-gradient(135deg,rgba(168,85,247,0.3),rgba(244,63,94,0.2));backdrop-filter:blur(12px);">
+                                <iconify-icon icon="solar:clapperboard-play-linear" class="text-lg text-white"></iconify-icon>
+                            </div>
+                            <span class="text-[9px] font-medium text-white/80 tracking-wide">Indie Films</span>
+                        </div>
+
+                        <!-- Node: Books (right bottom) -->
+                        <div class="absolute flex flex-col items-center gap-1 cursor-pointer" style="bottom:60px;right:36px;">
+                            <div class="w-11 h-11 rounded-full flex items-center justify-center border border-white/20 shadow-[0_0_18px_rgba(244,63,94,0.5)]"
+                                style="background:linear-gradient(135deg,rgba(244,63,94,0.25),rgba(251,191,36,0.2));backdrop-filter:blur(12px);">
+                                <iconify-icon icon="solar:book-linear" class="text-lg text-white"></iconify-icon>
+                            </div>
+                            <span class="text-[9px] font-medium text-white/80 tracking-wide">Bookshops</span>
+                        </div>
+
+                        <!-- Node: Art (left top) -->
+                        <div class="absolute flex flex-col items-center gap-1 cursor-pointer" style="top:75px;left:28px;">
+                            <div class="w-11 h-11 rounded-full flex items-center justify-center border border-white/20 shadow-[0_0_18px_rgba(59,130,246,0.5)]"
+                                style="background:linear-gradient(135deg,rgba(59,130,246,0.25),rgba(168,85,247,0.2));backdrop-filter:blur(12px);">
+                                <iconify-icon icon="solar:palette-linear" class="text-lg text-white"></iconify-icon>
+                            </div>
+                            <span class="text-[9px] font-medium text-white/80 tracking-wide">Art</span>
+                        </div>
+
+                        <!-- Node: Rooftops (left bottom) -->
+                        <div class="absolute flex flex-col items-center gap-1 cursor-pointer" style="bottom:60px;left:32px;">
+                            <div class="w-11 h-11 rounded-full flex items-center justify-center border border-white/20 shadow-[0_0_18px_rgba(251,191,36,0.4)]"
+                                style="background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(244,63,94,0.15));backdrop-filter:blur(12px);">
+                                <iconify-icon icon="solar:buildings-2-linear" class="text-lg text-white"></iconify-icon>
+                            </div>
+                            <span class="text-[9px] font-medium text-white/80 tracking-wide">Rooftops</span>
+                        </div>
+
+                        <!-- Center match disc -->
+                        <div class="relative flex items-center justify-center z-10">
+                            <div class="absolute rounded-full border border-white/10 animate-ping" style="width:90px;height:90px;animation-duration:2.5s;"></div>
+                            <div class="absolute rounded-full border border-white/5 animate-ping" style="width:110px;height:110px;animation-duration:3s;animation-delay:0.5s;"></div>
+                            <div class="relative w-[88px] h-[88px] rounded-full flex flex-col items-center justify-center border border-white/20 shadow-[0_0_40px_rgba(244,63,94,0.4),0_0_80px_rgba(168,85,247,0.2)]"
+                                style="background:linear-gradient(135deg,rgba(244,63,94,0.2),rgba(168,85,247,0.2));backdrop-filter:blur(20px);">
+                                <span class="text-[26px] font-medium text-white leading-none tracking-tight" style="text-shadow:0 0 20px rgba(244,63,94,0.8)">92</span>
+                                <span class="text-[9px] text-white/60 font-medium tracking-widest uppercase">Match</span>
+                            </div>
+                        </div>
+
+                        <!-- Avatar chips -->
+                        <div class="absolute bottom-0 left-0 right-0 flex justify-center gap-6 pb-2">
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop"
+                                        class="w-9 h-9 rounded-full object-cover border-2 shadow-[0_0_12px_rgba(244,63,94,0.5)]"
+                                        style="border-color:rgba(244,63,94,0.6)">
+                                    <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border border-black" style="background:#f43f5e;"></div>
+                                </div>
+                                <span class="text-[9px] text-neutral-400">You</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                                        class="w-9 h-9 rounded-full object-cover border-2 shadow-[0_0_12px_rgba(168,85,247,0.5)]"
+                                        style="border-color:rgba(168,85,247,0.6)">
+                                    <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border border-black" style="background:#a855f7;"></div>
+                                </div>
+                                <span class="text-[9px] text-neutral-400">Lina</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Match label -->
+                    <div class="flex flex-col items-center gap-1 mt-1 mb-5 px-6">
+                        <p class="text-[11px] font-medium tracking-widest uppercase"
+                            style="background:linear-gradient(90deg,#f43f5e,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+                            Strong match for your vibe</p>
+                        <p class="text-[10px] text-neutral-500">High alignment across taste, mood &amp; places</p>
+                    </div>
+
+                    <!-- Shared Interests -->
+                    <div class="px-5 mb-5">
+                        <div class="glass-panel rounded-[1.75rem] p-4 border-white/5 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 blur-[40px] opacity-20 pointer-events-none"
+                                style="background:radial-gradient(circle,#a855f7,transparent)"></div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-1.5 h-1.5 rounded-full" style="background:linear-gradient(135deg,#f43f5e,#a855f7);box-shadow:0 0 6px rgba(244,63,94,0.8)"></div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Shared Interests</span>
+                                <span class="ml-auto text-[10px] text-rose-400 font-medium">8 total</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 shadow-[0_0_12px_rgba(244,63,94,0.2)]"
+                                    style="background:linear-gradient(135deg,rgba(244,63,94,0.15),rgba(168,85,247,0.1));backdrop-filter:blur(12px);">
+                                    <iconify-icon icon="solar:chef-hat-linear" class="text-[10px] text-rose-300"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-white">Italian Cuisine</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 shadow-[0_0_12px_rgba(168,85,247,0.2)]"
+                                    style="background:linear-gradient(135deg,rgba(168,85,247,0.15),rgba(244,63,94,0.1));backdrop-filter:blur(12px);">
+                                    <iconify-icon icon="solar:clapperboard-play-linear" class="text-[10px] text-purple-300"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-white">Indie Films</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 shadow-[0_0_12px_rgba(244,63,94,0.15)]"
+                                    style="background:linear-gradient(135deg,rgba(244,63,94,0.12),rgba(251,191,36,0.1));backdrop-filter:blur(12px);">
+                                    <iconify-icon icon="solar:book-linear" class="text-[10px] text-amber-300"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-white">Bookshops</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10"
+                                    style="background:rgba(255,255,255,0.04);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:buildings-2-linear" class="text-[10px] text-neutral-400"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-neutral-300">Rooftop Restaurants</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10"
+                                    style="background:rgba(255,255,255,0.04);backdrop-filter:blur(8px);">
+                                    <iconify-icon icon="solar:palette-linear" class="text-[10px] text-neutral-400"></iconify-icon>
+                                    <span class="text-[11px] font-medium text-neutral-300">Art Galleries</span>
+                                </div>
+                            </div>
+                            <button class="flex items-center gap-1.5 text-[11px] font-medium text-rose-400 hover:text-rose-300 transition-colors">
+                                <iconify-icon icon="solar:add-circle-linear" class="text-sm"></iconify-icon>
+                                +3 more shared interests
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Real Life Overlap -->
+                    <div class="px-5 mb-5">
+                        <div class="glass-panel rounded-[1.75rem] p-4 border-white/5 relative overflow-hidden">
+                            <div class="absolute bottom-0 left-0 w-24 h-24 blur-[30px] opacity-15 pointer-events-none"
+                                style="background:radial-gradient(circle,#3b82f6,transparent)"></div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-blue-400" style="box-shadow:0 0 6px rgba(59,130,246,0.8)"></div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Real Life Overlap</span>
+                            </div>
+                            <div class="flex flex-col gap-2.5">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-white/10" style="background:rgba(244,63,94,0.1)">
+                                        <iconify-icon icon="solar:bookmark-linear" class="text-sm text-rose-400"></iconify-icon>
+                                    </div>
+                                    <p class="text-[12px] text-neutral-300 leading-snug">You both saved <span class="text-white font-medium">8 similar places</span></p>
+                                </div>
+                                <div class="w-full h-px bg-white/5"></div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-white/10" style="background:rgba(168,85,247,0.1)">
+                                        <iconify-icon icon="solar:map-point-wave-linear" class="text-sm text-purple-400"></iconify-icon>
+                                    </div>
+                                    <p class="text-[12px] text-neutral-300 leading-snug">Lina visited <span class="text-white font-medium">3 spots you liked</span></p>
+                                </div>
+                                <div class="w-full h-px bg-white/5"></div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-white/10" style="background:rgba(251,191,36,0.1)">
+                                        <iconify-icon icon="solar:moon-stars-linear" class="text-sm text-amber-400"></iconify-icon>
+                                    </div>
+                                    <p class="text-[12px] text-neutral-300 leading-snug">You both prefer <span class="text-white font-medium">quiet night places</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rexy Suggestion Card -->
+                    <div class="px-5 mb-5">
+                        <div class="rounded-[1.75rem] relative overflow-hidden cursor-pointer group border border-white/10 shadow-[0_15px_40px_rgba(244,63,94,0.12)]"
+                            style="background:linear-gradient(135deg,rgba(244,63,94,0.08),rgba(168,85,247,0.06));backdrop-filter:blur(20px);">
+                            <div class="absolute top-0 right-0 w-40 h-40 blur-[50px] opacity-30 pointer-events-none"
+                                style="background:radial-gradient(circle,#f43f5e,transparent)"></div>
+                            <div class="relative h-28 overflow-hidden rounded-t-[1.75rem]">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=200&fit=crop"
+                                    class="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 30%,rgba(6,6,8,0.9) 100%)"></div>
+                                <div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-rose-500/30 shadow-[0_0_12px_rgba(244,63,94,0.3)]"
+                                    style="background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);">
+                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-[10px] text-rose-400"></iconify-icon>
+                                    <span class="text-[9px] font-bold text-rose-300 uppercase tracking-widest">Rexy Suggests</span>
+                                </div>
+                            </div>
+                            <div class="p-4 pt-3">
+                                <h3 class="text-[15px] font-medium text-white mb-1 tracking-tight">Pitti Restaurant</h3>
+                                <p class="text-[11px] text-neutral-400 leading-relaxed mb-4">Based on your shared taste in Italian spots and intimate vibes, this is a perfect match for both of you.</p>
+                                <div class="flex gap-2">
+                                    <button class="flex-1 px-4 py-3 rounded-2xl flex items-center justify-center gap-1.5 text-[11px] font-medium text-rose-200 border border-rose-500/30 hover:bg-rose-500/20 transition active:scale-95"
+                                        style="background:rgba(244,63,94,0.1);backdrop-filter:blur(8px);">
+                                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400 text-sm"></iconify-icon> Ask Rexy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="px-5 mb-6">
+                        <div class="flex gap-2.5">
+                            <button class="flex-1 glass-panel py-3.5 rounded-2xl text-[12px] font-medium text-white border-white/10 flex flex-col items-center justify-center gap-1 hover:bg-white/5 active:scale-95 transition-all">
+                                <iconify-icon icon="solar:bookmark-linear" class="text-base text-rose-400"></iconify-icon>
+                                <span class="whitespace-nowrap">Shared places</span>
+                            </button>
+                            <button class="flex-1 glass-panel py-3.5 rounded-2xl text-[12px] font-medium text-white border-white/10 flex flex-col items-center justify-center gap-1 hover:bg-white/5 active:scale-95 transition-all">
+                                <iconify-icon icon="solar:star-linear" class="text-base text-purple-400"></iconify-icon>
+                                <span class="whitespace-nowrap">Their recs</span>
+                            </button>
+                            <button class="flex-1 glass-panel py-3.5 rounded-2xl text-[12px] font-medium text-white border-white/10 flex flex-col items-center justify-center gap-1 hover:bg-white/5 active:scale-95 transition-all">
+                                <iconify-icon icon="solar:user-plus-rounded-linear" class="text-base text-blue-400"></iconify-icon>
+                                <span class="whitespace-nowrap">Follow</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Nav -->
+                <div class="relative mx-6 mb-6 h-16 glass-panel rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10">
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:home-smile-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <button class="w-12 h-12 rounded-full flex items-center justify-center transform -translate-y-4 border-2 border-neutral-900 shadow-[0_8px_20px_rgba(244,63,94,0.4)]"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 text-white">
+                        <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+<!-- ═══════════════════════════════════════ -->
+<!-- M1. CHAT LIST                          -->
+<!-- ═══════════════════════════════════════ -->
+<div class="flex flex-col items-center gap-4">
+    <span class="text-xs text-neutral-500 font-medium tracking-tight">M1. Chat List</span>
+    <div class="iphone-frame relative bg-[#060608] flex flex-col">
+        <div class="notch"></div>
+
+        <!-- Ambient -->
+        <div class="absolute top-0 right-0 w-64 h-64 aura-purple blur-3xl opacity-20 pointer-events-none"></div>
+
+        <!-- Header -->
+        <div class="pt-12 pb-3 px-6 glass-nav z-30 relative">
+            <div class="flex items-center justify-between mb-4">
+                <h1 class="text-[26px] tracking-tight font-medium text-white">Messages</h1>
+                <button class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+                </button>
+            </div>
+            <!-- Search -->
+            <div class="glass-panel rounded-full flex items-center px-4 py-3 bg-black/40 border-white/10">
+                <iconify-icon icon="solar:magnifer-linear" class="text-neutral-500 text-base"></iconify-icon>
+                <span class="text-[13px] text-neutral-500 ml-3">Search conversations...</span>
+            </div>
+        </div>
+
+        <!-- Taste Circles (horizontal) -->
+        <div class="px-6 pt-4 pb-2">
+            <p class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-3">Active Now</p>
+            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-1">
+                <!-- Active user 1 -->
+                <div class="flex flex-col items-center gap-1.5 cursor-pointer shrink-0">
+                    <div class="relative">
+                        <div class="w-14 h-14 rounded-full p-0.5" style="background: conic-gradient(#f43f5e 0% 92%, rgba(255,255,255,0.08) 92% 100%);">
+                            <div class="w-full h-full rounded-full border-2 border-[#060608] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#060608]"></div>
+                    </div>
+                    <span class="text-[10px] text-neutral-400">Lina</span>
+                </div>
+                <!-- Active user 2 -->
+                <div class="flex flex-col items-center gap-1.5 cursor-pointer shrink-0">
+                    <div class="relative">
+                        <div class="w-14 h-14 rounded-full p-0.5" style="background: conic-gradient(#a855f7 0% 88%, rgba(255,255,255,0.08) 88% 100%);">
+                            <div class="w-full h-full rounded-full border-2 border-[#060608] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#060608]"></div>
+                    </div>
+                    <span class="text-[10px] text-neutral-400">Omar</span>
+                </div>
+                <!-- Active user 3 -->
+                <div class="flex flex-col items-center gap-1.5 cursor-pointer shrink-0">
+                    <div class="relative">
+                        <div class="w-14 h-14 rounded-full p-0.5" style="background: conic-gradient(#f43f5e 0% 96%, rgba(255,255,255,0.08) 96% 100%);">
+                            <div class="w-full h-full rounded-full border-2 border-[#060608] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#060608]"></div>
+                    </div>
+                    <span class="text-[10px] text-neutral-400">Sara</span>
+                </div>
+                <!-- Active user 4 -->
+                <div class="flex flex-col items-center gap-1.5 cursor-pointer shrink-0">
+                    <div class="relative">
+                        <div class="w-14 h-14 rounded-full p-0.5" style="background: conic-gradient(#3b82f6 0% 78%, rgba(255,255,255,0.08) 78% 100%);">
+                            <div class="w-full h-full rounded-full border-2 border-[#060608] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] text-neutral-400">Karim</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="mx-6 h-px bg-white/5 my-2"></div>
+
+        <!-- Conversation List -->
+        <div class="flex-1 overflow-y-auto pb-24 no-scrollbar">
+
+            <!-- Unread conversation -->
+            <div class="px-5 py-4 flex items-center gap-3 hover:bg-white/[0.02] cursor-pointer transition-colors relative group">
+                <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.8)]"></div>
+                <div class="relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-13 h-13 rounded-full object-cover border border-white/10" style="width:52px;height:52px;">
+                    <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full border-2 border-[#060608] flex items-center justify-center" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                        <iconify-icon icon="solar:chef-hat-bold" class="text-[7px] text-white"></iconify-icon>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-0.5">
+                        <div class="flex items-center gap-1.5">
+                            <h4 class="text-[14px] font-medium text-white">Lina K.</h4>
+                            <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                                <iconify-icon icon="solar:graph-new-up-bold" class="text-[8px] text-rose-400"></iconify-icon>
+                                <span class="text-[9px] font-bold text-rose-400">92%</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neutral-500 shrink-0">2m</span>
+                    </div>
+                    <p class="text-[12px] text-neutral-300 truncate mb-1.5">Sent you a rec: Osteria Centrale 🍝</p>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[9px] glass-panel px-2 py-0.5 rounded-full border-white/10 text-neutral-400">Italian</span>
+                        <span class="text-[9px] glass-panel px-2 py-0.5 rounded-full border-white/10 text-neutral-400">Indie Films</span>
+                    </div>
+                </div>
+                <div class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                    <span class="text-[9px] font-bold text-white">2</span>
+                </div>
+            </div>
+
+            <!-- Group conversation -->
+            <div class="px-5 py-4 flex items-center gap-3 hover:bg-white/[0.02] cursor-pointer transition-colors relative">
+                <div class="relative shrink-0" style="width:52px;height:52px;">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="absolute top-0 left-0 w-9 h-9 rounded-full object-cover border-2 border-[#060608] z-10">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" class="absolute bottom-0 right-0 w-9 h-9 rounded-full object-cover border-2 border-[#060608] z-20">
+                    <div class="absolute top-0 right-0 w-4 h-4 rounded-full border-2 border-[#060608] flex items-center justify-center z-30" style="background:linear-gradient(135deg,#a855f7,#7c3aed);">
+                        <iconify-icon icon="solar:users-group-rounded-bold" class="text-[6px] text-white"></iconify-icon>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-0.5">
+                        <div class="flex items-center gap-1.5">
+                            <h4 class="text-[14px] font-medium text-white">Ahmed's Birthday</h4>
+                            <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.25);">
+                                <span class="text-[9px] font-bold text-amber-400">🎂 3 days</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neutral-500 shrink-0">15m</span>
+                    </div>
+                    <p class="text-[12px] text-neutral-400 truncate mb-1.5">Omar: I vote for Trattoria Noma 🙌</p>
+                    <div class="flex items-center gap-1.5">
+                        <div class="flex -space-x-1">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-4 h-4 rounded-full border border-[#060608]">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50" class="w-4 h-4 rounded-full border border-[#060608]">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50" class="w-4 h-4 rounded-full border border-[#060608]">
+                        </div>
+                        <span class="text-[9px] text-neutral-500">5 people planning</span>
+                    </div>
+                </div>
+                <div class="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background:linear-gradient(135deg,#f59e0b,#f43f5e);">
+                    <span class="text-[9px] font-bold text-white">5</span>
+                </div>
+            </div>
+
+            <!-- Read conversation -->
+            <div class="px-5 py-4 flex items-center gap-3 hover:bg-white/[0.02] cursor-pointer transition-colors relative">
+                <div class="relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-13 h-13 rounded-full object-cover border border-white/10" style="width:52px;height:52px;">
+                    <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full border-2 border-[#060608] flex items-center justify-center" style="background:rgba(168,85,247,0.3);border-color:rgba(168,85,247,0.5);">
+                        <iconify-icon icon="solar:cup-hot-bold" class="text-[7px] text-purple-300"></iconify-icon>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-0.5">
+                        <div class="flex items-center gap-1.5">
+                            <h4 class="text-[14px] font-medium text-neutral-300">Omar D.</h4>
+                            <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.25);">
+                                <iconify-icon icon="solar:graph-new-up-bold" class="text-[8px] text-purple-400"></iconify-icon>
+                                <span class="text-[9px] font-bold text-purple-400">88%</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neutral-600 shrink-0">1h</span>
+                    </div>
+                    <p class="text-[12px] text-neutral-500 truncate mb-1.5">You: That place was incredible 🤌</p>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[9px] glass-panel px-2 py-0.5 rounded-full border-white/10 text-neutral-500">Late Dining</span>
+                        <span class="text-[9px] glass-panel px-2 py-0.5 rounded-full border-white/10 text-neutral-500">Coffee</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rec-only conversation -->
+            <div class="px-5 py-4 flex items-center gap-3 hover:bg-white/[0.02] cursor-pointer transition-colors relative">
+                <div class="relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" class="w-13 h-13 rounded-full object-cover border border-white/10" style="width:52px;height:52px;">
+                    <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full border-2 border-[#060608] flex items-center justify-center" style="background:rgba(59,130,246,0.3);border-color:rgba(59,130,246,0.5);">
+                        <iconify-icon icon="solar:map-point-bold" class="text-[7px] text-blue-300"></iconify-icon>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-0.5">
+                        <div class="flex items-center gap-1.5">
+                            <h4 class="text-[14px] font-medium text-neutral-300">Sara J.</h4>
+                            <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                                <iconify-icon icon="solar:graph-new-up-bold" class="text-[8px] text-rose-400"></iconify-icon>
+                                <span class="text-[9px] font-bold text-rose-400">96%</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neutral-600 shrink-0">3h</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 mb-1.5">
+                        <div class="glass-panel px-2 py-0.5 rounded-lg border-rose-500/20 bg-rose-500/5 flex items-center gap-1">
+                            <iconify-icon icon="solar:bookmark-bold" class="text-[9px] text-rose-400"></iconify-icon>
+                            <span class="text-[10px] text-rose-300 font-medium">Shared a rec</span>
+                        </div>
+                        <span class="text-[11px] text-neutral-500">Café Flora</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[9px] glass-panel px-2 py-0.5 rounded-full border-white/10 text-neutral-500">Cafés</span>
+                        <span class="text-[9px] glass-panel px-2 py-0.5 rounded-full border-white/10 text-neutral-500">Aesthetic</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Karim -->
+            <div class="px-5 py-4 flex items-center gap-3 hover:bg-white/[0.02] cursor-pointer transition-colors relative">
+                <div class="relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" class="rounded-full object-cover border border-white/10" style="width:52px;height:52px;">
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-0.5">
+                        <div class="flex items-center gap-1.5">
+                            <h4 class="text-[14px] font-medium text-neutral-300">Karim A.</h4>
+                            <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);">
+                                <iconify-icon icon="solar:graph-new-up-bold" class="text-[8px] text-blue-400"></iconify-icon>
+                                <span class="text-[9px] font-bold text-blue-400">78%</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neutral-600 shrink-0">Yesterday</span>
+                    </div>
+                    <p class="text-[12px] text-neutral-500 truncate mb-1.5">🎤 Voice message · 0:14</p>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-[9px] glass-panel px-2 py-0.5 rounded-full border-white/10 text-neutral-500">Outdoors</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- M2. CHAT CONVERSATION                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="flex flex-col items-center gap-4">
+    <span class="text-xs text-rose-500 font-medium tracking-tight">M2. Chat Conversation</span>
+    <div class="iphone-frame relative bg-[#060608] flex flex-col">
+        <div class="notch"></div>
+
+        <!-- Ambient -->
+        <div class="absolute top-0 left-0 w-48 h-48 aura-rose blur-3xl opacity-15 pointer-events-none"></div>
+
+        <!-- Header -->
+        <div class="pt-10 pb-3 px-5 glass-nav z-30 relative border-b border-white/5">
+            <div class="flex items-center gap-3">
+                <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10 shrink-0">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg"></iconify-icon>
+                </button>
+                <!-- Avatar -->
+                <div class="relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-9 h-9 rounded-full object-cover border border-white/10">
+                    <div class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#060608]"></div>
+                </div>
+                <!-- Name + match -->
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-1.5">
+                        <h2 class="text-[15px] font-medium text-white">Lina K.</h2>
+                        <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <span class="text-[9px] font-bold text-rose-400">92%</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-neutral-500">Active now</p>
+                </div>
+                <!-- Menu only -->
+                <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10 shrink-0">
+                    <iconify-icon icon="solar:menu-dots-bold" class="text-base text-neutral-400"></iconify-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 no-scrollbar pb-6">
+
+            <!-- Date separator -->
+            <div class="flex items-center gap-3">
+                <div class="flex-1 h-px bg-white/5"></div>
+                <span class="text-[10px] text-neutral-600 font-medium">Today</span>
+                <div class="flex-1 h-px bg-white/5"></div>
+            </div>
+
+            <!-- Received text -->
+            <div class="flex items-end gap-2">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-7 h-7 rounded-full object-cover border border-white/10 shrink-0 mb-1">
+                <div class="max-w-[72%]">
+                    <div class="glass-panel px-4 py-3 rounded-2xl rounded-bl-sm border-white/8" style="background:rgba(255,255,255,0.04);">
+                        <p class="text-[13px] text-neutral-200 leading-relaxed">Have you been to Osteria Centrale yet? 🍝</p>
+                    </div>
+                    <span class="text-[10px] text-neutral-600 mt-1 block ml-1">9:14 PM</span>
+                </div>
+            </div>
+
+            <!-- Sent text -->
+            <div class="flex justify-end">
+                <div class="max-w-[72%]">
+                    <div class="px-4 py-3 rounded-2xl rounded-br-sm" style="background:linear-gradient(135deg,rgba(244,63,94,0.25),rgba(219,39,119,0.2));border:1px solid rgba(244,63,94,0.2);">
+                        <p class="text-[13px] text-white leading-relaxed">Not yet! Omar mentioned it too. Is it good for a group?</p>
+                    </div>
+                    <div class="flex items-center justify-end gap-1 mt-1 mr-1">
+                        <span class="text-[10px] text-neutral-600">9:15 PM</span>
+                        <iconify-icon icon="solar:check-read-linear" class="text-[10px] text-rose-400"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── RECOMMENDATION CARD (received) ── -->
+            <div class="flex items-end gap-2">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-7 h-7 rounded-full object-cover border border-white/10 shrink-0 mb-1">
+                <div class="max-w-[82%]">
+                    <!-- Rec card -->
+                    <div class="glass-panel rounded-2xl rounded-bl-sm overflow-hidden border-rose-500/20 cursor-pointer group hover:-translate-y-0.5 transition-transform" style="background:rgba(244,63,94,0.04);">
+                        <div class="relative h-28 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=200&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0" style="background:linear-gradient(to bottom, transparent 30%, rgba(6,6,8,0.9) 100%)"></div>
+                            <!-- Rec badge -->
+                            <div class="absolute top-2.5 left-2.5 flex items-center gap-1 px-2 py-1 rounded-lg" style="background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);border:1px solid rgba(244,63,94,0.3);">
+                                <iconify-icon icon="solar:bookmark-bold" class="text-[9px] text-rose-400"></iconify-icon>
+                                <span class="text-[9px] font-bold text-rose-300 uppercase tracking-wide">Rec from Lina</span>
+                            </div>
+                            <!-- Match badge -->
+                            <div class="absolute top-2.5 right-2.5 flex items-center gap-0.5 px-2 py-1 rounded-lg" style="background:rgba(168,85,247,0.3);backdrop-filter:blur(8px);border:1px solid rgba(168,85,247,0.4);">
+                                <span class="text-[9px] font-bold text-purple-200">96% match</span>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="text-[14px] font-medium text-white mb-0.5">Osteria Centrale</h4>
+                            <p class="text-[11px] text-neutral-400 mb-2">Italian · Fine Dining · 0.5 mi</p>
+                            <!-- Reason pill -->
+                            <div class="flex items-start gap-1.5 mb-3">
+                                <iconify-icon icon="solar:magic-stick-3-bold" class="text-[10px] text-rose-400 mt-0.5 shrink-0"></iconify-icon>
+                                <p class="text-[11px] text-neutral-300 leading-snug italic">"Perfect for your group — they have a private room and the pasta is 🔥"</p>
+                            </div>
+                            <!-- CTAs -->
+                            <div class="flex gap-2">
+                                <button class="flex-1 py-2 rounded-xl text-[11px] font-medium text-white flex items-center justify-center gap-1 active:scale-95 transition-transform" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                                    <iconify-icon icon="solar:bookmark-linear" class="text-xs"></iconify-icon> Save
+                                </button>
+                                <button class="flex-1 glass-panel py-2 rounded-xl text-[11px] font-medium text-white border-white/10 flex items-center justify-center gap-1 hover:bg-white/5 active:scale-95 transition-all">
+                                    <iconify-icon icon="solar:map-linear" class="text-xs"></iconify-icon> Open
+                                </button>
+                                <button class="flex-1 glass-panel py-2 rounded-xl text-[11px] font-medium text-amber-300 border-amber-500/20 bg-amber-500/5 flex items-center justify-center gap-1 hover:bg-amber-500/10 active:scale-95 transition-all">
+                                    <iconify-icon icon="solar:calendar-bold" class="text-xs"></iconify-icon> Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] text-neutral-600 mt-1 block ml-1">9:16 PM</span>
+                </div>
+            </div>
+
+            <!-- Sent text -->
+            <div class="flex justify-end">
+                <div class="max-w-[72%]">
+                    <div class="px-4 py-3 rounded-2xl rounded-br-sm" style="background:linear-gradient(135deg,rgba(244,63,94,0.25),rgba(219,39,119,0.2));border:1px solid rgba(244,63,94,0.2);">
+                        <p class="text-[13px] text-white leading-relaxed">This looks amazing 😍 Let's do Friday!</p>
+                    </div>
+                    <div class="flex items-center justify-end gap-1 mt-1 mr-1">
+                        <span class="text-[10px] text-neutral-600">9:17 PM</span>
+                        <iconify-icon icon="solar:check-read-linear" class="text-[10px] text-rose-400"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── VOICE MESSAGE (received) ── -->
+            <div class="flex items-end gap-2">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-7 h-7 rounded-full object-cover border border-white/10 shrink-0 mb-1">
+                <div class="max-w-[78%]">
+                    <div class="glass-panel px-3 py-3 rounded-2xl rounded-bl-sm border-white/8 flex items-center gap-3" style="background:rgba(255,255,255,0.04);">
+                        <button class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                            <iconify-icon icon="solar:play-bold" class="text-white text-sm ml-0.5"></iconify-icon>
+                        </button>
+                        <!-- Waveform -->
+                        <div class="waveform flex-1">
+                            <div class="waveform-bar b1 played"></div>
+                            <div class="waveform-bar b2 played"></div>
+                            <div class="waveform-bar b3 played"></div>
+                            <div class="waveform-bar b4 played"></div>
+                            <div class="waveform-bar b5 played"></div>
+                            <div class="waveform-bar b6 played"></div>
+                            <div class="waveform-bar b7 played"></div>
+                            <div class="waveform-bar b8 played"></div>
+                            <div class="waveform-bar b9"></div>
+                            <div class="waveform-bar b10"></div>
+                            <div class="waveform-bar b11"></div>
+                            <div class="waveform-bar b12"></div>
+                            <div class="waveform-bar b13"></div>
+                            <div class="waveform-bar b14"></div>
+                            <div class="waveform-bar b15"></div>
+                            <div class="waveform-bar b16"></div>
+                            <div class="waveform-bar b17"></div>
+                            <div class="waveform-bar b18"></div>
+                            <div class="waveform-bar b19"></div>
+                            <div class="waveform-bar b20"></div>
+                        </div>
+                        <span class="text-[10px] text-neutral-500 shrink-0">0:22</span>
+                    </div>
+                    <span class="text-[10px] text-neutral-600 mt-1 block ml-1">9:18 PM</span>
+                </div>
+            </div>
+
+            <!-- ── PLAN CARD (inline) ── -->
+            <div class="flex items-end gap-2">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-7 h-7 rounded-full object-cover border border-white/10 shrink-0 mb-1">
+                <div class="max-w-[82%]">
+                    <div class="glass-panel rounded-2xl rounded-bl-sm p-3 border-amber-500/20" style="background:rgba(251,191,36,0.04);">
+                        <div class="flex items-center gap-1.5 mb-2">
+                            <iconify-icon icon="solar:calendar-bold" class="text-amber-400 text-xs"></iconify-icon>
+                            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest">Plan Created</span>
+                        </div>
+                        <h4 class="text-[13px] font-medium text-white mb-1">Friday Dinner · Osteria Centrale</h4>
+                        <div class="flex items-center gap-2 mb-2.5">
+                            <div class="flex -space-x-1.5">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-5 h-5 rounded-full border border-black">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=50" class="w-5 h-5 rounded-full border border-black">
+                            </div>
+                            <span class="text-[10px] text-neutral-400">Lina + You · 8:00 PM</span>
+                        </div>
+                        <button class="w-full py-2 rounded-xl text-[11px] font-medium text-white flex items-center justify-center gap-1.5 active:scale-95 transition-transform" style="background:linear-gradient(135deg,rgba(251,191,36,0.3),rgba(244,63,94,0.2));border:1px solid rgba(251,191,36,0.3);">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-xs text-amber-400"></iconify-icon> Confirm attendance
+                        </button>
+                    </div>
+                    <span class="text-[10px] text-neutral-600 mt-1 block ml-1">9:19 PM</span>
+                </div>
+            </div>
+
+            <!-- Typing indicator -->
+            <div class="flex items-end gap-2">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-7 h-7 rounded-full object-cover border border-white/10 shrink-0">
+                <div class="glass-panel px-4 py-3 rounded-2xl rounded-bl-sm border-white/8 flex items-center gap-1.5" style="background:rgba(255,255,255,0.04);">
+                    <div class="w-1.5 h-1.5 rounded-full bg-neutral-400 animate-bounce" style="animation-delay:0s"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-neutral-400 animate-bounce" style="animation-delay:0.15s"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-neutral-400 animate-bounce" style="animation-delay:0.3s"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Input Bar -->
+        <div class="px-4 pb-8 pt-3 border-t border-white/5" style="background:rgba(6,6,8,0.95);backdrop-filter:blur(20px);">
+            <div class="flex items-center gap-2">
+                <!-- Share rec button -->
+                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border-white/10 shrink-0 hover:bg-white/5 transition-colors">
+                    <iconify-icon icon="solar:bookmark-linear" class="text-rose-400 text-base"></iconify-icon>
+                </button>
+                <!-- Text input -->
+                <div class="flex-1 glass-panel rounded-full flex items-center px-4 py-2.5 bg-black/40 border-white/10">
+                    <input type="text" placeholder="Message or share a rec..." class="flex-1 bg-transparent text-[13px] outline-none placeholder:text-neutral-600 text-white">
+                    <button class="w-7 h-7 rounded-full flex items-center justify-center ml-2 shrink-0" style="background:linear-gradient(135deg,rgba(244,63,94,0.2),rgba(219,39,119,0.15));border:1px solid rgba(244,63,94,0.3);">
+                        <iconify-icon icon="solar:smile-circle-linear" class="text-rose-400 text-sm"></iconify-icon>
+                    </button>
+                </div>
+                <!-- Mic button -->
+                <button class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-[0_4px_15px_rgba(244,63,94,0.3)]" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                    <iconify-icon icon="solar:microphone-large-linear" class="text-white text-base"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- M3. VOICE MESSAGE RECORDING UI         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="flex flex-col items-center gap-4">
+    <span class="text-xs text-neutral-500 font-medium tracking-tight">M3. Voice Recording</span>
+    <div class="iphone-frame relative bg-[#060608] flex flex-col">
+        <div class="notch"></div>
+
+        <!-- Ambient glow during recording -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute bottom-0 left-0 right-0 h-64" style="background:radial-gradient(ellipse at 50% 100%, rgba(244,63,94,0.2) 0%, transparent 70%)"></div>
+        </div>
+
+        <!-- Header -->
+        <div class="pt-10 pb-3 px-5 glass-nav z-30 relative border-b border-white/5">
+            <div class="flex items-center gap-3">
+                <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10 shrink-0">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg"></iconify-icon>
+                </button>
+                <div class="relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-9 h-9 rounded-full object-cover border border-white/10">
+                    <div class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#060608]"></div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-1.5">
+                        <h2 class="text-[15px] font-medium text-white">Lina K.</h2>
+                        <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <span class="text-[9px] font-bold text-rose-400">92%</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-neutral-500">Active now</p>
+                </div>
+                <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10 shrink-0">
+                    <iconify-icon icon="solar:menu-dots-bold" class="text-base text-neutral-400"></iconify-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat (blurred/dimmed during recording) -->
+        <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 no-scrollbar opacity-30 pointer-events-none">
+            <div class="flex items-end gap-2">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-7 h-7 rounded-full object-cover border border-white/10 shrink-0 mb-1">
+                <div class="glass-panel px-4 py-3 rounded-2xl rounded-bl-sm border-white/8" style="background:rgba(255,255,255,0.04);">
+                    <p class="text-[13px] text-neutral-200">This looks amazing 😍 Let's do Friday!</p>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <div class="px-4 py-3 rounded-2xl rounded-br-sm" style="background:linear-gradient(135deg,rgba(244,63,94,0.25),rgba(219,39,119,0.2));border:1px solid rgba(244,63,94,0.2);">
+                    <p class="text-[13px] text-white">Yes! I'll book a table for 6 🙌</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── RECORDING OVERLAY ── -->
+        <div class="absolute inset-0 z-40 flex flex-col" style="background:rgba(6,6,8,0.7);backdrop-filter:blur(4px);">
+
+            <!-- Top cancel hint -->
+            <div class="flex-1 flex items-center justify-center">
+                <div class="flex flex-col items-center gap-3">
+                    <div class="flex items-center gap-2 glass-panel px-4 py-2 rounded-full border-white/10">
+                        <iconify-icon icon="solar:arrow-left-linear" class="text-neutral-400 text-sm"></iconify-icon>
+                        <span class="text-[12px] text-neutral-400">Slide to cancel</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live waveform visualization -->
+            <div class="px-8 mb-6">
+                <div class="glass-panel rounded-3xl p-5 border-rose-500/20" style="background:rgba(244,63,94,0.04);">
+                    <!-- Timer -->
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-rose-500 rec-pulse"></div>
+                            <span class="text-[13px] font-medium text-rose-400">Recording</span>
+                        </div>
+                        <span class="text-[15px] font-medium text-white tabular-nums">0:08</span>
+                    </div>
+
+                    <!-- Live waveform (animated) -->
+                    <div class="flex items-center justify-center gap-1 h-16 mb-4">
+                        <div class="waveform-bar b1" style="height:10px;background:rgba(244,63,94,0.4);animation-duration:0.8s;"></div>
+                        <div class="waveform-bar b2" style="height:20px;background:rgba(244,63,94,0.5);animation-duration:0.9s;"></div>
+                        <div class="waveform-bar b3" style="height:32px;background:rgba(244,63,94,0.6);animation-duration:0.7s;"></div>
+                        <div class="waveform-bar b4" style="height:18px;background:rgba(244,63,94,0.5);animation-duration:1.0s;"></div>
+                        <div class="waveform-bar b5" style="height:40px;background:#f43f5e;animation-duration:0.85s;"></div>
+                        <div class="waveform-bar b6" style="height:28px;background:rgba(244,63,94,0.7);animation-duration:0.75s;"></div>
+                        <div class="waveform-bar b7" style="height:14px;background:rgba(244,63,94,0.4);animation-duration:0.95s;"></div>
+                        <div class="waveform-bar b8" style="height:36px;background:rgba(244,63,94,0.8);animation-duration:0.8s;"></div>
+                        <div class="waveform-bar b9" style="height:22px;background:rgba(244,63,94,0.6);animation-duration:0.9s;"></div>
+                        <div class="waveform-bar b10" style="height:44px;background:#f43f5e;animation-duration:0.7s;box-shadow:0 0 8px rgba(244,63,94,0.6);"></div>
+                        <div class="waveform-bar b11" style="height:30px;background:rgba(244,63,94,0.7);animation-duration:1.0s;"></div>
+                        <div class="waveform-bar b12" style="height:16px;background:rgba(244,63,94,0.4);animation-duration:0.85s;"></div>
+                        <div class="waveform-bar b13" style="height:38px;background:rgba(244,63,94,0.8);animation-duration:0.75s;"></div>
+                        <div class="waveform-bar b14" style="height:24px;background:rgba(244,63,94,0.5);animation-duration:0.95s;"></div>
+                        <div class="waveform-bar b15" style="height:12px;background:rgba(244,63,94,0.3);animation-duration:0.8s;"></div>
+                        <div class="waveform-bar b16" style="height:34px;background:rgba(244,63,94,0.7);animation-duration:0.9s;"></div>
+                        <div class="waveform-bar b17" style="height:20px;background:rgba(244,63,94,0.5);animation-duration:0.7s;"></div>
+                        <div class="waveform-bar b18" style="height:42px;background:#f43f5e;animation-duration:1.0s;box-shadow:0 0 8px rgba(244,63,94,0.5);"></div>
+                        <div class="waveform-bar b19" style="height:26px;background:rgba(244,63,94,0.6);animation-duration:0.85s;"></div>
+                        <div class="waveform-bar b20" style="height:16px;background:rgba(244,63,94,0.4);animation-duration:0.75s;"></div>
+                    </div>
+
+                    <!-- Transcription hint -->
+                    <div class="flex items-center gap-2 justify-center">
+                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-[10px] text-rose-400"></iconify-icon>
+                        <span class="text-[10px] text-neutral-500 italic">Rexy will transcribe this for Lina...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom controls -->
+            <div class="px-8 pb-10 flex items-center justify-between">
+                <!-- Delete -->
+                <button class="w-14 h-14 rounded-full glass-panel flex items-center justify-center border-white/10 hover:bg-white/5 transition-colors">
+                    <iconify-icon icon="solar:trash-bin-trash-linear" class="text-xl text-neutral-400"></iconify-icon>
+                </button>
+
+                <!-- Mic (hold) -->
+                <div class="flex flex-col items-center gap-2">
+                    <div class="relative">
+                        <!-- Pulse rings -->
+                        <div class="absolute inset-0 rounded-full border border-rose-500/30 animate-ping" style="animation-duration:1.5s;"></div>
+                        <div class="absolute inset-0 scale-125 rounded-full border border-rose-500/15 animate-ping" style="animation-duration:2s;animation-delay:0.3s;"></div>
+                        <button class="relative w-20 h-20 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(244,63,94,0.5)]" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                            <iconify-icon icon="solar:microphone-large-bold" class="text-white text-3xl"></iconify-icon>
+                        </button>
+                    </div>
+                    <span class="text-[10px] text-neutral-500">Release to send</span>
+                </div>
+
+                <!-- Lock (to keep recording hands-free) -->
+                <button class="w-14 h-14 rounded-full glass-panel flex items-center justify-center border-white/10 hover:bg-white/5 transition-colors">
+                    <iconify-icon icon="solar:lock-linear" class="text-xl text-neutral-400"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- M4. SHARE RECOMMENDATION IN CHAT       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="flex flex-col items-center gap-4">
+    <span class="text-xs text-neutral-500 font-medium tracking-tight">M4. Share Rec in Chat</span>
+    <div class="iphone-frame relative bg-[#060608] flex flex-col">
+        <div class="notch"></div>
+
+        <!-- Ambient -->
+        <div class="absolute top-0 right-0 w-56 h-56 aura-rose blur-3xl opacity-15 pointer-events-none"></div>
+
+        <!-- Header -->
+        <div class="pt-10 pb-3 px-5 glass-nav z-30 relative border-b border-white/5">
+            <div class="flex items-center gap-3">
+                <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border-white/10 shrink-0">
+                    <iconify-icon icon="solar:close-linear" class="text-lg"></iconify-icon>
+                </button>
+                <div class="flex-1">
+                    <h1 class="text-[15px] font-medium text-white">Share a Rec</h1>
+                    <p class="text-[11px] text-neutral-500">to Lina K. · 92% taste match</p>
+                </div>
+                <button class="glass-panel px-4 py-2 rounded-full text-[12px] font-medium text-rose-400 border-rose-500/20 hover:bg-rose-500/10 transition-colors">
+                    Send
+                </button>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="px-5 pt-4 pb-3">
+            <div class="glass-panel rounded-full flex items-center px-4 py-3 bg-black/40 border-rose-500/20">
+                <iconify-icon icon="solar:magnifer-linear" class="text-rose-400 text-base"></iconify-icon>
+                <span class="text-[13px] text-neutral-500 ml-3">Search your recs, lists, saved...</span>
+            </div>
+        </div>
+
+        <!-- Taste-matched suggestions header -->
+        <div class="px-5 mb-2">
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-400 text-xs"></iconify-icon>
+                <span class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Lina would love these</span>
+                <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full ml-auto" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                    <span class="text-[9px] font-bold text-rose-400">Based on 92% match</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rec list -->
+        <div class="flex-1 overflow-y-auto px-5 pb-6 space-y-3 no-scrollbar">
+
+            <!-- Rec item 1 — selected -->
+            <div class="glass-panel p-3 rounded-2xl flex items-center gap-3 border-rose-500/30 cursor-pointer transition-all" style="background:rgba(244,63,94,0.06);">
+                <div class="relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&h=200&fit=crop" class="w-14 h-14 rounded-xl object-cover">
+                    <!-- Selected check -->
+                    <div class="absolute inset-0 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.4);">
+                        <iconify-icon icon="solar:check-circle-bold" class="text-white text-xl"></iconify-icon>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <h4 class="text-[13px] font-medium text-white mb-0.5">Osteria Centrale</h4>
+                    <p class="text-[10px] text-neutral-400 mb-1.5">Italian · Fine Dining</p>
+                    <div class="flex items-center gap-1.5">
+                        <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.25);">
+                            <span class="text-[9px] font-bold text-purple-400">96% for Lina</span>
+                        </div>
+                        <span class="text-[9px] text-neutral-500">Your rec · 2 days ago</span>
+                    </div>
+                </div>
+                <div class="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                    <iconify-icon icon="solar:check-linear" class="text-white text-[10px]"></iconify-icon>
+                </div>
+            </div>
+
+            <!-- Rec item 2 -->
+            <div class="glass-panel p-3 rounded-2xl flex items-center gap-3 border-white/5 cursor-pointer hover:border-white/15 transition-all">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&h=200&fit=crop" class="w-14 h-14 rounded-xl object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <h4 class="text-[13px] font-medium text-white mb-0.5">The Morning Co.</h4>
+                    <p class="text-[10px] text-neutral-400 mb-1.5">Café · Midtown</p>
+                    <div class="flex items-center gap-1.5">
+                        <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <span class="text-[9px] font-bold text-rose-400">94% for Lina</span>
+                        </div>
+                        <span class="text-[9px] text-neutral-500">Saved · 1 week ago</span>
+                    </div>
+                </div>
+                <div class="w-6 h-6 rounded-full glass-panel flex items-center justify-center shrink-0 border-white/10"></div>
+            </div>
+
+            <!-- Rec item 3 -->
+            <div class="glass-panel p-3 rounded-2xl flex items-center gap-3 border-white/5 cursor-pointer hover:border-white/15 transition-all">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=200&h=200&fit=crop" class="w-14 h-14 rounded-xl object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <h4 class="text-[13px] font-medium text-white mb-0.5">Osteria Mozza</h4>
+                    <p class="text-[10px] text-neutral-400 mb-1.5">Italian · Fine Dining</p>
+                    <div class="flex items-center gap-1.5">
+                        <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.25);">
+                            <span class="text-[9px] font-bold text-purple-400">91% for Lina</span>
+                        </div>
+                        <span class="text-[9px] text-neutral-500">Lina's fav cuisine</span>
+                    </div>
+                </div>
+                <div class="w-6 h-6 rounded-full glass-panel flex items-center justify-center shrink-0 border-white/10"></div>
+            </div>
+
+            <!-- Rec item 4 -->
+            <div class="glass-panel p-3 rounded-2xl flex items-center gap-3 border-white/5 cursor-pointer hover:border-white/15 transition-all">
+                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=200&fit=crop" class="w-14 h-14 rounded-xl object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <h4 class="text-[13px] font-medium text-white mb-0.5">Golden Hour Bistro</h4>
+                    <p class="text-[10px] text-neutral-400 mb-1.5">Brunch · West End</p>
+                    <div class="flex items-center gap-1.5">
+                        <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.25);">
+                            <span class="text-[9px] font-bold text-amber-400">88% for Lina</span>
+                        </div>
+                        <span class="text-[9px] text-neutral-500">From your list</span>
+                    </div>
+                </div>
+                <div class="w-6 h-6 rounded-full glass-panel flex items-center justify-center shrink-0 border-white/10"></div>
+            </div>
+
+            <!-- Divider: From your lists -->
+            <div class="flex items-center gap-3 pt-2">
+                <div class="flex-1 h-px bg-white/5"></div>
+                <span class="text-[10px] font-bold text-neutral-600 uppercase tracking-widest">Your Lists</span>
+                <div class="flex-1 h-px bg-white/5"></div>
+            </div>
+
+            <!-- List item -->
+            <div class="glass-panel p-3 rounded-2xl flex items-center gap-3 border-white/5 cursor-pointer hover:border-white/15 transition-all">
+                <div class="w-14 h-14 rounded-xl overflow-hidden relative shrink-0">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop" class="w-full h-full object-cover opacity-70">
+                    <div class="absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.4);">
+                        <iconify-icon icon="solar:list-heart-bold" class="text-white text-lg"></iconify-icon>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <h4 class="text-[13px] font-medium text-white mb-0.5">Weekend Brunch Guide</h4>
+                    <p class="text-[10px] text-neutral-400 mb-1.5">8 places · Public list</p>
+                    <div class="flex items-center gap-1.5">
+                        <div class="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <span class="text-[9px] font-bold text-rose-400">Lina will love this</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-6 h-6 rounded-full glass-panel flex items-center justify-center shrink-0 border-white/10"></div>
+            </div>
+
+        </div>
+
+        <!-- Bottom: Add message + send -->
+        <div class="px-5 pb-8 pt-3 border-t border-white/5" style="background:rgba(6,6,8,0.95);backdrop-filter:blur(20px);">
+            <!-- Selected preview -->
+            <div class="flex items-center gap-2 mb-3 glass-panel px-3 py-2 rounded-2xl border-rose-500/20" style="background:rgba(244,63,94,0.04);">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop" class="w-8 h-8 rounded-lg object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <p class="text-[12px] font-medium text-white truncate">Osteria Centrale</p>
+                    <p class="text-[10px] text-neutral-500">Selected to share</p>
+                </div>
+                <button class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                    <iconify-icon icon="solar:close-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                </button>
+            </div>
+            <!-- Message input -->
+            <div class="flex items-center gap-2">
+                <div class="flex-1 glass-panel rounded-full flex items-center px-4 py-2.5 bg-black/40 border-white/10">
+                    <input type="text" placeholder="Add a message..." class="flex-1 bg-transparent text-[13px] outline-none placeholder:text-neutral-600 text-white" value="This would be perfect for Friday! 🍝">
+                </div>
+                <button class="w-11 h-11 rounded-full flex items-center justify-center shrink-0 shadow-[0_4px_15px_rgba(244,63,94,0.4)]" style="background:linear-gradient(135deg,#f43f5e,#db2777);">
+                    <iconify-icon icon="solar:arrow-up-linear" class="text-white text-lg"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+
     </div>
 
 </body>
