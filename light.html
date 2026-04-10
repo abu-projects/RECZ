@@ -193,13 +193,221 @@
 
         .rec-pulse { animation: recpulse 1s ease-in-out infinite; }
         @keyframes recpulse { 0%,100%{box-shadow:0 0 0 0 rgba(244,63,94,0.5)} 50%{box-shadow:0 0 0 12px rgba(244,63,94,0)} }
+
+        /* ═══════════════════════════════════════════
+           LIGHT MODE + LIQUID GLASS — Comprehensive Overrides
+           ═══════════════════════════════════════════ */
+
+        body.light-mode {
+            background:
+                radial-gradient(circle at top, rgba(244, 63, 94, 0.10) 0%, rgba(244, 63, 94, 0) 22%),
+                linear-gradient(180deg, #fff0f3 0%, #f6f9ff 48%, #eef2f7 100%);
+            color: #475569;
+        }
+
+        /* iPhone frame — light pearlescent finish */
+        body.light-mode .iphone-frame {
+            border-color: #dde3eb;
+            background: linear-gradient(160deg, #f2f7fd 0%, #e8eff8 100%) !important;
+            box-shadow: 0 28px 80px rgba(15, 23, 42, 0.14), inset 0 0 0 1px rgba(255, 255, 255, 0.90);
+        }
+
+        /* Override iphone-frame screens that set their own dark background-color inline */
+        body.light-mode .iphone-frame[style*="background-color: #050505"],
+        body.light-mode .iphone-frame[style*="background-color:#050505"],
+        body.light-mode .iphone-frame[style*="background-color: #060608"],
+        body.light-mode .iphone-frame[style*="background-color:#060608"],
+        body.light-mode .iphone-frame[style*="background-color: #030303"],
+        body.light-mode .iphone-frame[style*="background-color:#030303"] {
+            background: linear-gradient(160deg, #f2f7fd 0%, #e8eff8 100%) !important;
+        }
+
+        body.light-mode .notch {
+            background-color: #dde3eb;
+        }
+
+        /* ── Liquid Glass: apple-glass & glass-panel ── */
+        body.light-mode .apple-glass,
+        body.light-mode .glass-panel {
+            background: linear-gradient(135deg,
+                rgba(255,255,255,0.82) 0%,
+                rgba(249,253,255,0.68) 100%) !important;
+            backdrop-filter: blur(40px) saturate(1.9) brightness(1.04) !important;
+            -webkit-backdrop-filter: blur(40px) saturate(1.9) brightness(1.04) !important;
+            border-color: rgba(255, 255, 255, 0.92) !important;
+            border-top-color: rgba(255, 255, 255, 0.98) !important;
+            border-left-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow:
+                inset 0 2px 0 rgba(255,255,255,0.92),
+                0 8px 32px rgba(15, 23, 42, 0.09),
+                0 2px 6px rgba(15, 23, 42, 0.05) !important;
+        }
+
+        /* ── Liquid Glass: apple-glass-light, sticky-blur, glass-nav ── */
+        body.light-mode .apple-glass-light,
+        body.light-mode .sticky-blur,
+        body.light-mode .glass-nav {
+            background: rgba(255, 255, 255, 0.75) !important;
+            backdrop-filter: blur(30px) saturate(1.7) !important;
+            -webkit-backdrop-filter: blur(30px) saturate(1.7) !important;
+            border-color: rgba(255, 255, 255, 0.88) !important;
+            border-bottom-color: rgba(200, 215, 230, 0.35) !important;
+            box-shadow: 0 5px 24px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255,255,255,0.88) !important;
+        }
+
+        /* ── Liquid Glass: apple-input ── */
+        body.light-mode .apple-input {
+            background: rgba(255, 255, 255, 0.80) !important;
+            backdrop-filter: blur(20px) saturate(1.5) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(1.5) !important;
+            border-color: rgba(148, 163, 184, 0.28) !important;
+            box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15,23,42,0.04) !important;
+        }
+
+        body.light-mode .apple-input:focus-within {
+            background: rgba(255, 255, 255, 0.97) !important;
+            border-color: rgba(244, 63, 94, 0.35) !important;
+            box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03), 0 0 0 3px rgba(244, 63, 94, 0.10) !important;
+        }
+
+        /* ── Text color overrides ── */
+        body.light-mode .iphone-frame .text-white,
+        body.light-mode .iphone-frame .text-neutral-200,
+        body.light-mode .iphone-frame .text-neutral-300 {
+            color: #0f172a !important;
+        }
+
+        body.light-mode .iphone-frame .text-neutral-400,
+        body.light-mode .iphone-frame .text-neutral-500,
+        body.light-mode .iphone-frame .text-neutral-600 {
+            color: #64748b !important;
+        }
+
+        body.light-mode .iphone-frame input,
+        body.light-mode .iphone-frame textarea,
+        body.light-mode .iphone-frame select {
+            color: #0f172a !important;
+        }
+
+        body.light-mode .iphone-frame input::placeholder,
+        body.light-mode .iphone-frame textarea::placeholder,
+        body.light-mode .iphone-frame select::placeholder {
+            color: #94a3b8 !important;
+        }
+
+        /* ── Gradient accent buttons — keep white text ── */
+        body.light-mode .iphone-frame .bg-gradient-accent,
+        body.light-mode .iphone-frame .accent-gradient,
+        body.light-mode .iphone-frame [style*="linear-gradient(135deg, #f43f5e"],
+        body.light-mode .iphone-frame [style*="linear-gradient(135deg,#f43f5e"],
+        body.light-mode .iphone-frame [style*="linear-gradient(135deg,rgba(244,63,94"] {
+            color: #ffffff !important;
+        }
+
+        body.light-mode .iphone-frame .bg-gradient-accent *,
+        body.light-mode .iphone-frame .accent-gradient * {
+            color: #ffffff !important;
+        }
+
+        /* ── Hardcoded dark hex backgrounds → frosted light glass ── */
+        body.light-mode .iphone-frame [style*="background-color:#050505"],
+        body.light-mode .iphone-frame [style*="background:#050505"],
+        body.light-mode .iphone-frame [style*="background-color:#030303"],
+        body.light-mode .iphone-frame [style*="background:#030303"],
+        body.light-mode .iphone-frame [style*="background:#0a0a0a"],
+        body.light-mode .iphone-frame [style*="background:#060608"],
+        body.light-mode .iphone-frame [style*="background-color:#060608"],
+        body.light-mode .iphone-frame [style*="background-color:#1c1c1e"] {
+            background: rgba(238, 246, 255, 0.90) !important;
+            background-color: rgba(238, 246, 255, 0.90) !important;
+        }
+
+        /* ── Dark rgba backgrounds → light glass ── */
+        body.light-mode .iphone-frame [style*="background:rgba(0,0,0,0.2)"],
+        body.light-mode .iphone-frame [style*="background:rgba(0,0,0,0.3)"],
+        body.light-mode .iphone-frame [style*="background:rgba(0,0,0,0.4)"],
+        body.light-mode .iphone-frame [style*="background:rgba(0,0,0,0.45)"],
+        body.light-mode .iphone-frame [style*="background:rgba(0,0,0,0.55)"],
+        body.light-mode .iphone-frame [style*="background:rgba(0,0,0,0.6)"],
+        body.light-mode .iphone-frame [style*="background:rgba(0,0,0,0.65)"] {
+            background: rgba(255, 255, 255, 0.72) !important;
+        }
+
+        /* ── Near-invisible white backgrounds → visible frosted ── */
+        body.light-mode .iphone-frame [style*="background:rgba(255,255,255,0.03)"],
+        body.light-mode .iphone-frame [style*="background:rgba(255,255,255,0.04)"],
+        body.light-mode .iphone-frame [style*="background:rgba(255,255,255,0.06)"],
+        body.light-mode .iphone-frame [style*="background:rgba(255,255,255,0.07)"],
+        body.light-mode .iphone-frame [style*="background:rgba(255,255,255,0.08)"] {
+            background: rgba(255, 255, 255, 0.80) !important;
+        }
+
+        /* ── Dark Tailwind bg utility classes ── */
+        body.light-mode .iphone-frame [class*="bg-[#0a0a0a]"],
+        body.light-mode .iphone-frame [class*="bg-[#030303]"],
+        body.light-mode .iphone-frame [class*="bg-[#050505]"],
+        body.light-mode .iphone-frame [class*="bg-[#060608]"],
+        body.light-mode .iphone-frame [class*="bg-black/"] {
+            background: rgba(238, 246, 255, 0.88) !important;
+            background-color: rgba(238, 246, 255, 0.88) !important;
+        }
+
+        /* ── White opacity border overrides ── */
+        body.light-mode .iphone-frame [style*="border:1px solid rgba(255,255,255,0.07)"],
+        body.light-mode .iphone-frame [style*="border: 1px solid rgba(255,255,255,0.1)"],
+        body.light-mode .iphone-frame [style*="border:1px solid rgba(255,255,255,0.1)"] {
+            border-color: rgba(148, 163, 184, 0.22) !important;
+        }
+
+        /* ── Tailwind white/border utility classes → visible in light ── */
+        body.light-mode .iphone-frame [class*="bg-white/5"] {
+            background-color: rgba(255, 255, 255, 0.62) !important;
+        }
+        body.light-mode .iphone-frame [class*="bg-white/10"] {
+            background-color: rgba(255, 255, 255, 0.72) !important;
+        }
+        body.light-mode .iphone-frame [class*="border-white/5"],
+        body.light-mode .iphone-frame [class*="border-white/10"],
+        body.light-mode .iphone-frame [class*="border-white/15"],
+        body.light-mode .iphone-frame [class*="border-white/20"] {
+            border-color: rgba(148, 163, 184, 0.22) !important;
+        }
+
+        /* ── Orb / aura ambient lights — soften in light theme ── */
+        body.light-mode .orb-rose {
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.09) 0%, transparent 70%);
+        }
+        body.light-mode .orb-purple {
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.07) 0%, transparent 70%);
+        }
+        body.light-mode .orb-blue {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+        }
+        body.light-mode .aura-rose {
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.12) 0%, transparent 70%);
+        }
+        body.light-mode .aura-purple {
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.09) 0%, transparent 70%);
+        }
+
+        /* ── Bottom nav FAB border fix ── */
+        body.light-mode .iphone-frame [class*="border-[#030303]"],
+        body.light-mode .iphone-frame [class*="border-[#060608]"] {
+            border-color: rgba(226, 234, 244, 1) !important;
+        }
+
+        /* ── apple-inner-shadow in light mode ── */
+        body.light-mode .apple-inner-shadow {
+            background: rgba(255,255,255,0.72) !important;
+            border-color: rgba(148, 163, 184, 0.20) !important;
+        }
     </style>
 </head>
 
-<body class="bg-[#0a0a0a] text-neutral-200 p-8 lg:p-12 xl:p-16 min-h-screen">
+<body class="light-mode bg-[#f8fafc] text-slate-700 p-8 lg:p-12 xl:p-16 min-h-screen">
 
     <div class="mb-20 max-w-4xl mx-auto text-center">
-        <h1 class="text-3xl md:text-4xl tracking-tight font-normal text-white mb-4">Recz — Revamp </h1>
+        <h1 class="text-3xl md:text-4xl tracking-tight font-normal text-slate-900 mb-4">Recz — Revamp </h1>
     </div>
 
     <div class="flex flex-wrap gap-14 justify-center items-start max-w-[1400px] mx-auto">
@@ -7946,8 +8154,8 @@ wishlist
                         </div>
                         <span class="flex-1 text-left text-[14px] font-medium text-white">Dark Mode</span>
                         <!-- Toggle -->
-                        <div id="dark-mode-toggle" onclick="toggleDarkMode()" class="relative w-12 h-6 rounded-full cursor-pointer transition-all duration-300" style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 2px 10px rgba(244,63,94,0.35);">
-                            <span class="absolute top-0.5 right-0.5 w-5 h-5 rounded-full bg-white shadow-sm transition-all duration-300"></span>
+                        <div id="dark-mode-toggle" onclick="toggleDarkMode()" class="relative w-12 h-6 rounded-full cursor-pointer transition-all duration-300" style="background:rgba(255,255,255,0.12);box-shadow:none;">
+                            <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm transition-all duration-300"></span>
                         </div>
                     </div>
 
