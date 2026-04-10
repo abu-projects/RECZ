@@ -1104,7 +1104,7 @@
                                     icon="solar:music-note-2-linear" class="text-base"></iconify-icon> Music</button>
                             <button
                                 class="apple-glass-light border-transparent hover:bg-white/5 px-4 py-2 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap flex items-center gap-1.5"><iconify-icon
-                                    icon="lucide:plane" class="text-base"></iconify-icon> Travel</button>
+                                    icon="solar:plain-bold" class="text-base"></iconify-icon> Travel</button>
                             <button
                                 class="apple-glass-light border-transparent hover:bg-white/5 px-4 py-2 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap flex items-center gap-1.5"><iconify-icon
                                     icon="solar:bag-3-linear" class="text-base"></iconify-icon> Shopping</button>
@@ -2297,7 +2297,7 @@
                             </div>
                             <div
                                 class="apple-glass-light rounded-xl py-3 px-2 flex flex-col items-center gap-1.5 cursor-pointer hover:bg-white/10 transition-colors border border-transparent hover:border-white/10">
-                                <iconify-icon icon="lucide:plane" class="text-2xl text-neutral-300"></iconify-icon>
+                                <iconify-icon icon="solar:plain-bold" class="text-2xl text-neutral-300"></iconify-icon>
                                 <span
                                     class="text-[10px] text-neutral-300 font-light text-center leading-tight">Travel</span>
                             </div>
@@ -5353,6 +5353,190 @@
      
     </div>
 
+        <!-- 15e-2 CREATE ITINERARY SCREEN -->
+        <div class="flex flex-col items-center gap-5 mt-12 mb-20 animate-fade-up delay-75">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">15e-2. Create Itinerary</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color: #050505;">
+                <div class="notch z-50"></div>
+
+                <!-- Ambient glow -->
+                <div class="absolute top-0 left-0 w-60 h-60 blur-3xl pointer-events-none" style="background:radial-gradient(circle,rgba(244,63,94,0.08) 0%,transparent 70%);"></div>
+                <div class="absolute bottom-1/4 right-[-30px] w-56 h-56 blur-3xl pointer-events-none" style="background:radial-gradient(circle,rgba(168,85,247,0.10) 0%,transparent 72%);"></div>
+
+                <!-- Header -->
+                <div class="px-6 pt-14 pb-4 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                    <button class="w-9 h-9 rounded-full flex items-center justify-center text-neutral-400" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                        <iconify-icon icon="solar:close-linear" class="text-base"></iconify-icon>
+                    </button>
+                    <h1 class="text-[16px] font-semibold text-white">New Itinerary</h1>
+                    <button class="px-4 py-2 rounded-full text-[13px] font-semibold text-white" style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        Save
+                    </button>
+                </div>
+
+                <!-- Scrollable body -->
+                <div class="flex-1 overflow-y-auto hide-scrollbar scroll-smooth pb-14">
+
+                    <!-- Cover image picker -->
+                    <div class="relative mx-6 mt-5 rounded-[1.5rem] overflow-hidden cursor-pointer" style="height:136px;background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.18);">
+                                <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-2xl"></iconify-icon>
+                            </div>
+                            <span class="text-[12px] text-neutral-500">Add trip cover</span>
+                        </div>
+                    </div>
+
+                    <!-- Itinerary name -->
+                    <div class="mx-6 mt-5">
+                        <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Itinerary Name</label>
+                        <div class="rounded-[1rem] flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+                            <iconify-icon icon="solar:calendar-bold" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                            <input type="text" placeholder="e.g. Tokyo Spring Trip" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                        </div>
+                    </div>
+
+                    <!-- Destination -->
+                    <div class="mx-6 mt-4">
+                        <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Destination</label>
+                        <div class="rounded-[1rem] flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+                            <iconify-icon icon="solar:map-point-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                            <input type="text" placeholder="City or country" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                        </div>
+                    </div>
+
+                    <!-- Dates -->
+                    <div class="mx-6 mt-4">
+                        <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Travel Dates</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="rounded-[1rem] flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+                                <iconify-icon icon="solar:calendar-date-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                                <input type="text" placeholder="Start date" class="flex-1 bg-transparent text-[13px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                            </div>
+                            <div class="rounded-[1rem] flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+                                <iconify-icon icon="solar:calendar-date-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                                <input type="text" placeholder="End date" class="flex-1 bg-transparent text-[13px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mx-6 mt-4">
+                        <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Trip Notes <span class="text-neutral-700 normal-case tracking-normal font-normal">(optional)</span></label>
+                        <div class="rounded-[1rem] px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+                            <textarea rows="2" placeholder="What's the vibe for this trip?" class="w-full bg-transparent text-[13px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Privacy segmented control -->
+                    <div class="mx-6 mt-5">
+                        <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Privacy</label>
+
+                        <div class="flex p-1 rounded-[1rem] gap-1 mb-4" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);">
+                            <button class="flex-1 py-2.5 rounded-[0.75rem] text-[12px] font-semibold flex items-center justify-center gap-1 transition-all text-neutral-400">
+                                <iconify-icon icon="solar:earth-bold" class="text-[11px]"></iconify-icon> Public
+                            </button>
+                            <button class="flex-1 py-2.5 rounded-[0.75rem] text-[12px] font-semibold flex items-center justify-center gap-1 transition-all"
+                                style="background:linear-gradient(135deg,rgba(244,63,94,0.25),rgba(219,39,119,0.2));border:1px solid rgba(244,63,94,0.3);color:#fff;">
+                                <iconify-icon icon="solar:users-group-rounded-linear" class="text-[11px]"></iconify-icon> Friends
+                            </button>
+                            <button class="flex-1 py-2.5 rounded-[0.75rem] text-[12px] font-semibold flex items-center justify-center gap-1 transition-all text-neutral-400">
+                                <iconify-icon icon="solar:lock-linear" class="text-[11px]"></iconify-icon> Private
+                            </button>
+                        </div>
+
+                        <div class="flex items-start gap-2">
+                            <iconify-icon icon="solar:users-group-rounded-linear" class="text-rose-400 text-sm mt-0.5 shrink-0"></iconify-icon>
+                            <p class="text-[12px] text-neutral-400 leading-relaxed">Only people you invite can view this itinerary</p>
+                        </div>
+
+                        <!-- Add travel buddies -->
+                        <div class="mt-4 p-4 rounded-[1.25rem]" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[12px] font-medium text-neutral-300">Invite travel buddies</span>
+                                <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold text-rose-300" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.22);">
+                                    <iconify-icon icon="solar:user-plus-rounded-linear" class="text-xs"></iconify-icon>
+                                    Add People
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <div class="flex items-center gap-1.5 pl-1.5 pr-3 py-1 rounded-full" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);">
+                                    <img src="https://i.pravatar.cc/50?img=32" class="w-5 h-5 rounded-full object-cover border border-black" alt="">
+                                    <span class="text-[11px] text-neutral-300">Lina K.</span>
+                                    <button class="ml-0.5 opacity-50"><iconify-icon icon="solar:close-circle-bold" class="text-neutral-400 text-sm"></iconify-icon></button>
+                                </div>
+                                <div class="flex items-center gap-1.5 pl-1.5 pr-3 py-1 rounded-full" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);">
+                                    <img src="https://i.pravatar.cc/50?img=47" class="w-5 h-5 rounded-full object-cover border border-black" alt="">
+                                    <span class="text-[11px] text-neutral-300">Omar S.</span>
+                                    <button class="ml-0.5 opacity-50"><iconify-icon icon="solar:close-circle-bold" class="text-neutral-400 text-sm"></iconify-icon></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="mx-6 mt-6 h-px" style="background:rgba(255,255,255,0.05);"></div>
+
+                    <!-- Stops CTA -->
+                    <div class="mx-6 mt-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest">Trip Stops</label>
+                            <span class="text-[10px] text-neutral-600">0 added</span>
+                        </div>
+                        <button class="w-full flex items-center gap-4 px-4 py-4 rounded-[1.25rem] transition-all" style="background:rgba(244,63,94,0.05);border:1.5px dashed rgba(244,63,94,0.2);">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.2);">
+                                <iconify-icon icon="solar:add-circle-bold" class="text-rose-400 text-xl"></iconify-icon>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-[13px] font-semibold text-rose-300">Add trip stops</p>
+                                <p class="text-[11px] text-neutral-500">Hotels, places, restaurants, activities…</p>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="mx-6 mt-5 h-px" style="background:rgba(255,255,255,0.05);"></div>
+
+                    <!-- Lock + pricing -->
+                    <div class="mx-6 mt-5 rounded-[1.5rem] p-5 space-y-4" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <iconify-icon icon="solar:lock-keyhole-bold" class="text-white text-base"></iconify-icon>
+                                <span class="text-[15px] font-bold text-white">Lock Itinerary</span>
+                            </div>
+                            <div class="relative w-12 h-6 rounded-full cursor-pointer" style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 2px 10px rgba(244,63,94,0.4);">
+                                <span class="absolute top-0.5 right-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-1 border-t border-white/5">
+                            <span class="text-[15px] font-bold text-white">Select Individual pricing</span>
+                            <span class="text-[15px] font-bold text-white">$23.7</span>
+                        </div>
+
+                        <p class="text-[12px] text-neutral-400 leading-relaxed">
+                            You get <span class="text-white font-medium">$9.24</span>, <span class="text-white font-medium">$8.53</span> goes to the payment gateway and <span class="text-white font-medium">$5.93</span> goes to Recz
+                        </p>
+
+                        <div class="rounded-[1rem] px-3 py-3.5" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                            <input type="range" min="1" max="100" value="23.7" step="0.1" class="w-full cursor-pointer" style="accent-color:#f43f5e;">
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span class="text-[12px] text-neutral-400">From <span class="text-white font-medium">$1.0</span></span>
+                            <span class="text-[12px] text-neutral-400">From <span class="text-white font-medium">$100.0</span></span>
+                        </div>
+
+                        <p class="text-[12px] text-neutral-500 leading-relaxed border-t border-white/5 pt-3">
+                            You can adjust the slider from $1.0 to $100.0 to adjust the pricing of your itinerary and edit the price as per your choice. <span class="text-neutral-400">25.0% will go to the Recz</span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
     <script>
         /* ─── Create List: Privacy segmented control ─── */
         var CL_ACTIVE_STYLE = 'background:linear-gradient(135deg,rgba(244,63,94,0.25),rgba(219,39,119,0.2));border:1px solid rgba(244,63,94,0.3);color:#fff;';
@@ -6249,6 +6433,1221 @@
                 </button>
             </div>
 
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17c · tv shows — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17c. tv shows— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:tv-linear" class="text-[13px]"></iconify-icon> TV Shows <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Show Name <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:tv-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Enter show name" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Genre</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3 cursor-pointer" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:tag-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <span class="flex-1 text-[14px] text-neutral-600">Select genre</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="text-neutral-500 text-sm shrink-0"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="Share your TV show recommendation&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Photo</label>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                            <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[13px] font-semibold text-white">Upload Photo</p>
+                            <p class="text-[11px] text-neutral-500">Poster, still, or screenshot</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17d · food & drinks — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17d. food &amp; drinks— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:chef-hat-linear" class="text-[13px]"></iconify-icon> Food &amp; Drinks <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Name <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:chef-hat-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Restaurant or place name" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Type</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3 cursor-pointer" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:cup-hot-bold-duotone" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <span class="flex-1 text-[14px] text-neutral-600">Select type</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="text-neutral-500 text-sm shrink-0"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Dish</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:chef-hat-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Signature dish" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Cuisine</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:tea-cup-bold-duotone" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Cuisine" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="What should people try here?&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Photo</label>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                            <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[13px] font-semibold text-white">Upload Photo</p>
+                            <p class="text-[11px] text-neutral-500">Dish, menu, or venue shot</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17e · travel — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17e. travel— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-blue blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:plain-bold" class="text-[13px]"></iconify-icon> Travel <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Name <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:map-point-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Destination, city, or spot" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="What makes this place worth sharing?&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Media</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                                <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                            </div>
+                            <span class="text-[13px] font-semibold text-white">Upload Photo</span>
+                        </button>
+                        <button class="flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                                <iconify-icon icon="solar:videocamera-record-linear" class="text-rose-400 text-lg"></iconify-icon>
+                            </div>
+                            <span class="text-[13px] font-semibold text-white">Upload Video</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17f · health & wellness — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17f. health &amp; wellness— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:heart-pulse-linear" class="text-[13px]"></iconify-icon> Health &amp; Wellness <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Name <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:heart-pulse-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Service, program, or place" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Type</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3 cursor-pointer" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:list-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <span class="flex-1 text-[14px] text-neutral-600">Select type</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="text-neutral-500 text-sm shrink-0"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="Why would you recommend this?&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Photo</label>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                            <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[13px] font-semibold text-white">Upload Photo</p>
+                            <p class="text-[11px] text-neutral-500">Optional proof or snapshot</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17g · podcasts — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17g. podcasts— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:microphone-3-linear" class="text-[13px]"></iconify-icon> Podcasts <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Title <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:microphone-3-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Podcast title" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Artist</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:user-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Host or creator" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Description</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:file-text-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Short description" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Total Episodes</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:playlist-minimalistic-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Total episodes" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Enter Link</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:link-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Podcast URL" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="Why should people listen?&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Photo</label>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                            <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[13px] font-semibold text-white">Upload Photo</p>
+                            <p class="text-[11px] text-neutral-500">Cover art or related image</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17h · beauty & shopping — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17h. beauty &amp; shopping— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:bag-3-linear" class="text-[13px]"></iconify-icon> Beauty &amp; Shopping <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Title <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:bag-3-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Product title" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Type</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3 cursor-pointer" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:sort-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <span class="flex-1 text-[14px] text-neutral-600">Select type</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="text-neutral-500 text-sm shrink-0"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Price</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:dollar-minimalistic-bold" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Price" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Brand</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:buildings-2-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Brand" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Enter Link</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:link-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Product URL" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="Why do you love this item?&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Photo</label>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                            <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[13px] font-semibold text-white">Upload Photo</p>
+                            <p class="text-[11px] text-neutral-500">Product or beauty shot</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17i · books — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17i. books— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:book-2-linear" class="text-[13px]"></iconify-icon> Books <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Name <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:book-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Book name" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Author</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:user-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Author" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Type</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3 cursor-pointer" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:list-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <span class="flex-1 text-[14px] text-neutral-600">Select type</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="text-neutral-500 text-sm shrink-0"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="Share your book recommendation&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Photo</label>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                            <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[13px] font-semibold text-white">Upload Photo</p>
+                            <p class="text-[11px] text-neutral-500">Book cover or quote snapshot</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17j · recipes — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17j. recipes— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:chef-hat-linear" class="text-[13px]"></iconify-icon> Recipes <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Name <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:chef-hat-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Recipe name" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Cuisine</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:tea-cup-bold-duotone" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Cuisine" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Enter Link</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:link-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Enter link" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="Share your recipe recommendation&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Media</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                                <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                            </div>
+                            <span class="text-[13px] font-semibold text-white">Upload Photo</span>
+                        </button>
+                        <button class="flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                                <iconify-icon icon="solar:videocamera-record-linear" class="text-rose-400 text-lg"></iconify-icon>
+                            </div>
+                            <span class="text-[13px] font-semibold text-white">Upload Video</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17k · other — SHARE
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17k. other— Share</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+                <div class="flex p-1 rounded-[1.25rem] gap-1 mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-semibold flex items-center justify-center gap-1.5 transition-all"
+                        style="background:linear-gradient(135deg,#f43f5e,#db2777);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,0.35);">
+                        <iconify-icon icon="solar:share-bold" class="text-sm"></iconify-icon> Share
+                    </button>
+                    <button class="flex-1 py-2.5 rounded-[0.875rem] text-[13px] font-medium text-neutral-400 flex items-center justify-center gap-1.5 transition-all hover:text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-sm"></iconify-icon> Ask
+                    </button>
+                </div>
+
+                <div class="mb-5 p-4 rounded-2xl flex flex-col gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/100?img=68" class="w-10 h-10 rounded-full object-cover border-2 shrink-0" style="border-color:rgba(244,63,94,0.4);" alt="User">
+                        <div>
+                            <p class="text-[14px] font-semibold text-white leading-tight">Aboelkheir Mohamed</p>
+                            <p class="text-[11px] text-neutral-500 font-light">is recommending...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-white" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.25);">
+                            <iconify-icon icon="solar:box-minimalistic-linear" class="text-[13px]"></iconify-icon> Other <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                            <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Name <span class="text-rose-500">*</span></label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:box-minimalistic-linear" class="text-rose-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Name" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Enter Link</label>
+                    <div class="rounded-2xl flex items-center px-4 py-3.5 gap-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:link-linear" class="text-neutral-400 text-base shrink-0"></iconify-icon>
+                        <input type="text" placeholder="Enter link" class="flex-1 bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 font-medium">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="4" placeholder="Share your recommendation&#10;#reczit" class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Photo</label>
+                    <button class="w-full flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                            <iconify-icon icon="solar:camera-add-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[13px] font-semibold text-white">Upload Photo</p>
+                            <p class="text-[11px] text-neutral-500">Add a related image</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="mb-4 rounded-2xl px-4 py-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="solar:lock-keyhole-linear" class="text-neutral-300 text-base"></iconify-icon>
+                        <span class="text-[14px] font-semibold text-white">Lock List</span>
+                    </div>
+                    <div class="relative w-12 h-6 rounded-full" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.06);">
+                        <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm"></span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:verified-check-bold" class="text-lg"></iconify-icon>
+                    Rec'z it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         17l · check in
+    ══════════════════════════════ -->
+    <div class="flex flex-col items-center gap-5">
+        <span class="text-sm text-rose-500 font-normal tracking-tight uppercase">17l. check in</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color:#050505;">
+            <div class="notch z-50"></div>
+
+            <div class="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+            <div class="absolute bottom-1/3 left-[-60px] w-[200px] h-[200px] orb-purple blur-[80px] opacity-15 pointer-events-none"></div>
+
+            <div class="px-5 pt-14 pb-3 flex items-center justify-between z-40 border-b border-white/5" style="background:#050505;">
+                <img src="Recz Logo.svg" alt="Recz" class="w-8 h-8">
+                <button class="text-[14px] font-medium text-neutral-400 hover:text-white transition-colors px-2 py-1">Cancel</button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto hide-scrollbar pb-32 px-5 pt-5 relative z-10">
+
+                <div class="mb-5 rounded-2xl px-4 py-4 flex items-center gap-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="w-10 h-10 rounded-full bg-lime-600 flex items-center justify-center text-white text-[22px] font-medium shrink-0">A</div>
+                    <div class="flex-1">
+                        <p class="text-[14px] font-semibold text-white leading-snug">
+                            Aboelkheir Mohamed <span class="font-normal text-neutral-400">check-in at</span>
+                            <iconify-icon icon="solar:map-point-bold" class="text-rose-400 text-[14px] align-middle"></iconify-icon>
+                            <span class="font-normal text-neutral-300">Egypt</span>
+                        </p>
+                        <div class="mt-3 flex items-center gap-2 flex-wrap">
+                            <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-neutral-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                                <iconify-icon icon="solar:earth-linear" class="text-[11px] text-neutral-400"></iconify-icon> Public <iconify-icon icon="solar:alt-arrow-down-linear" class="text-[9px] text-neutral-400"></iconify-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-5 rounded-2xl px-5 py-5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.18);">
+                            <iconify-icon icon="solar:map-point-wave-linear" class="text-rose-400 text-lg"></iconify-icon>
+                        </div>
+                        <div>
+                            <p class="text-[15px] font-semibold text-white mb-1">Egypt</p>
+                            <p class="text-[12px] text-neutral-500">City</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3 flex items-center justify-between">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest">Tag People</label>
+                    <button class="text-[12px] font-semibold text-rose-400 uppercase tracking-wide">View All</button>
+                </div>
+
+                <div class="mb-8 rounded-2xl p-4 flex items-center justify-between" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                            <iconify-icon icon="solar:user-plus-rounded-linear" class="text-[24px] text-white"></iconify-icon>
+                        </div>
+                        <div>
+                            <p class="text-[13px] font-semibold text-white">Tag People</p>
+                            <p class="text-[11px] text-neutral-500">Add friends to this check-in</p>
+                        </div>
+                    </div>
+                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-500 text-sm"></iconify-icon>
+                </div>
+
+                <div class="mb-5">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Your Recommendation</label>
+                    <div class="rounded-2xl px-4 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <textarea rows="5" placeholder="Type here..." class="w-full bg-transparent text-[14px] text-white outline-none placeholder:text-neutral-600 resize-none leading-relaxed font-light"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Media</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                                <iconify-icon icon="solar:gallery-bold" class="text-rose-400 text-lg"></iconify-icon>
+                            </div>
+                            <span class="text-[13px] font-semibold text-white">Upload Photo</span>
+                        </button>
+                        <button class="flex items-center justify-center gap-3 py-4 rounded-2xl transition-all hover:border-rose-500/40" style="background:rgba(255,255,255,0.03);border:1.5px dashed rgba(255,255,255,0.12);">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);">
+                                <iconify-icon icon="solar:videocamera-record-bold" class="text-rose-400 text-lg"></iconify-icon>
+                            </div>
+                            <span class="text-[13px] font-semibold text-white">Upload Video</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest mb-3 block">Rate Your Recommendation</label>
+                    <div class="flex items-center justify-between px-4 py-3.5 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                        <iconify-icon icon="solar:star-outline" class="text-neutral-500 text-[28px]"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-8 pt-4 z-40" style="background:linear-gradient(to top, #050505 70%, transparent);">
+                <button class="w-full py-4 rounded-2xl text-[15px] font-bold text-white flex items-center justify-center gap-2 transition-transform hover:scale-[0.98] active:scale-95"
+                    style="background:linear-gradient(135deg,#f43f5e,#db2777);box-shadow:0 8px 28px rgba(244,63,94,0.45);border:1px solid rgba(255,255,255,0.15);">
+                    <iconify-icon icon="solar:map-point-bold" class="text-lg"></iconify-icon>
+                    Check In
+                </button>
+            </div>
         </div>
     </div>
 
