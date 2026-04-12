@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile – Light &amp; Dark</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #0d0d0d;
+      margin: 0;
+      padding: 48px 32px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 56px;
+      min-height: 100vh;
+    }
+
+    ::-webkit-scrollbar { display: none; }
+
+    /* ── SHARED ── */
+    .bg-gradient-accent { background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%); }
+    .text-gradient {
+      background: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── IPHONE FRAME ── */
+    .iphone-frame {
+      width: 375px;
+      height: 812px;
+      border-radius: 3.5rem;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .iphone-frame-light {
+      border: 6px solid #e0dcd3;
+      background: #f6f2eb;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+    .iphone-frame-dark {
+      border: 6px solid #1c1c1e;
+      background: #030303;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+    }
+
+    /* ── NOTCH ── */
+    .notch {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 126px; height: 30px;
+      border-radius: 0 0 1.2rem 1.2rem;
+      z-index: 50;
+    }
+    .notch-light { background: #e0dcd3; }
+    .notch-dark  { background: #1c1c1e; }
+
+    /* ── SCREEN SCROLL ── */
+    .screen {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+    }
+
+    /* ── LIGHT GLASS ── */
+    .lt .apple-glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.45) 100%);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      border: 1px solid rgba(255,255,255,0.55);
+      border-top-color: rgba(255,255,255,0.85);
+      box-shadow: 0 24px 48px -12px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.95);
+    }
+    .lt .apple-glass-light {
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-top-color: rgba(255,255,255,0.9);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+    .lt .apple-input {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .lt .apple-input:focus-within {
+      background: rgba(255,255,255,0.8);
+      border-color: rgba(244,63,94,0.4);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.08), 0 0 0 2px rgba(244,63,94,0.15);
+    }
+    .lt .sticky-blur {
+      background: rgba(246,242,235,0.85);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .lt .glass-panel {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .lt .orb-rose {
+      background: radial-gradient(circle, rgba(244,63,94,0.3) 0%, transparent 70%);
+    }
+    .lt .orb-purple {
+      background: radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%);
+    }
+    .lt .screen-bg { background: #f6f2eb; }
+    .lt .heading-color { color: #1a1a1a; }
+    .lt .label-color { color: #525252; }
+    .lt .placeholder-color { color: #a3a3a3; }
+    .lt .input-text { color: #262626; }
+    .lt .muted-text { color: #737373; }
+    .lt .divider { background: rgba(0,0,0,0.08); }
+    .lt .toggle-off { background: rgba(0,0,0,0.12); }
+    .lt .select-arrow { color: #737373; }
+
+    /* ── DARK GLASS ── */
+    .dt .apple-glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top-color: rgba(255,255,255,0.2);
+      box-shadow: 0 24px 48px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .dt .apple-glass-light {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top-color: rgba(255,255,255,0.12);
+    }
+    .dt .apple-input {
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .dt .apple-input:focus-within {
+      background: rgba(0,0,0,0.3);
+      border-color: rgba(244,63,94,0.4);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.5), 0 0 0 2px rgba(244,63,94,0.1);
+    }
+    .dt .sticky-blur {
+      background: rgba(5,5,5,0.65);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dt .glass-panel {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .dt .orb-rose {
+      background: radial-gradient(circle, rgba(244,63,94,0.3) 0%, transparent 70%);
+    }
+    .dt .orb-purple {
+      background: radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%);
+    }
+    .dt .screen-bg { background: #030303; }
+    .dt .heading-color { color: #ffffff; }
+    .dt .label-color { color: #a3a3a3; }
+    .dt .placeholder-color { color: #737373; }
+    .dt .input-text { color: #e5e5e5; }
+    .dt .muted-text { color: #737373; }
+    .dt .divider { background: rgba(255,255,255,0.06); }
+    .dt .toggle-off { background: rgba(255,255,255,0.12); }
+    .dt .select-arrow { color: #a3a3a3; }
+
+    /* ── INPUTS ── */
+    .field-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .lt .field-input { color: #262626; }
+    .lt .field-input::placeholder { color: #a3a3a3; }
+    .dt .field-input { color: #e5e5e5; }
+    .dt .field-input::placeholder { color: #737373; }
+
+    .field-select {
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+    .lt .field-select { color: #262626; }
+    .dt .field-select { color: #e5e5e5; }
+    .dt .field-select option { background: #1c1c1e; color: #e5e5e5; }
+    .lt .field-select option { background: #ffffff; color: #262626; }
+
+    .field-textarea {
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      resize: none;
+    }
+    .lt .field-textarea { color: #262626; }
+    .lt .field-textarea::placeholder { color: #a3a3a3; }
+    .dt .field-textarea { color: #e5e5e5; }
+    .dt .field-textarea::placeholder { color: #737373; }
+
+    /* ── TOGGLE ── */
+    .toggle-track {
+      width: 44px; height: 26px;
+      border-radius: 13px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+    .toggle-thumb {
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .toggle-on .toggle-thumb { transform: translateX(18px); }
+
+    /* ── COLUMN LABEL ── */
+    .col-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LIGHT MODE COLUMN
+  ═══════════════════════════════════════════════════════ -->
+  <div>
+    <div class="col-label">☀️ Light Mode</div>
+    <div class="iphone-frame iphone-frame-light lt">
+      <div class="notch notch-light"></div>
+
+      <!-- Ambient Orbs -->
+      <div class="orb-rose" style="position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:0.7;"></div>
+      <div class="orb-purple" style="position:absolute;bottom:-60px;left:-60px;width:260px;height:260px;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:0.7;"></div>
+
+      <div class="screen screen-bg" style="padding-top:36px;">
+
+        <!-- STICKY HEADER -->
+        <div class="sticky-blur" style="position:sticky;top:0;z-index:40;padding:12px 20px 12px;display:flex;align-items:center;justify-content:space-between;">
+          <button class="apple-glass-light" style="width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;">
+            <iconify-icon icon="mdi:chevron-left" style="font-size:20px;color:#f43f5e;"></iconify-icon>
+          </button>
+          <span class="heading-color" style="font-size:16px;font-weight:600;letter-spacing:0.01em;">Edit Profile</span>
+          <div style="width:36px;"></div>
+        </div>
+
+        <div style="padding:20px 20px 32px;">
+
+          <!-- AVATAR SECTION -->
+          <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:24px;">
+            <div style="position:relative;margin-bottom:12px;">
+              <div class="bg-gradient-accent" style="width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(244,63,94,0.4);">
+                <span style="color:white;font-size:2rem;font-weight:700;">A</span>
+              </div>
+              <button class="apple-glass-light" style="position:absolute;bottom:2px;right:2px;width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;">
+                <iconify-icon icon="mdi:camera" style="font-size:14px;color:#f43f5e;"></iconify-icon>
+              </button>
+            </div>
+            <span style="font-size:13px;font-weight:500;color:#f43f5e;cursor:pointer;margin-bottom:4px;">Change Profile Photo</span>
+            <span class="muted-text" style="font-size:12px;">aboelkheir@email.com</span>
+          </div>
+
+          <!-- FORM CARD 1 -->
+          <div class="apple-glass" style="border-radius:2rem;padding:20px;margin-bottom:16px;">
+
+            <!-- First Name -->
+            <div style="margin-bottom:14px;">
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">First Name <span style="color:#f43f5e;">*</span></label>
+              <div class="apple-input" style="border-radius:1rem;padding:12px 14px;">
+                <input class="field-input" type="text" value="Aboelkheir">
+              </div>
+            </div>
+
+            <!-- Last Name -->
+            <div style="margin-bottom:14px;">
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">Last Name <span style="color:#f43f5e;">*</span></label>
+              <div class="apple-input" style="border-radius:1rem;padding:12px 14px;">
+                <input class="field-input" type="text" value="Mohamed">
+              </div>
+            </div>
+
+            <!-- Username -->
+            <div style="margin-bottom:14px;">
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">Username <span style="color:#f43f5e;">*</span></label>
+              <div class="apple-input" style="border-radius:1rem;padding:12px 14px;display:flex;align-items:center;gap:8px;">
+                <span style="color:#f43f5e;font-size:15px;font-weight:600;line-height:1;">@</span>
+                <input class="field-input" type="text" value="aboelkheir_m">
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">Phone</label>
+              <div class="apple-input" style="border-radius:1rem;padding:12px 14px;">
+                <input class="field-input" type="tel" placeholder="+1 (000) 000-0000">
+              </div>
+            </div>
+          </div>
+
+          <!-- DIVIDER -->
+          <div class="divider" style="height:1px;margin:0 8px 16px;"></div>
+
+          <!-- PRIVACY TOGGLE -->
+          <div class="apple-glass-light" style="border-radius:1.5rem;padding:16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div style="flex:1;">
+              <div class="heading-color" style="font-size:14px;font-weight:500;margin-bottom:3px;">Make Profile Private</div>
+              <div class="muted-text" style="font-size:11px;line-height:1.4;">Only approved followers can see your content</div>
+            </div>
+            <div class="toggle-track bg-gradient-accent toggle-on">
+              <div class="toggle-thumb"></div>
+            </div>
+          </div>
+
+          <!-- FORM CARD 2 -->
+          <div class="apple-glass" style="border-radius:2rem;padding:20px;margin-bottom:20px;">
+
+            <!-- Gender -->
+            <div style="margin-bottom:14px;">
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">Gender <span style="color:#f43f5e;">*</span></label>
+              <div class="apple-input" style="border-radius:1rem;padding:12px 14px;display:flex;align-items:center;">
+                <select class="field-select" style="flex:1;">
+                  <option selected>Woman</option>
+                  <option>Man</option>
+                  <option>Non-binary</option>
+                  <option>Prefer not to say</option>
+                  <option>Prefer to self-describe</option>
+                </select>
+                <iconify-icon icon="mdi:chevron-down" class="select-arrow" style="font-size:16px;pointer-events:none;flex-shrink:0;"></iconify-icon>
+              </div>
+            </div>
+
+            <!-- Date of Birth -->
+            <div style="margin-bottom:14px;">
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">Date of Birth <span style="color:#f43f5e;">*</span></label>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;">
+                <div class="apple-input" style="border-radius:1rem;padding:12px 10px;">
+                  <input class="field-input" type="text" placeholder="DD" style="text-align:center;">
+                </div>
+                <div class="apple-input" style="border-radius:1rem;padding:12px 10px;">
+                  <input class="field-input" type="text" placeholder="MM" style="text-align:center;">
+                </div>
+                <div class="apple-input" style="border-radius:1rem;padding:12px 10px;">
+                  <input class="field-input" type="text" placeholder="YYYY" style="text-align:center;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div style="margin-bottom:14px;">
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">Location <span style="color:#f43f5e;">*</span></label>
+              <div class="apple-input" style="border-radius:1rem;padding:12px 14px;display:flex;align-items:center;gap:8px;">
+                <iconify-icon icon="mdi:map-marker" style="font-size:16px;color:#f43f5e;flex-shrink:0;"></iconify-icon>
+                <input class="field-input" type="text" value="Aurora, United States">
+              </div>
+            </div>
+
+            <!-- Bio -->
+            <div>
+              <label class="label-color" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:6px;">Anything that best describes you</label>
+              <div class="apple-input" style="border-radius:1rem;padding:12px 14px;">
+                <textarea class="field-textarea" rows="4" placeholder="Tell the world about yourself..."></textarea>
+                <div style="text-align:right;margin-top:4px;">
+                  <span class="muted-text" style="font-size:10px;">0 / 150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUBMIT BUTTON -->
+          <button class="bg-gradient-accent" style="width:100%;border:none;border-radius:1rem;padding:16px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.12em;color:white;box-shadow:0 6px 20px -4px rgba(244,63,94,0.4);transition:transform 0.2s,box-shadow 0.2s;">
+            SUBMIT
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
