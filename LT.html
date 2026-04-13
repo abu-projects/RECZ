@@ -10,6 +10,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+        :root {
+            --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        .bg-\[\#f3f3f3\], [style*="background-color: #f3f3f3"], [style*="background:#f3f3f3"] {
+            background-image: var(--noise-bg) !important;
+        }
+
         /* Typography & Resets */
         body {
             font-family: 'Poppins', sans-serif;
@@ -23,7 +31,7 @@
 
         /* Apple Liquid Glass Fundamentals - Light Theme */
         .apple-glass {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
+            background: var(--noise-bg), linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
             backdrop-filter: blur(40px) saturate(200%);
             -webkit-backdrop-filter: blur(40px) saturate(200%);
             border: 1px solid rgba(255, 255, 255, 0.55);
@@ -36,7 +44,8 @@
         }
 
         .apple-glass-light {
-            background: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.5);
+            background-image: var(--noise-bg);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.7);
@@ -46,7 +55,8 @@
 
         /* Deep inner glass for inputs to create depth */
         .apple-input {
-            background: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.6);
+            background-image: var(--noise-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(0, 0, 0, 0.08);
@@ -55,13 +65,15 @@
         }
 
         .apple-input:focus-within {
-            background: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.8);
+            background-image: var(--noise-bg);
             border-color: rgba(244, 63, 94, 0.4);
             box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(244, 63, 94, 0.15);
         }
 
         .sticky-blur {
-            background: rgba(243, 243, 243, 0.85);
+            background-color: rgba(243, 243, 243, 0.85);
+            background-image: var(--noise-bg);
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -78,6 +90,7 @@
 
         .text-gradient {
             background: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -96,6 +109,7 @@
             overflow: hidden;
             position: relative;
             background-color: #f3f3f3;
+            background-image: var(--noise-bg);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
         }
 
@@ -159,6 +173,7 @@
 
         .glass-panel {
             background-color: rgba(255, 255, 255, 0.7);
+            background-image: var(--noise-bg);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -166,7 +181,7 @@
         }
 
         .glass-nav {
-            background: linear-gradient(180deg, rgba(243, 243, 243, 0.95) 0%, rgba(243, 243, 243, 0) 100%);
+            background: var(--noise-bg), linear-gradient(180deg, rgba(243, 243, 243, 0.95) 0%, rgba(243, 243, 243, 0) 100%);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -3259,7 +3274,7 @@
                     <!-- Match label -->
                     <div class="flex flex-col items-center gap-1 mt-1 mb-5 px-6">
                         <p class="text-[11px] font-medium tracking-widest uppercase"
-                            style="background:linear-gradient(90deg,#f43f5e,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+                            style="background:linear-gradient(90deg,#f43f5e,#a855f7);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
                             Strong match for your vibe</p>
                         <p class="text-[10px] text-neutral-500">High alignment across taste, mood &amp; places</p>
                     </div>
@@ -7947,7 +7962,7 @@ wishlist
                         <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.18);">
                             <iconify-icon icon="solar:buildings-2-linear" class="text-rose-400 text-base"></iconify-icon>
                         </div>
-                        <span class="flex-1 text-left text-[14px] font-semibold" style="background:linear-gradient(135deg,#f43f5e,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Switch to Business Profile</span>
+                        <span class="flex-1 text-left text-[14px] font-semibold" style="background:linear-gradient(135deg,#f43f5e,#fb923c);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Switch to Business Profile</span>
                         <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-600 text-sm shrink-0"></iconify-icon>
                     </button>
 

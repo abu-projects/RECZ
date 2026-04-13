@@ -71,16 +71,21 @@
     }
 
     /* ── LIGHT MODE (like LT.html) ── */
+    :root {
+      --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
     .lt.iphone-frame {
       border: 6px solid #e0dcd3;
       background-color: #f3f3f3;
+      background-image: var(--noise-bg);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
       color: #1a1a1a;
     }
     .lt .notch { background-color: #e0dcd3; }
     
     .lt .apple-glass {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
+      background: var(--noise-bg), linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
       backdrop-filter: blur(40px) saturate(200%);
       -webkit-backdrop-filter: blur(40px) saturate(200%);
       border: 1px solid rgba(255, 255, 255, 0.55);
@@ -94,7 +99,8 @@
     }
 
     .lt .sticky-blur {
-      background: rgba(243, 243, 243, 0.85);
+      background-color: rgba(243, 243, 243, 0.85);
+      background-image: var(--noise-bg);
       backdrop-filter: blur(32px);
       -webkit-backdrop-filter: blur(32px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
