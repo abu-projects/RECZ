@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recz - Create Modal Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d0d;
+            color: #e5e5e5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Common Elements */
+        .bg-gradient-accent {
+            background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sel-card {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Dark Theme Scoped Styles */
+        .theme-dark .iphone-frame {
+            width: 375px;
+            height: 812px;
+            border-radius: 3.5rem;
+            border: 6px solid #1c1c1e;
+            overflow: hidden;
+            position: relative;
+            background-color: #050505;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+        }
+
+        .theme-dark .apple-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .theme-dark .apple-glass-light {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .theme-dark .sticky-blur {
+            background: rgba(5, 5, 5, 0.65);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+        }
+
+        /* Bottom Sheet Styles */
+        .bottom-sheet-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+        }
+
+        .bottom-sheet {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top-left-radius: 2.5rem;
+            border-top-right-radius: 2.5rem;
+            padding: 1.5rem 1.25rem 2.5rem;
+            z-index: 101;
+            transform: translateY(0);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .theme-dark .bottom-sheet {
+            background-color: #121212;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-light .bottom-sheet {
+            background-color: #ffffff;
+            background-image: var(--noise-bg);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .drag-handle {
+            width: 40px;
+            height: 4px;
+            border-radius: 2px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .theme-dark .drag-handle { background-color: rgba(255, 255, 255, 0.15); }
+        .theme-light .drag-handle { background-color: rgba(0, 0, 0, 0.1); }
+
+        /* Modal Items */
+        .modal-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 1.25rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+        }
+
+        .theme-dark .modal-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .theme-light .modal-item {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .modal-item:hover {
+            transform: scale(0.99);
+        }
+
+        .theme-dark .modal-item:hover { background: rgba(255, 255, 255, 0.08); }
+        .theme-light .modal-item:hover { background: rgba(0, 0, 0, 0.06); }
+
+        .item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-dark .item-icon { background: rgba(255, 255, 255, 0.08); }
+        .theme-light .item-icon { background: rgba(255, 255, 255, 0.8); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+        /* Light Theme Phone */
+        .theme-light .iphone-frame {
+            width: 375px;
+            height: 812px;
+            border-radius: 3.5rem;
+            border: 6px solid #d8d8d8;
+            overflow: hidden;
+            position: relative;
+            background-color: #f3f3f3;
+            background-image: var(--noise-bg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-light .apple-glass {
+            background: var(--noise-bg), linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+        }
+
+        .theme-light .sticky-blur {
+            background-color: rgba(243, 243, 243, 0.85);
+            background-image: var(--noise-bg);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+        }
+
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 32px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 50;
+        }
+
+        .theme-dark .notch { background-color: #1c1c1e; }
+        .theme-light .notch { background-color: #d8d8d8; }
+
+        .screens-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .screen-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pt-16 px-6 text-center">
+        <h1 class="text-4xl font-normal text-white mb-2">Create Modal</h1>
+        <p class="text-neutral-500 font-light">Custom Action Sheet Style (Light & Dark)</p>
+    </div>
+
+    <div class="screens-container">
+
+        <!-- DARK THEME -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">Dark Modal</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden">
+                <div class="notch z-50"></div>
+
+                <!-- Background Content (Create Screen) -->
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-white/5 flex justify-between items-center opacity-40">
+                    <h1 class="text-2xl tracking-tight font-medium text-white">Create</h1>
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-white shadow-sm">
+                        <iconify-icon icon="solar:close-circle-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto px-5 pt-6 opacity-40">
+                    <h2 class="text-lg text-white font-medium mb-1">What do you want to create?</h2>
+                    <div class="grid grid-cols-2 gap-3 mt-4">
+                        <div class="apple-glass-light rounded-[1.5rem] aspect-square"></div>
+                        <div class="apple-glass-light rounded-[1.5rem] aspect-square"></div>
+                    </div>
+                </div>
+
+                <!-- Modal Overlay -->
+                <div class="bottom-sheet-overlay"></div>
+
+                <!-- Bottom Sheet -->
+                <div class="bottom-sheet">
+                    <div class="drag-handle"></div>
+                    <h3 class="text-center text-lg font-medium text-white mb-6">Select Source</h3>
+
+                    <div class="modal-list">
+                        <div class="modal-item">
+                            <div class="item-icon">
+                                <iconify-icon icon="solar:camera-bold" class="text-2xl text-rose-500"></iconify-icon>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-base text-white font-medium">Camera</p>
+                                <p class="text-[11px] text-neutral-500 font-light">Take a fresh photo or video</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-600"></iconify-icon>
+                        </div>
+
+                        <div class="modal-item">
+                            <div class="item-icon">
+                                <iconify-icon icon="solar:gallery-bold" class="text-2xl text-rose-500"></iconify-icon>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-base text-white font-medium">Gallery</p>
+                                <p class="text-[11px] text-neutral-500 font-light">Choose from your library</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-600"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <button class="w-full py-4 mt-2 rounded-[1.5rem] bg-white/5 border border-white/10 text-rose-500 font-medium hover:bg-white/10 transition-colors">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIGHT THEME -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-500 font-normal tracking-tight uppercase">Light Modal</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden">
+                <div class="notch z-50"></div>
+
+                <!-- Background Content (Create Screen) -->
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-black/8 flex justify-between items-center opacity-40">
+                    <h1 class="text-2xl tracking-tight font-medium text-neutral-900">Create</h1>
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-neutral-900 shadow-sm">
+                        <iconify-icon icon="solar:close-circle-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto px-5 pt-6 opacity-40">
+                    <h2 class="text-lg text-neutral-900 font-medium mb-1">What do you want to create?</h2>
+                    <div class="grid grid-cols-2 gap-3 mt-4">
+                        <div class="apple-glass-light rounded-[1.5rem] aspect-square"></div>
+                        <div class="apple-glass-light rounded-[1.5rem] aspect-square"></div>
+                    </div>
+                </div>
+
+                <!-- Modal Overlay -->
+                <div class="bottom-sheet-overlay" style="background: rgba(0,0,0,0.15);"></div>
+
+                <!-- Bottom Sheet -->
+                <div class="bottom-sheet">
+                    <div class="drag-handle"></div>
+                    <h3 class="text-center text-lg font-medium text-neutral-900 mb-6">Select Source</h3>
+
+                    <div class="modal-list">
+                        <div class="modal-item">
+                            <div class="item-icon">
+                                <iconify-icon icon="solar:camera-bold" class="text-2xl text-rose-500"></iconify-icon>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-base text-neutral-900 font-medium">Camera</p>
+                                <p class="text-[11px] text-neutral-400 font-light">Take a fresh photo or video</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-300"></iconify-icon>
+                        </div>
+
+                        <div class="modal-item">
+                            <div class="item-icon">
+                                <iconify-icon icon="solar:gallery-bold" class="text-2xl text-rose-500"></iconify-icon>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-base text-neutral-900 font-medium">Gallery</p>
+                                <p class="text-[11px] text-neutral-400 font-light">Choose from your library</p>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-300"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <button class="w-full py-4 mt-2 rounded-[1.5rem] bg-black/5 border border-black/5 text-rose-500 font-medium hover:bg-black/10 transition-colors">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
