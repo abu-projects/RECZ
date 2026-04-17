@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recz - Create Screens Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d0d;
+            color: #e5e5e5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Common Elements */
+        .bg-gradient-accent {
+            background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 24px rgba(244, 63, 94, 0.4);
+        }
+
+        .sel-card {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-fade-up-delay {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Dark Theme Scoped Styles */
+        .theme-dark .iphone-frame {
+            width: 375px;
+            min-height: 812px;
+            height: max-content;
+            border-radius: 3.5rem;
+            border: 6px solid #1c1c1e;
+            overflow: hidden;
+            position: relative;
+            background-color: #050505;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+        }
+
+        .theme-dark .apple-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-color: rgba(255, 255, 255, 0.2);
+            border-left-color: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-dark .apple-glass-light {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-top-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .theme-dark .sticky-blur {
+            background: rgba(5, 5, 5, 0.65);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .theme-dark .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 32px;
+            background-color: #1c1c1e;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 50;
+        }
+
+        /* Light Theme Scoped Styles */
+        .theme-light .iphone-frame {
+            width: 375px;
+            min-height: 812px;
+            height: max-content;
+            border-radius: 3.5rem;
+            border: 6px solid #d8d8d8;
+            overflow: hidden;
+            position: relative;
+            background-color: #f3f3f3;
+            background-image: var(--noise-bg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .theme-light .apple-glass {
+            background: var(--noise-bg), linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-top-color: rgba(255, 255, 255, 0.85);
+            border-left-color: rgba(255, 255, 255, 0.65);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                        inset 0 -1px 0 rgba(0, 0, 0, 0.04),
+                        0 8px 32px rgba(244, 63, 94, 0.06);
+        }
+
+        .theme-light .apple-glass-light {
+            background-color: rgba(255, 255, 255, 0.5);
+            background-image: var(--noise-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-top-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .theme-light .sticky-blur {
+            background-color: rgba(243, 243, 243, 0.85);
+            background-image: var(--noise-bg);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .theme-light .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 32px;
+            background-color: #d8d8d8;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 50;
+        }
+
+        /* Ambient Orbs */
+        .orb-rose {
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .orb-purple {
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        /* Layout styles */
+        .screens-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .screen-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .screen-label {
+            font-size: 0.875rem;
+            color: #737373;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pt-16 px-6 text-center">
+        <h1 class="text-4xl font-normal text-white mb-2">Create Screens</h1>
+        <p class="text-neutral-500 font-light">Dark (rt.html) & Light (lt.html) comparison</p>
+    </div>
+
+    <div class="screens-container">
+
+        <!-- DARK THEME (rt.html) -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">12. Create</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden">
+                <div class="notch z-50"></div>
+
+                <!-- Ambient Background Gradients -->
+                <div class="absolute top-[-50px] right-[-50px] w-[250px] h-[250px] orb-rose blur-[100px] opacity-20 pointer-events-none"></div>
+                <div class="absolute bottom-1/4 left-[-100px] w-[300px] h-[300px] orb-purple blur-[120px] opacity-15 pointer-events-none"></div>
+
+                <!-- Header -->
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-white/5 flex justify-between items-center">
+                    <h1 class="text-2xl tracking-tight font-medium text-white">Create</h1>
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-white hover:bg-white/10 transition-colors shadow-sm">
+                        <iconify-icon icon="solar:close-circle-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-10 relative z-10 hide-scrollbar px-5 pt-6">
+                    <div class="mb-8 animate-fade-up">
+                        <h2 class="text-lg text-white font-medium mb-1">What do you want to create?</h2>
+                        <p class="text-xs text-neutral-400 font-light mb-4">Create something new</p>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-rose-500/10 group cursor-pointer border border-white/10 hover:border-rose-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:videocamera-record-bold" class="text-2xl text-rose-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-white">Reel / Video</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-orange-500/10 group cursor-pointer border border-white/10 hover:border-orange-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500/20 to-rose-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:map-point-bold" class="text-2xl text-orange-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-white">Check-in</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-blue-500/10 group cursor-pointer border border-white/10 hover:border-blue-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:link-circle-bold" class="text-2xl text-blue-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-white">Chain</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-purple-500/10 group cursor-pointer border border-white/10 hover:border-purple-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:users-group-rounded-bold" class="text-2xl text-purple-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-white">Buddy</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-red-500/10 group cursor-pointer border border-white/10 hover:border-red-400/30 col-span-2 aspect-auto py-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500/20 to-rose-600/20 flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                                        <iconify-icon icon="solar:record-circle-bold" class="text-2xl text-red-500 animate-pulse"></iconify-icon>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-medium text-white">Live Video</span>
+                                        <span class="text-xs font-light text-neutral-400">Go live with your buddies</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 animate-fade-up-delay">
+                        <h2 class="text-lg text-white font-medium mb-1">Create a collection <span class="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 align-middle tracking-wider font-semibold">NEW</span></h2>
+                        <p class="text-xs text-neutral-400 font-light mb-4">Organize your ideas, places, and experiences</p>
+
+                        <div class="flex flex-col gap-3">
+                            <div class="apple-glass rounded-2xl p-4 flex items-center gap-4 cursor-pointer group hover:bg-white/5 border border-white/10 transition-all shadow-md hover:border-white/20">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-rose-500/30 transition-colors">
+                                    <iconify-icon icon="solar:list-bold" class="text-2xl text-white group-hover:text-rose-400 transition-colors"></iconify-icon>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-base text-white font-medium mb-0.5">Create List</p>
+                                    <p class="text-xs text-neutral-400 font-light line-clamp-1">Save and group your favorite spots</p>
+                                </div>
+                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-xl text-neutral-500 group-hover:text-white transition-colors"></iconify-icon>
+                            </div>
+
+                            <div class="apple-glass rounded-2xl p-4 flex items-center gap-4 cursor-pointer group hover:bg-white/5 border border-white/10 transition-all shadow-md hover:border-white/20">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-rose-500/30 transition-colors">
+                                    <iconify-icon icon="solar:map-arrow-up-bold" class="text-2xl text-white group-hover:text-rose-400 transition-colors"></iconify-icon>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-base text-white font-medium mb-0.5">Itinerary</p>
+                                    <p class="text-xs text-neutral-400 font-light line-clamp-1">Plan trips and organize your journey</p>
+                                </div>
+                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-xl text-neutral-500 group-hover:text-white transition-colors"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIGHT THEME (LT.html) -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-500 font-normal tracking-tight uppercase">12. Create</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden">
+                <div class="notch z-50"></div>
+
+                <!-- Ambient Background Gradients -->
+                <div class="absolute top-[-50px] right-[-50px] w-[250px] h-[250px] orb-rose blur-[100px] opacity-20 pointer-events-none"></div>
+                <div class="absolute bottom-1/4 left-[-100px] w-[300px] h-[300px] orb-purple blur-[120px] opacity-15 pointer-events-none"></div>
+
+                <!-- Header -->
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-black/8 flex justify-between items-center">
+                    <h1 class="text-2xl tracking-tight font-medium text-neutral-900">Create</h1>
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-neutral-900 hover:bg-white/70 transition-colors shadow-sm">
+                        <iconify-icon icon="solar:close-circle-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-10 relative z-10 hide-scrollbar px-5 pt-6">
+                    <div class="mb-8 animate-fade-up">
+                        <h2 class="text-lg text-neutral-900 font-medium mb-1">What do you want to create?</h2>
+                        <p class="text-xs text-neutral-400 font-light mb-4">Create something new</p>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-rose-500/10 group cursor-pointer border border-black/10 hover:border-rose-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:videocamera-record-bold" class="text-2xl text-rose-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-neutral-900">Reel / Video</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-orange-500/10 group cursor-pointer border border-black/10 hover:border-orange-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500/20 to-rose-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:map-point-bold" class="text-2xl text-orange-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-neutral-900">Check-in</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-blue-500/10 group cursor-pointer border border-black/10 hover:border-blue-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:link-circle-bold" class="text-2xl text-blue-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-neutral-900">Chain</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-purple-500/10 group cursor-pointer border border-black/10 hover:border-purple-400/30">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:users-group-rounded-bold" class="text-2xl text-purple-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-neutral-900">Buddy</span>
+                            </div>
+
+                            <div class="apple-glass-light sel-card rounded-[1.5rem] p-5 flex flex-col items-center justify-center gap-3 aspect-square shadow-lg hover:shadow-red-500/10 group cursor-pointer border border-black/10 hover:border-red-400/30 col-span-2 aspect-auto py-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500/20 to-rose-600/20 flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                                        <iconify-icon icon="solar:record-circle-bold" class="text-2xl text-red-500 animate-pulse"></iconify-icon>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-medium text-neutral-900">Live Video</span>
+                                        <span class="text-xs font-light text-neutral-400">Go live with your buddies</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 animate-fade-up-delay">
+                        <h2 class="text-lg text-neutral-900 font-medium mb-1">Create a collection <span class="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 align-middle tracking-wider font-semibold">NEW</span></h2>
+                        <p class="text-xs text-neutral-400 font-light mb-4">Organize your ideas, places, and experiences</p>
+
+                        <div class="flex flex-col gap-3">
+                            <div class="apple-glass rounded-2xl p-4 flex items-center gap-4 cursor-pointer group hover:bg-white/70 border border-black/10 transition-all shadow-md hover:border-white/20">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors" style="background: rgba(244,63,94,0.12); border: 1px solid rgba(244,63,94,0.25);">
+                                    <iconify-icon icon="solar:list-bold" class="text-2xl text-rose-400"></iconify-icon>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-base text-neutral-900 font-medium mb-0.5">Create List</p>
+                                    <p class="text-xs text-neutral-400 font-light line-clamp-1">Save and group your favorite spots</p>
+                                </div>
+                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-xl text-neutral-500 group-hover:text-neutral-900 transition-colors"></iconify-icon>
+                            </div>
+
+                            <div class="apple-glass rounded-2xl p-4 flex items-center gap-4 cursor-pointer group hover:bg-white/70 border border-black/10 transition-all shadow-md hover:border-white/20">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors" style="background: rgba(244,63,94,0.12); border: 1px solid rgba(244,63,94,0.25);">
+                                    <iconify-icon icon="solar:map-arrow-up-bold" class="text-2xl text-rose-400"></iconify-icon>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-base text-neutral-900 font-medium mb-0.5">Itinerary</p>
+                                    <p class="text-xs text-neutral-400 font-light line-clamp-1">Plan trips and organize your journey</p>
+                                </div>
+                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-xl text-neutral-500 group-hover:text-neutral-900 transition-colors"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
