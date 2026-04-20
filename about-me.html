@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recz - About Me Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+    <style>
+        /* ========================================
+           FONTS & BASE STYLES
+           ======================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        /* ========================================
+           BODY & SCROLLBAR
+           ======================================== */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d0d;
+            color: #e5e5e5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ========================================
+           COMMON UTILITY CLASSES
+           ======================================== */
+        .bg-gradient-accent {
+            background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 24px rgba(244, 63, 94, 0.4);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-fade-up-delay {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ========================================
+           DARK THEME STYLES
+           ======================================== */
+        .theme-dark .iphone-frame {
+            width: 375px;
+            min-height: 812px;
+            height: max-content;
+            border-radius: 3.5rem;
+            border: 6px solid #1c1c1e;
+            overflow: hidden;
+            position: relative;
+            background-color: #050505;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+        }
+
+        .theme-dark .apple-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-color: rgba(255, 255, 255, 0.2);
+            border-left-color: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-dark .apple-glass-light {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-top-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .theme-dark .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 32px;
+            background-color: #1c1c1e;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 50;
+        }
+
+        /* ========================================
+           LIGHT THEME STYLES
+           ======================================== */
+        .theme-light .iphone-frame {
+            width: 375px;
+            min-height: 812px;
+            height: max-content;
+            border-radius: 3.5rem;
+            border: 6px solid #d8d8d8;
+            overflow: hidden;
+            position: relative;
+            background-color: #f3f3f3;
+            background-image: var(--noise-bg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .theme-light .apple-glass {
+            background: var(--noise-bg), linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-top-color: rgba(255, 255, 255, 0.85);
+            border-left-color: rgba(255, 255, 255, 0.65);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.04),
+                0 8px 32px rgba(244, 63, 94, 0.06);
+        }
+
+        .theme-light .apple-glass-light {
+            background-color: rgba(255, 255, 255, 0.5);
+            background-image: var(--noise-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-top-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .theme-light .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 32px;
+            background-color: #d8d8d8;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 50;
+        }
+
+        /* ========================================
+           LAYOUT & GRID SYSTEM
+           ======================================== */
+        .screens-container {
+            display: grid;
+            grid-template-columns: repeat(2, min-content);
+            gap: 3rem 4rem;
+            justify-content: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .screen-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .screen-label {
+            font-size: 0.875rem;
+            color: #737373;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pt-16 px-6 text-center">
+        <h1 class="text-4xl font-normal text-white mb-2">About Me - Profile</h1>
+        <p class="text-neutral-500 font-light">User Profile Screen</p>
+    </div>
+
+    <div class="screens-container">
+
+        <!-- Profile Screen - Dark Theme -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">Profile - Dark</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color: #050505;">
+                <div class="notch z-50"></div>
+
+                <!-- 1. HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#050505]">
+                    <div class="flex items-center">
+                        <img src="Recz Logo.svg" class="w-10 h-10 -ml-1 object-contain" alt="Recz">
+                    </div>
+                    <!-- Top Icons right side -->
+                    <div class="flex items-center gap-5 text-white">
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:map-point-linear" class="text-[22px]"></iconify-icon></button>
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:users-group-rounded-linear" class="text-[22px]"></iconify-icon></button>
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:bookmark-linear" class="text-[22px]"></iconify-icon></button>
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:settings-linear" class="text-[22px]"></iconify-icon></button>
+                    </div>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-28 relative z-10 hide-scrollbar scroll-smooth">
+                    
+                    <!-- 2. PROFILE HERO SECTION -->
+                    <div class="flex flex-col items-center px-6 mt-4 mb-6">
+                        <div class="relative mb-4">
+                            <img src="https://i.pravatar.cc/150?img=68" class="w-[100px] h-[100px] rounded-full object-cover border-[3px] border-rose-500/50 shadow-[0_0_25px_rgba(244,63,94,0.15)]" alt="User">
+                            <button class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center text-rose-400 hover:bg-white/5 transition-colors z-10 shadow-lg">
+                                <iconify-icon icon="solar:pen-linear" class="text-sm"></iconify-icon>
+                            </button>
+                        </div>
+                        <h2 class="text-xl font-semibold text-white mb-6">Alex Johnson</h2>
+
+                        <!-- STATS -->
+                        <div class="flex justify-between w-full px-4">
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <span class="text-xl font-semibold text-white tracking-tight">124</span>
+                                <span class="text-[11px] font-medium text-neutral-500 uppercase tracking-widest">Recz'd it</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <span class="text-xl font-semibold text-white tracking-tight">340</span>
+                                <span class="text-[11px] font-medium text-neutral-500 uppercase tracking-widest">Followings</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <span class="text-xl font-semibold text-white tracking-tight">89.2K</span>
+                                <span class="text-[11px] font-medium text-neutral-500 uppercase tracking-widest">Followers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. PRIMARY ACTIONS -->
+                    <div class="px-6 mb-8 flex gap-3">
+                        <button class="flex-1 py-3 apple-glass-light rounded-[1.25rem] text-[13px] text-white font-medium hover:bg-white/10 transition-colors border border-white/5 flex items-center justify-center shadow-sm">
+                            Edit Profile
+                        </button>
+                        <button class="flex-1 py-3 apple-glass-light rounded-[1.25rem] text-[13px] text-white font-medium hover:bg-white/10 transition-colors border border-white/5 flex items-center justify-center shadow-sm">
+                            Share Profile
+                        </button>
+                        <button class="flex-1 py-3 apple-glass-light rounded-[1.25rem] text-[13px] text-white font-medium hover:bg-white/10 transition-colors border border-white/5 flex items-center justify-center shadow-sm">
+                            About Me
+                        </button>
+                    </div>
+
+                    <!-- TASTE IDENTITY -->
+                    <div class="px-6 mb-8">
+                        <div class="apple-glass rounded-[2rem] p-6 relative overflow-hidden border border-rose-500/20 shadow-[0_10px_40px_rgba(244,63,94,0.1)]">
+                            <!-- Background Aura Rings -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-white/5 animate-[spin_10s_linear_infinite]"></div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-rose-500/10 animate-[spin_8s_linear_infinite_reverse]"></div>
+
+                            <div class="flex justify-between items-start relative z-10 mb-6">
+                                <div>
+                                    <h3 class="text-lg tracking-tight font-medium flex items-center gap-2">
+                                        <iconify-icon icon="solar:radar-linear" class="text-rose-400"></iconify-icon>
+                                        Taste Identity
+                                    </h3>
+                                    <p class="text-[10px] text-neutral-400 mt-1">Your signature vibe footprint</p>
+                                </div>
+                                <button class="w-8 h-8 rounded-full apple-glass-light flex items-center justify-center border border-white/10">
+                                    <iconify-icon icon="solar:share-linear" class="text-neutral-400 text-xs"></iconify-icon>
+                                </button>
+                            </div>
+
+                            <!-- Orbit System -->
+                            <div class="relative h-48 flex items-center justify-center">
+                                <!-- Core -->
+                                <div class="absolute w-20 h-20 rounded-full bg-gradient-to-br from-rose-500/30 to-purple-500/30 backdrop-blur-md border border-white/10 flex flex-col items-center justify-center z-20 shadow-[0_0_30px_rgba(244,63,94,0.3)]">
+                                    <iconify-icon icon="solar:chef-hat-bold" class="text-rose-200 text-xl mb-1"></iconify-icon>
+                                    <span class="text-[9px] font-bold text-white uppercase tracking-wider">Aesthetic</span>
+                                </div>
+                                <!-- Orbiting Clusters -->
+                                <div class="absolute top-2 left-6 w-14 h-14 rounded-full apple-glass-light border border-amber-500/30 bg-amber-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[8px] text-amber-200 font-medium">Coffee</span>
+                                </div>
+                                <div class="absolute bottom-6 left-2 w-16 h-16 rounded-full apple-glass-light border border-blue-500/30 bg-blue-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[9px] text-blue-200 font-medium">Outdoors</span>
+                                </div>
+                                <div class="absolute top-8 right-4 w-14 h-14 rounded-full apple-glass-light border border-purple-500/30 bg-purple-500/10 flex flex-col items-center justify-center z-10 p-2 text-center text-[8px] text-purple-200 font-medium leading-tight">
+                                    Fine Dining
+                                </div>
+                                <div class="absolute bottom-4 right-8 w-12 h-12 rounded-full apple-glass-light border border-emerald-500/30 bg-emerald-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[8px] text-emerald-200 font-medium">Art</span>
+                                </div>
+                                <!-- Connection lines -->
+                                <svg class="absolute inset-0 w-full h-full opacity-30 z-0">
+                                    <line x1="50%" y1="50%" x2="25%" y2="25%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                    <line x1="50%" y1="50%" x2="20%" y2="70%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                    <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                    <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"></line>
+                                </svg>
+                            </div>
+
+                            <div class="mt-4 flex items-center justify-between relative z-10 apple-glass-light p-3 rounded-2xl bg-white/[0.02]">
+                                <div class="flex items-center gap-2">
+                                    <div class="flex -space-x-1">
+                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50" class="w-5 h-5 rounded-full border border-black">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-5 h-5 rounded-full border border-black">
+                                    </div>
+                                    <span class="text-[10px] text-neutral-400">High match with 8 friends</span>
+                                </div>
+                                <button class="text-[10px] font-medium text-rose-400">Compare Taste</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. TABS SECTION -->
+                    <div class="flex border-b border-white/10 mb-6 mx-2 px-2 pb-0.5 relative">
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-rose-400 group relative">
+                            <iconify-icon icon="solar:verified-check-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">Recz</span>
+                            <!-- Smooth underline indicator active -->
+                            <div class="absolute bottom-[-1.5px] w-full h-[3px] bg-rose-500 rounded-t-full shadow-[0_-2px_10px_rgba(244,63,94,0.4)]"></div>
+                        </button>
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-neutral-500 hover:text-white transition-colors group">
+                            <iconify-icon icon="solar:camera-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">Photos</span>
+                        </button>
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-neutral-500 hover:text-white transition-colors group">
+                            <iconify-icon icon="solar:videocamera-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">Videos</span>
+                        </button>
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-neutral-500 hover:text-white transition-colors group">
+                            <iconify-icon icon="solar:list-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">List</span>
+                        </button>
+                    </div>
+
+                    <!-- 5. SEARCH -->
+                    <div class="px-6 mb-16">
+                        <div class="apple-glass-light rounded-[1.25rem] p-0.5 border border-white/5 shadow-md flex items-center group bg-[#fff]/[0.02]">
+                            <div class="flex items-center gap-3 px-4 py-3 w-full">
+                                <iconify-icon icon="solar:magnifer-linear" class="text-neutral-500 text-xl group-focus-within:text-white transition-colors"></iconify-icon>
+                                <input type="text" placeholder="Search..." class="bg-transparent border-none outline-none text-white text-[14px] font-light w-full placeholder:text-neutral-600">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. CONTENT AREA (EMPTY STATE) -->
+                    <div class="flex flex-col items-center justify-center mt-10 mb-8 px-8 text-center">
+                        <div class="w-20 h-20 rounded-[1.5rem] apple-glass-light border border-white/5 flex items-center justify-center mb-5 shadow-inner bg-gradient-to-br from-white/[0.04] to-transparent">
+                            <iconify-icon icon="solar:box-minimalistic-linear" class="text-[40px] text-neutral-600"></iconify-icon>
+                        </div>
+                        <h3 class="text-white text-[16px] font-medium mb-1.5">No posts yet</h3>
+                        <p class="text-[13px] text-neutral-500 font-light leading-relaxed max-w-[200px]">Start sharing your first rec.</p>
+                    </div>
+                </div>
+
+                <!-- Floating Action Button (FAB) -->
+                <div class="absolute bottom-28 right-5 z-40">
+                    <button
+                        class="w-14 h-14 rounded-[1.25rem] bg-gradient-accent flex items-center justify-center shadow-[0_8px_24px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-105 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-6 h-6 text-white">
+                            <path
+                                d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+                            </path>
+                            <path d="M20 2v4"></path>
+                            <path d="M22 4h-4"></path>
+                            <circle cx="4" cy="20" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Bottom Navigation Bar -->
+                <div
+                    class="absolute bottom-6 left-6 right-6 h-16 apple-glass rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10">
+                    <!-- Home -->
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:home-smile-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-light">Home</span>
+                    </button>
+                    <!-- For You -->
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-light">For You</span>
+                    </button>
+                    <!-- Center FAB -->
+                    <button
+                        class="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center -translate-y-4 shadow-[0_8px_20px_rgba(244,63,94,0.5)] border-2 border-[#030303]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <!-- Rollz -->
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:videocamera-record-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-light">Rollz</span>
+                    </button>
+                    <!-- You — active -->
+                    <button class="flex flex-col items-center gap-1 text-rose-400">
+                        <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-medium">You</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Profile Screen - Light Theme -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">Profile</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px; background-color: #f3f3f3;">
+                <div class="notch z-50"></div>
+
+                <!-- 1. HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#f3f3f3]">
+                    <div class="flex items-center">
+                        <img src="Recz Logo.svg" class="w-10 h-10 -ml-1 object-contain" alt="Recz">
+                    </div>
+                    <!-- Top Icons right side -->
+                    <div class="flex items-center gap-5 text-neutral-900">
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:map-point-linear" class="text-[22px]"></iconify-icon></button>
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:users-group-rounded-linear" class="text-[22px]"></iconify-icon></button>
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:bookmark-linear" class="text-[22px]"></iconify-icon></button>
+                        <button class="hover:text-rose-400 transition-colors"><iconify-icon icon="solar:settings-linear" class="text-[22px]"></iconify-icon></button>
+                    </div>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-28 relative z-10 hide-scrollbar scroll-smooth">
+                    
+                    <!-- 2. PROFILE HERO SECTION -->
+                    <div class="flex flex-col items-center px-6 mt-4 mb-6">
+                        <div class="relative mb-4">
+                            <img src="https://i.pravatar.cc/150?img=68" class="w-[100px] h-[100px] rounded-full object-cover border-[3px] border-rose-500/50 shadow-[0_0_25px_rgba(244,63,94,0.15)]" alt="User">
+                            <button class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-[#f3f3f3] border border-black/10 flex items-center justify-center text-rose-400 hover:bg-white/70 transition-colors z-10 shadow-lg">
+                                <iconify-icon icon="solar:pen-linear" class="text-sm"></iconify-icon>
+                            </button>
+                        </div>
+                        <h2 class="text-xl font-semibold text-neutral-900 mb-6">Alex Johnson</h2>
+
+                        <!-- STATS -->
+                        <div class="flex justify-between w-full px-4">
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <span class="text-xl font-semibold text-neutral-900 tracking-tight">124</span>
+                                <span class="text-[11px] font-medium text-neutral-500 uppercase tracking-widest">Recz'd it</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <span class="text-xl font-semibold text-neutral-900 tracking-tight">340</span>
+                                <span class="text-[11px] font-medium text-neutral-500 uppercase tracking-widest">Followings</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <span class="text-xl font-semibold text-neutral-900 tracking-tight">89.2K</span>
+                                <span class="text-[11px] font-medium text-neutral-500 uppercase tracking-widest">Followers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. PRIMARY ACTIONS -->
+                    <div class="px-6 mb-8 flex gap-3">
+                        <button class="flex-1 py-3 apple-glass-light rounded-[1.25rem] text-[13px] text-neutral-900 font-medium hover:bg-white/70 transition-colors border border-white/5 flex items-center justify-center shadow-sm">
+                            Edit Profile
+                        </button>
+                        <button class="flex-1 py-3 apple-glass-light rounded-[1.25rem] text-[13px] text-neutral-900 font-medium hover:bg-white/70 transition-colors border border-white/5 flex items-center justify-center shadow-sm">
+                            Share Profile
+                        </button>
+                        <button class="flex-1 py-3 apple-glass-light rounded-[1.25rem] text-[13px] text-neutral-900 font-medium hover:bg-white/70 transition-colors border border-white/5 flex items-center justify-center shadow-sm">
+                            About Me
+                        </button>
+                    </div>
+
+                    <!-- TASTE IDENTITY -->
+                    <div class="px-6 mb-8">
+                        <div class="apple-glass rounded-[2rem] p-6 relative overflow-hidden border border-rose-500/20 shadow-[0_10px_40px_rgba(244,63,94,0.1)]">
+                            <!-- Background Aura Rings -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-white/5 animate-[spin_10s_linear_infinite]"></div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-rose-500/10 animate-[spin_8s_linear_infinite_reverse]"></div>
+
+                            <div class="flex justify-between items-start relative z-10 mb-6">
+                                <div>
+                                    <h3 class="text-lg tracking-tight font-medium flex items-center gap-2">
+                                        <iconify-icon icon="solar:radar-linear" class="text-rose-400"></iconify-icon>
+                                        Taste Identity
+                                    </h3>
+                                    <p class="text-[10px] text-neutral-400 mt-1">Your signature vibe footprint</p>
+                                </div>
+                                <button class="w-8 h-8 rounded-full apple-glass-light flex items-center justify-center border border-black/10">
+                                    <iconify-icon icon="solar:share-linear" class="text-neutral-400 text-xs"></iconify-icon>
+                                </button>
+                            </div>
+
+                            <!-- Orbit System -->
+                            <div class="relative h-48 flex items-center justify-center">
+                                <!-- Core -->
+                                <div class="absolute w-20 h-20 rounded-full bg-gradient-to-br from-rose-500/30 to-purple-500/30 backdrop-blur-md border border-black/10 flex flex-col items-center justify-center z-20 shadow-[0_0_30px_rgba(244,63,94,0.3)]">
+                                    <iconify-icon icon="solar:chef-hat-bold" class="text-rose-500 text-xl mb-1"></iconify-icon>
+                                    <span class="text-[9px] font-bold text-neutral-900 uppercase tracking-wider">Aesthetic</span>
+                                </div>
+                                <!-- Orbiting Clusters -->
+                                <div class="absolute top-2 left-6 w-14 h-14 rounded-full apple-glass-light border border-amber-500/30 bg-amber-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[8px] text-amber-600 font-medium">Coffee</span>
+                                </div>
+                                <div class="absolute bottom-6 left-2 w-16 h-16 rounded-full apple-glass-light border border-blue-500/30 bg-blue-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[9px] text-blue-600 font-medium">Outdoors</span>
+                                </div>
+                                <div class="absolute top-8 right-4 w-14 h-14 rounded-full apple-glass-light border border-purple-500/30 bg-purple-500/10 flex flex-col items-center justify-center z-10 p-2 text-center text-[8px] text-purple-600 font-medium leading-tight">
+                                    Fine Dining
+                                </div>
+                                <div class="absolute bottom-4 right-8 w-12 h-12 rounded-full apple-glass-light border border-emerald-500/30 bg-emerald-500/10 flex flex-col items-center justify-center z-10">
+                                    <span class="text-[8px] text-emerald-600 font-medium">Art</span>
+                                </div>
+                                <!-- Connection lines -->
+                                <svg class="absolute inset-0 w-full h-full opacity-40 z-0">
+                                    <line x1="50%" y1="50%" x2="25%" y2="25%" stroke="#6b7280" stroke-width="1" stroke-dasharray="3 3"></line>
+                                    <line x1="50%" y1="50%" x2="20%" y2="70%" stroke="#6b7280" stroke-width="1" stroke-dasharray="3 3"></line>
+                                    <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="#6b7280" stroke-width="1" stroke-dasharray="3 3"></line>
+                                    <line x1="50%" y1="50%" x2="75%" y2="75%" stroke="#6b7280" stroke-width="1" stroke-dasharray="3 3"></line>
+                                </svg>
+                            </div>
+
+                            <div class="mt-4 flex items-center justify-between relative z-10 apple-glass-light p-3 rounded-2xl bg-white/[0.02]">
+                                <div class="flex items-center gap-2">
+                                    <div class="flex -space-x-1">
+                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50" class="w-5 h-5 rounded-full border border-white/60">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50" class="w-5 h-5 rounded-full border border-white/60">
+                                    </div>
+                                    <span class="text-[10px] text-neutral-400">High match with 8 friends</span>
+                                </div>
+                                <button class="text-[10px] font-medium text-rose-400">Compare Taste</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. TABS SECTION -->
+                    <div class="flex border-b border-black/10 mb-6 mx-2 px-2 pb-0.5 relative">
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-rose-400 group relative">
+                            <iconify-icon icon="solar:verified-check-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">Recz</span>
+                            <!-- Smooth underline indicator active -->
+                            <div class="absolute bottom-[-1.5px] w-full h-[3px] bg-rose-500 rounded-t-full shadow-[0_-2px_10px_rgba(244,63,94,0.4)]"></div>
+                        </button>
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-neutral-600 hover:text-neutral-900 transition-colors group">
+                            <iconify-icon icon="solar:camera-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">Photos</span>
+                        </button>
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-neutral-600 hover:text-neutral-900 transition-colors group">
+                            <iconify-icon icon="solar:videocamera-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">Videos</span>
+                        </button>
+                        <button class="flex-1 pb-3 flex flex-col items-center gap-1.5 text-neutral-600 hover:text-neutral-900 transition-colors group">
+                            <iconify-icon icon="solar:list-linear" class="text-[22px] group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[11px] font-medium tracking-wide">List</span>
+                        </button>
+                    </div>
+
+                    <!-- 5. SEARCH -->
+                    <div class="px-6 mb-16">
+                        <div class="flex items-center gap-3 px-4 py-3 w-full rounded-[1.25rem]" style="background:#fff;border:1px solid rgba(0,0,0,0.07);box-shadow:inset 0 2px 6px rgba(0,0,0,0.06),0 1px 3px rgba(0,0,0,0.04);">
+                            <iconify-icon icon="solar:magnifer-linear" class="text-neutral-400 text-lg shrink-0"></iconify-icon>
+                            <input type="text" placeholder="Search..." class="bg-transparent border-none outline-none text-neutral-900 text-[14px] font-light w-full placeholder:text-neutral-400">
+                        </div>
+                    </div>
+
+                    <!-- 6. CONTENT AREA (EMPTY STATE) -->
+                    <div class="flex flex-col items-center justify-center mt-10 mb-8 px-8 text-center">
+                        <div class="w-20 h-20 rounded-[1.5rem] apple-glass-light border border-black/8 flex items-center justify-center mb-5 shadow-inner">
+                            <iconify-icon icon="solar:box-minimalistic-linear" class="text-[40px] text-neutral-400"></iconify-icon>
+                        </div>
+                        <h3 class="text-neutral-900 text-[16px] font-medium mb-1.5">No posts yet</h3>
+                        <p class="text-[13px] text-neutral-500 font-light leading-relaxed max-w-[200px]">Start sharing your first rec.</p>
+                    </div>
+                </div>
+
+                <!-- Floating Action Button (FAB) -->
+                <div class="absolute bottom-28 right-5 z-40">
+                    <button
+                        class="w-14 h-14 rounded-[1.25rem] bg-gradient-accent flex items-center justify-center shadow-[0_8px_24px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-105 transition-transform text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-6 h-6 text-white">
+                            <path
+                                d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+                            </path>
+                            <path d="M20 2v4"></path>
+                            <path d="M22 4h-4"></path>
+                            <circle cx="4" cy="20" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Bottom Navigation Bar -->
+                <div
+                    class="absolute bottom-6 left-6 right-6 h-16 apple-glass rounded-full flex justify-between items-center px-6 z-50 shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-black/10">
+                    <!-- Home -->
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:home-smile-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-light">Home</span>
+                    </button>
+                    <!-- For You -->
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:compass-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-light">For You</span>
+                    </button>
+                    <!-- Center FAB -->
+                    <button
+                        class="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center -translate-y-4 shadow-[0_8px_20px_rgba(244,63,94,0.5)] border-2 border-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                    </button>
+                    <!-- Rollz -->
+                    <button class="flex flex-col items-center gap-1 text-neutral-500">
+                        <iconify-icon icon="solar:videocamera-record-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-light">Rollz</span>
+                    </button>
+                    <!-- You — active -->
+                    <button class="flex flex-col items-center gap-1 text-rose-400">
+                        <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
+                        <span class="text-[10px] font-medium">You</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+        <!-- ========================================
+             1. ABOUT ME - VIEW (DARK)
+             ======================================== -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">1. About Me - View (Dark)</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px;">
+                <div class="notch z-50"></div>
+
+                <!-- HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#050505] border-b border-white/5">
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+                        <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg font-medium text-white">About me</h1>
+                    <button class="text-rose-400 text-[15px] font-medium hover:text-rose-300 transition-colors">Edit</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-8 relative z-10 hide-scrollbar">
+                    
+                    <!-- PROFILE IMAGE -->
+                    <div class="px-6 pt-6 mb-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
+                             class="w-full aspect-square rounded-3xl object-cover shadow-2xl" alt="Profile">
+                    </div>
+
+                    <!-- USER INFO -->
+                    <div class="px-6 mb-6">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-2xl font-semibold text-white">Richell Swan</h2>
+                            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                                <iconify-icon icon="solar:crown-bold" class="text-white text-xs"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT ME SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-3">About me</h3>
+                            <p class="text-[14px] text-neutral-300 leading-relaxed font-light">
+                                Co-Founder & COO of CLEARSTEM Skincare, Seed Investor, and Podcast Connector Advisor. Kayleigh was recently interviewed on The Skinny Confidential Podcast & featured in Forbes & Entrepreneur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SPECIALIZES IN SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-3">Specializes in</h3>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-300 font-light">Advice on living a healthier lifestyle</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-300 font-light">Tips and tricks</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-300 font-light">How to eat well</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL ENGAGEMENT SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-4">Social Engagement</h3>
+                            <div class="flex flex-col gap-3">
+                                <!-- Instagram -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:instagram" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">Instagram</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- TikTok -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-white/10">
+                                            <iconify-icon icon="ic:baseline-tiktok" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">Tiktok</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- YouTube -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:youtube" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">Youtube</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- X (Twitter) -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-white/10">
+                                            <iconify-icon icon="prime:twitter" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">X</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             2. ABOUT ME - SOCIAL PREVIEW (DARK)
+             ======================================== -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">2. About Me - Social (Dark)</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px;">
+                <div class="notch z-50"></div>
+
+                <!-- HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#050505] border-b border-white/5">
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+                        <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg font-medium text-white">About me</h1>
+                    <button class="text-rose-400 text-[15px] font-medium hover:text-rose-300 transition-colors">Edit</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-8 relative z-10 hide-scrollbar">
+                    
+                    <!-- PROFILE IMAGE -->
+                    <div class="px-6 pt-6 mb-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
+                             class="w-full aspect-square rounded-3xl object-cover shadow-2xl" alt="Profile">
+                    </div>
+
+                    <!-- USER INFO -->
+                    <div class="px-6 mb-6">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-2xl font-semibold text-white">Richell Swan</h2>
+                            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                                <iconify-icon icon="solar:crown-bold" class="text-white text-xs"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT ME SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-3">About me</h3>
+                            <p class="text-[14px] text-neutral-300 leading-relaxed font-light">
+                                Co-Founder & COO of CLEARSTEM Skincare, Seed Investor, and Podcast Connector Advisor. Kayleigh was recently interviewed on The Skinny Confidential Podcast & featured in Forbes & Entrepreneur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SPECIALIZES IN SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-3">Specializes in</h3>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-300 font-light">Advice on living a healthier lifestyle</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-300 font-light">Tips and tricks</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-300 font-light">How to eat well</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL ENGAGEMENT SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-4">Social Engagement</h3>
+                            <div class="flex flex-col gap-3">
+                                <!-- Instagram - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:instagram" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="text-[14px] text-white font-medium">@richellswan</span>
+                                            <span class="text-[11px] text-neutral-500">1.2M Followers</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TikTok - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-white/10">
+                                            <iconify-icon icon="ic:baseline-tiktok" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- YouTube - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:youtube" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- X (Twitter) - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-white/10">
+                                            <iconify-icon icon="prime:twitter" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INSTAGRAM PREVIEW SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-4 flex items-center gap-2">
+                                <div class="w-5 h-5 rounded-lg bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                    <iconify-icon icon="mdi:instagram" class="text-white text-xs"></iconify-icon>
+                                </div>
+                                Instagram
+                            </h3>
+                            
+                            <!-- Profile Stats -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" 
+                                     class="w-12 h-12 rounded-full object-cover" alt="Instagram Profile">
+                                <div class="flex-1">
+                                    <p class="text-[14px] text-white font-medium mb-1">@richellswan03</p>
+                                    <div class="flex items-center gap-4 text-[12px] text-neutral-400">
+                                        <span><strong class="text-white">40</strong> posts</span>
+                                        <span><strong class="text-white">31,010</strong> followers</span>
+                                        <span><strong class="text-white">302</strong> following</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Grid -->
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="aspect-square rounded-lg overflow-hidden bg-neutral-800">
+                                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=200&h=200&fit=crop" 
+                                         class="w-full h-full object-cover" alt="Post 1">
+                                </div>
+                                <div class="aspect-square rounded-lg overflow-hidden bg-neutral-800">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" 
+                                         class="w-full h-full object-cover" alt="Post 2">
+                                </div>
+                                <div class="aspect-square rounded-lg overflow-hidden bg-neutral-800">
+                                    <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=200&h=200&fit=crop" 
+                                         class="w-full h-full object-cover" alt="Post 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             3. EDIT ABOUT ME (DARK)
+             ======================================== -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">3. Edit About Me (Dark)</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px;">
+                <div class="notch z-50"></div>
+
+                <!-- HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#050505] border-b border-white/5">
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+                        <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg font-medium text-white">About me</h1>
+                    <button class="text-rose-400 text-[15px] font-medium hover:text-rose-300 transition-colors">Save</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-8 relative z-10 hide-scrollbar">
+                    
+                    <!-- PROFILE IMAGE -->
+                    <div class="px-6 pt-6 mb-6">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
+                                 class="w-full aspect-square rounded-3xl object-cover shadow-2xl" alt="Profile">
+                            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center shadow-lg border-2 border-[#050505]">
+                                <iconify-icon icon="solar:pen-bold" class="text-white text-lg"></iconify-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT ME SECTION - EDITABLE -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-3">About me</h3>
+                            <textarea 
+                                class="w-full bg-white/[0.03] border border-white/10 rounded-xl p-3 text-[14px] text-white placeholder:text-neutral-600 font-light leading-relaxed resize-none focus:outline-none focus:border-rose-400/50 transition-colors" 
+                                rows="5"
+                                placeholder="Tell us about yourself...">Co-Founder & COO of CLEARSTEM Skincare, Seed Investor, and Podcast Connector Advisor. Kayleigh was recently interviewed on The Skinny Confidential Podcast & featured in Forbes & Entrepreneur.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- SPECIALIZES IN SECTION - EDITABLE -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-3">Specializes in</h3>
+                            <div class="flex flex-col gap-2 mb-3">
+                                <!-- Item 1 -->
+                                <div class="flex items-center gap-2 p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                                    <input type="text" 
+                                           value="Advice on living a healthier lifestyle"
+                                           class="flex-1 bg-transparent text-[14px] text-white font-light focus:outline-none">
+                                    <button class="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center text-neutral-400 hover:text-rose-400 hover:bg-rose-400/10 transition-colors">
+                                        <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="text-lg"></iconify-icon>
+                                    </button>
+                                </div>
+
+                                <!-- Item 2 -->
+                                <div class="flex items-center gap-2 p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                                    <input type="text" 
+                                           value="Tips and tricks"
+                                           class="flex-1 bg-transparent text-[14px] text-white font-light focus:outline-none">
+                                    <button class="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center text-neutral-400 hover:text-rose-400 hover:bg-rose-400/10 transition-colors">
+                                        <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="text-lg"></iconify-icon>
+                                    </button>
+                                </div>
+
+                                <!-- Item 3 -->
+                                <div class="flex items-center gap-2 p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                                    <input type="text" 
+                                           value="How to eat well"
+                                           class="flex-1 bg-transparent text-[14px] text-white font-light focus:outline-none">
+                                    <button class="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center text-neutral-400 hover:text-rose-400 hover:bg-rose-400/10 transition-colors">
+                                        <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="text-lg"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Add New Button -->
+                            <button class="w-full py-3 rounded-xl border-2 border-dashed border-white/10 text-rose-400 text-sm font-medium hover:border-rose-400/30 hover:bg-rose-400/5 transition-colors flex items-center justify-center gap-2">
+                                <iconify-icon icon="solar:add-circle-bold" class="text-lg"></iconify-icon>
+                                Add new
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL ENGAGEMENT SECTION - EDITABLE -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-white/5">
+                            <h3 class="text-sm font-semibold text-white mb-4">Social Engagement</h3>
+                            <div class="flex flex-col gap-3">
+                                <!-- Instagram - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:instagram" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-white/[0.05] text-neutral-400 text-xs font-medium hover:bg-rose-400/10 hover:text-rose-400 transition-colors">
+                                        Remove
+                                    </button>
+                                </div>
+
+                                <!-- TikTok - Not Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-white/10">
+                                            <iconify-icon icon="ic:baseline-tiktok" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">Tiktok</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- YouTube - Not Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:youtube" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">Youtube</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- X (Twitter) - Not Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-white/10">
+                                            <iconify-icon icon="prime:twitter" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-white font-medium">X</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             4. ABOUT ME - VIEW (LIGHT)
+             ======================================== -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">4. About Me - View (Light)</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px;">
+                <div class="notch z-50"></div>
+
+                <!-- HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#f3f3f3] border-b border-black/5">
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-neutral-900 hover:bg-white/70 transition-colors">
+                        <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg font-medium text-neutral-900">About me</h1>
+                    <button class="text-rose-400 text-[15px] font-medium hover:text-rose-500 transition-colors">Edit</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-8 relative z-10 hide-scrollbar">
+                    
+                    <!-- PROFILE IMAGE -->
+                    <div class="px-6 pt-6 mb-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
+                             class="w-full aspect-square rounded-3xl object-cover shadow-2xl" alt="Profile">
+                    </div>
+
+                    <!-- USER INFO -->
+                    <div class="px-6 mb-6">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-2xl font-semibold text-neutral-900">Richell Swan</h2>
+                            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                                <iconify-icon icon="solar:crown-bold" class="text-white text-xs"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT ME SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-3">About me</h3>
+                            <p class="text-[14px] text-neutral-700 leading-relaxed font-light">
+                                Co-Founder & COO of CLEARSTEM Skincare, Seed Investor, and Podcast Connector Advisor. Kayleigh was recently interviewed on The Skinny Confidential Podcast & featured in Forbes & Entrepreneur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SPECIALIZES IN SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-3">Specializes in</h3>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-700 font-light">Advice on living a healthier lifestyle</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-700 font-light">Tips and tricks</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-700 font-light">How to eat well</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL ENGAGEMENT SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-4">Social Engagement</h3>
+                            <div class="flex flex-col gap-3">
+                                <!-- Instagram -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:instagram" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">Instagram</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- TikTok -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center">
+                                            <iconify-icon icon="ic:baseline-tiktok" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">Tiktok</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- YouTube -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:youtube" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">Youtube</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- X (Twitter) -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center">
+                                            <iconify-icon icon="prime:twitter" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">X</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             5. ABOUT ME - SOCIAL PREVIEW (LIGHT)
+             ======================================== -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">5. About Me - Social (Light)</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px;">
+                <div class="notch z-50"></div>
+
+                <!-- HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#f3f3f3] border-b border-black/5">
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-neutral-900 hover:bg-white/70 transition-colors">
+                        <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg font-medium text-neutral-900">About me</h1>
+                    <button class="text-rose-400 text-[15px] font-medium hover:text-rose-500 transition-colors">Edit</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-8 relative z-10 hide-scrollbar">
+                    
+                    <!-- PROFILE IMAGE -->
+                    <div class="px-6 pt-6 mb-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
+                             class="w-full aspect-square rounded-3xl object-cover shadow-2xl" alt="Profile">
+                    </div>
+
+                    <!-- USER INFO -->
+                    <div class="px-6 mb-6">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-2xl font-semibold text-neutral-900">Richell Swan</h2>
+                            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                                <iconify-icon icon="solar:crown-bold" class="text-white text-xs"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT ME SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-3">About me</h3>
+                            <p class="text-[14px] text-neutral-700 leading-relaxed font-light">
+                                Co-Founder & COO of CLEARSTEM Skincare, Seed Investor, and Podcast Connector Advisor. Kayleigh was recently interviewed on The Skinny Confidential Podcast & featured in Forbes & Entrepreneur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SPECIALIZES IN SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-3">Specializes in</h3>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-700 font-light">Advice on living a healthier lifestyle</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-700 font-light">Tips and tricks</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-rose-400 text-xs mt-1">•</span>
+                                    <p class="text-[14px] text-neutral-700 font-light">How to eat well</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL ENGAGEMENT SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-4">Social Engagement</h3>
+                            <div class="flex flex-col gap-3">
+                                <!-- Instagram - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:instagram" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="text-[14px] text-neutral-900 font-medium">@richellswan</span>
+                                            <span class="text-[11px] text-neutral-500">1.2M Followers</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TikTok - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center">
+                                            <iconify-icon icon="ic:baseline-tiktok" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- YouTube - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:youtube" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- X (Twitter) - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center">
+                                            <iconify-icon icon="prime:twitter" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INSTAGRAM PREVIEW SECTION -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+                                <div class="w-5 h-5 rounded-lg bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                    <iconify-icon icon="mdi:instagram" class="text-white text-xs"></iconify-icon>
+                                </div>
+                                Instagram
+                            </h3>
+                            
+                            <!-- Profile Stats -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" 
+                                     class="w-12 h-12 rounded-full object-cover" alt="Instagram Profile">
+                                <div class="flex-1">
+                                    <p class="text-[14px] text-neutral-900 font-medium mb-1">@richellswan03</p>
+                                    <div class="flex items-center gap-4 text-[12px] text-neutral-500">
+                                        <span><strong class="text-neutral-900">40</strong> posts</span>
+                                        <span><strong class="text-neutral-900">31,010</strong> followers</span>
+                                        <span><strong class="text-neutral-900">302</strong> following</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Grid -->
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="aspect-square rounded-lg overflow-hidden bg-neutral-200">
+                                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=200&h=200&fit=crop" 
+                                         class="w-full h-full object-cover" alt="Post 1">
+                                </div>
+                                <div class="aspect-square rounded-lg overflow-hidden bg-neutral-200">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" 
+                                         class="w-full h-full object-cover" alt="Post 2">
+                                </div>
+                                <div class="aspect-square rounded-lg overflow-hidden bg-neutral-200">
+                                    <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=200&h=200&fit=crop" 
+                                         class="w-full h-full object-cover" alt="Post 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             6. EDIT ABOUT ME (LIGHT)
+             ======================================== -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">6. Edit About Me (Light)</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px;">
+                <div class="notch z-50"></div>
+
+                <!-- HEADER -->
+                <div class="px-6 pt-16 pb-4 flex justify-between items-center z-40 bg-[#f3f3f3] border-b border-black/5">
+                    <button class="w-10 h-10 rounded-full apple-glass-light flex items-center justify-center text-neutral-900 hover:bg-white/70 transition-colors">
+                        <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg font-medium text-neutral-900">About me</h1>
+                    <button class="text-rose-400 text-[15px] font-medium hover:text-rose-500 transition-colors">Save</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-8 relative z-10 hide-scrollbar">
+                    
+                    <!-- PROFILE IMAGE -->
+                    <div class="px-6 pt-6 mb-6">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
+                                 class="w-full aspect-square rounded-3xl object-cover shadow-2xl" alt="Profile">
+                            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center shadow-lg border-2 border-[#f3f3f3]">
+                                <iconify-icon icon="solar:pen-bold" class="text-white text-lg"></iconify-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT ME SECTION - EDITABLE -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-3">About me</h3>
+                            <textarea 
+                                class="w-full bg-black/[0.02] border border-black/10 rounded-xl p-3 text-[14px] text-neutral-900 placeholder:text-neutral-400 font-light leading-relaxed resize-none focus:outline-none focus:border-rose-400/50 transition-colors" 
+                                rows="5"
+                                placeholder="Tell us about yourself...">Co-Founder & COO of CLEARSTEM Skincare, Seed Investor, and Podcast Connector Advisor. Kayleigh was recently interviewed on The Skinny Confidential Podcast & featured in Forbes & Entrepreneur.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- SPECIALIZES IN SECTION - EDITABLE -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-3">Specializes in</h3>
+                            <div class="flex flex-col gap-2 mb-3">
+                                <!-- Item 1 -->
+                                <div class="flex items-center gap-2 p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <input type="text" 
+                                           value="Advice on living a healthier lifestyle"
+                                           class="flex-1 bg-transparent text-[14px] text-neutral-900 font-light focus:outline-none">
+                                    <button class="w-8 h-8 rounded-lg bg-black/[0.03] flex items-center justify-center text-neutral-400 hover:text-rose-400 hover:bg-rose-400/10 transition-colors">
+                                        <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="text-lg"></iconify-icon>
+                                    </button>
+                                </div>
+
+                                <!-- Item 2 -->
+                                <div class="flex items-center gap-2 p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <input type="text" 
+                                           value="Tips and tricks"
+                                           class="flex-1 bg-transparent text-[14px] text-neutral-900 font-light focus:outline-none">
+                                    <button class="w-8 h-8 rounded-lg bg-black/[0.03] flex items-center justify-center text-neutral-400 hover:text-rose-400 hover:bg-rose-400/10 transition-colors">
+                                        <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="text-lg"></iconify-icon>
+                                    </button>
+                                </div>
+
+                                <!-- Item 3 -->
+                                <div class="flex items-center gap-2 p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <input type="text" 
+                                           value="How to eat well"
+                                           class="flex-1 bg-transparent text-[14px] text-neutral-900 font-light focus:outline-none">
+                                    <button class="w-8 h-8 rounded-lg bg-black/[0.03] flex items-center justify-center text-neutral-400 hover:text-rose-400 hover:bg-rose-400/10 transition-colors">
+                                        <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="text-lg"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Add New Button -->
+                            <button class="w-full py-3 rounded-xl border-2 border-dashed border-black/10 text-rose-400 text-sm font-medium hover:border-rose-400/30 hover:bg-rose-400/5 transition-colors flex items-center justify-center gap-2">
+                                <iconify-icon icon="solar:add-circle-bold" class="text-lg"></iconify-icon>
+                                Add new
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL ENGAGEMENT SECTION - EDITABLE -->
+                    <div class="px-6 mb-6">
+                        <div class="apple-glass rounded-2xl p-5 border border-black/8">
+                            <h3 class="text-sm font-semibold text-neutral-900 mb-4">Social Engagement</h3>
+                            <div class="flex flex-col gap-3">
+                                <!-- Instagram - Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:instagram" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">@richellswan</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-black/[0.03] text-neutral-600 text-xs font-medium hover:bg-rose-400/10 hover:text-rose-400 transition-colors">
+                                        Remove
+                                    </button>
+                                </div>
+
+                                <!-- TikTok - Not Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center">
+                                            <iconify-icon icon="ic:baseline-tiktok" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">Tiktok</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- YouTube - Not Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
+                                            <iconify-icon icon="mdi:youtube" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">Youtube</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+
+                                <!-- X (Twitter) - Not Connected -->
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-black/[0.02] border border-black/5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center">
+                                            <iconify-icon icon="prime:twitter" class="text-white text-xl"></iconify-icon>
+                                        </div>
+                                        <span class="text-[14px] text-neutral-900 font-medium">X</span>
+                                    </div>
+                                    <button class="px-4 py-2 rounded-lg bg-gradient-accent text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
