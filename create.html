@@ -1583,13 +1583,13 @@
     <!-- Create Video Section -->
     <div class="pt-8 px-6 text-center">
         <h1 class="text-4xl font-normal text-white mb-2">Create Video</h1>
-        <p class="text-neutral-500 font-light">Video Creation Modal - Dark & Light Themes</p>
+        <p class="text-neutral-500 font-light">Rollz Flow - Add Video, Edit Video, Add Audio, Post</p>
     </div>
 
     <div class="screens-container">
 
         <!-- ========================================
-             Create Video Modals (Dark & Light)
+             Create Video Rollz Flow
              ======================================== -->
 
         <!-- 7. Create Video Modal - Dark -->
@@ -1697,6 +1697,336 @@
                     <h1 class="text-2xl tracking-tight font-medium text-neutral-900">Create</h1>
                     <button class="w-10 h-10 rounded-full bg-white/70 backdrop-blur-md border border-black/5 flex items-center justify-center text-neutral-900 hover:bg-white transition-colors shadow-lg">
                         <iconify-icon icon="solar:close-circle-linear" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Edit Video - Dark -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">8. Edit Video - Dark</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="height: 812px; min-height: auto;">
+                <div class="notch z-50"></div>
+
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-white/5 flex items-center justify-center relative">
+                    <button class="absolute left-6 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg">
+                        <iconify-icon icon="solar:alt-arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg tracking-tight font-medium text-white">Edit Video</h1>
+                </div>
+
+                <div class="flex-1 overflow-hidden pb-28 relative z-10 px-5 pt-4">
+                    <div class="relative w-full h-[260px] rounded-[1.75rem] overflow-hidden border border-white/10 shadow-2xl bg-gradient-to-br from-neutral-800 via-neutral-950 to-rose-950/40 mb-3">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(244,63,94,0.35),transparent_32%),radial-gradient(circle_at_70%_70%,rgba(56,189,248,0.18),transparent_30%)]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 rounded-full bg-black/45 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-xl">
+                                <iconify-icon icon="solar:pause-bold" class="text-3xl text-white"></iconify-icon>
+                            </button>
+                        </div>
+                        <div class="absolute left-4 right-4 bottom-4">
+                            <div class="h-1.5 rounded-full bg-white/15 overflow-hidden">
+                                <div class="h-full w-2/5 rounded-full bg-rose-500"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 mb-3">
+                        <div class="apple-glass-light sel-card rounded-2xl py-3 px-2 flex flex-col items-center gap-1.5 border border-white/10">
+                            <iconify-icon icon="solar:scissors-bold" class="text-2xl text-rose-400"></iconify-icon>
+                            <span class="text-xs font-medium text-white">Trim</span>
+                        </div>
+                        <div class="apple-glass-light sel-card rounded-2xl py-3 px-2 flex flex-col items-center gap-1.5 border border-white/10">
+                            <iconify-icon icon="solar:crop-minimalistic-bold" class="text-2xl text-rose-400"></iconify-icon>
+                            <span class="text-xs font-medium text-white">Adjust</span>
+                        </div>
+                        <div class="apple-glass-light sel-card rounded-2xl py-3 px-2 flex flex-col items-center gap-1.5 border border-white/10">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-2xl text-rose-400"></iconify-icon>
+                            <span class="text-xs font-medium text-white">Filters</span>
+                        </div>
+                    </div>
+
+                    <div class="apple-glass rounded-[1.5rem] p-3 mb-3 border border-white/10">
+                        <textarea class="w-full bg-transparent border-none text-white text-sm placeholder:text-neutral-500 focus:ring-0 resize-none h-14 leading-relaxed" placeholder="Write a caption..."></textarea>
+                    </div>
+
+                    <div class="apple-glass-light rounded-[1.5rem] overflow-hidden border border-white/10">
+                        <div class="px-4 py-3 flex items-center justify-between border-b border-white/5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
+                                    <iconify-icon icon="solar:map-point-bold" class="text-xl text-orange-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-white">Add location</span>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-600"></iconify-icon>
+                        </div>
+                        <div class="px-4 py-3 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center">
+                                    <iconify-icon icon="solar:hashtag-bold" class="text-xl text-rose-400"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-white">Add tags</span>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-600"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 left-6 right-6 z-30">
+                    <button class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-lg shadow-rose-500/20 active:scale-[0.98] transition-all">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Edit Video - Light -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-500 font-normal tracking-tight uppercase">8. Edit Video - Light</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="height: 812px; min-height: auto;">
+                <div class="notch z-50"></div>
+
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-black/8 flex items-center justify-center relative">
+                    <button class="absolute left-6 w-10 h-10 rounded-full bg-white/70 backdrop-blur-md border border-black/5 flex items-center justify-center text-neutral-900 shadow-lg">
+                        <iconify-icon icon="solar:alt-arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg tracking-tight font-medium text-neutral-900">Edit Video</h1>
+                </div>
+
+                <div class="flex-1 overflow-hidden pb-28 relative z-10 px-5 pt-4">
+                    <div class="relative w-full h-[260px] rounded-[1.75rem] overflow-hidden border border-black/5 shadow-2xl bg-gradient-to-br from-neutral-100 via-white to-rose-100/60 mb-3">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(244,63,94,0.22),transparent_32%),radial-gradient(circle_at_70%_70%,rgba(56,189,248,0.14),transparent_30%)]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 rounded-full bg-white/70 backdrop-blur-md border border-black/10 flex items-center justify-center shadow-xl">
+                                <iconify-icon icon="solar:pause-bold" class="text-3xl text-neutral-900"></iconify-icon>
+                            </button>
+                        </div>
+                        <div class="absolute left-4 right-4 bottom-4">
+                            <div class="h-1.5 rounded-full bg-black/10 overflow-hidden">
+                                <div class="h-full w-2/5 rounded-full bg-rose-500"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 mb-3">
+                        <div class="apple-glass-light sel-card rounded-2xl py-3 px-2 flex flex-col items-center gap-1.5 border border-black/10">
+                            <iconify-icon icon="solar:scissors-bold" class="text-2xl text-rose-500"></iconify-icon>
+                            <span class="text-xs font-medium text-neutral-900">Trim</span>
+                        </div>
+                        <div class="apple-glass-light sel-card rounded-2xl py-3 px-2 flex flex-col items-center gap-1.5 border border-black/10">
+                            <iconify-icon icon="solar:crop-minimalistic-bold" class="text-2xl text-rose-500"></iconify-icon>
+                            <span class="text-xs font-medium text-neutral-900">Adjust</span>
+                        </div>
+                        <div class="apple-glass-light sel-card rounded-2xl py-3 px-2 flex flex-col items-center gap-1.5 border border-black/10">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-2xl text-rose-500"></iconify-icon>
+                            <span class="text-xs font-medium text-neutral-900">Filters</span>
+                        </div>
+                    </div>
+
+                    <div class="apple-glass rounded-[1.5rem] p-3 mb-3 border border-black/5">
+                        <textarea class="w-full bg-transparent border-none text-neutral-900 text-sm placeholder:text-neutral-400 focus:ring-0 resize-none h-14 leading-relaxed" placeholder="Write a caption..."></textarea>
+                    </div>
+
+                    <div class="apple-glass-light rounded-[1.5rem] overflow-hidden border border-black/10">
+                        <div class="px-4 py-3 flex items-center justify-between border-b border-black/5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
+                                    <iconify-icon icon="solar:map-point-bold" class="text-xl text-orange-500"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-neutral-900">Add location</span>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-400"></iconify-icon>
+                        </div>
+                        <div class="px-4 py-3 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center">
+                                    <iconify-icon icon="solar:hashtag-bold" class="text-xl text-rose-500"></iconify-icon>
+                                </div>
+                                <span class="text-sm font-medium text-neutral-900">Add tags</span>
+                            </div>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-400"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 left-6 right-6 z-30">
+                    <button class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-lg shadow-rose-500/10 active:scale-[0.98] transition-all">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. Add Audio - Dark -->
+        <div class="screen-wrapper theme-dark">
+            <span class="text-sm text-neutral-600 font-normal tracking-tight uppercase">9. Add Audio - Dark</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="height: 812px; min-height: auto;">
+                <div class="notch z-50"></div>
+
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-white/5 flex items-center justify-center relative">
+                    <button class="absolute left-6 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-lg">
+                        <iconify-icon icon="solar:alt-arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg tracking-tight font-medium text-white">Add Audio</h1>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-28 relative z-10 hide-scrollbar px-5 pt-6">
+                    <div class="relative mb-5">
+                        <iconify-icon icon="solar:magnifer-linear" class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400"></iconify-icon>
+                        <input type="text" class="search-input !pl-12 !py-3.5" placeholder="Search audio...">
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-rose-400/50 shadow-lg shadow-rose-500/10">
+                            <button class="w-11 h-11 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:pause-bold" class="text-xl text-white"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-white font-medium truncate">Late Night Roll</p>
+                                <p class="text-xs text-neutral-500 font-light truncate">Recz Sounds</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-rose-400 font-medium">Selected</p>
+                                <p class="text-[11px] text-neutral-500">0:32</p>
+                            </div>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-white/10">
+                            <button class="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-white"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-white font-medium truncate">Golden Hour Cut</p>
+                                <p class="text-xs text-neutral-500 font-light truncate">Mira Vale</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">0:29</span>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-white/10">
+                            <button class="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-white"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-white font-medium truncate">City Lights</p>
+                                <p class="text-xs text-neutral-500 font-light truncate">Nox Studio</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">0:41</span>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-white/10">
+                            <button class="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-white"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-white font-medium truncate">Soft Focus</p>
+                                <p class="text-xs text-neutral-500 font-light truncate">Aya Grey</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">0:24</span>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-white/10">
+                            <button class="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-white"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-white font-medium truncate">Weekend Pulse</p>
+                                <p class="text-xs text-neutral-500 font-light truncate">The Loops</p>
+                            </div>
+                            <span class="text-xs text-neutral-500">0:35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 left-6 right-6 z-30">
+                    <button class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-lg shadow-rose-500/20 active:scale-[0.98] transition-all">
+                        Post
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. Add Audio - Light -->
+        <div class="screen-wrapper theme-light">
+            <span class="text-sm text-neutral-500 font-normal tracking-tight uppercase">9. Add Audio - Light</span>
+            <div class="iphone-frame flex flex-col relative overflow-hidden" style="height: 812px; min-height: auto;">
+                <div class="notch z-50"></div>
+
+                <div class="sticky-blur px-6 pt-16 pb-4 z-40 border-b border-black/8 flex items-center justify-center relative">
+                    <button class="absolute left-6 w-10 h-10 rounded-full bg-white/70 backdrop-blur-md border border-black/5 flex items-center justify-center text-neutral-900 shadow-lg">
+                        <iconify-icon icon="solar:alt-arrow-left-linear" class="text-xl"></iconify-icon>
+                    </button>
+                    <h1 class="text-lg tracking-tight font-medium text-neutral-900">Add Audio</h1>
+                </div>
+
+                <div class="flex-1 overflow-y-auto pb-28 relative z-10 hide-scrollbar px-5 pt-6">
+                    <div class="relative mb-5">
+                        <iconify-icon icon="solar:magnifer-linear" class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400"></iconify-icon>
+                        <input type="text" class="search-input !pl-12 !py-3.5" placeholder="Search audio...">
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-rose-400/50 shadow-lg shadow-rose-500/10">
+                            <button class="w-11 h-11 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:pause-bold" class="text-xl text-white"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-neutral-900 font-medium truncate">Late Night Roll</p>
+                                <p class="text-xs text-neutral-400 font-light truncate">Recz Sounds</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-rose-500 font-medium">Selected</p>
+                                <p class="text-[11px] text-neutral-400">0:32</p>
+                            </div>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-black/10">
+                            <button class="w-11 h-11 rounded-full bg-black/5 border border-black/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-neutral-900"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-neutral-900 font-medium truncate">Golden Hour Cut</p>
+                                <p class="text-xs text-neutral-400 font-light truncate">Mira Vale</p>
+                            </div>
+                            <span class="text-xs text-neutral-400">0:29</span>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-black/10">
+                            <button class="w-11 h-11 rounded-full bg-black/5 border border-black/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-neutral-900"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-neutral-900 font-medium truncate">City Lights</p>
+                                <p class="text-xs text-neutral-400 font-light truncate">Nox Studio</p>
+                            </div>
+                            <span class="text-xs text-neutral-400">0:41</span>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-black/10">
+                            <button class="w-11 h-11 rounded-full bg-black/5 border border-black/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-neutral-900"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-neutral-900 font-medium truncate">Soft Focus</p>
+                                <p class="text-xs text-neutral-400 font-light truncate">Aya Grey</p>
+                            </div>
+                            <span class="text-xs text-neutral-400">0:24</span>
+                        </div>
+
+                        <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-4 border border-black/10">
+                            <button class="w-11 h-11 rounded-full bg-black/5 border border-black/10 flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="solar:play-bold" class="text-xl text-neutral-900"></iconify-icon>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm text-neutral-900 font-medium truncate">Weekend Pulse</p>
+                                <p class="text-xs text-neutral-400 font-light truncate">The Loops</p>
+                            </div>
+                            <span class="text-xs text-neutral-400">0:35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 left-6 right-6 z-30">
+                    <button class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-lg shadow-rose-500/10 active:scale-[0.98] transition-all">
+                        Post
                     </button>
                 </div>
             </div>

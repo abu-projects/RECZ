@@ -1,0 +1,1317 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recz - Liquid Glass OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+/* Typography & Resets */
+body {
+font-family: 'Poppins', sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+::-webkit-scrollbar { display: none; }
+.hide-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+/* Apple Liquid Glass Fundamentals */
+.apple-glass {
+background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+backdrop-filter: blur(40px);
+-webkit-backdrop-filter: blur(40px);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-top-color: rgba(255, 255, 255, 0.2);
+border-left-color: rgba(255, 255, 255, 0.12);
+box-shadow: 0 24px 48px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.apple-glass-light {
+background: rgba(255, 255, 255, 0.03);
+backdrop-filter: blur(24px);
+-webkit-backdrop-filter: blur(24px);
+border: 1px solid rgba(255, 255, 255, 0.06);
+border-top-color: rgba(255, 255, 255, 0.12);
+}
+/* Deep inner glass for inputs */
+.apple-input {
+background: rgba(0, 0, 0, 0.2);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid rgba(255, 255, 255, 0.06);
+box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.apple-input:focus-within {
+background: rgba(0, 0, 0, 0.3);
+border-color: rgba(244, 63, 94, 0.4);
+box-shadow: inset 0 2px 8px rgba(0,0,0,0.5), 0 0 0 2px rgba(244, 63, 94, 0.1);
+}
+.sticky-blur {
+background: rgba(5,5,5,0.65);
+backdrop-filter: blur(32px);
+-webkit-backdrop-filter: blur(32px);
+}
+/* Gradients & Accents */
+.bg-gradient-accent {
+background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+}
+.text-gradient {
+background: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.glow-text {
+text-shadow: 0 0 24px rgba(244, 63, 94, 0.4);
+}
+/* Presentation Frame */
+.iphone-frame {
+width: 375px;
+min-height: 812px;
+height: max-content;
+border-radius: 3.5rem;
+border: 6px solid #1c1c1e;
+overflow: hidden;
+position: relative;
+background-color: #030303;
+box-shadow: 0 20px 50px rgba(0,0,0,0.9), inset 0 0 0 2px rgba(255,255,255,0.08);
+}
+.notch {
+position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+width: 140px; height: 32px; background-color: #1c1c1e;
+border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; z-index: 50;
+}
+/* Ambient Orbs */
+.orb-rose { background: radial-gradient(circle, rgba(244, 63, 94, 0.3) 0%, rgba(0,0,0,0) 70%); }
+.orb-purple { background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(0,0,0,0) 70%); }
+.orb-blue { background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(0,0,0,0) 70%); }
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px) scale(0.98); }
+to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-fade-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-up-delay { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+/* Section dividers */
+.section-title {
+font-family: 'Poppins', sans-serif;
+font-weight: 300;
+letter-spacing: -0.02em;
+}
+</style></head>
+  <body class="bg-[#0a0a0a] text-neutral-200 p-8 lg:p-12 xl:p-16 min-h-screen">
+
+    <div class="mb-20 max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl tracking-tight font-light text-white mb-4">
+        Recz OS — Design System
+      </h1>
+      <p class="text-neutral-400 text-lg font-extralight leading-relaxed max-w-2xl mx-auto">
+        The complete screen library: onboarding, authentication, discovery, social, creation, and profile flows — all unified under liquid glass aesthetics.
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+                         SECTION · ONBOARDING & AUTH
+    ═══════════════════════════════════════════════════════════════════ -->
+    <div class="max-w-[1400px] mx-auto mb-12">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
+        <h2 class="section-title text-2xl text-white">Onboarding &amp; Authentication</h2>
+        <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-14 justify-center items-start max-w-[1400px] mx-auto mb-24">
+
+      <!-- ═══════════════════════════════════════════
+     01 · SPLASH SCREEN
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">01. Splash Screen</span>
+        <div class="iphone-frame flex flex-col relative items-center justify-center" style="min-height:812px">
+          <div class="notch"></div>
+
+          <div class="absolute inset-0 bg-[#030303]"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-[#030303]/40 via-[#030303]/60 to-[#030303]"></div>
+
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] orb-rose blur-[80px] pointer-events-none"></div>
+
+          <div class="relative z-10 animate-fade-up flex flex-col items-center">
+            <div class="w-20 h-20 rounded-[1.75rem] bg-gradient-accent flex items-center justify-center shadow-[0_0_40px_rgba(244,63,94,0.6)] border border-white/20 mb-6">
+              <span class="text-white font-light text-4xl tracking-tighter">R</span>
+            </div>
+            <h1 class="text-2xl tracking-tight font-light text-white glow-text">Recz</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     02 · WELCOME SCREEN
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">02. Welcome Screen</span>
+        <div class="iphone-frame flex flex-col relative" style="min-height:812px">
+          <div class="notch"></div>
+
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/60 to-transparent"></div>
+
+          <div class="absolute top-20 right-0 w-[300px] h-[300px] orb-purple blur-[80px] pointer-events-none"></div>
+
+          <div class="relative z-10 mt-auto p-6 pb-12 animate-fade-up-delay">
+            <div class="apple-glass rounded-[2rem] p-8 relative overflow-hidden">
+              <h1 class="text-3xl tracking-tight font-light text-white leading-snug mb-3 relative z-10">
+                Discover.
+                <br>
+                <span class="text-gradient font-light glow-text">Share.</span>
+                Plan.
+              </h1>
+              <p class="text-sm text-neutral-400 font-extralight leading-relaxed mb-8 relative z-10">
+                Your high-end social recommendation ecosystem. Powered by AI, curated by your circle.
+              </p>
+              <button class="w-full bg-gradient-accent py-4 rounded-2xl text-base font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.5)] border border-white/20 hover:scale-[0.98] transition-transform">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     03 · CHOOSE INTERESTS
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">03. Choose Interests</span>
+        <div class="iphone-frame flex flex-col p-6 pt-20 relative" style="min-height:812px">
+          <div class="notch"></div>
+
+          <div class="absolute top-0 right-0 w-[250px] h-[250px] orb-rose blur-[80px] opacity-40 pointer-events-none"></div>
+
+          <h1 class="text-3xl tracking-tight font-light text-white mb-2 relative z-10">What are you into?</h1>
+          <p class="text-sm text-neutral-400 font-extralight mb-8 leading-relaxed relative z-10">
+            Select at least 3 interests to personalize your recommendations.
+          </p>
+
+          <div class="flex flex-wrap gap-3 relative z-10 mb-8">
+            <div class="px-5 py-3 rounded-full bg-rose-500/20 border border-rose-500/50 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)] font-light text-sm cursor-pointer flex items-center gap-2 transition-all">
+              <iconify-icon icon="solar:cup-hot-linear" width="18" height="18"></iconify-icon>
+              Food &amp; Dining
+            </div>
+            <div class="px-5 py-3 rounded-full apple-glass-light border border-white/10 text-neutral-300 hover:bg-white/10 font-light text-sm cursor-pointer flex items-center gap-2 transition-all">
+              <iconify-icon icon="solar:video-frame-linear" width="18" height="18"></iconify-icon>
+              Movies
+            </div>
+            <div class="px-5 py-3 rounded-full bg-rose-500/20 border border-rose-500/50 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)] font-light text-sm cursor-pointer flex items-center gap-2 transition-all">
+              <iconify-icon icon="solar:music-note-linear" width="18" height="18"></iconify-icon>
+              Nightlife
+            </div>
+            <div class="px-5 py-3 rounded-full apple-glass-light border border-white/10 text-neutral-300 hover:bg-white/10 font-light text-sm cursor-pointer flex items-center gap-2 transition-all">
+              <iconify-icon icon="solar:map-point-linear" width="18" height="18"></iconify-icon>
+              Outdoors
+            </div>
+            <div class="px-5 py-3 rounded-full apple-glass-light border border-white/10 text-neutral-300 hover:bg-white/10 font-light text-sm cursor-pointer flex items-center gap-2 transition-all">
+              <iconify-icon icon="solar:palette-linear" width="18" height="18"></iconify-icon>
+              Art &amp; Culture
+            </div>
+            <div class="px-5 py-3 rounded-full apple-glass-light border border-white/10 text-neutral-300 hover:bg-white/10 font-light text-sm cursor-pointer flex items-center gap-2 transition-all">
+              <iconify-icon icon="solar:camera-linear" width="18" height="18"></iconify-icon>
+              Photography
+            </div>
+            <div class="px-5 py-3 rounded-full bg-rose-500/20 border border-rose-500/50 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)] font-light text-sm cursor-pointer flex items-center gap-2 transition-all">
+              <iconify-icon icon="solar:plane-linear" width="18" height="18"></iconify-icon>
+              Travel
+            </div>
+          </div>
+
+          <div class="mt-auto relative z-10 pb-6">
+            <button class="w-full bg-gradient-accent py-4 rounded-2xl text-base font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-[0.98] transition-transform">
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     04 · LOG IN
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">04. Log In</span>
+        <div class="iphone-frame flex flex-col p-6 pt-20 relative" style="min-height:812px">
+          <div class="notch"></div>
+
+          <div class="absolute top-10 left-[-50px] w-[250px] h-[250px] orb-rose blur-[80px] opacity-50 pointer-events-none"></div>
+
+          <h1 class="text-3xl tracking-tight font-light text-white mb-2 relative z-10">Welcome back</h1>
+          <p class="text-sm text-neutral-400 font-extralight mb-10 leading-relaxed relative z-10">
+            Log in to continue your curated experience.
+          </p>
+
+          <div class="apple-glass rounded-3xl p-6 mb-4 relative z-10 flex flex-col gap-4">
+            <div>
+              <p class="text-xs text-neutral-400 mb-2 ml-1 font-light tracking-wide">Email</p>
+              <div class="apple-input rounded-2xl">
+                <input type="email" placeholder="your@email.com" class="w-full bg-transparent py-4 px-5 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+              </div>
+            </div>
+            <div>
+              <p class="text-xs text-neutral-400 mb-2 ml-1 font-light tracking-wide">Password</p>
+              <div class="apple-input rounded-2xl flex items-center pr-4">
+                <input type="password" placeholder="••••••••" class="w-full bg-transparent py-4 px-5 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+                <iconify-icon icon="solar:eye-linear" width="18" height="18" class="text-neutral-500 cursor-pointer"></iconify-icon>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end mb-6 relative z-10">
+            <a href="#" class="text-xs text-rose-400 hover:text-rose-300 font-light">Forgot password?</a>
+          </div>
+
+          <button class="w-full bg-gradient-accent py-4 rounded-2xl text-base font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.4)] border border-white/20 mb-6 relative z-10 hover:scale-[0.98] transition-transform">
+            Log In
+          </button>
+
+          <div class="flex items-center gap-3 mb-6 relative z-10">
+            <div class="flex-1 h-px bg-white/10"></div>
+            <span class="text-xs text-neutral-500 font-extralight">or continue with</span>
+            <div class="flex-1 h-px bg-white/10"></div>
+          </div>
+
+          <div class="flex gap-3 relative z-10">
+            <button class="flex-1 apple-glass-light py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 transition-colors">
+              <iconify-icon icon="solar:apple-linear" width="20" height="20" class="text-white"></iconify-icon>
+              <span class="text-sm font-light text-white">Apple</span>
+            </button>
+            <button class="flex-1 apple-glass-light py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 transition-colors">
+              <iconify-icon icon="solar:google-linear" width="20" height="20" class="text-white"></iconify-icon>
+              <span class="text-sm font-light text-white">Google</span>
+            </button>
+          </div>
+
+          <div class="mt-auto pb-6 text-center relative z-10">
+            <p class="text-xs text-neutral-500 font-extralight">
+              New here? <a href="#" class="text-rose-400 hover:text-rose-300 font-light">Create an account</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     05 · SIGN UP
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">05. Sign Up</span>
+        <div class="iphone-frame flex flex-col p-6 pt-20 relative" style="min-height:812px">
+          <div class="notch"></div>
+
+          <div class="absolute top-0 right-0 w-[250px] h-[250px] orb-purple blur-[60px] opacity-60 pointer-events-none"></div>
+          <div class="absolute top-40 left-[-50px] w-[200px] h-[200px] orb-blue blur-[60px] opacity-40 pointer-events-none"></div>
+
+          <h1 class="text-3xl tracking-tight font-light text-white mb-2 relative z-10">Create Account</h1>
+          <p class="text-sm text-neutral-400 font-extralight mb-10 leading-relaxed relative z-10">
+            Join the Recz fam to discover and share recommendations.
+          </p>
+
+          <div class="apple-glass rounded-3xl p-6 mb-6 relative z-10 flex flex-col gap-4">
+            <div>
+              <p class="text-xs text-neutral-400 mb-2 ml-1 font-light tracking-wide">Full Name</p>
+              <div class="apple-input rounded-2xl">
+                <input type="text" placeholder="John Doe" class="w-full bg-transparent py-4 px-5 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+              </div>
+            </div>
+            <div>
+              <p class="text-xs text-neutral-400 mb-2 ml-1 font-light tracking-wide">Email</p>
+              <div class="apple-input rounded-2xl">
+                <input type="email" placeholder="your@email.com" class="w-full bg-transparent py-4 px-5 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+              </div>
+            </div>
+            <div>
+              <p class="text-xs text-neutral-400 mb-2 ml-1 font-light tracking-wide">Password</p>
+              <div class="apple-input rounded-2xl">
+                <input type="password" placeholder="••••••••" class="w-full bg-transparent py-4 px-5 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+              </div>
+            </div>
+          </div>
+
+          <button class="w-full bg-gradient-accent py-4 rounded-2xl text-base font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.4)] border border-white/20 mb-6 relative z-10 hover:scale-[0.98] transition-transform">
+            Sign Up
+          </button>
+
+          <div class="flex flex-col items-center justify-center pb-6 mt-auto">
+            <p class="text-xs text-neutral-500 font-extralight">
+              Already have an account? <a href="#" class="text-rose-400 hover:text-rose-300 font-light transition-colors">Log In</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     06 · OTP VERIFICATION
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">06. OTP Verification</span>
+        <div class="iphone-frame flex flex-col p-6 pt-20 relative" style="min-height:812px">
+          <div class="notch"></div>
+
+          <div class="absolute top-10 right-0 w-[250px] h-[250px] orb-rose blur-[80px] opacity-40 pointer-events-none"></div>
+
+          <div class="w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center mb-6 relative z-10 shadow-[0_0_20px_rgba(244,63,94,0.2)]">
+            <iconify-icon icon="solar:shield-check-linear" width="28" height="28" class="text-rose-400"></iconify-icon>
+          </div>
+
+          <h1 class="text-3xl tracking-tight font-light text-white mb-2 relative z-10">Verify your email</h1>
+          <p class="text-sm text-neutral-400 font-extralight mb-10 leading-relaxed relative z-10">
+            We sent a 6-digit code to <span class="text-white">john@email.com</span>
+          </p>
+
+          <div class="flex gap-2 mb-8 relative z-10">
+            <div class="flex-1 aspect-square apple-input rounded-2xl flex items-center justify-center text-2xl text-white font-light border-rose-500/50 bg-black/40">4</div>
+            <div class="flex-1 aspect-square apple-input rounded-2xl flex items-center justify-center text-2xl text-white font-light border-rose-500/50 bg-black/40">8</div>
+            <div class="flex-1 aspect-square apple-input rounded-2xl flex items-center justify-center text-2xl text-white font-light border-rose-500/50 bg-black/40">2</div>
+            <div class="flex-1 aspect-square apple-input rounded-2xl flex items-center justify-center text-2xl text-white font-light">1</div>
+            <div class="flex-1 aspect-square apple-input rounded-2xl flex items-center justify-center text-2xl text-white font-light"></div>
+            <div class="flex-1 aspect-square apple-input rounded-2xl flex items-center justify-center text-2xl text-white font-light"></div>
+          </div>
+
+          <button class="w-full bg-gradient-accent py-4 rounded-2xl text-base font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.4)] border border-white/20 mb-4 relative z-10 hover:scale-[0.98] transition-transform">
+            Verify
+          </button>
+
+          <div class="text-center relative z-10">
+            <p class="text-xs text-neutral-500 font-extralight">
+              Didn't receive it? <a href="#" class="text-rose-400 hover:text-rose-300 font-light">Resend in 00:42</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     07 · CONNECT FRIENDS
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">07. Connect Friends</span>
+        <div class="iphone-frame flex flex-col p-6 pt-20 relative" style="min-height:812px">
+          <div class="notch"></div>
+
+          <div class="absolute top-0 right-[-50px] w-[280px] h-[280px] orb-purple blur-[80px] opacity-50 pointer-events-none"></div>
+
+          <h1 class="text-3xl tracking-tight font-light text-white mb-2 relative z-10">Find your fam</h1>
+          <p class="text-sm text-neutral-400 font-extralight mb-8 leading-relaxed relative z-10">
+            Connect with people from your contacts to share recommendations.
+          </p>
+
+          <div class="apple-glass rounded-3xl p-5 mb-4 relative z-10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+              <iconify-icon icon="solar:phone-linear" width="20" height="20" class="text-blue-400"></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-light text-white">Sync Contacts</p>
+              <p class="text-xs text-neutral-400 font-extralight">Find friends already on Recz</p>
+            </div>
+            <div class="w-11 h-6 rounded-full bg-gradient-accent border border-white/20 relative cursor-pointer">
+              <div class="w-5 h-5 rounded-full bg-white absolute top-0.5 right-0.5 shadow-md"></div>
+            </div>
+          </div>
+
+          <p class="text-xs text-neutral-400 uppercase tracking-wider font-light mb-3 relative z-10">Suggested for you</p>
+
+          <div class="flex flex-col gap-3 relative z-10 mb-6">
+            <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-3">
+              <img src="https://i.pravatar.cc/100?img=12" class="w-11 h-11 rounded-full border border-white/10" alt="">
+              <div class="flex-1">
+                <p class="text-sm font-light text-white">Maya Chen</p>
+                <p class="text-xs text-neutral-400 font-extralight">24 mutual friends</p>
+              </div>
+              <button class="px-4 py-1.5 bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-light rounded-full">Follow</button>
+            </div>
+            <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-3">
+              <img src="https://i.pravatar.cc/100?img=33" class="w-11 h-11 rounded-full border border-white/10" alt="">
+              <div class="flex-1">
+                <p class="text-sm font-light text-white">Marcus Lee</p>
+                <p class="text-xs text-neutral-400 font-extralight">12 mutual friends</p>
+              </div>
+              <button class="px-4 py-1.5 apple-glass-light border border-white/20 text-white text-xs font-light rounded-full">Following</button>
+            </div>
+            <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-3">
+              <img src="https://i.pravatar.cc/100?img=47" class="w-11 h-11 rounded-full border border-white/10" alt="">
+              <div class="flex-1">
+                <p class="text-sm font-light text-white">Priya Sharma</p>
+                <p class="text-xs text-neutral-400 font-extralight">8 mutual friends</p>
+              </div>
+              <button class="px-4 py-1.5 bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-light rounded-full">Follow</button>
+            </div>
+            <div class="apple-glass-light rounded-2xl p-4 flex items-center gap-3">
+              <img src="https://i.pravatar.cc/100?img=22" class="w-11 h-11 rounded-full border border-white/10" alt="">
+              <div class="flex-1">
+                <p class="text-sm font-light text-white">Sofia Alvarez</p>
+                <p class="text-xs text-neutral-400 font-extralight">5 mutual friends</p>
+              </div>
+              <button class="px-4 py-1.5 bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-light rounded-full">Follow</button>
+            </div>
+          </div>
+
+          <div class="mt-auto relative z-10 pb-6 flex gap-3">
+            <button class="flex-1 apple-glass-light py-4 rounded-2xl text-sm font-light text-neutral-300 border border-white/10">Skip</button>
+            <button class="flex-[2] bg-gradient-accent py-4 rounded-2xl text-sm font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.4)] border border-white/20">Continue</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     08 · PERMISSIONS
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">08. Permissions</span>
+        <div class="iphone-frame flex flex-col p-6 pt-20 relative" style="min-height:812px">
+          <div class="notch"></div>
+
+          <div class="absolute top-20 left-[-50px] w-[250px] h-[250px] orb-blue blur-[80px] opacity-40 pointer-events-none"></div>
+
+          <h1 class="text-3xl tracking-tight font-light text-white mb-2 relative z-10">Enable features</h1>
+          <p class="text-sm text-neutral-400 font-extralight mb-8 leading-relaxed relative z-10">
+            Unlock the full Recz experience with these permissions.
+          </p>
+
+          <div class="flex flex-col gap-3 relative z-10">
+            <div class="apple-glass rounded-2xl p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="solar:map-point-linear" width="22" height="22" class="text-rose-400"></iconify-icon>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-light text-white mb-1">Location</p>
+                <p class="text-xs text-neutral-400 font-extralight leading-relaxed">Discover nearby restaurants, events and places.</p>
+              </div>
+              <div class="w-11 h-6 rounded-full bg-gradient-accent border border-white/20 relative cursor-pointer mt-1">
+                <div class="w-5 h-5 rounded-full bg-white absolute top-0.5 right-0.5 shadow-md"></div>
+              </div>
+            </div>
+
+            <div class="apple-glass rounded-2xl p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="solar:bell-linear" width="22" height="22" class="text-purple-400"></iconify-icon>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-light text-white mb-1">Notifications</p>
+                <p class="text-xs text-neutral-400 font-extralight leading-relaxed">Get notified when friends recommend something new.</p>
+              </div>
+              <div class="w-11 h-6 rounded-full bg-gradient-accent border border-white/20 relative cursor-pointer mt-1">
+                <div class="w-5 h-5 rounded-full bg-white absolute top-0.5 right-0.5 shadow-md"></div>
+              </div>
+            </div>
+
+            <div class="apple-glass rounded-2xl p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="solar:camera-linear" width="22" height="22" class="text-blue-400"></iconify-icon>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-light text-white mb-1">Camera &amp; Photos</p>
+                <p class="text-xs text-neutral-400 font-extralight leading-relaxed">Share photos from your adventures in reviews.</p>
+              </div>
+              <div class="w-11 h-6 rounded-full bg-white/10 border border-white/10 relative cursor-pointer mt-1">
+                <div class="w-5 h-5 rounded-full bg-white/60 absolute top-0.5 left-0.5"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-auto relative z-10 pb-6">
+            <button class="w-full bg-gradient-accent py-4 rounded-2xl text-base font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-[0.98] transition-transform">
+              All Set
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+                         SECTION · CORE APP
+    ═══════════════════════════════════════════════════════════════════ -->
+    <div class="max-w-[1400px] mx-auto mb-12">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
+        <h2 class="section-title text-2xl text-white">Core App Experience</h2>
+        <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-14 justify-center items-start max-w-[1400px] mx-auto mb-24">
+
+      <!-- ═══════════════════════════════════════════
+     09 · HOME FEED
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">09. Home Feed</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+
+          <div class="absolute inset-0 bg-[#030303]"></div>
+          <div class="absolute top-10 left-[-50px] w-[300px] h-[300px] orb-rose blur-[100px] opacity-20 pointer-events-none"></div>
+          <div class="absolute bottom-40 right-[-50px] w-[250px] h-[250px] orb-purple blur-[90px] opacity-15 pointer-events-none"></div>
+
+          <div class="sticky-blur px-5 pt-14 pb-4 z-40 flex flex-col gap-4 border-b border-white/5">
+            <div class="flex items-center justify-between">
+              <div class="flex flex-col gap-1">
+                <p class="text-[10px] text-neutral-400 font-extralight leading-none uppercase tracking-wider">
+                  Good evening
+                </p>
+                <p class="text-xl text-white font-light leading-none tracking-tight">
+                  What's your vibe?
+                </p>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="relative cursor-pointer group">
+                  <iconify-icon icon="solar:bell-linear" width="22" height="22" class="text-neutral-300 group-hover:text-white transition-colors"></iconify-icon>
+                  <div class="absolute top-0 right-0 w-2 h-2 rounded-full bg-rose-500 border border-[#030303]"></div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-500 to-purple-500 p-[2px] cursor-pointer hover:scale-105 transition-transform">
+                  <img src="https://i.pravatar.cc/100?img=5" class="w-full h-full rounded-full border border-black object-cover" alt="Profile">
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar">
+              <div class="flex items-center gap-1.5 bg-rose-500/10 text-rose-400 px-4 py-1.5 rounded-full cursor-pointer border border-rose-500/20 flex-shrink-0 shadow-[0_0_10px_rgba(244,63,94,0.2)]">
+                <iconify-icon icon="solar:widget-linear" width="16" height="16"></iconify-icon>
+                <span class="text-xs font-light">All Categories</span>
+                <iconify-icon icon="solar:alt-arrow-down-linear" width="16" height="16"></iconify-icon>
+              </div>
+              <div class="flex items-center gap-1.5 apple-glass-light text-neutral-300 px-4 py-1.5 rounded-full cursor-pointer hover:bg-white/10 transition-colors flex-shrink-0">
+                <span class="text-xs font-light">Trending</span>
+              </div>
+              <div class="flex items-center gap-1.5 apple-glass-light text-neutral-300 px-4 py-1.5 rounded-full cursor-pointer hover:bg-white/10 transition-colors flex-shrink-0">
+                <span class="text-xs font-light">Nearby</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-1 overflow-y-auto pb-32 relative z-10 hide-scrollbar pt-4">
+            <div class="px-5 mb-6">
+              <div class="apple-glass rounded-3xl overflow-hidden border border-white/10 shadow-lg">
+                <div class="relative aspect-[4/3] group cursor-pointer overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Card">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-transparent"></div>
+
+                  <div class="absolute top-4 left-4 apple-glass px-3 py-1.5 rounded-xl text-xs text-white flex items-center gap-1.5 backdrop-blur-md">
+                    <iconify-icon icon="solar:video-frame-linear" width="14" height="14"></iconify-icon>
+                    Movie
+                  </div>
+
+                  <div class="absolute bottom-0 left-0 right-0 p-5">
+                    <div class="flex items-center justify-between mb-1">
+                      <h3 class="text-2xl text-white font-light tracking-tight drop-shadow-md">
+                        Elf
+                      </h3>
+                      <div class="bg-rose-500/90 px-2.5 py-1 rounded-lg text-sm text-white font-light flex items-center gap-1 shadow-md">
+                        <iconify-icon icon="solar:star-linear" width="14" height="14" class="text-white"></iconify-icon>
+                        2.8
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="text-xs text-neutral-300 font-extralight border border-white/20 px-2 py-0.5 rounded-md bg-white/5">Comedy</span>
+                      <span class="text-xs text-neutral-300 font-extralight border border-white/20 px-2 py-0.5 rounded-md bg-white/5">Family</span>
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                      <img src="https://i.pravatar.cc/100?img=9" class="w-6 h-6 rounded-full object-cover border border-white/20" alt="Lina">
+                      <span class="text-xs text-neutral-300 font-extralight">
+                        <span class="text-white font-light">Lina May</span> and 2 others rated this
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 flex items-center justify-between bg-black/20">
+                  <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1.5 cursor-pointer group">
+                      <iconify-icon icon="solar:heart-linear" width="20" height="20" class="text-neutral-400 group-hover:text-rose-400 transition-colors"></iconify-icon>
+                      <span class="text-xs text-neutral-400 font-light">24</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 cursor-pointer group">
+                      <iconify-icon icon="solar:chat-round-line-linear" width="20" height="20" class="text-neutral-400 group-hover:text-white transition-colors"></iconify-icon>
+                      <span class="text-xs text-neutral-400 font-light">5</span>
+                    </div>
+                  </div>
+                  <button class="text-xs text-white border border-white/20 px-4 py-1.5 rounded-full hover:bg-white/10 transition-colors font-light">
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 mb-8">
+              <div class="apple-glass rounded-3xl overflow-hidden border border-white/10 shadow-lg">
+                <div class="relative aspect-[4/3] group cursor-pointer overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Bar">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-transparent"></div>
+
+                  <div class="absolute top-4 left-4 apple-glass px-3 py-1.5 rounded-xl text-xs text-white flex items-center gap-1.5 backdrop-blur-md">
+                    <iconify-icon icon="solar:cup-hot-linear" width="14" height="14"></iconify-icon>
+                    Drinks
+                  </div>
+
+                  <div class="absolute bottom-0 left-0 right-0 p-5">
+                    <div class="flex items-center justify-between mb-1">
+                      <h3 class="text-2xl text-white font-light tracking-tight drop-shadow-md">
+                        The Broken Shaker
+                      </h3>
+                      <div class="bg-rose-500/90 px-2.5 py-1 rounded-lg text-sm text-white font-light flex items-center gap-1 shadow-md">
+                        <iconify-icon icon="solar:star-linear" width="14" height="14" class="text-white"></iconify-icon>
+                        4.9
+                      </div>
+                    </div>
+                    <p class="text-xs text-neutral-400 font-light flex items-center gap-1 mb-3">
+                      <iconify-icon icon="solar:map-point-linear" width="14" height="14" class="text-rose-400"></iconify-icon>
+                      Los Angeles, CA
+                    </p>
+
+                    <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                      <img src="https://i.pravatar.cc/100?img=3" class="w-6 h-6 rounded-full object-cover border border-white/20" alt="Alex">
+                      <span class="text-xs text-neutral-300 font-extralight">
+                        <span class="text-white font-light">Alex</span> checked in here
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="h-10"></div>
+          </div>
+
+          <div class="absolute bottom-28 right-5 z-40">
+            <button class="w-14 h-14 rounded-full bg-gradient-accent flex items-center justify-center shadow-[0_0_30px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-105 transition-all relative group">
+              <div class="absolute inset-0 rounded-full bg-white/20 animate-ping opacity-20" style="animation-duration: 2s;"></div>
+              <iconify-icon icon="solar:stars-linear" width="28" height="28" class="text-white relative z-10"></iconify-icon>
+            </button>
+          </div>
+
+          <div class="absolute bottom-6 left-5 right-5 sticky-blur p-2 z-50 flex items-center justify-between border border-white/10 rounded-full shadow-2xl">
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full bg-rose-500/10 text-rose-400 shadow-[0_0_15px_rgba(244,63,94,0.3)] cursor-pointer">
+              <iconify-icon icon="solar:home-2-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 hover:text-white transition-colors cursor-pointer">
+              <iconify-icon icon="solar:magnifer-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-14 h-14 -mt-6 flex flex-col items-center justify-center rounded-full bg-gradient-accent text-white shadow-[0_8px_24px_rgba(244,63,94,0.4)] border border-white/20 hover:scale-105 transition-transform cursor-pointer">
+              <iconify-icon icon="solar:add-linear" width="28" height="28"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 hover:text-white transition-colors cursor-pointer">
+              <iconify-icon icon="solar:video-frame-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 hover:text-white transition-colors cursor-pointer">
+              <iconify-icon icon="solar:letter-linear" width="24" height="24"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     10 · EXPLORE / SEARCH
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">10. Explore / Search</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+          <div class="absolute top-10 right-0 w-[280px] h-[280px] orb-purple blur-[100px] opacity-25 pointer-events-none"></div>
+
+          <div class="sticky-blur px-5 pt-14 pb-4 z-40 flex flex-col gap-4 border-b border-white/5">
+            <h1 class="text-xl text-white font-light tracking-tight">Explore</h1>
+            <div class="apple-input rounded-full flex items-center px-4 gap-2">
+              <iconify-icon icon="solar:magnifer-linear" width="18" height="18" class="text-neutral-400"></iconify-icon>
+              <input type="text" placeholder="Search places, movies, music…" class="w-full bg-transparent py-3 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+              <iconify-icon icon="solar:tuning-2-linear" width="18" height="18" class="text-neutral-400"></iconify-icon>
+            </div>
+          </div>
+
+          <div class="flex-1 overflow-y-auto pb-32 px-5 pt-5 hide-scrollbar relative z-10">
+            <p class="text-xs text-neutral-400 uppercase tracking-wider font-light mb-3">Trending near you</p>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="apple-glass rounded-2xl overflow-hidden aspect-[3/4] relative group cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&amp;q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                <div class="absolute top-2 left-2 bg-rose-500/90 px-2 py-0.5 rounded-md text-[10px] text-white font-light flex items-center gap-1">
+                  <iconify-icon icon="solar:fire-linear" width="12" height="12"></iconify-icon>
+                  Hot
+                </div>
+                <div class="absolute bottom-3 left-3 right-3">
+                  <p class="text-sm text-white font-light leading-tight">Nobu Malibu</p>
+                  <p class="text-[10px] text-neutral-300 font-extralight">Sushi · $$$</p>
+                </div>
+              </div>
+              <div class="apple-glass rounded-2xl overflow-hidden aspect-[3/4] relative group cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=600&amp;q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                  <p class="text-sm text-white font-light leading-tight">Bemelmans Bar</p>
+                  <p class="text-[10px] text-neutral-300 font-extralight">Cocktails · NYC</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-xs text-neutral-400 uppercase tracking-wider font-light mb-3">Categories</p>
+            <div class="grid grid-cols-3 gap-3 mb-6">
+              <div class="apple-glass-light rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/5">
+                <iconify-icon icon="solar:cup-hot-linear" width="24" height="24" class="text-rose-400"></iconify-icon>
+                <span class="text-[11px] font-light text-white">Food</span>
+              </div>
+              <div class="apple-glass-light rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/5">
+                <iconify-icon icon="solar:video-frame-linear" width="24" height="24" class="text-purple-400"></iconify-icon>
+                <span class="text-[11px] font-light text-white">Movies</span>
+              </div>
+              <div class="apple-glass-light rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/5">
+                <iconify-icon icon="solar:music-note-linear" width="24" height="24" class="text-blue-400"></iconify-icon>
+                <span class="text-[11px] font-light text-white">Music</span>
+              </div>
+              <div class="apple-glass-light rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/5">
+                <iconify-icon icon="solar:plane-linear" width="24" height="24" class="text-amber-400"></iconify-icon>
+                <span class="text-[11px] font-light text-white">Travel</span>
+              </div>
+              <div class="apple-glass-light rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/5">
+                <iconify-icon icon="solar:book-linear" width="24" height="24" class="text-emerald-400"></iconify-icon>
+                <span class="text-[11px] font-light text-white">Books</span>
+              </div>
+              <div class="apple-glass-light rounded-2xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/5">
+                <iconify-icon icon="solar:palette-linear" width="24" height="24" class="text-pink-400"></iconify-icon>
+                <span class="text-[11px] font-light text-white">Art</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-neutral-400 uppercase tracking-wider font-light mb-3">Recent searches</p>
+            <div class="flex flex-col gap-2">
+              <div class="apple-glass-light rounded-2xl px-4 py-3 flex items-center gap-3">
+                <iconify-icon icon="solar:clock-circle-linear" width="16" height="16" class="text-neutral-500"></iconify-icon>
+                <span class="text-sm text-neutral-200 font-extralight flex-1">Ramen in Tokyo</span>
+                <iconify-icon icon="solar:alt-arrow-up-linear" width="14" height="14" class="text-neutral-500 -rotate-45"></iconify-icon>
+              </div>
+              <div class="apple-glass-light rounded-2xl px-4 py-3 flex items-center gap-3">
+                <iconify-icon icon="solar:clock-circle-linear" width="16" height="16" class="text-neutral-500"></iconify-icon>
+                <span class="text-sm text-neutral-200 font-extralight flex-1">Rooftop bars LA</span>
+                <iconify-icon icon="solar:alt-arrow-up-linear" width="14" height="14" class="text-neutral-500 -rotate-45"></iconify-icon>
+              </div>
+            </div>
+            <div class="h-6"></div>
+          </div>
+
+          <div class="absolute bottom-6 left-5 right-5 sticky-blur p-2 z-50 flex items-center justify-between border border-white/10 rounded-full shadow-2xl">
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:home-2-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full bg-rose-500/10 text-rose-400 shadow-[0_0_15px_rgba(244,63,94,0.3)] cursor-pointer">
+              <iconify-icon icon="solar:magnifer-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-14 h-14 -mt-6 flex flex-col items-center justify-center rounded-full bg-gradient-accent text-white shadow-[0_8px_24px_rgba(244,63,94,0.4)] border border-white/20 cursor-pointer">
+              <iconify-icon icon="solar:add-linear" width="28" height="28"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:video-frame-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:letter-linear" width="24" height="24"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     11 · RECZ DETAIL
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">11. Recz Detail</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+
+          <div class="relative h-[380px] flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1000&amp;q=80" class="absolute inset-0 w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-[#030303]/60"></div>
+
+            <div class="absolute top-14 left-5 right-5 flex items-center justify-between z-10">
+              <button class="w-10 h-10 rounded-full apple-glass flex items-center justify-center">
+                <iconify-icon icon="solar:alt-arrow-left-linear" width="20" height="20" class="text-white"></iconify-icon>
+              </button>
+              <div class="flex gap-2">
+                <button class="w-10 h-10 rounded-full apple-glass flex items-center justify-center">
+                  <iconify-icon icon="solar:share-linear" width="18" height="18" class="text-white"></iconify-icon>
+                </button>
+                <button class="w-10 h-10 rounded-full apple-glass flex items-center justify-center">
+                  <iconify-icon icon="solar:bookmark-linear" width="18" height="18" class="text-white"></iconify-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-1 px-5 -mt-20 relative z-10 pb-32 overflow-y-auto hide-scrollbar">
+            <div class="apple-glass rounded-3xl p-6 mb-4">
+              <div class="flex items-start justify-between mb-3">
+                <div class="flex-1">
+                  <span class="text-xs px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 font-light border border-rose-500/30">Cocktail Bar</span>
+                  <h1 class="text-2xl text-white font-light tracking-tight mt-2 leading-tight">The Broken Shaker</h1>
+                  <p class="text-xs text-neutral-400 font-extralight flex items-center gap-1 mt-1">
+                    <iconify-icon icon="solar:map-point-linear" width="14" height="14" class="text-rose-400"></iconify-icon>
+                    Los Angeles, CA · 0.8mi
+                  </p>
+                </div>
+                <div class="bg-rose-500/90 px-3 py-1.5 rounded-xl text-white flex items-center gap-1 shadow-md">
+                  <iconify-icon icon="solar:star-linear" width="14" height="14"></iconify-icon>
+                  <span class="text-sm font-light">4.9</span>
+                </div>
+              </div>
+              <p class="text-xs text-neutral-300 font-extralight leading-relaxed">
+                Craft cocktails and tropical vibes in a hidden courtyard. Open until 2AM.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3 mb-5">
+              <button class="apple-glass-light rounded-2xl py-3 flex flex-col items-center gap-1">
+                <iconify-icon icon="solar:phone-linear" width="20" height="20" class="text-rose-400"></iconify-icon>
+                <span class="text-[10px] font-light text-white">Call</span>
+              </button>
+              <button class="apple-glass-light rounded-2xl py-3 flex flex-col items-center gap-1">
+                <iconify-icon icon="solar:routing-linear" width="20" height="20" class="text-rose-400"></iconify-icon>
+                <span class="text-[10px] font-light text-white">Directions</span>
+              </button>
+              <button class="apple-glass-light rounded-2xl py-3 flex flex-col items-center gap-1">
+                <iconify-icon icon="solar:global-linear" width="20" height="20" class="text-rose-400"></iconify-icon>
+                <span class="text-[10px] font-light text-white">Website</span>
+              </button>
+            </div>
+
+            <p class="text-xs text-neutral-400 uppercase tracking-wider font-light mb-3">Friends who've been</p>
+            <div class="apple-glass-light rounded-2xl p-4 mb-5 flex items-center gap-3">
+              <div class="flex -space-x-2">
+                <img src="https://i.pravatar.cc/100?img=3" class="w-8 h-8 rounded-full border-2 border-[#0a0a0a]" alt="">
+                <img src="https://i.pravatar.cc/100?img=9" class="w-8 h-8 rounded-full border-2 border-[#0a0a0a]" alt="">
+                <img src="https://i.pravatar.cc/100?img=22" class="w-8 h-8 rounded-full border-2 border-[#0a0a0a]" alt="">
+              </div>
+              <span class="text-xs text-neutral-300 font-extralight">
+                <span class="text-white font-light">Alex</span>, <span class="text-white font-light">Lina</span> +12 others
+              </span>
+            </div>
+
+            <p class="text-xs text-neutral-400 uppercase tracking-wider font-light mb-3">Top Review</p>
+            <div class="apple-glass rounded-2xl p-4">
+              <div class="flex items-center gap-3 mb-3">
+                <img src="https://i.pravatar.cc/100?img=3" class="w-9 h-9 rounded-full" alt="">
+                <div class="flex-1">
+                  <p class="text-sm text-white font-light">Alex Morgan</p>
+                  <div class="flex items-center gap-1">
+                    <iconify-icon icon="solar:star-bold" width="12" height="12" class="text-rose-400"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" height="12" class="text-rose-400"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" height="12" class="text-rose-400"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" height="12" class="text-rose-400"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold" width="12" height="12" class="text-rose-400"></iconify-icon>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-neutral-300 font-extralight leading-relaxed">
+                "Best negroni in LA, hands down. The courtyard vibe transports you somewhere else entirely."
+              </p>
+            </div>
+          </div>
+
+          <div class="absolute bottom-6 left-5 right-5 flex gap-3 z-50">
+            <button class="flex-1 apple-glass-light py-4 rounded-2xl text-sm font-light text-white border border-white/10">
+              Add Review
+            </button>
+            <button class="flex-1 bg-gradient-accent py-4 rounded-2xl text-sm font-light text-white shadow-[0_8px_24px_-6px_rgba(244,63,94,0.4)] border border-white/20">
+              Rec to Friends
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     12 · ROLLZ (Reels)
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">12. Rollz</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+
+          <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover" alt="">
+          <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+
+          <div class="relative z-10 sticky-blur px-5 pt-14 pb-3 flex items-center justify-center gap-6 border-b border-white/5">
+            <span class="text-sm text-neutral-400 font-extralight">Following</span>
+            <span class="text-sm text-white font-light border-b-2 border-rose-500 pb-1">For You</span>
+          </div>
+
+          <!-- Side actions -->
+          <div class="absolute right-4 bottom-32 z-20 flex flex-col gap-6 items-center">
+            <div class="flex flex-col items-center gap-1 cursor-pointer">
+              <div class="w-12 h-12 rounded-full apple-glass flex items-center justify-center">
+                <iconify-icon icon="solar:heart-linear" width="24" height="24" class="text-white"></iconify-icon>
+              </div>
+              <span class="text-[10px] text-white font-light">12.4K</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 cursor-pointer">
+              <div class="w-12 h-12 rounded-full apple-glass flex items-center justify-center">
+                <iconify-icon icon="solar:chat-round-line-linear" width="24" height="24" class="text-white"></iconify-icon>
+              </div>
+              <span class="text-[10px] text-white font-light">892</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 cursor-pointer">
+              <div class="w-12 h-12 rounded-full apple-glass flex items-center justify-center">
+                <iconify-icon icon="solar:share-linear" width="24" height="24" class="text-white"></iconify-icon>
+              </div>
+              <span class="text-[10px] text-white font-light">Share</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 cursor-pointer">
+              <div class="w-12 h-12 rounded-full apple-glass flex items-center justify-center">
+                <iconify-icon icon="solar:bookmark-linear" width="24" height="24" class="text-white"></iconify-icon>
+              </div>
+              <span class="text-[10px] text-white font-light">Save</span>
+            </div>
+          </div>
+
+          <!-- Bottom info -->
+          <div class="absolute bottom-28 left-5 right-24 z-20">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="https://i.pravatar.cc/100?img=14" class="w-10 h-10 rounded-full border-2 border-white" alt="">
+              <div class="flex-1">
+                <p class="text-sm text-white font-light">@jadehanson</p>
+                <p class="text-[10px] text-neutral-300 font-extralight">Travel &amp; Food</p>
+              </div>
+              <button class="px-4 py-1.5 bg-rose-500 rounded-full text-xs text-white font-light">Follow</button>
+            </div>
+            <p class="text-sm text-white font-extralight leading-relaxed mb-2">
+              This rooftop in Seoul is insane 🌃 You have to try the kimchi dumplings here
+            </p>
+            <div class="apple-glass rounded-xl p-3 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&amp;q=80" class="w-10 h-10 rounded-lg object-cover" alt="">
+              <div class="flex-1">
+                <p class="text-xs text-white font-light">Sky Lounge Seoul</p>
+                <p class="text-[10px] text-neutral-400 font-extralight">Restaurant · Rec'd by 24 friends</p>
+              </div>
+              <iconify-icon icon="solar:alt-arrow-right-linear" width="18" height="18" class="text-white"></iconify-icon>
+            </div>
+          </div>
+
+          <div class="absolute bottom-6 left-5 right-5 sticky-blur p-2 z-50 flex items-center justify-between border border-white/10 rounded-full shadow-2xl">
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:home-2-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:magnifer-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-14 h-14 -mt-6 flex flex-col items-center justify-center rounded-full bg-gradient-accent text-white shadow-[0_8px_24px_rgba(244,63,94,0.4)] border border-white/20 cursor-pointer">
+              <iconify-icon icon="solar:add-linear" width="28" height="28"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full bg-rose-500/10 text-rose-400 shadow-[0_0_15px_rgba(244,63,94,0.3)] cursor-pointer">
+              <iconify-icon icon="solar:video-frame-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:letter-linear" width="24" height="24"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     13 · CREATE RECZ
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">13. Create Recz</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+          <div class="absolute top-10 left-0 w-[250px] h-[250px] orb-rose blur-[80px] opacity-30 pointer-events-none"></div>
+
+          <div class="sticky-blur px-5 pt-14 pb-4 z-40 flex items-center justify-between border-b border-white/5">
+            <button class="w-8 h-8 rounded-full flex items-center justify-center">
+              <iconify-icon icon="solar:close-circle-linear" width="24" height="24" class="text-neutral-300"></iconify-icon>
+            </button>
+            <h1 class="text-base text-white font-light tracking-tight">New Recz</h1>
+            <button class="text-sm text-rose-400 font-light">Post</button>
+          </div>
+
+          <div class="flex-1 overflow-y-auto px-5 pt-5 pb-6 hide-scrollbar relative z-10">
+            <!-- Media upload -->
+            <div class="apple-glass rounded-3xl aspect-[4/3] mb-4 flex flex-col items-center justify-center gap-3 border-dashed border-white/10 cursor-pointer relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="">
+              <div class="absolute inset-0 bg-black/40"></div>
+              <iconify-icon icon="solar:camera-add-linear" width="36" height="36" class="text-white relative z-10"></iconify-icon>
+              <span class="text-xs text-white font-light relative z-10">Change photo</span>
+            </div>
+
+            <!-- Form -->
+            <div class="apple-glass rounded-3xl p-5 flex flex-col gap-4 mb-4">
+              <div>
+                <p class="text-xs text-neutral-400 mb-2 font-light tracking-wide">Title</p>
+                <div class="apple-input rounded-xl">
+                  <input type="text" value="Best ramen in Little Tokyo" class="w-full bg-transparent py-3 px-4 text-sm outline-none text-white font-extralight">
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 mb-2 font-light tracking-wide">Your Rating</p>
+                <div class="flex gap-1.5">
+                  <iconify-icon icon="solar:star-bold" width="28" height="28" class="text-rose-400"></iconify-icon>
+                  <iconify-icon icon="solar:star-bold" width="28" height="28" class="text-rose-400"></iconify-icon>
+                  <iconify-icon icon="solar:star-bold" width="28" height="28" class="text-rose-400"></iconify-icon>
+                  <iconify-icon icon="solar:star-bold" width="28" height="28" class="text-rose-400"></iconify-icon>
+                  <iconify-icon icon="solar:star-linear" width="28" height="28" class="text-neutral-600"></iconify-icon>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 mb-2 font-light tracking-wide">Description</p>
+                <div class="apple-input rounded-xl">
+                  <textarea rows="3" placeholder="Share what makes this special…" class="w-full bg-transparent py-3 px-4 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight resize-none">Rich broth, perfect chew on the noodles. The spicy miso is the move.</textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Options -->
+            <div class="apple-glass rounded-3xl flex flex-col divide-y divide-white/5">
+              <div class="flex items-center gap-3 p-4 cursor-pointer">
+                <iconify-icon icon="solar:map-point-linear" width="20" height="20" class="text-rose-400"></iconify-icon>
+                <span class="text-sm text-white font-light flex-1">Daikokuya, LA</span>
+                <iconify-icon icon="solar:alt-arrow-right-linear" width="18" height="18" class="text-neutral-500"></iconify-icon>
+              </div>
+              <div class="flex items-center gap-3 p-4 cursor-pointer">
+                <iconify-icon icon="solar:hashtag-linear" width="20" height="20" class="text-rose-400"></iconify-icon>
+                <span class="text-sm text-white font-light flex-1">#ramen #latokyo</span>
+                <iconify-icon icon="solar:alt-arrow-right-linear" width="18" height="18" class="text-neutral-500"></iconify-icon>
+              </div>
+              <div class="flex items-center gap-3 p-4 cursor-pointer">
+                <iconify-icon icon="solar:users-group-rounded-linear" width="20" height="20" class="text-rose-400"></iconify-icon>
+                <span class="text-sm text-white font-light flex-1">Tag friends</span>
+                <iconify-icon icon="solar:alt-arrow-right-linear" width="18" height="18" class="text-neutral-500"></iconify-icon>
+              </div>
+              <div class="flex items-center gap-3 p-4 cursor-pointer">
+                <iconify-icon icon="solar:lock-linear" width="20" height="20" class="text-rose-400"></iconify-icon>
+                <span class="text-sm text-white font-light flex-1">Visibility</span>
+                <span class="text-xs text-neutral-400 font-extralight">Friends</span>
+                <iconify-icon icon="solar:alt-arrow-right-linear" width="18" height="18" class="text-neutral-500"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     14 · INBOX / MESSAGES
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">14. Inbox</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+          <div class="absolute top-0 left-0 w-[250px] h-[250px] orb-purple blur-[90px] opacity-25 pointer-events-none"></div>
+
+          <div class="sticky-blur px-5 pt-14 pb-4 z-40 flex flex-col gap-3 border-b border-white/5">
+            <div class="flex items-center justify-between">
+              <h1 class="text-xl text-white font-light tracking-tight">Inbox</h1>
+              <button class="w-8 h-8 rounded-full apple-glass-light flex items-center justify-center">
+                <iconify-icon icon="solar:pen-new-square-linear" width="18" height="18" class="text-white"></iconify-icon>
+              </button>
+            </div>
+            <div class="apple-input rounded-full flex items-center px-4 gap-2">
+              <iconify-icon icon="solar:magnifer-linear" width="16" height="16" class="text-neutral-400"></iconify-icon>
+              <input type="text" placeholder="Search" class="w-full bg-transparent py-2.5 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+            </div>
+          </div>
+
+          <div class="flex-1 overflow-y-auto pb-32 px-5 pt-3 hide-scrollbar relative z-10">
+            <!-- Story row -->
+            <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-4 mb-2 border-b border-white/5">
+              <div class="flex flex-col items-center gap-1 flex-shrink-0">
+                <div class="w-14 h-14 rounded-full border border-dashed border-white/20 flex items-center justify-center">
+                  <iconify-icon icon="solar:add-linear" width="22" height="22" class="text-neutral-300"></iconify-icon>
+                </div>
+                <span class="text-[10px] text-neutral-400 font-extralight">Your note</span>
+              </div>
+              <div class="flex flex-col items-center gap-1 flex-shrink-0">
+                <div class="p-[2px] rounded-full bg-gradient-accent">
+                  <img src="https://i.pravatar.cc/100?img=9" class="w-14 h-14 rounded-full border-2 border-black" alt="">
+                </div>
+                <span class="text-[10px] text-white font-extralight">Lina</span>
+              </div>
+              <div class="flex flex-col items-center gap-1 flex-shrink-0">
+                <div class="p-[2px] rounded-full bg-gradient-accent">
+                  <img src="https://i.pravatar.cc/100?img=3" class="w-14 h-14 rounded-full border-2 border-black" alt="">
+                </div>
+                <span class="text-[10px] text-white font-extralight">Alex</span>
+              </div>
+              <div class="flex flex-col items-center gap-1 flex-shrink-0">
+                <img src="https://i.pravatar.cc/100?img=22" class="w-14 h-14 rounded-full border border-white/10" alt="">
+                <span class="text-[10px] text-white font-extralight">Sofia</span>
+              </div>
+              <div class="flex flex-col items-center gap-1 flex-shrink-0">
+                <img src="https://i.pravatar.cc/100?img=47" class="w-14 h-14 rounded-full border border-white/10" alt="">
+                <span class="text-[10px] text-white font-extralight">Priya</span>
+              </div>
+            </div>
+
+            <!-- Chat list -->
+            <div class="flex flex-col">
+              <div class="flex items-center gap-3 py-3 cursor-pointer">
+                <div class="relative">
+                  <img src="https://i.pravatar.cc/100?img=9" class="w-12 h-12 rounded-full" alt="">
+                  <div class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-black"></div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm text-white font-light">Lina May</p>
+                    <span class="text-[10px] text-rose-400 font-light">2m</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <iconify-icon icon="solar:paperclip-linear" width="12" height="12" class="text-neutral-400"></iconify-icon>
+                    <p class="text-xs text-neutral-400 font-extralight truncate">Sent you a Rec: The Broken Shaker</p>
+                  </div>
+                </div>
+                <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center">
+                  <span class="text-[10px] text-white font-light">2</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 py-3 cursor-pointer border-t border-white/5">
+                <img src="https://i.pravatar.cc/100?img=3" class="w-12 h-12 rounded-full" alt="">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm text-white font-light">Alex Morgan</p>
+                    <span class="text-[10px] text-neutral-500 font-light">1h</span>
+                  </div>
+                  <p class="text-xs text-neutral-400 font-extralight truncate">Yeah let's go there Friday 🔥</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 py-3 cursor-pointer border-t border-white/5">
+                <img src="https://i.pravatar.cc/100?img=22" class="w-12 h-12 rounded-full" alt="">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm text-white font-light">Sofia Alvarez</p>
+                    <span class="text-[10px] text-neutral-500 font-light">3h</span>
+                  </div>
+                  <p class="text-xs text-neutral-400 font-extralight truncate">Have you tried that new spot?</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 py-3 cursor-pointer border-t border-white/5">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white text-sm font-light">FG</div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm text-white font-light">Foodie Gang <span class="text-xs text-neutral-500">· 5</span></p>
+                    <span class="text-[10px] text-neutral-500 font-light">1d</span>
+                  </div>
+                  <p class="text-xs text-neutral-400 font-extralight truncate">Marcus: check out this ramen rec</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 py-3 cursor-pointer border-t border-white/5">
+                <img src="https://i.pravatar.cc/100?img=47" class="w-12 h-12 rounded-full" alt="">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm text-white font-light">Priya Sharma</p>
+                    <span class="text-[10px] text-neutral-500 font-light">2d</span>
+                  </div>
+                  <p class="text-xs text-neutral-400 font-extralight truncate">See you at the gallery 🎨</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute bottom-6 left-5 right-5 sticky-blur p-2 z-50 flex items-center justify-between border border-white/10 rounded-full shadow-2xl">
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:home-2-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:magnifer-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-14 h-14 -mt-6 flex flex-col items-center justify-center rounded-full bg-gradient-accent text-white shadow-[0_8px_24px_rgba(244,63,94,0.4)] border border-white/20 cursor-pointer">
+              <iconify-icon icon="solar:add-linear" width="28" height="28"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full text-neutral-400 cursor-pointer">
+              <iconify-icon icon="solar:video-frame-linear" width="24" height="24"></iconify-icon>
+            </div>
+            <div class="w-12 h-12 flex flex-col items-center justify-center rounded-full bg-rose-500/10 text-rose-400 shadow-[0_0_15px_rgba(244,63,94,0.3)] cursor-pointer">
+              <iconify-icon icon="solar:letter-linear" width="24" height="24"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     15 · CHAT CONVERSATION
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">15. Chat Conversation</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+          <div class="absolute top-40 right-0 w-[200px] h-[200px] orb-rose blur-[80px] opacity-20 pointer-events-none"></div>
+
+          <div class="sticky-blur px-5 pt-14 pb-4 z-40 flex items-center gap-3 border-b border-white/5">
+            <iconify-icon icon="solar:alt-arrow-left-linear" width="22" height="22" class="text-white"></iconify-icon>
+            <img src="https://i.pravatar.cc/100?img=9" class="w-9 h-9 rounded-full" alt="">
+            <div class="flex-1">
+              <p class="text-sm text-white font-light">Lina May</p>
+              <p class="text-[10px] text-emerald-400 font-extralight">Active now</p>
+            </div>
+            <iconify-icon icon="solar:phone-linear" width="22" height="22" class="text-white"></iconify-icon>
+            <iconify-icon icon="solar:videocamera-linear" width="22" height="22" class="text-white"></iconify-icon>
+          </div>
+
+          <div class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 hide-scrollbar relative z-10">
+            <p class="text-center text-[10px] text-neutral-500 font-extralight">Today · 2:14 PM</p>
+
+            <div class="flex items-end gap-2 max-w-[80%]">
+              <img src="https://i.pravatar.cc/100?img=9" class="w-6 h-6 rounded-full" alt="">
+              <div class="apple-glass-light rounded-2xl rounded-bl-sm px-4 py-2.5">
+                <p class="text-sm text-white font-extralight">Have you been to that new cocktail spot downtown?</p>
+              </div>
+            </div>
+
+            <div class="flex items-end gap-2 max-w-[85%] self-end">
+              <div class="bg-gradient-accent rounded-2xl rounded-br-sm px-4 py-2.5">
+                <p class="text-sm text-white font-extralight">Yes! It's unreal. Let me send you the rec</p>
+              </div>
+            </div>
+
+            <!-- Rec Card in Chat -->
+            <div class="apple-glass rounded-2xl overflow-hidden max-w-[85%] self-end border border-white/10">
+              <div class="relative aspect-video">
+                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&amp;q=80" class="absolute inset-0 w-full h-full object-cover" alt="">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute top-2 left-2 bg-rose-500/90 px-2 py-0.5 rounded-md text-[10px] text-white font-light">Bar</div>
+              </div>
+              <div class="p-3">
+                <p class="text-sm text-white font-light">The Broken Shaker</p>
+                <p class="text-[10px] text-neutral-400 font-extralight">⭐ 4.9 · Los Angeles</p>
+              </div>
+            </div>
+
+            <div class="flex items-end gap-2 max-w-[80%]">
+              <img src="https://i.pravatar.cc/100?img=9" class="w-6 h-6 rounded-full" alt="">
+              <div class="apple-glass-light rounded-2xl rounded-bl-sm px-4 py-2.5">
+                <p class="text-sm text-white font-extralight">Saving this 🔥 let's go Friday?</p>
+              </div>
+            </div>
+
+            <div class="flex items-end gap-2 max-w-[85%] self-end">
+              <div class="bg-gradient-accent rounded-2xl rounded-br-sm px-4 py-2.5">
+                <p class="text-sm text-white font-extralight">Bet. 8pm?</p>
+              </div>
+            </div>
+
+            <div class="flex items-end gap-2 max-w-[50%]">
+              <img src="https://i.pravatar.cc/100?img=9" class="w-6 h-6 rounded-full" alt="">
+              <div class="apple-glass-light rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-1">
+                <div class="w-2 h-2 rounded-full bg-neutral-400 animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-neutral-400 animate-pulse" style="animation-delay: 0.2s"></div>
+                <div class="w-2 h-2 rounded-full bg-neutral-400 animate-pulse" style="animation-delay: 0.4s"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-4 pb-6 pt-2 z-40 sticky-blur border-t border-white/5">
+            <div class="apple-input rounded-full flex items-center pl-4 pr-1 gap-2">
+              <iconify-icon icon="solar:add-circle-linear" width="22" height="22" class="text-rose-400 flex-shrink-0"></iconify-icon>
+              <input type="text" placeholder="Message…" class="w-full bg-transparent py-2.5 text-sm outline-none placeholder:text-neutral-500 text-white font-extralight">
+              <iconify-icon icon="solar:gallery-linear" width="20" height="20" class="text-neutral-400 flex-shrink-0"></iconify-icon>
+              <button class="w-9 h-9 rounded-full bg-gradient-accent flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="solar:arrow-up-linear" width="18" height="18" class="text-white"></iconify-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+     16 · NOTIFICATIONS
+═══════════════════════════════════════════ -->
+      <div class="flex flex-col items-center gap-5">
+        <span class="text-xs text-neutral-500 font-light tracking-tight uppercase">16. Notifications</span>
+        <div class="iphone-frame flex flex-col relative overflow-hidden" style="min-height:812px">
+          <div class="notch z-50"></div>
+          </div></div></div></body></html>

@@ -1,0 +1,867 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recz - App Screens</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+body {
+font-family: 'Inter', sans-serif;
+background-color: #000;
+-webkit-font-smoothing: antialiased;
+}
+.glass-panel {
+background-color: rgba(255, 255, 255, 0.03);
+backdrop-filter: blur(24px);
+-webkit-backdrop-filter: blur(24px);
+border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-input {
+background-color: transparent;
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: all 0.2s ease;
+}
+.glass-input:focus {
+outline: none;
+border-color: rgba(244, 63, 94, 0.5);
+background-color: rgba(255, 255, 255, 0.02);
+}
+.pink-gradient {
+background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+}
+.pink-glow {
+box-shadow: 0 0 60px rgba(244, 63, 94, 0.35);
+}
+::-webkit-scrollbar {
+display: none;
+}
+.phone-scroll {
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+/* Custom toggle */
+.toggle-switch input:checked + .toggle-slider {
+background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
+}
+.toggle-switch input:checked + .toggle-slider .toggle-dot {
+transform: translateX(20px);
+}
+.toggle-slider {
+background-color: rgba(255, 255, 255, 0.1);
+transition: all 0.2s;
+}
+.toggle-dot {
+transition: all 0.2s;
+}
+</style></head>
+<body class="text-white min-h-screen p-4 md:p-12">
+
+    <!-- Container for all screens -->
+    <div class="flex flex-col gap-16 items-center justify-center w-full max-w-[1600px] mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mt-8">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl pink-gradient flex items-center justify-center">
+                    <span class="text-white font-semibold text-base tracking-tight">R</span>
+                </div>
+                <h1 class="text-3xl font-semibold tracking-tight">Recz</h1>
+            </div>
+            <p class="text-zinc-500 text-base">App screens preview</p>
+        </div>
+
+        <!-- ROW 1: Onboarding -->
+        <div class="w-full">
+            <h3 class="text-zinc-500 text-sm font-medium tracking-wide mb-6 text-center uppercase">Onboarding</h3>
+            <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 items-center justify-center">
+
+                <!-- 01. Splash -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">01. Splash</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden flex flex-col items-center justify-center shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+                        <div class="flex flex-col items-center gap-6 mt-[-4rem]">
+                            <div class="w-24 h-24 rounded-3xl pink-gradient pink-glow flex flex-col items-center justify-center p-4 relative">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="mb-3">
+                                    <path d="M12 14H32C36.4183 14 40 17.5817 40 22C40 26.4183 36.4183 30 32 30H18L26 40M12 22H26M12 30H16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <div class="flex gap-0.5 absolute bottom-7">
+                                    <svg width="6" height="6" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                    <svg width="6" height="6" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                    <svg width="6" height="6" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                    <svg width="6" height="6" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                    <svg width="6" height="6" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                                </div>
+                                <span class="text-white font-semibold text-sm tracking-wide absolute bottom-2">Recz</span>
+                            </div>
+                            <p class="text-zinc-400 text-base text-center max-w-[220px] leading-relaxed">
+                                Discover better through people you trust
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02. Welcome -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">02. Welcome</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden flex flex-col shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-center"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-[#050505]/20"></div>
+                        <div class="absolute bottom-0 w-full glass-panel border-b-0 border-x-0 rounded-t-[2.5rem] p-8 pt-10 flex flex-col gap-4">
+                            <h1 class="text-3xl font-semibold tracking-tight text-white">Contextual Discovery</h1>
+                            <p class="text-zinc-300 text-base leading-relaxed pr-4">
+                                Get smart suggestions based on the time, your mood, and what your trusted circle loves.
+                            </p>
+                            <div class="flex items-center justify-between mt-8">
+                                <div class="flex gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                                    <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                                    <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                                </div>
+                                <button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-colors group">
+                                    <i data-lucide="arrow-right" class="text-white" stroke-width="1.5"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03. Login -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">03. Login</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden flex flex-col shadow-2xl p-6 pt-24">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+                        <div class="absolute top-[-10%] right-[-10%] w-64 h-64 bg-rose-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+                        <div class="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="mb-10">
+                                <h1 class="text-3xl font-semibold tracking-tight text-white mb-2">Welcome back.</h1>
+                                <p class="text-base text-zinc-400">Log in to your circle.</p>
+                            </div>
+                            <div class="flex flex-col gap-4 mb-8">
+                                <button class="w-full glass-panel rounded-2xl py-4 flex items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+                                    <iconify-icon icon="solar:chat-square-like-linear" width="20" class="text-white"></iconify-icon>
+                                    <span class="text-base font-medium">Log in with Google</span>
+                                </button>
+                                <button class="w-full glass-panel rounded-2xl py-4 flex items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+                                    <iconify-icon icon="solar:smartphone-linear" width="20" class="text-white"></iconify-icon>
+                                    <span class="text-base font-medium">Log in with Apple</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="h-[1px] bg-white/10 flex-1"></div>
+                                <span class="text-sm text-zinc-500">or email</span>
+                                <div class="h-[1px] bg-white/10 flex-1"></div>
+                            </div>
+                            <form class="flex flex-col gap-4 flex-1">
+                                <input type="email" placeholder="Email address" class="glass-input rounded-2xl py-4 px-5 text-base text-white placeholder:text-zinc-600 w-full">
+                                <input type="password" placeholder="Password" class="glass-input rounded-2xl py-4 px-5 text-base text-white placeholder:text-zinc-600 w-full">
+                                <div class="flex justify-end mt-1 mb-auto">
+                                    <a href="#" class="text-sm text-zinc-400 hover:text-white transition-colors">Forgot password?</a>
+                                </div>
+                                <button type="submit" class="w-full pink-gradient text-white font-medium text-base py-4 rounded-2xl shadow-[0_0_30px_rgba(244,63,94,0.3)] hover:opacity-90 transition-opacity mt-4 mb-8">
+                                    Log In
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ROW 2: Core App -->
+        <div class="w-full">
+            <h3 class="text-zinc-500 text-sm font-medium tracking-wide mb-6 text-center uppercase">Discover &amp; Feed</h3>
+            <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 items-center justify-center">
+
+                <!-- 04. Home Feed -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">04. Home Feed</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+                        
+                        <div class="h-full overflow-y-auto phone-scroll pt-12 pb-24">
+                            <!-- Status bar spacer -->
+                            <div class="h-4"></div>
+                            
+                            <!-- Header -->
+                            <div class="px-6 mb-6">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div>
+                                        <p class="text-sm text-zinc-500">Good evening,</p>
+                                        <h1 class="text-2xl font-semibold tracking-tight">Alex</h1>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                            <iconify-icon icon="solar:bell-linear" width="18"></iconify-icon>
+                                        </button>
+                                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                            <iconify-icon icon="solar:magnifer-linear" width="18"></iconify-icon>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Context Card -->
+                                <div class="glass-panel rounded-2xl p-4 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl pink-gradient flex items-center justify-center flex-shrink-0">
+                                        <iconify-icon icon="solar:magic-stick-3-linear" width="18" class="text-white"></iconify-icon>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Friday night · Rainy</p>
+                                        <p class="text-xs text-zinc-500">Cozy picks from your circle</p>
+                                    </div>
+                                    <iconify-icon icon="solar:alt-arrow-right-linear" width="18" class="text-zinc-500"></iconify-icon>
+                                </div>
+                            </div>
+
+                            <!-- Categories -->
+                            <div class="px-6 mb-6 flex gap-2 overflow-x-auto phone-scroll">
+                                <button class="px-4 py-2 rounded-full pink-gradient text-sm font-medium whitespace-nowrap">All</button>
+                                <button class="px-4 py-2 rounded-full glass-panel text-sm whitespace-nowrap">Food</button>
+                                <button class="px-4 py-2 rounded-full glass-panel text-sm whitespace-nowrap">Movies</button>
+                                <button class="px-4 py-2 rounded-full glass-panel text-sm whitespace-nowrap">Books</button>
+                                <button class="px-4 py-2 rounded-full glass-panel text-sm whitespace-nowrap">Music</button>
+                            </div>
+
+                            <!-- Rec Card 1 -->
+                            <div class="px-6 mb-4">
+                                <div class="glass-panel rounded-3xl overflow-hidden">
+                                    <div class="relative h-48 bg-[url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&amp;w=800')] bg-cover bg-center">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-xs font-medium flex items-center gap-1">
+                                            <iconify-icon icon="solar:star-bold" width="12" class="text-rose-400"></iconify-icon>
+                                            <span>4.9</span>
+                                        </div>
+                                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium">
+                                            Restaurant
+                                        </div>
+                                    </div>
+                                    <div class="p-4">
+                                        <h3 class="text-base font-semibold mb-1 tracking-tight">Osteria Mozza</h3>
+                                        <p class="text-sm text-zinc-400 mb-3">Italian · Handmade pasta in a warm setting</p>
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex -space-x-2">
+                                                    <div class="w-6 h-6 rounded-full bg-rose-500 border-2 border-[#0a0a0a]"></div>
+                                                    <div class="w-6 h-6 rounded-full bg-purple-500 border-2 border-[#0a0a0a]"></div>
+                                                    <div class="w-6 h-6 rounded-full bg-amber-500 border-2 border-[#0a0a0a]"></div>
+                                                </div>
+                                                <span class="text-xs text-zinc-500">3 friends love it</span>
+                                            </div>
+                                            <button class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
+                                                <iconify-icon icon="solar:bookmark-linear" width="14"></iconify-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rec Card 2 -->
+                            <div class="px-6 mb-4">
+                                <div class="glass-panel rounded-3xl overflow-hidden">
+                                    <div class="relative h-48 bg-[url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&amp;w=800')] bg-cover bg-center">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-xs font-medium flex items-center gap-1">
+                                            <iconify-icon icon="solar:star-bold" width="12" class="text-rose-400"></iconify-icon>
+                                            <span>4.7</span>
+                                        </div>
+                                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium">
+                                            Movie
+                                        </div>
+                                    </div>
+                                    <div class="p-4">
+                                        <h3 class="text-base font-semibold mb-1 tracking-tight">Past Lives</h3>
+                                        <p class="text-sm text-zinc-400 mb-3">Drama · A24 · Slow, beautiful heartbreak</p>
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex -space-x-2">
+                                                    <div class="w-6 h-6 rounded-full bg-emerald-500 border-2 border-[#0a0a0a]"></div>
+                                                    <div class="w-6 h-6 rounded-full bg-sky-500 border-2 border-[#0a0a0a]"></div>
+                                                </div>
+                                                <span class="text-xs text-zinc-500">Sarah &amp; Mike</span>
+                                            </div>
+                                            <button class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
+                                                <iconify-icon icon="solar:bookmark-linear" width="14"></iconify-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Nav -->
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <div class="glass-panel rounded-2xl flex items-center justify-around py-3 px-2">
+                                <button class="w-12 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                                    <iconify-icon icon="solar:home-2-bold" width="22" class="text-rose-400"></iconify-icon>
+                                </button>
+                                <button class="w-12 h-10 flex items-center justify-center">
+                                    <iconify-icon icon="solar:compass-linear" width="22" class="text-zinc-500"></iconify-icon>
+                                </button>
+                                <button class="w-12 h-10 flex items-center justify-center -mt-6">
+                                    <div class="w-12 h-12 rounded-full pink-gradient pink-glow flex items-center justify-center">
+                                        <iconify-icon icon="solar:add-circle-linear" width="24" class="text-white"></iconify-icon>
+                                    </div>
+                                </button>
+                                <button class="w-12 h-10 flex items-center justify-center">
+                                    <iconify-icon icon="solar:users-group-rounded-linear" width="22" class="text-zinc-500"></iconify-icon>
+                                </button>
+                                <button class="w-12 h-10 flex items-center justify-center">
+                                    <iconify-icon icon="solar:user-linear" width="22" class="text-zinc-500"></iconify-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05. Discover / Explore -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">05. Discover</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+
+                        <div class="h-full overflow-y-auto phone-scroll pt-14 pb-24 px-6">
+                            <h1 class="text-3xl font-semibold tracking-tight mb-5">Discover</h1>
+
+                            <!-- Search -->
+                            <div class="glass-panel rounded-2xl px-4 py-3 flex items-center gap-3 mb-6">
+                                <iconify-icon icon="solar:magnifer-linear" width="18" class="text-zinc-500"></iconify-icon>
+                                <input type="text" placeholder="Search recs, places, people..." class="bg-transparent flex-1 text-sm placeholder:text-zinc-600 outline-none">
+                            </div>
+
+                            <!-- Mood Picker -->
+                            <p class="text-sm text-zinc-500 mb-3">What's your mood?</p>
+                            <div class="grid grid-cols-2 gap-3 mb-6">
+                                <button class="glass-panel rounded-2xl p-4 flex items-center gap-3 text-left">
+                                    <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center">
+                                        <iconify-icon icon="solar:heart-linear" width="18" class="text-rose-400"></iconify-icon>
+                                    </div>
+                                    <span class="text-sm font-medium">Cozy</span>
+                                </button>
+                                <button class="glass-panel rounded-2xl p-4 flex items-center gap-3 text-left">
+                                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                                        <iconify-icon icon="solar:sun-linear" width="18" class="text-amber-400"></iconify-icon>
+                                    </div>
+                                    <span class="text-sm font-medium">Lively</span>
+                                </button>
+                                <button class="glass-panel rounded-2xl p-4 flex items-center gap-3 text-left">
+                                    <div class="w-10 h-10 rounded-xl bg-sky-500/20 flex items-center justify-center">
+                                        <iconify-icon icon="solar:cloud-linear" width="18" class="text-sky-400"></iconify-icon>
+                                    </div>
+                                    <span class="text-sm font-medium">Chill</span>
+                                </button>
+                                <button class="glass-panel rounded-2xl p-4 flex items-center gap-3 text-left">
+                                    <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                        <iconify-icon icon="solar:stars-minimalistic-linear" width="18" class="text-purple-400"></iconify-icon>
+                                    </div>
+                                    <span class="text-sm font-medium">Adventurous</span>
+                                </button>
+                            </div>
+
+                            <!-- Trending -->
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-lg font-semibold tracking-tight">Trending in your circle</h2>
+                                <button class="text-xs text-zinc-500">See all</button>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="glass-panel rounded-2xl p-3 flex items-center gap-3">
+                                    <div class="w-14 h-14 rounded-xl bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&amp;w=400')] bg-cover bg-center flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-medium text-sm truncate">Blue Bottle Coffee</p>
+                                        <p class="text-xs text-zinc-500 truncate">Café · 8 recs this week</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-rose-400 text-xs font-medium">
+                                        <iconify-icon icon="solar:arrow-up-linear" width="12"></iconify-icon>
+                                        <span>12%</span>
+                                    </div>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-3 flex items-center gap-3">
+                                    <div class="w-14 h-14 rounded-xl bg-[url('https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&amp;w=400')] bg-cover bg-center flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-medium text-sm truncate">The Bear · Season 3</p>
+                                        <p class="text-xs text-zinc-500 truncate">TV Show · 14 recs this week</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-rose-400 text-xs font-medium">
+                                        <iconify-icon icon="solar:arrow-up-linear" width="12"></iconify-icon>
+                                        <span>24%</span>
+                                    </div>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-3 flex items-center gap-3">
+                                    <div class="w-14 h-14 rounded-xl bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=400')] bg-cover bg-center flex-shrink-0"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="font-medium text-sm truncate">Tomorrow, Tomorrow...</p>
+                                        <p class="text-xs text-zinc-500 truncate">Book · 6 recs this week</p>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-rose-400 text-xs font-medium">
+                                        <iconify-icon icon="solar:arrow-up-linear" width="12"></iconify-icon>
+                                        <span>8%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Nav -->
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <div class="glass-panel rounded-2xl flex items-center justify-around py-3 px-2">
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:home-2-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center rounded-xl bg-white/5"><iconify-icon icon="solar:compass-bold" width="22" class="text-rose-400"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center -mt-6">
+                                    <div class="w-12 h-12 rounded-full pink-gradient pink-glow flex items-center justify-center">
+                                        <iconify-icon icon="solar:add-circle-linear" width="24" class="text-white"></iconify-icon>
+                                    </div>
+                                </button>
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:users-group-rounded-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:user-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 06. Rec Detail -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">06. Rec Detail</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+
+                        <div class="h-full overflow-y-auto phone-scroll">
+                            <!-- Hero image -->
+                            <div class="relative h-80 bg-[url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&amp;w=1000')] bg-cover bg-center">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+                                <div class="absolute top-14 left-6 right-6 flex justify-between">
+                                    <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                        <iconify-icon icon="solar:alt-arrow-left-linear" width="20"></iconify-icon>
+                                    </button>
+                                    <div class="flex gap-2">
+                                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                            <iconify-icon icon="solar:share-linear" width="18"></iconify-icon>
+                                        </button>
+                                        <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                            <iconify-icon icon="solar:bookmark-linear" width="18"></iconify-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="px-6 -mt-10 relative z-10 pb-32">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-2.5 py-1 rounded-full glass-panel text-xs font-medium">Restaurant</span>
+                                    <span class="px-2.5 py-1 rounded-full glass-panel text-xs font-medium flex items-center gap-1">
+                                        <iconify-icon icon="solar:star-bold" width="11" class="text-rose-400"></iconify-icon>
+                                        4.9
+                                    </span>
+                                </div>
+
+                                <h1 class="text-3xl font-semibold tracking-tight mb-2">Osteria Mozza</h1>
+                                <p class="text-sm text-zinc-400 mb-6">Italian · $$ · 6602 Melrose Ave, LA</p>
+
+                                <!-- Friend Recs -->
+                                <div class="glass-panel rounded-2xl p-4 mb-6">
+                                    <p class="text-xs text-zinc-500 mb-3 uppercase tracking-wide">Recommended by</p>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start gap-3">
+                                            <div class="w-9 h-9 rounded-full bg-rose-500 flex items-center justify-center text-xs font-semibold flex-shrink-0">SC</div>
+                                            <div class="flex-1">
+                                                <div class="flex items-center gap-2 mb-0.5">
+                                                    <p class="text-sm font-medium">Sarah Chen</p>
+                                                    <div class="flex gap-0.5">
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                    </div>
+                                                </div>
+                                                <p class="text-xs text-zinc-400 leading-relaxed">"Best burrata in LA. Order the orecchiette and thank me later."</p>
+                                            </div>
+                                        </div>
+                                        <div class="h-[1px] bg-white/5"></div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="w-9 h-9 rounded-full bg-purple-500 flex items-center justify-center text-xs font-semibold flex-shrink-0">MR</div>
+                                            <div class="flex-1">
+                                                <div class="flex items-center gap-2 mb-0.5">
+                                                    <p class="text-sm font-medium">Mike Reyes</p>
+                                                    <div class="flex gap-0.5">
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                                        <iconify-icon icon="solar:star-linear" width="10" class="text-rose-400"></iconify-icon>
+                                                    </div>
+                                                </div>
+                                                <p class="text-xs text-zinc-400 leading-relaxed">"Great date night spot. Book early, it fills up fast."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Info grid -->
+                                <div class="grid grid-cols-3 gap-2 mb-6">
+                                    <div class="glass-panel rounded-2xl p-3 text-center">
+                                        <iconify-icon icon="solar:clock-circle-linear" width="18" class="text-rose-400 mb-1"></iconify-icon>
+                                        <p class="text-xs text-zinc-500">Open</p>
+                                        <p class="text-xs font-medium">til 11pm</p>
+                                    </div>
+                                    <div class="glass-panel rounded-2xl p-3 text-center">
+                                        <iconify-icon icon="solar:map-point-linear" width="18" class="text-rose-400 mb-1"></iconify-icon>
+                                        <p class="text-xs text-zinc-500">Away</p>
+                                        <p class="text-xs font-medium">1.2 mi</p>
+                                    </div>
+                                    <div class="glass-panel rounded-2xl p-3 text-center">
+                                        <iconify-icon icon="solar:wallet-linear" width="18" class="text-rose-400 mb-1"></iconify-icon>
+                                        <p class="text-xs text-zinc-500">Price</p>
+                                        <p class="text-xs font-medium">$$</p>
+                                    </div>
+                                </div>
+
+                                <p class="text-sm text-zinc-400 leading-relaxed">
+                                    Osteria Mozza offers handmade pasta and Italian classics in an intimate Hollywood setting. Known for its mozzarella bar and warm ambiance.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Bottom CTA -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#050505] via-[#050505] to-transparent">
+                            <div class="flex gap-3">
+                                <button class="w-14 h-14 rounded-2xl glass-panel flex items-center justify-center">
+                                    <iconify-icon icon="solar:map-linear" width="20"></iconify-icon>
+                                </button>
+                                <button class="flex-1 pink-gradient rounded-2xl font-medium text-sm shadow-[0_0_30px_rgba(244,63,94,0.3)]">
+                                    Book a table
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ROW 3: Social + Create -->
+        <div class="w-full">
+            <h3 class="text-zinc-500 text-sm font-medium tracking-wide mb-6 text-center uppercase">Create &amp; Social</h3>
+            <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 items-center justify-center">
+
+                <!-- 07. Add Rec -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">07. Add a Rec</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+
+                        <div class="h-full overflow-y-auto phone-scroll pt-14 pb-32 px-6">
+                            <!-- Header -->
+                            <div class="flex items-center justify-between mb-6">
+                                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                    <iconify-icon icon="solar:close-circle-linear" width="20"></iconify-icon>
+                                </button>
+                                <h1 class="text-base font-semibold tracking-tight">New Rec</h1>
+                                <button class="text-sm text-rose-400 font-medium">Post</button>
+                            </div>
+
+                            <!-- Category -->
+                            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-3">Category</p>
+                            <div class="grid grid-cols-4 gap-2 mb-6">
+                                <button class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-1.5 border border-rose-500/50 bg-rose-500/10">
+                                    <iconify-icon icon="solar:dish-linear" width="22" class="text-rose-400"></iconify-icon>
+                                    <span class="text-xs">Food</span>
+                                </button>
+                                <button class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-1.5">
+                                    <iconify-icon icon="solar:clapperboard-linear" width="22"></iconify-icon>
+                                    <span class="text-xs">Movie</span>
+                                </button>
+                                <button class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-1.5">
+                                    <iconify-icon icon="solar:book-linear" width="22"></iconify-icon>
+                                    <span class="text-xs">Book</span>
+                                </button>
+                                <button class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-1.5">
+                                    <iconify-icon icon="solar:music-note-linear" width="22"></iconify-icon>
+                                    <span class="text-xs">Music</span>
+                                </button>
+                            </div>
+
+                            <!-- Title -->
+                            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-3">What are you recommending?</p>
+                            <input type="text" placeholder="Restaurant, place, or thing..." class="glass-input rounded-2xl w-full py-4 px-5 text-base mb-4">
+
+                            <!-- Photo -->
+                            <div class="glass-panel rounded-2xl p-6 flex flex-col items-center gap-2 mb-6 border-dashed">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">
+                                    <iconify-icon icon="solar:camera-linear" width="22" class="text-zinc-400"></iconify-icon>
+                                </div>
+                                <p class="text-sm font-medium">Add photo</p>
+                                <p class="text-xs text-zinc-500">Show off the vibe</p>
+                            </div>
+
+                            <!-- Rating -->
+                            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-3">Your rating</p>
+                            <div class="flex gap-3 mb-6">
+                                <iconify-icon icon="solar:star-bold" width="32" class="text-rose-400"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" width="32" class="text-rose-400"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" width="32" class="text-rose-400"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" width="32" class="text-rose-400"></iconify-icon>
+                                <iconify-icon icon="solar:star-linear" width="32" class="text-zinc-700"></iconify-icon>
+                            </div>
+
+                            <!-- Note -->
+                            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-3">Why you love it</p>
+                            <textarea placeholder="Tell your circle..." class="glass-input rounded-2xl w-full py-4 px-5 text-sm h-24 resize-none"></textarea>
+
+                            <!-- Share with -->
+                            <div class="glass-panel rounded-2xl p-4 mt-6 flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium">Share publicly</p>
+                                    <p class="text-xs text-zinc-500">Visible to non-friends</p>
+                                </div>
+                                <label class="toggle-switch relative inline-block w-11 h-6 flex-shrink-0">
+                                    <input type="checkbox" class="opacity-0 w-0 h-0 peer">
+                                    <span class="toggle-slider absolute inset-0 rounded-full cursor-pointer">
+                                        <span class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 08. Circle / Friends -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">08. Your Circle</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+
+                        <div class="h-full overflow-y-auto phone-scroll pt-14 pb-24 px-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h1 class="text-3xl font-semibold tracking-tight">Circle</h1>
+                                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                    <iconify-icon icon="solar:user-plus-linear" width="18"></iconify-icon>
+                                </button>
+                            </div>
+
+                            <!-- Stats -->
+                            <div class="grid grid-cols-3 gap-2 mb-6">
+                                <div class="glass-panel rounded-2xl p-4 text-center">
+                                    <p class="text-xl font-semibold tracking-tight">24</p>
+                                    <p class="text-xs text-zinc-500">Friends</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-4 text-center">
+                                    <p class="text-xl font-semibold tracking-tight">138</p>
+                                    <p class="text-xs text-zinc-500">Recs</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-4 text-center">
+                                    <p class="text-xl font-semibold tracking-tight">7</p>
+                                    <p class="text-xs text-zinc-500">Requests</p>
+                                </div>
+                            </div>
+
+                            <!-- Activity -->
+                            <h2 class="text-sm font-medium mb-3 text-zinc-400">Recent Activity</h2>
+                            <div class="space-y-3 mb-6">
+                                <div class="glass-panel rounded-2xl p-4 flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-rose-500 flex items-center justify-center text-xs font-semibold flex-shrink-0">SC</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm"><span class="font-medium">Sarah Chen</span> <span class="text-zinc-400">recommended</span></p>
+                                        <p class="text-sm font-medium tracking-tight">Café de L'Ambre</p>
+                                        <p class="text-xs text-zinc-500 mt-1">2h ago · Tokyo</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-4 flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-xs font-semibold flex-shrink-0">MR</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm"><span class="font-medium">Mike Reyes</span> <span class="text-zinc-400">loved</span></p>
+                                        <p class="text-sm font-medium tracking-tight">Dune: Part Two</p>
+                                        <p class="text-xs text-zinc-500 mt-1">5h ago · Movie</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-4 flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-xs font-semibold flex-shrink-0">JL</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm"><span class="font-medium">Jamie Lee</span> <span class="text-zinc-400">added to list</span></p>
+                                        <p class="text-sm font-medium tracking-tight">Weekend in Lisbon</p>
+                                        <p class="text-xs text-zinc-500 mt-1">Yesterday · Travel list</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Friends Grid -->
+                            <h2 class="text-sm font-medium mb-3 text-zinc-400">Your friends</h2>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-2">
+                                    <div class="w-14 h-14 rounded-full bg-rose-500 flex items-center justify-center text-sm font-semibold">SC</div>
+                                    <p class="text-xs font-medium truncate w-full text-center">Sarah</p>
+                                    <p class="text-xs text-zinc-500">42 recs</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-2">
+                                    <div class="w-14 h-14 rounded-full bg-purple-500 flex items-center justify-center text-sm font-semibold">MR</div>
+                                    <p class="text-xs font-medium truncate w-full text-center">Mike</p>
+                                    <p class="text-xs text-zinc-500">31 recs</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-2">
+                                    <div class="w-14 h-14 rounded-full bg-amber-500 flex items-center justify-center text-sm font-semibold">JL</div>
+                                    <p class="text-xs font-medium truncate w-full text-center">Jamie</p>
+                                    <p class="text-xs text-zinc-500">28 recs</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-2">
+                                    <div class="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center text-sm font-semibold">AK</div>
+                                    <p class="text-xs font-medium truncate w-full text-center">Alex</p>
+                                    <p class="text-xs text-zinc-500">19 recs</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-2">
+                                    <div class="w-14 h-14 rounded-full bg-sky-500 flex items-center justify-center text-sm font-semibold">NT</div>
+                                    <p class="text-xs font-medium truncate w-full text-center">Nora</p>
+                                    <p class="text-xs text-zinc-500">15 recs</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-3 flex flex-col items-center gap-2">
+                                    <div class="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center">
+                                        <iconify-icon icon="solar:add-circle-linear" width="22" class="text-zinc-400"></iconify-icon>
+                                    </div>
+                                    <p class="text-xs font-medium text-zinc-400">Invite</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Nav -->
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <div class="glass-panel rounded-2xl flex items-center justify-around py-3 px-2">
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:home-2-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:compass-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center -mt-6">
+                                    <div class="w-12 h-12 rounded-full pink-gradient pink-glow flex items-center justify-center">
+                                        <iconify-icon icon="solar:add-circle-linear" width="24" class="text-white"></iconify-icon>
+                                    </div>
+                                </button>
+                                <button class="w-12 h-10 flex items-center justify-center rounded-xl bg-white/5"><iconify-icon icon="solar:users-group-rounded-bold" width="22" class="text-rose-400"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:user-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 09. Profile -->
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-center text-sm font-medium text-zinc-500 tracking-wide">09. Profile</h2>
+                    <div class="relative w-[375px] h-[812px] bg-[#050505] rounded-[3rem] border-[8px] border-[#1a1a1a] overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-50 left-1/2 -translate-x-1/2"></div>
+
+                        <div class="h-full overflow-y-auto phone-scroll pt-14 pb-24">
+                            <!-- Header -->
+                            <div class="px-6 flex justify-end gap-2 mb-4">
+                                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                    <iconify-icon icon="solar:share-linear" width="18"></iconify-icon>
+                                </button>
+                                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center">
+                                    <iconify-icon icon="solar:settings-linear" width="18"></iconify-icon>
+                                </button>
+                            </div>
+
+                            <!-- Avatar -->
+                            <div class="px-6 flex flex-col items-center mb-6">
+                                <div class="w-24 h-24 rounded-full pink-gradient pink-glow flex items-center justify-center text-2xl font-semibold mb-4">
+                                    AK
+                                </div>
+                                <h1 class="text-2xl font-semibold tracking-tight">Alex Kim</h1>
+                                <p class="text-sm text-zinc-500">@alexkim · LA, CA</p>
+                                <p class="text-sm text-zinc-400 text-center mt-3 max-w-[260px]">
+                                    Food obsessed. Book hoarder. Always searching for the next great espresso.
+                                </p>
+                            </div>
+
+                            <!-- Stats -->
+                            <div class="px-6 grid grid-cols-3 gap-2 mb-6">
+                                <div class="glass-panel rounded-2xl p-4 text-center">
+                                    <p class="text-xl font-semibold tracking-tight">47</p>
+                                    <p class="text-xs text-zinc-500">Recs</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-4 text-center">
+                                    <p class="text-xl font-semibold tracking-tight">24</p>
+                                    <p class="text-xs text-zinc-500">Circle</p>
+                                </div>
+                                <div class="glass-panel rounded-2xl p-4 text-center">
+                                    <p class="text-xl font-semibold tracking-tight">1.2k</p>
+                                    <p class="text-xs text-zinc-500">Likes</p>
+                                </div>
+                            </div>
+
+                            <!-- Tabs -->
+                            <div class="px-6 flex gap-2 mb-4 border-b border-white/5 pb-0">
+                                <button class="px-4 py-2 text-sm font-medium border-b-2 border-rose-500 -mb-px">Recs</button>
+                                <button class="px-4 py-2 text-sm font-medium text-zinc-500">Lists</button>
+                                <button class="px-4 py-2 text-sm font-medium text-zinc-500">Saved</button>
+                            </div>
+
+                            <!-- Rec grid -->
+                            <div class="px-6 grid grid-cols-2 gap-3">
+                                <div class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-[url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&amp;w=400')] bg-cover bg-center">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 right-2">
+                                        <p class="text-xs font-medium">Osteria Mozza</p>
+                                        <div class="flex items-center gap-0.5">
+                                            <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                            <span class="text-xs">4.9</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=400')] bg-cover bg-center">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 right-2">
+                                        <p class="text-xs font-medium">Tomorrow x3</p>
+                                        <div class="flex items-center gap-0.5">
+                                            <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                            <span class="text-xs">4.8</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&amp;w=400')] bg-cover bg-center">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 right-2">
+                                        <p class="text-xs font-medium">Blue Bottle</p>
+                                        <div class="flex items-center gap-0.5">
+                                            <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                            <span class="text-xs">4.6</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-[url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&amp;w=400')] bg-cover bg-center">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 right-2">
+                                        <p class="text-xs font-medium">Past Lives</p>
+                                        <div class="flex items-center gap-0.5">
+                                            <iconify-icon icon="solar:star-bold" width="10" class="text-rose-400"></iconify-icon>
+                                            <span class="text-xs">4.7</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Nav -->
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <div class="glass-panel rounded-2xl flex items-center justify-around py-3 px-2">
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:home-2-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:compass-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center -mt-6">
+                                    <div class="w-12 h-12 rounded-full pink-gradient pink-glow flex items-center justify-center">
+                                        <iconify-icon icon="solar:add-circle-linear" width="24" class="text-white"></iconify-icon>
+                                    </div>
+                                </button>
+                                <button class="w-12 h-10 flex items-center justify-center"><iconify-icon icon="solar:users-group-rounded-linear" width="22" class="text-zinc-500"></iconify-icon></button>
+                                <button class="w-12 h-10 flex items-center justify-center rounded-xl bg-white/5"><iconify-icon icon="solar:user-bold" width="22" class="text-rose-400"></iconify-icon></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body></html>
