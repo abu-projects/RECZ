@@ -1495,6 +1495,33 @@
             </div>
         </section>
 
+        <section class="storyboard-section onboarding-storyboard">
+            <div class="prototype-wrapper">
+                <div class="max-w-[1400px] mx-auto mb-12">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
+                        <h2 class="section-title text-2xl text-white">Rexy AI</h2>
+                        <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
+                    </div>
+                </div>
+
+                <div class="screens-container onboarding-screens">
+                    <template v-for="screen in rexyScreens" :key="screen.id">
+                        <div class="storyboard-card">
+                            <div class="mb-3 flex items-center justify-between gap-3">
+                                <div class="screen-title-inline">{{ screen.title }}</div>
+                            </div>
+                            <div class="iphone-frame relative" :class="[screen.showNav ? 'phone-with-nav' : '', screen.showRexy ? 'phone-with-rexy' : '']">
+                                <div class="notch"></div>
+                                <component :is="screen.component" :screen-id="screen.id"></component>
+                                <bottom-nav v-if="screen.showNav" :active-tab="screen.activeTab"></bottom-nav>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <!-- Vue Components Templates -->
@@ -2248,53 +2275,156 @@
 
     <!-- 10. Rexy AI Assistant -->
     <template id="screen-10">
-        <div class="w-full h-full relative bg-[#050505]">
-            <div class="ambient-glow aura-purple w-full h-[600px] absolute -top-20 left-0 opacity-60"></div>
-            
-            <div class="glass-nav absolute top-0 left-0 w-full pt-14 pb-4 px-5 z-40 flex justify-between items-center border-b border-white/5">
-                <div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
-                    <iconify-icon icon="solar:alt-arrow-down-linear" class="text-xl"></iconify-icon>
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(168,85,247,0.16),transparent_38%),radial-gradient(circle_at_4%_72%,rgba(244,63,94,0.1),transparent_34%),radial-gradient(circle_at_88%_82%,rgba(255,255,255,0.035),transparent_32%)]"></div>
+
+            <div class="glass-nav absolute top-0 left-0 right-0 z-40 flex items-center justify-between px-5 pb-4 pt-14">
+                <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl" @click="$root.goToScreen('08')" aria-label="Close Rexy">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg text-white"></iconify-icon>
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="text-[13px] font-medium tracking-tight text-white">Rexy</span>
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
                 </div>
-                <h2 class="font-medium flex items-center gap-2">
-                    <iconify-icon icon="solar:magic-stick-3-linear" class="text-purple-400"></iconify-icon> Ask Rexy
-                </h2>
-                <div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
-                    <iconify-icon icon="solar:history-linear" class="text-sm"></iconify-icon>
-                </div>
+                <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl" aria-label="Rexy history">
+                    <iconify-icon icon="solar:history-linear" class="text-sm text-white"></iconify-icon>
+                </button>
             </div>
 
-            <div class="content-scroll pt-28 px-5 relative z-10 flex flex-col h-full">
-                <div class="flex-1 flex flex-col justify-center items-center text-center mt-10">
-                    <div class="w-32 h-32 rounded-full mb-6 relative flex items-center justify-center">
-                        <div class="absolute inset-0 rounded-full border border-purple-500/30 animate-[ping_3s_ease-in-out_infinite]"></div>
-                        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-rose-600 shadow-[0_0_40px_rgba(168,85,247,0.6)] flex items-center justify-center z-10">
-                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-4xl text-white"></iconify-icon>
+            <div class="content-scroll no-scrollbar relative z-10 h-full overflow-y-auto px-5 pb-44 pt-28">
+                <section class="mb-7 flex flex-col items-center gap-3 text-center">
+                    <div class="relative flex h-20 w-20 items-center justify-center">
+                        <div class="absolute inset-0 rounded-full border border-purple-300/25 animate-[ping_3s_ease-in-out_infinite]"></div>
+                        <div class="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_34px_rgba(168,85,247,0.45)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-2xl text-white"></iconify-icon>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-medium mb-2">How can I help you discover?</h3>
-                    <p class="text-gray-400 text-sm max-w-[250px] mb-8">I analyze your taste and your trusted circle to find perfect recommendations.</p>
-                    
-                    <div class="flex flex-wrap justify-center gap-3 w-full max-w-[300px]">
-                        <button class="glass-panel px-4 py-3 rounded-xl text-sm flex items-center gap-3 hover:bg-white/10 w-full text-left">
-                            <iconify-icon icon="solar:emoji-funny-circle-linear" class="text-rose-400 text-xl"></iconify-icon>
-                            <span>I'm bored, what should I do tonight?</span>
+                    <div>
+                        <h2 class="text-[28px] font-semibold leading-none tracking-tight text-white">Rexy</h2>
+                        <p class="mt-2 text-sm text-gray-400">What are you in the mood for?</p>
+                    </div>
+                </section>
+
+                <section class="relative mb-6 overflow-hidden rounded-[1.75rem] border border-purple-300/15 bg-purple-500/[0.08] px-5 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_42px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
+                    <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(168,85,247,0.08),rgba(244,63,94,0.08))]"></div>
+                    <p class="relative z-10 text-sm leading-6 text-white">It's Friday night. Want something social?</p>
+                    <p class="relative z-10 mt-1 text-xs text-gray-400">Your friends are active tonight</p>
+                </section>
+
+                <section class="mb-6">
+                    <p class="mb-3 px-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Quick picks</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="flex items-center gap-2 rounded-full border border-rose-300/25 bg-rose-500/[0.08] px-4 py-2.5 text-sm font-medium text-white backdrop-blur-xl" @click="$root.goToScreen('11')">
+                            <iconify-icon icon="solar:chef-hat-linear" class="text-lg text-rose-200"></iconify-icon>
+                            Dinner tonight
                         </button>
-                        <button class="glass-panel px-4 py-3 rounded-xl text-sm flex items-center gap-3 hover:bg-white/10 w-full text-left">
-                            <iconify-icon icon="solar:cup-hot-linear" class="text-rose-400 text-xl"></iconify-icon>
-                            <span>Find a coffee shop for remote work</span>
+                        <button class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-gray-300 backdrop-blur-xl" @click="$root.goToScreen('11')">
+                            <iconify-icon icon="solar:cup-hot-linear" class="text-lg text-amber-200"></iconify-icon>
+                            Cozy cafes
+                        </button>
+                        <button class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-gray-300 backdrop-blur-xl" @click="$root.goToScreen('11')">
+                            <iconify-icon icon="solar:clapperboard-play-linear" class="text-lg text-purple-200"></iconify-icon>
+                            Movie night
+                        </button>
+                        <button class="flex items-center gap-2 rounded-full border border-purple-300/25 bg-purple-500/[0.08] px-4 py-2.5 text-sm font-medium text-gray-200 backdrop-blur-xl" @click="$root.goToScreen('11')">
+                            <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-lg text-purple-200"></iconify-icon>
+                            Social spots
                         </button>
                     </div>
-                </div>
+                </section>
+
+                <section class="space-y-4">
+                    <div class="flex justify-end">
+                        <div class="max-w-[75%] rounded-3xl rounded-br-lg bg-gradient-to-br from-rose-500 to-pink-600 px-4 py-3 text-sm leading-5 text-white shadow-[0_10px_28px_rgba(244,63,94,0.22)]">Dinner tonight, something intimate</div>
+                    </div>
+
+                    <div class="flex items-start gap-2">
+                        <div class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_14px_rgba(168,85,247,0.45)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[10px] text-white"></iconify-icon>
+                        </div>
+                        <div class="max-w-[80%] rounded-3xl rounded-tl-lg border border-purple-300/15 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-white backdrop-blur-2xl">Found 3 intimate spots perfect for tonight.</div>
+                    </div>
+
+                    <div class="space-y-3 pl-9">
+                        <article class="overflow-hidden rounded-[1.65rem] border border-purple-300/15 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_16px_38px_rgba(0,0,0,0.32)] backdrop-blur-2xl">
+                            <div class="relative h-28 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&q=80" class="h-full w-full object-cover" alt="Pitti Restaurant">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+                                <div class="absolute right-2 top-2 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 px-2 py-1 text-[10px] font-medium text-white shadow-[0_0_12px_rgba(168,85,247,0.35)]">94% fit</div>
+                                <div class="absolute bottom-2 left-3">
+                                    <p class="text-sm font-semibold text-white">Pitti Restaurant</p>
+                                    <p class="text-[10px] text-gray-300">Italian · Intimate · $$$</p>
+                                </div>
+                            </div>
+                            <div class="px-4 py-3">
+                                <p class="mb-3 text-xs leading-5 text-gray-400">Matches your quiet, warm-room dinner taste.</p>
+                                <div class="flex gap-2">
+                                    <button class="flex-1 rounded-full bg-white px-3 py-2 text-[11px] font-bold text-black">Save</button>
+                                    <button class="flex-1 rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-[11px] font-bold text-white">Plan</button>
+                                    <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.05]" aria-label="Share">
+                                        <iconify-icon icon="solar:share-linear" class="text-xs text-gray-300"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-2xl">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=140&q=80" class="h-14 w-14 shrink-0 rounded-xl object-cover" alt="Cafe Noir">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center justify-between gap-2">
+                                    <p class="truncate text-sm font-semibold text-white">Cafe Noir</p>
+                                    <span class="text-[10px] font-medium text-blue-300">88%</span>
+                                </div>
+                                <p class="mt-0.5 text-[10px] text-gray-500">French · Cozy · $$</p>
+                                <p class="mt-1 truncate text-[10px] text-gray-400">Matches your quiet vibe</p>
+                            </div>
+                            <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-rose-300/20 bg-rose-500/10" aria-label="Save">
+                                <iconify-icon icon="solar:bookmark-linear" class="text-xs text-rose-300"></iconify-icon>
+                            </button>
+                        </article>
+                    </div>
+
+                    <div class="pl-9">
+                        <p class="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-600">Ask more</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] text-gray-300" @click="$root.goToScreen('11')">Is it good for tonight?</button>
+                            <button class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] text-gray-300" @click="$root.goToScreen('11')">Find cheaper</button>
+                            <button class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] text-gray-300" @click="$root.goToScreen('11')">Show similar</button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 rounded-2xl border border-purple-300/15 bg-purple-500/[0.07] px-4 py-3 backdrop-blur-2xl">
+                        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/20 text-purple-200">
+                            <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-sm"></iconify-icon>
+                        </div>
+                        <p class="text-xs leading-5 text-gray-300">You and Lina both like rooftop cafes. Want to plan something together?</p>
+                    </div>
+                </section>
             </div>
 
-            <div class="glass-bottom absolute bottom-0 left-0 w-full p-5 pt-8 z-40 border-t border-white/5">
-                <div class="glass-panel rounded-full p-1 pl-4 pr-1 flex items-center border-purple-500/30 bg-black/40">
-                    <input type="text" placeholder="Ask Rexy anything..." class="bg-transparent border-none outline-none flex-1 text-sm text-white placeholder-gray-500 py-3">
-                    <button class="w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-400 ml-2 shrink-0">
-                        <iconify-icon icon="solar:microphone-2-linear" class="text-lg"></iconify-icon>
+            <div class="glass-bottom absolute inset-x-0 bottom-0 z-40 px-4 pb-8 pt-8">
+                <div class="mb-3 flex items-center gap-3 rounded-2xl border border-rose-300/20 bg-rose-500/[0.07] px-4 py-3 backdrop-blur-2xl">
+                    <span class="h-2 w-2 shrink-0 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.8)]"></span>
+                    <div class="flex h-5 flex-1 items-center gap-0.5">
+                        <span class="h-[30%] w-0.5 rounded-full bg-rose-300/60"></span>
+                        <span class="h-[70%] w-0.5 rounded-full bg-rose-300/80"></span>
+                        <span class="h-full w-0.5 rounded-full bg-rose-300"></span>
+                        <span class="h-[60%] w-0.5 rounded-full bg-rose-300/80"></span>
+                        <span class="h-[40%] w-0.5 rounded-full bg-rose-300/60"></span>
+                        <span class="h-[80%] w-0.5 rounded-full bg-rose-300/80"></span>
+                        <span class="h-[90%] w-0.5 rounded-full bg-rose-300"></span>
+                    </div>
+                    <span class="text-xs font-medium text-rose-300">Listening</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="flex flex-1 items-center rounded-full border border-white/10 bg-black/35 px-4 py-3 backdrop-blur-2xl">
+                        <input type="text" placeholder="Ask Rexy anything..." class="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-gray-600">
+                    </div>
+                    <button class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-rose-300/25 bg-rose-500/10 text-rose-300" aria-label="Voice">
+                        <iconify-icon icon="solar:microphone-3-linear" class="text-lg"></iconify-icon>
                     </button>
-                    <button class="w-10 h-10 rounded-full accent-gradient flex items-center justify-center ml-2 shrink-0 shadow-[0_0_15px_rgba(244,63,94,0.4)]">
-                        <iconify-icon icon="solar:plain-bold" class="text-sm"></iconify-icon>
+                    <button class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_8px_24px_rgba(168,85,247,0.3)]" aria-label="Send" @click="$root.goToScreen('11')">
+                        <iconify-icon icon="solar:arrow-up-linear" class="text-lg text-white"></iconify-icon>
                     </button>
                 </div>
             </div>
@@ -2578,24 +2708,6 @@
                         <div class="absolute bottom-5 left-3 rounded-full border border-emerald-200/20 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-100 backdrop-blur-md">Outdoors</div>
                         <div class="absolute bottom-2 right-4 rounded-full border border-amber-200/20 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-amber-100 backdrop-blur-md">Late nights</div>
                     </div>
-                </section>
-
-                <section class="mb-6 grid grid-cols-3 gap-2">
-                    <button class="min-h-[78px] rounded-2xl border border-white/10 bg-white/[0.035] px-2 py-3 text-center transition hover:bg-white/[0.06]" @click="$root.goToScreen('27')">
-                        <div class="text-[21px] font-semibold leading-none text-white">82</div>
-                        <div class="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400">Signals</div>
-                        <div class="mt-0.5 text-[9px] text-gray-600">Last 30d</div>
-                    </button>
-                    <button class="min-h-[78px] rounded-2xl border border-rose-300/20 bg-rose-500/[0.08] px-2 py-3 text-center transition hover:bg-rose-500/[0.12]" @click="$root.goToScreen('77')">
-                        <div class="text-[21px] font-semibold leading-none text-white">8</div>
-                        <div class="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-rose-200">Matches</div>
-                        <div class="mt-0.5 text-[9px] text-rose-200/55">Similar taste</div>
-                    </button>
-                    <button class="min-h-[78px] rounded-2xl border border-white/10 bg-white/[0.035] px-2 py-3 text-center transition hover:bg-white/[0.06]" @click="$root.goToScreen('37')">
-                        <div class="text-[21px] font-semibold leading-none text-white">91%</div>
-                        <div class="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400">Trust</div>
-                        <div class="mt-0.5 text-[9px] text-gray-600">Circle fit</div>
-                    </button>
                 </section>
 
                 <section class="relative mb-6 overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_42px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
@@ -3235,64 +3347,187 @@
 
     <!-- 11. Rexy Conversational -->
     <template id="screen-11">
-        <div class="w-full h-full relative bg-[#050505]">
-            <div class="glass-nav absolute top-0 left-0 w-full pt-14 pb-4 px-5 z-40 border-b border-white/5 flex justify-between items-center">
-                <div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
-                    <iconify-icon icon="solar:alt-arrow-left-linear"></iconify-icon>
-                </div>
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(244,63,94,0.12),transparent_34%),radial-gradient(circle_at_88%_18%,rgba(168,85,247,0.13),transparent_34%),radial-gradient(circle_at_50%_90%,rgba(16,185,129,0.06),transparent_34%)]"></div>
+
+            <div class="glass-nav absolute top-0 left-0 right-0 z-40 flex items-center justify-between px-5 pb-4 pt-14">
+                <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl" @click="$root.goToScreen('10')" aria-label="Back to Rexy">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg text-white"></iconify-icon>
+                </button>
                 <div class="flex items-center gap-2">
-                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-purple-400"></iconify-icon>
-                    <h2 class="font-medium text-sm">Rexy Assistant</h2>
+                    <span class="text-[13px] font-medium tracking-tight text-white">Rexy</span>
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
                 </div>
-                <div class="w-8 h-8"></div>
+                <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl" aria-label="Rexy history">
+                    <iconify-icon icon="solar:history-linear" class="text-sm text-white"></iconify-icon>
+                </button>
             </div>
 
-            <div class="content-scroll pt-24 px-5 relative z-10 pb-20">
-                <div class="flex justify-center mb-6">
-                    <span class="text-[10px] text-gray-500 bg-white/5 px-3 py-1 rounded-full">Today 10:42 AM</span>
-                </div>
-                
-                <div class="flex justify-end mb-4">
-                    <div class="bg-rose-500/20 border border-rose-500/30 text-white p-3 rounded-2xl rounded-tr-none max-w-[80%] text-sm">
-                        I'm looking for a low-key coffee shop in Silver Lake to work from today. Needs good wifi.
-                    </div>
-                </div>
-                
-                <div class="flex gap-3 mb-6">
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shrink-0">
-                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-sm"></iconify-icon>
-                    </div>
-                    <div class="flex-1">
-                        <div class="glass-panel p-3 rounded-2xl rounded-tl-none border-purple-500/30 text-sm mb-3">
-                            I've found 3 great spots in Silver Lake with strong Wi-Fi and a low-key vibe. Both Sarah and Mike have saved the first one!
+            <div class="content-scroll no-scrollbar relative z-10 h-full overflow-y-auto px-5 pb-28 pt-28">
+                <section class="mb-5 flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=180&q=80" class="h-16 w-16 shrink-0 rounded-2xl border border-white/10 object-cover" alt="Patio Kitchen">
+                    <div class="min-w-0">
+                        <h2 class="text-[18px] font-semibold tracking-tight text-white">Patio Kitchen</h2>
+                        <p class="mt-0.5 text-[12px] text-gray-400">Garden restaurant · 0.5 mi · $$</p>
+                        <div class="mt-1 flex items-center gap-1.5">
+                            <iconify-icon icon="solar:star-bold" class="text-[11px] text-amber-400"></iconify-icon>
+                            <span class="text-[12px] text-gray-300">4.9 · <span class="text-rose-300">92% fit with you</span></span>
                         </div>
-                        
-                        <!-- Mini Recommendation Card in Chat -->
-                        <div class="glass-panel rounded-xl overflow-hidden border-white/10 mb-2">
-                            <div class="flex h-20">
-                                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=200" class="w-20 h-full object-cover">
-                                <div class="p-2 flex flex-col justify-center">
-                                    <h4 class="font-semibold text-sm">Intelligentsia</h4>
-                                    <p class="text-[10px] text-gray-400">Coffee • Silver Lake</p>
-                                    <div class="flex text-[10px] text-rose-400 mt-1">
-                                        <iconify-icon icon="solar:star-fall-bold"></iconify-icon> 4.6
+                    </div>
+                </section>
+
+                <section class="relative mb-4 overflow-hidden rounded-2xl border border-rose-300/20 bg-gradient-to-br from-rose-500/[0.1] to-purple-500/[0.06] p-4 backdrop-blur-2xl">
+                    <div class="mb-2 flex items-center gap-2">
+                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-sm text-rose-300"></iconify-icon>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-rose-300">Why it fits you</span>
+                    </div>
+                    <p class="text-[13px] leading-6 text-gray-200">You like intimate, aesthetic spots with warm lighting, curated menus, and a relaxed crowd. Patio Kitchen lines up with that taste profile.</p>
+                </section>
+
+                <section class="mb-5 grid grid-cols-2 gap-3">
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-2xl">
+                        <div class="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-rose-500/15 text-rose-300">
+                            <iconify-icon icon="solar:moon-stars-bold" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-gray-500">Vibe</p>
+                        <p class="mt-1 text-[13px] font-semibold leading-tight text-white">Intimate & Moody</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-2xl">
+                        <div class="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-amber-500/15 text-amber-300">
+                            <iconify-icon icon="solar:clock-circle-linear" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-gray-500">Best time</p>
+                        <p class="mt-1 text-[13px] font-semibold leading-tight text-white">6pm - 10pm</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-2xl">
+                        <div class="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-blue-500/15 text-blue-300">
+                            <iconify-icon icon="solar:users-group-rounded-linear" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-gray-500">Crowd</p>
+                        <p class="mt-1 text-[13px] font-semibold leading-tight text-white">Chill, 25-35</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-2xl">
+                        <div class="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-300">
+                            <iconify-icon icon="solar:wallet-linear" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-gray-500">Pricing</p>
+                        <p class="mt-1 text-[13px] font-semibold leading-tight text-white">~$40 / person</p>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <p class="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Ask Rexy</p>
+                    <div class="space-y-2">
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-left backdrop-blur-2xl">
+                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-rose-500/15 text-rose-300"><iconify-icon icon="solar:heart-linear" class="text-sm"></iconify-icon></span>
+                            <span class="flex-1 text-[13px] text-gray-200">Is this good for a date?</span>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm text-gray-500"></iconify-icon>
+                        </button>
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-left backdrop-blur-2xl">
+                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-500/15 text-amber-300"><iconify-icon icon="solar:moon-stars-linear" class="text-sm"></iconify-icon></span>
+                            <span class="flex-1 text-[13px] text-gray-200">Should I go tonight?</span>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm text-gray-500"></iconify-icon>
+                        </button>
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-left backdrop-blur-2xl">
+                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-300"><iconify-icon icon="solar:users-group-rounded-linear" class="text-sm"></iconify-icon></span>
+                            <span class="flex-1 text-[13px] text-gray-200">Is it quiet or busy right now?</span>
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm text-gray-500"></iconify-icon>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="mb-5 grid grid-cols-2 gap-3">
+                    <button class="flex items-center justify-center gap-2 rounded-2xl bg-white py-3.5 text-[13px] font-bold text-black">
+                        <iconify-icon icon="solar:bookmark-linear" class="text-base"></iconify-icon>
+                        Save
+                    </button>
+                    <button class="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.06] py-3.5 text-[13px] font-bold text-white">
+                        <iconify-icon icon="solar:calendar-bold" class="text-base text-amber-300"></iconify-icon>
+                        Plan
+                    </button>
+                    <button class="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] py-3.5 text-[13px] font-bold text-white">
+                        <iconify-icon icon="solar:share-linear" class="text-base"></iconify-icon>
+                        Share
+                    </button>
+                    <button class="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] py-3.5 text-[13px] font-bold text-white">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-base text-blue-300"></iconify-icon>
+                        Message
+                    </button>
+                </section>
+
+                <div class="mb-4 h-px bg-white/10"></div>
+
+                <section class="space-y-5">
+                    <div class="flex justify-end">
+                        <div class="max-w-[80%] rounded-2xl rounded-tr-sm border border-white/10 bg-white/[0.08] px-4 py-3 text-[13px] text-white backdrop-blur-2xl">Is this good for a date?</div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <div class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.3)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="flex-1 space-y-3">
+                            <div class="rounded-2xl rounded-tl-sm border border-white/10 bg-white/[0.045] px-4 py-3 text-[13px] leading-6 text-gray-200 backdrop-blur-2xl">Absolutely. Patio Kitchen is one of the stronger calm-night choices right now.</div>
+                            <div class="space-y-3 rounded-2xl border border-white/10 bg-white/[0.035] p-4 backdrop-blur-2xl">
+                                <div class="flex items-start gap-3">
+                                    <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-500/20 text-rose-300"><iconify-icon icon="solar:moon-stars-bold" class="text-[10px]"></iconify-icon></span>
+                                    <p class="text-[12px] leading-5 text-gray-300"><span class="font-medium text-white">Warm ambiance</span> with soft lighting and enough energy to feel intentional.</p>
+                                </div>
+                                <div class="h-px bg-white/5"></div>
+                                <div class="flex items-start gap-3">
+                                    <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-amber-300"><iconify-icon icon="solar:cup-hot-bold" class="text-[10px]"></iconify-icon></span>
+                                    <p class="text-[12px] leading-5 text-gray-300"><span class="font-medium text-white">Chef-driven menu</span> gives you something to talk about without making the night formal.</p>
+                                </div>
+                                <div class="h-px bg-white/5"></div>
+                                <div class="flex items-start gap-3">
+                                    <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-500/20 text-purple-300"><iconify-icon icon="solar:volume-small-linear" class="text-[10px]"></iconify-icon></span>
+                                    <p class="text-[12px] leading-5 text-gray-300"><span class="font-medium text-white">Not too loud</span>, so conversation stays easy.</p>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-3 text-[13px] leading-6 text-gray-200 backdrop-blur-2xl">Lina saved it last month for a quiet dinner. Book if you can, weekends fill fast.</div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <div class="max-w-[80%] rounded-2xl rounded-tr-sm border border-white/10 bg-white/[0.08] px-4 py-3 text-[13px] text-white backdrop-blur-2xl">Should I go tonight?</div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <div class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.3)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="flex-1 space-y-3">
+                            <div class="rounded-2xl rounded-tl-sm border border-white/10 bg-white/[0.045] px-4 py-3 text-[13px] leading-6 text-gray-200 backdrop-blur-2xl">Tonight is a strong call. It is nearby, still has late availability, and fits your low-noise dinner pattern.</div>
+                            <div class="overflow-hidden rounded-2xl border border-emerald-300/20 bg-emerald-500/[0.07] backdrop-blur-2xl">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" class="h-24 w-full object-cover opacity-75" alt="Patio Kitchen table">
+                                <div class="flex items-center justify-between p-3">
+                                    <div>
+                                        <h4 class="text-[13px] font-semibold text-white">Patio Kitchen</h4>
+                                        <p class="mt-0.5 flex items-center gap-1 text-[10px] text-emerald-300"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>Available tonight</p>
                                     </div>
+                                    <button class="rounded-xl bg-gradient-to-br from-emerald-400/60 to-emerald-500/35 px-4 py-2 text-[11px] font-bold text-white">Save</button>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl border border-emerald-300/20 bg-emerald-500/[0.07] p-4 backdrop-blur-2xl">
+                                <p class="mb-3 text-[13px] leading-5 text-gray-200">Want me to set up the plan?</p>
+                                <div class="flex gap-2">
+                                    <button class="flex-1 rounded-xl border border-emerald-300/30 bg-emerald-500/20 py-2.5 text-[12px] font-bold text-white">Yes, plan it</button>
+                                    <button class="flex-1 rounded-xl border border-white/10 bg-white/[0.04] py-2.5 text-[12px] font-bold text-gray-300">Maybe later</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex gap-2">
-                            <button class="bg-white/10 hover:bg-white/20 text-xs px-3 py-1.5 rounded-full backdrop-blur-md">Add to List</button>
-                            <button class="bg-white/10 hover:bg-white/20 text-xs px-3 py-1.5 rounded-full backdrop-blur-md">Show more</button>
-                        </div>
                     </div>
-                </div>
+                </section>
             </div>
 
-            <div class="glass-bottom absolute bottom-0 left-0 w-full p-4 z-40 border-t border-white/5">
-                <div class="glass-panel rounded-full p-1 pl-4 pr-1 flex items-center border-purple-500/30 bg-black/40">
-                    <input type="text" placeholder="Reply to Rexy..." class="bg-transparent border-none outline-none flex-1 text-sm text-white py-2">
-                    <button class="w-8 h-8 rounded-full accent-gradient flex items-center justify-center ml-2 shadow-[0_0_10px_rgba(168,85,247,0.4)]">
-                        <iconify-icon icon="solar:arrow-up-linear" class="text-sm"></iconify-icon>
+            <div class="glass-bottom absolute inset-x-0 bottom-0 z-40 px-4 pb-6 pt-6">
+                <div class="flex items-center gap-2 rounded-full border border-white/10 bg-black/35 py-2 pl-3 pr-2 backdrop-blur-2xl">
+                    <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-rose-300/25 bg-rose-500/10 text-rose-300" aria-label="Voice">
+                        <iconify-icon icon="solar:microphone-linear" class="text-sm"></iconify-icon>
+                    </button>
+                    <input type="text" placeholder="Ask Rexy anything..." class="min-w-0 flex-1 bg-transparent py-1 text-[13px] text-white outline-none placeholder:text-gray-500">
+                    <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.3)]" aria-label="Send">
+                        <iconify-icon icon="solar:arrow-up-linear" class="text-sm text-white"></iconify-icon>
                     </button>
                 </div>
             </div>
@@ -6371,44 +6606,235 @@
         </div>
     </template>
 
-    <!-- 61. Rexy Quick Mode -->
+    <!-- 61. Rexy Create Recommendation -->
     <template id="screen-61">
-        <div class="w-full h-full relative bg-[#050505]">
-            <div class="ambient-glow aura-purple w-[500px] h-[500px] absolute top-1/4 -left-20 opacity-30"></div>
-            <div class="glass-nav absolute top-0 left-0 w-full pt-14 pb-4 px-5 z-40 border-b border-white/5 flex items-center justify-between">
-                <div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
-                    <iconify-icon icon="solar:close-circle-linear"></iconify-icon>
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_22%_0%,rgba(244,63,94,0.13),transparent_34%),radial-gradient(circle_at_88%_14%,rgba(168,85,247,0.15),transparent_35%),radial-gradient(circle_at_48%_88%,rgba(255,255,255,0.035),transparent_32%)]"></div>
+
+            <div class="glass-nav absolute left-0 right-0 top-0 z-40 flex items-center justify-between px-5 pb-4 pt-14">
+                <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl" @click="$root.goToScreen('10')" aria-label="Back to Rexy">
+                    <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg text-white"></iconify-icon>
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="text-[13px] font-medium tracking-tight text-white">Rexy</span>
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
                 </div>
-                <h2 class="font-bold text-sm">Quick Mode</h2>
-                <div class="w-8 h-8"></div>
+                <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl" aria-label="Rexy history">
+                    <iconify-icon icon="solar:history-linear" class="text-sm text-white"></iconify-icon>
+                </button>
             </div>
 
-            <div class="content-scroll pt-32 px-5 relative z-10 flex flex-col items-center justify-center h-[80%]">
-                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(168,85,247,0.4)]">
-                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-4xl"></iconify-icon>
+            <div class="content-scroll no-scrollbar relative z-10 h-full overflow-y-auto px-5 pb-36 pt-28">
+                <section class="mb-5 space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_14px_rgba(168,85,247,0.35)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="max-w-[84%] space-y-3">
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                Hey 👋 What do you want to do?
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="rounded-full border border-rose-300/25 bg-rose-500/10 px-3 py-2 text-[11px] font-semibold text-rose-100">Recommend a place</button>
+                                <button class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] font-semibold text-gray-300">Ask your circle</button>
+                                <button class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] font-semibold text-gray-300">Plan something</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <div class="max-w-[78%] rounded-3xl rounded-br-lg bg-gradient-to-br from-rose-500 to-pink-600 px-4 py-3 text-sm leading-5 text-white shadow-[0_10px_28px_rgba(244,63,94,0.22)]">
+                            I want to recommend a place
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_14px_rgba(168,85,247,0.35)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="flex-1 rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                            Nice 👌 Which place do you want to recommend?<br>
+                            <span class="text-gray-400">You can type or send a voice note 🎤</span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <div class="max-w-[80%] space-y-2">
+                            <div class="ml-auto flex w-fit items-center gap-2 rounded-full border border-rose-300/25 bg-rose-500/10 px-3 py-2 text-[11px] font-semibold text-rose-100">
+                                <iconify-icon icon="solar:microphone-bold" class="text-sm"></iconify-icon>
+                                Voice note · 0:07
+                            </div>
+                            <div class="rounded-3xl rounded-br-lg bg-gradient-to-br from-rose-500 to-pink-600 px-4 py-3 text-sm leading-5 text-white shadow-[0_10px_28px_rgba(244,63,94,0.22)]">
+                                Nori Handrolls. Quiet place before a movie.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_14px_rgba(168,85,247,0.35)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="flex-1 space-y-3">
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                Here's what I understood 👇<br>
+                                <span class="text-gray-400">Nori Handrolls is quiet, quick, and good before a movie.</span>
+                            </div>
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                Do you mean this place?
+                            </div>
+
+                            <article class="overflow-hidden rounded-[1.75rem] border border-rose-300/15 bg-white/[0.045] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_42px_rgba(0,0,0,0.34)] backdrop-blur-2xl">
+                                <div class="relative h-36">
+                                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80" class="h-full w-full object-cover" alt="Nori Handrolls">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                    <div class="absolute left-3 top-3 rounded-full border border-white/10 bg-black/35 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-xl">Detected place</div>
+                                    <div class="absolute bottom-3 left-3 right-3">
+                                        <h3 class="text-lg font-semibold tracking-tight text-white">Nori Handrolls</h3>
+                                        <p class="mt-0.5 text-[11px] text-gray-300">Sushi · Japanese · 1.4 mi</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 p-4">
+                                    <button class="rounded-xl bg-white px-3 py-3 text-xs font-bold text-black">Yes</button>
+                                    <button class="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-3 text-xs font-bold text-white">No</button>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <div class="max-w-[72%] rounded-3xl rounded-br-lg bg-gradient-to-br from-rose-500 to-pink-600 px-4 py-3 text-sm leading-5 text-white shadow-[0_10px_28px_rgba(244,63,94,0.22)]">
+                            Yes
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_14px_rgba(168,85,247,0.35)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="flex-1 space-y-3">
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                Great. I'll draft the recommendation and add the useful context.
+                            </div>
+                            <div class="rounded-[1.75rem] border border-white/10 bg-white/[0.045] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_42px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
+                                <div class="mb-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                                    <p class="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-rose-300">Rexy draft</p>
+                                    <p class="text-sm leading-6 text-white">Fast handrolls, a quiet counter, perfect before a late film.</p>
+                                </div>
+                                <div>
+                                    <p class="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">Adjust tags</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <button class="rounded-full border border-rose-300/25 bg-rose-500/10 px-3 py-1.5 text-[11px] font-semibold text-rose-100">Quiet</button>
+                                        <button class="rounded-full border border-purple-300/25 bg-purple-500/10 px-3 py-1.5 text-[11px] font-semibold text-purple-100">Late night</button>
+                                        <button class="rounded-full border border-amber-300/25 bg-amber-500/10 px-3 py-1.5 text-[11px] font-semibold text-amber-100">Quick bite</button>
+                                        <button class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-semibold text-gray-400">+ Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-3 text-center backdrop-blur-2xl">
+                                    <div class="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-500">Vibe</div>
+                                    <div class="mt-1 text-[12px] font-semibold text-white">Calm counter</div>
+                                </div>
+                                <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-3 text-center backdrop-blur-2xl">
+                                    <div class="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-500">Best</div>
+                                    <div class="mt-1 text-[12px] font-semibold text-white">Before 8pm</div>
+                                </div>
+                                <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-3 text-center backdrop-blur-2xl">
+                                    <div class="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-500">Fit</div>
+                                    <div class="mt-1 text-[12px] font-semibold text-rose-200">94%</div>
+                                </div>
+                            </div>
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                Want to add a photo or your rating?
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="rounded-full border border-rose-300/25 bg-rose-500/10 px-3 py-2 text-[11px] font-semibold text-rose-100">Add photos 📸</button>
+                                <button class="rounded-full border border-amber-300/25 bg-amber-500/10 px-3 py-2 text-[11px] font-semibold text-amber-100">Add rating ⭐</button>
+                                <button class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] font-semibold text-gray-300">Skip</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <div class="max-w-[76%] space-y-2">
+                            <div class="ml-auto w-fit rounded-full border border-rose-300/25 bg-rose-500/10 px-3 py-2 text-[11px] font-semibold text-rose-100">Add photos 📸</div>
+                            <div class="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.045] shadow-[0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
+                                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=420&q=80" class="h-36 w-full object-cover" alt="User uploaded sushi photo">
+                                <div class="flex items-center gap-2 px-3 py-2 text-[11px] text-gray-300">
+                                    <iconify-icon icon="solar:gallery-add-bold" class="text-rose-300"></iconify-icon>
+                                    1 photo attached
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_14px_rgba(168,85,247,0.35)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="flex-1 space-y-3">
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                How would you rate it?
+                            </div>
+                            <div class="flex w-fit items-center gap-1 rounded-full border border-amber-300/20 bg-amber-500/10 px-4 py-2 text-xl text-amber-200 backdrop-blur-2xl">
+                                <button aria-label="1 star">★</button>
+                                <button aria-label="2 stars">★</button>
+                                <button aria-label="3 stars">★</button>
+                                <button aria-label="4 stars">★</button>
+                                <button aria-label="5 stars">★</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <div class="max-w-[72%] rounded-3xl rounded-br-lg bg-gradient-to-br from-rose-500 to-pink-600 px-4 py-3 text-sm leading-5 text-white shadow-[0_10px_28px_rgba(244,63,94,0.22)]">
+                            5 stars
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_14px_rgba(168,85,247,0.35)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-[11px] text-white"></iconify-icon>
+                        </div>
+                        <div class="flex-1 space-y-3">
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                Nice 🔥 this looks complete
+                            </div>
+                            <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-3 backdrop-blur-2xl">
+                                <div class="mb-2 flex items-center justify-between text-[11px]">
+                                    <span class="font-semibold text-white">Added to draft</span>
+                                    <span class="text-amber-200">★★★★★</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-[11px] text-gray-400">
+                                    <span class="rounded-full border border-white/10 bg-white/[0.04] px-2 py-1">1 photo</span>
+                                    <span class="rounded-full border border-amber-300/20 bg-amber-500/10 px-2 py-1 text-amber-100">5.0 rating</span>
+                                </div>
+                            </div>
+                            <div class="rounded-3xl rounded-tl-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-5 text-gray-200 backdrop-blur-2xl">
+                                Ready to post?
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="rounded-xl bg-white px-3 py-3 text-xs font-bold text-black" @click="$root.goToScreen('22')">Post</button>
+                                <button class="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-3 text-xs font-bold text-white">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="glass-bottom absolute inset-x-0 bottom-0 z-40 px-4 pb-6 pt-6">
+                <div class="flex items-center gap-2 rounded-full border border-white/10 bg-black/35 py-2 pl-4 pr-2 backdrop-blur-2xl">
+                    <input type="text" placeholder="Tell Rexy about a place..." class="min-w-0 flex-1 bg-transparent py-1 text-[13px] text-white outline-none placeholder:text-gray-500">
+                    <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-gray-300" aria-label="Add photo">
+                        <iconify-icon icon="solar:gallery-add-linear" class="text-sm"></iconify-icon>
+                    </button>
+                    <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-rose-300/25 bg-rose-500/10 text-rose-300" aria-label="Voice">
+                        <iconify-icon icon="solar:microphone-linear" class="text-sm"></iconify-icon>
+                    </button>
+                    <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.3)]" aria-label="Send">
+                        <iconify-icon icon="solar:arrow-up-linear" class="text-sm text-white"></iconify-icon>
+                    </button>
                 </div>
-                <h3 class="text-2xl font-bold text-center mb-8">What's the vibe?</h3>
-                
-                <div class="grid grid-cols-2 gap-4 w-full mb-8">
-                    <button class="glass-panel py-8 rounded-3xl border-white/10 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition group">
-                        <iconify-icon icon="solar:plate-bold" class="text-3xl text-gray-400 group-hover:text-rose-400"></iconify-icon>
-                        <span class="font-semibold text-sm">Food</span>
-                    </button>
-                    <button class="glass-panel py-8 rounded-3xl border-white/10 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition group">
-                        <iconify-icon icon="solar:wineglass-bold" class="text-3xl text-gray-400 group-hover:text-purple-400"></iconify-icon>
-                        <span class="font-semibold text-sm">Drinks</span>
-                    </button>
-                    <button class="glass-panel py-8 rounded-3xl border-white/10 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition group">
-                        <iconify-icon icon="solar:ticket-bold" class="text-3xl text-gray-400 group-hover:text-blue-400"></iconify-icon>
-                        <span class="font-semibold text-sm">Activity</span>
-                    </button>
-                    <button class="glass-panel py-8 rounded-3xl border-white/10 flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition group border-rose-500/30 bg-rose-500/10">
-                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-3xl text-rose-400"></iconify-icon>
-                        <span class="font-semibold text-sm">Surprise Me</span>
-                    </button>
-                </div>
-                
-                <button class="w-full accent-gradient py-4 rounded-2xl font-bold text-lg shadow-[0_0_20px_rgba(244,63,94,0.3)]">Let's Go</button>
             </div>
         </div>
     </template>
@@ -6822,6 +7248,14 @@
                                 { id: '34', label: 'Settings' },
                                 { id: '64', label: 'Poll Creation' }
                             ]
+                        },
+                        {
+                            title: 'Rexy',
+                            items: [
+                                { id: '10', label: '09. Rexy - AI Assistant' },
+                                { id: '11', label: '11. Rexy - Conversational Answer' },
+                                { id: '61', label: 'Rexy Create Recommendation' }
+                            ]
                         }
                     ],
                     screens: [
@@ -6834,8 +7268,8 @@
                         { id: '07', title: 'Follow Taste Circle', component: 'screen-07', showNav: false, showRexy: false },
                         { id: '08', title: 'Home / For You', component: 'screen-08', showNav: true, activeTab: 'home', showRexy: true },
                         { id: '09', title: 'Home Bottom Sheet', component: 'screen-09', showNav: true, activeTab: 'home', showRexy: false },
-                        { id: '10', title: 'Rexy AI Assistant', component: 'screen-10', showNav: false, showRexy: false },
-                        { id: '11', title: 'Rexy Conversational', component: 'screen-11', showNav: false, showRexy: false },
+                        { id: '10', title: '09. Rexy - AI Assistant', component: 'screen-10', showNav: false, showRexy: false },
+                        { id: '11', title: '11. Rexy - Conversational Answer', component: 'screen-11', showNav: false, showRexy: false },
                         { id: '12', title: 'Explore', component: 'screen-12', showNav: true, activeTab: 'explore', showRexy: true },
                         { id: '13', title: 'Search', component: 'screen-13', showNav: false, showRexy: false },
                         { id: '14', title: 'Recommendation Detail', component: 'screen-14', showNav: false, showRexy: false },
@@ -6891,7 +7325,7 @@
                         { id: '57', title: 'Onboarding Empty', component: 'screen-57', showNav: true, activeTab: 'home', showRexy: false },
                         { id: '58', title: 'Business Promo Card', component: 'screen-58', showNav: false, showRexy: false },
                         { id: '60', title: 'Universal Modal', component: 'screen-60', showNav: false, showRexy: false },
-                        { id: '61', title: 'Rexy Quick Mode', component: 'screen-61', showNav: false, showRexy: false },
+                        { id: '61', title: 'Rexy Create Recommendation', component: 'screen-61', showNav: false, showRexy: false },
                         { id: '62', title: 'Compare Screen', component: 'screen-62', showNav: false, showRexy: false },
                         { id: '63', title: 'Group Chat', component: 'screen-63', showNav: false, showRexy: false },
                         { id: '64', title: 'Poll Creation', component: 'screen-64', showNav: false, showRexy: false },
@@ -6917,6 +7351,11 @@
                 },
                 tasteIdentityScreens() {
                     return ['75', '76', '77']
+                        .map(id => this.screens.find(screen => screen.id === id))
+                        .filter(Boolean);
+                },
+                rexyScreens() {
+                    return ['10', '11', '61']
                         .map(id => this.screens.find(screen => screen.id === id))
                         .filter(Boolean);
                 },
