@@ -779,6 +779,252 @@
          ═══════════════════════════════════════════ -->
     <home-taste-unlocked></home-taste-unlocked>
     <home-taste-locked></home-taste-locked>
+
+    <!-- ═══════════════════════════════════════════
+         CIRCLE
+         ═══════════════════════════════════════════ -->
+    <div class="he-screen">
+      <div class="flow-screen-label">10. Circle</div>
+      <div class="iphone-frame">
+        <div class="notch"></div>
+
+        <div class="screen-scroll no-scrollbar pb-28">
+          <div class="px-5 pt-14 pb-4">
+            <div class="mb-5 flex items-center justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-[0.18em] text-neutral-500">Taste layer</p>
+                <h1 class="mt-1 text-2xl font-light tracking-tight-m">Circle</h1>
+              </div>
+              <button class="w-9 h-9 rounded-full bg-white/[0.04] border border-white/5 flex items-center justify-center">
+                <iconify-icon icon="solar:user-plus-linear" class="text-[16px]"></iconify-icon>
+              </button>
+            </div>
+
+            <div class="card p-3 border-rose-500/15" style="background: radial-gradient(circle at 18% 0%, rgba(244,63,94,0.12), transparent 36%), radial-gradient(circle at 92% 18%, rgba(168,85,247,0.12), transparent 34%), rgba(255,255,255,0.035);">
+              <div class="flex items-center gap-3">
+                <div class="flex -space-x-2">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="h-10 w-10 rounded-full border-2 border-[#111] object-cover" alt="">
+                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&amp;h=80&amp;fit=crop" class="h-10 w-10 rounded-full border-2 border-[#111] object-cover" alt="">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&amp;h=80&amp;fit=crop" class="h-10 w-10 rounded-full border-2 border-[#111] object-cover" alt="">
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-sm font-medium tracking-tight-m">120 trusted taste matches</p>
+                  <p class="mt-0.5 text-xs text-neutral-400">People, groups, plans, and posts you can trust.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <div class="flex gap-2 overflow-x-auto no-scrollbar px-5 pb-1">
+              <button class="chip chip-active">All</button>
+              <button class="chip">People</button>
+              <button class="chip">Communities</button>
+              <button class="chip">Plans</button>
+              <button class="chip">Posts</button>
+            </div>
+          </div>
+
+          <div class="px-5 mb-7">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <h2 class="text-base font-medium tracking-tight-m">Communities for you</h2>
+                <p class="text-xs text-neutral-500 mt-0.5">New groups based on your taste</p>
+              </div>
+              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('78')">View more</button>
+            </div>
+
+            <div class="space-y-2.5">
+              <button class="card w-full p-3 flex items-center gap-3 text-left border-rose-500/15" @click="$root.goToScreen('79')">
+                <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/15 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:cup-hot-bold" class="text-xl text-rose-200"></iconify-icon>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-sm font-medium truncate">Quiet Cafe Hunters</h3>
+                    <span class="rounded-full bg-rose-500/10 border border-rose-500/15 px-2 py-0.5 text-xs text-rose-200">92%</span>
+                  </div>
+                  <p class="text-xs text-neutral-500 mt-1">247 members · 8 new posts</p>
+                </div>
+                <span class="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-black">Join</span>
+              </button>
+              <button class="card w-full p-3 flex items-center gap-3 text-left border-purple-500/15" @click="$root.goToScreen('79')">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/15 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:clapperboard-play-bold" class="text-xl text-purple-200"></iconify-icon>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-sm font-medium truncate">Indie Film Nights</h3>
+                    <span class="rounded-full bg-purple-500/10 border border-purple-500/15 px-2 py-0.5 text-xs text-purple-200">84%</span>
+                  </div>
+                  <p class="text-xs text-neutral-500 mt-1">119 members · 3 plans tonight</p>
+                </div>
+                <span class="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-black">Join</span>
+              </button>
+              <button class="card w-full p-3 flex items-center gap-3 text-left border-emerald-500/15" @click="$root.goToScreen('79')">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/15 flex items-center justify-center shrink-0">
+                  <iconify-icon icon="solar:chef-hat-bold" class="text-xl text-emerald-200"></iconify-icon>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-sm font-medium truncate">Small Plates LA</h3>
+                    <span class="rounded-full bg-emerald-500/10 border border-emerald-500/15 px-2 py-0.5 text-xs text-emerald-200">78%</span>
+                  </div>
+                  <p class="text-xs text-neutral-500 mt-1">391 members · 14 recs nearby</p>
+                </div>
+                <span class="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-black">Join</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="px-5 mb-7">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-base font-medium tracking-tight-m">Messages</h2>
+              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('40')">Open</button>
+            </div>
+            <div class="space-y-2.5">
+              <button class="card w-full p-3 flex items-center gap-3 text-left" @click="$root.goToScreen('40')">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="h-11 w-11 rounded-full object-cover" alt="">
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center justify-between gap-3">
+                    <h3 class="text-sm font-medium truncate">Lina K.</h3>
+                    <span class="text-xs text-rose-300">2m</span>
+                  </div>
+                  <p class="mt-0.5 truncate text-xs text-neutral-400">Nori before the gallery?</p>
+                </div>
+              </button>
+              <button class="card w-full p-3 flex items-center gap-3 text-left" @click="$root.goToScreen('63')">
+                <div class="flex h-11 w-11 items-center justify-center rounded-full bg-purple-500/10 border border-purple-500/15">
+                  <iconify-icon icon="solar:users-group-rounded-bold" class="text-lg text-purple-200"></iconify-icon>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center justify-between gap-3">
+                    <h3 class="text-sm font-medium truncate">Indie Film Nights</h3>
+                    <span class="text-xs text-neutral-500">8m</span>
+                  </div>
+                  <p class="mt-0.5 truncate text-xs text-neutral-400">Poll closes in one hour.</p>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="px-5 mb-7">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-base font-medium tracking-tight-m">Expand Your Circle</h2>
+              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('76')">More</button>
+            </div>
+            <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+              <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                <p class="text-xs font-medium truncate">Lina K.</p>
+                <p class="mt-0.5 text-xs text-rose-400">94% match</p>
+                <button class="mt-2.5 w-full rounded-lg bg-white py-1.5 text-xs font-semibold text-black">Follow</button>
+              </article>
+              <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                <p class="text-xs font-medium truncate">Omar D.</p>
+                <p class="mt-0.5 text-xs text-purple-400">89% match</p>
+                <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium">Follow</button>
+              </article>
+              <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                <p class="text-xs font-medium truncate">Maya Chen</p>
+                <p class="mt-0.5 text-xs text-emerald-400">86% match</p>
+                <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium">Follow</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="px-5 mb-7">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-base font-medium tracking-tight-m">Social feed</h2>
+              <button class="text-xs text-neutral-400 font-medium">All</button>
+            </div>
+            <div class="space-y-3">
+              <article class="card p-4 border-white/10">
+                <div class="mb-3 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="">
+                  <div class="min-w-0 flex-1">
+                    <p class="text-sm font-medium truncate">Lina saved Nori Handrolls</p>
+                    <p class="text-xs text-neutral-500">Shared taste · 18m</p>
+                  </div>
+                </div>
+                <p class="text-xs leading-relaxed text-neutral-300">Quiet counter. Go early and sit near the corner.</p>
+                <div class="mt-3 flex gap-2">
+                  <button class="rounded-lg bg-white/[0.05] border border-white/10 px-3 py-1.5 text-xs text-neutral-300">Save</button>
+                  <button class="rounded-lg bg-white/[0.05] border border-white/10 px-3 py-1.5 text-xs text-neutral-300">Reply</button>
+                </div>
+              </article>
+              <article class="card p-4 border-purple-500/15">
+                <div class="mb-3 flex items-center gap-3">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-purple-500/10 border border-purple-500/15">
+                    <iconify-icon icon="solar:chat-round-line-bold" class="text-purple-200"></iconify-icon>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-sm font-medium truncate">Quiet Cafe Hunters</p>
+                    <p class="text-xs text-neutral-500">New thread · 34m</p>
+                  </div>
+                </div>
+                <p class="text-xs leading-relaxed text-neutral-300">Best table for reading after 6?</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="px-5 mb-7">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-base font-medium tracking-tight-m">Shared plans</h2>
+              <button class="text-xs text-neutral-400 font-medium">Create</button>
+            </div>
+            <div class="space-y-2.5">
+              <article class="card p-4 border-rose-500/15" style="background: linear-gradient(135deg, rgba(244,63,94,0.08), rgba(255,255,255,0.025));">
+                <div class="mb-3 flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.15em] text-rose-300">Tonight</p>
+                    <h3 class="mt-1 text-base font-medium tracking-tight-m">Nori + gallery walk</h3>
+                  </div>
+                  <span class="rounded-full bg-white/[0.06] border border-white/10 px-2 py-1 text-xs text-neutral-300">4 going</span>
+                </div>
+                <p class="text-xs text-neutral-400">Lina, Maya, Omar · 7:30 PM</p>
+                <button class="mt-4 w-full rounded-xl bg-white py-2.5 text-xs font-semibold text-black">View plan</button>
+              </article>
+              <article class="card p-4 border-white/10">
+                <div class="mb-2 flex items-center justify-between gap-3">
+                  <h3 class="text-sm font-medium">Saturday cafe crawl</h3>
+                  <span class="text-xs text-neutral-500">Draft</span>
+                </div>
+                <p class="text-xs text-neutral-400">3 stops · open invite to trusted people</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-bar">
+          <div class="nav-item">
+            <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
+            <span class="nav-label">For you</span>
+          </div>
+          <div class="nav-item">
+            <iconify-icon icon="solar:compass-linear"></iconify-icon>
+            <span class="nav-label">Explore</span>
+          </div>
+          <div class="nav-create">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+          <div class="nav-item active">
+            <iconify-icon icon="solar:users-group-rounded-bold"></iconify-icon>
+            <span class="nav-label">Circle</span>
+          </div>
+          <div class="nav-item">
+            <iconify-icon icon="solar:user-circle-linear"></iconify-icon>
+            <span class="nav-label">Profile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ═══════════════════════════════════════════
          EXPLORE — CLEAN
          ═══════════════════════════════════════════ -->
@@ -849,37 +1095,37 @@
             </div>
           </div>
 
-          <!-- Taste Circle Section -->
+          <!-- Expand Your Circle -->
           <div class="px-5 mb-7">
             <div class="flex items-center justify-between mb-3">
-              <h2 class="text-base font-medium tracking-tight-m">Taste Circle</h2>
-              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('76')">All</button>
+              <h2 class="text-base font-medium tracking-tight-m">Expand Your Circle</h2>
+              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('76')">More</button>
             </div>
 
             <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
-              <article class="card min-w-[130px] shrink-0 p-3 text-center">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&amp;h=120&amp;fit=crop" class="w-14 h-14 rounded-full object-cover mx-auto mb-2" alt="">
-                <p class="text-xs font-medium truncate">Maya Chen</p>
-                <p class="text-xs text-rose-400 mt-0.5">94% similar</p>
-                <button class="w-full mt-2.5 bg-white text-black rounded-lg py-1.5 text-xs font-semibold">Follow</button>
-              </article>
-              <article class="card min-w-[130px] shrink-0 p-3 text-center">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&amp;h=120&amp;fit=crop" class="w-14 h-14 rounded-full object-cover mx-auto mb-2" alt="">
-                <p class="text-xs font-medium truncate">Sam R.</p>
-                <p class="text-xs text-purple-400 mt-0.5">88% similar</p>
-                <button class="w-full mt-2.5 bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">Follow</button>
-              </article>
-              <article class="card min-w-[130px] shrink-0 p-3 text-center">
-                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&amp;h=120&amp;fit=crop" class="w-14 h-14 rounded-full object-cover mx-auto mb-2" alt="">
+              <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
                 <p class="text-xs font-medium truncate">Lina K.</p>
-                <p class="text-xs text-emerald-400 mt-0.5">82% similar</p>
-                <button class="w-full mt-2.5 bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">Follow</button>
+                <p class="mt-0.5 text-xs text-rose-400">94% match</p>
+                <button class="mt-2.5 w-full rounded-lg bg-white py-1.5 text-xs font-semibold text-black">Follow</button>
               </article>
-              <article class="card min-w-[130px] shrink-0 p-3 text-center">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&amp;h=120&amp;fit=crop" class="w-14 h-14 rounded-full object-cover mx-auto mb-2" alt="">
+              <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
                 <p class="text-xs font-medium truncate">Omar D.</p>
-                <p class="text-xs text-blue-400 mt-0.5">79% similar</p>
-                <button class="w-full mt-2.5 bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">Follow</button>
+                <p class="mt-0.5 text-xs text-purple-400">89% match</p>
+                <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium">Follow</button>
+              </article>
+              <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                <p class="text-xs font-medium truncate">Maya Chen</p>
+                <p class="mt-0.5 text-xs text-emerald-400">86% match</p>
+                <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium">Follow</button>
+              </article>
+              <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                <p class="text-xs font-medium truncate">Sam R.</p>
+                <p class="mt-0.5 text-xs text-blue-400">82% match</p>
+                <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium">Follow</button>
               </article>
             </div>
           </div>
@@ -1189,7 +1435,7 @@
         <div class="nav-bar">
           <div class="nav-item">
             <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
-            <span class="nav-label">Home</span>
+            <span class="nav-label">For you</span>
           </div>
           <div class="nav-item active">
             <iconify-icon icon="solar:compass-bold"></iconify-icon>
@@ -1202,12 +1448,12 @@
             </svg>
           </div>
           <div class="nav-item">
-            <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-            <span class="nav-label">Rollz</span>
+            <iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon>
+            <span class="nav-label">Circle</span>
           </div>
           <div class="nav-item">
-            <iconify-icon icon="solar:inbox-linear"></iconify-icon>
-            <span class="nav-label">Inbox</span>
+            <iconify-icon icon="solar:user-circle-linear"></iconify-icon>
+            <span class="nav-label">Profile</span>
           </div>
         </div>
       </div>
@@ -1400,7 +1646,7 @@
         <div class="nav-bar">
           <div class="nav-item">
             <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
-            <span class="nav-label">Home</span>
+            <span class="nav-label">For you</span>
           </div>
           <div class="nav-item active">
             <iconify-icon icon="solar:compass-bold"></iconify-icon>
@@ -1413,12 +1659,12 @@
             </svg>
           </div>
           <div class="nav-item">
-            <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-            <span class="nav-label">Rollz</span>
+            <iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon>
+            <span class="nav-label">Circle</span>
           </div>
           <div class="nav-item">
-            <iconify-icon icon="solar:inbox-linear"></iconify-icon>
-            <span class="nav-label">Inbox</span>
+            <iconify-icon icon="solar:user-circle-linear"></iconify-icon>
+            <span class="nav-label">Profile</span>
           </div>
         </div>
       </div>
@@ -1842,44 +2088,75 @@
 
                     <div class="px-5 mb-7">
                         <div class="flex items-center justify-between mb-3">
-                            <h2 class="text-base font-medium tracking-tight-m">Taste Circle</h2>
-                            <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('76')">All</button>
+                            <h2 class="text-base font-medium tracking-tight-m">Expand Your Circle</h2>
+                            <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('76')">More</button>
                         </div>
 
                         <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
-                            <article class="card min-w-[170px] p-3 shrink-0">
-                                <div class="flex items-center gap-2 mb-2.5">
-                                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="">
-                                    <div class="min-w-0">
-                                        <p class="text-xs font-medium truncate">Lina</p>
-                                        <p class="text-xs text-rose-400">Shared taste</p>
-                                    </div>
-                                </div>
-                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Nori Handrolls. Quiet.</p>
-                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">View</button>
+                            <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                                <p class="text-xs font-medium truncate">Lina K.</p>
+                                <p class="mt-0.5 text-xs text-rose-400">94% match</p>
+                                <button class="mt-2.5 w-full rounded-lg bg-white py-1.5 text-xs font-semibold text-black" @click="$root.goToScreen('76')">Follow</button>
                             </article>
-                            <article class="card min-w-[170px] p-3 shrink-0">
-                                <div class="flex items-center gap-2 mb-2.5">
-                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="">
-                                    <div class="min-w-0">
-                                        <p class="text-xs font-medium truncate">Omar</p>
-                                        <p class="text-xs text-purple-400">Saved yesterday</p>
-                                    </div>
-                                </div>
-                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Golden Hour. Skyline.</p>
-                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">View</button>
+                            <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                                <p class="text-xs font-medium truncate">Omar D.</p>
+                                <p class="mt-0.5 text-xs text-purple-400">89% match</p>
+                                <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium" @click="$root.goToScreen('76')">Follow</button>
                             </article>
-                            <article class="card min-w-[170px] p-3 shrink-0">
-                                <div class="flex items-center gap-2 mb-2.5">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="">
-                                    <div class="min-w-0">
-                                        <p class="text-xs font-medium truncate">Maya</p>
-                                        <p class="text-xs text-emerald-400">Rated 5.0</p>
-                                    </div>
-                                </div>
-                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Nuart. Cozy indie.</p>
-                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">View</button>
+                            <article class="card min-w-[142px] shrink-0 p-3 text-center">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="">
+                                <p class="text-xs font-medium truncate">Maya Chen</p>
+                                <p class="mt-0.5 text-xs text-emerald-400">86% match</p>
+                                <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium" @click="$root.goToScreen('76')">Follow</button>
                             </article>
+                        </div>
+                    </div>
+
+                    <div class="px-5 mb-7">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <h2 class="text-base font-medium tracking-tight-m">Rollz</h2>
+                                <p class="text-xs text-neutral-500 mt-0.5">Short recs from your taste graph</p>
+                            </div>
+                            <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('44')">View more</button>
+                        </div>
+
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                            <button class="relative h-48 min-w-[136px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] text-left" @click="$root.goToScreen('44')">
+                                <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=360&amp;q=80" class="absolute inset-0 h-full w-full object-cover" alt="">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                                <div class="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 border border-white/10 backdrop-blur-md">
+                                    <iconify-icon icon="solar:play-bold" class="text-xs text-white"></iconify-icon>
+                                </div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <p class="text-sm font-medium leading-tight">Late ramen line</p>
+                                    <p class="text-xs text-neutral-400 mt-1">Lina · 42 saves</p>
+                                </div>
+                            </button>
+                            <button class="relative h-48 min-w-[136px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] text-left" @click="$root.goToScreen('44')">
+                                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=360&amp;q=80" class="absolute inset-0 h-full w-full object-cover" alt="">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                                <div class="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 border border-white/10 backdrop-blur-md">
+                                    <iconify-icon icon="solar:play-bold" class="text-xs text-white"></iconify-icon>
+                                </div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <p class="text-sm font-medium leading-tight">Skyline table</p>
+                                    <p class="text-xs text-neutral-400 mt-1">Omar · 18k views</p>
+                                </div>
+                            </button>
+                            <button class="relative h-48 min-w-[136px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] text-left" @click="$root.goToScreen('44')">
+                                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=360&amp;q=80" class="absolute inset-0 h-full w-full object-cover" alt="">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                                <div class="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 border border-white/10 backdrop-blur-md">
+                                    <iconify-icon icon="solar:play-bold" class="text-xs text-white"></iconify-icon>
+                                </div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <p class="text-sm font-medium leading-tight">Quiet cafe test</p>
+                                    <p class="text-xs text-neutral-400 mt-1">Maya · 9 saves</p>
+                                </div>
+                            </button>
                         </div>
                     </div>
 
@@ -1922,7 +2199,7 @@
                 <div class="nav-bar">
                     <div class="nav-item active">
                         <iconify-icon icon="solar:home-smile-bold"></iconify-icon>
-                        <span class="nav-label">Home</span>
+                        <span class="nav-label">For you</span>
                     </div>
                     <div class="nav-item">
                         <iconify-icon icon="solar:compass-linear"></iconify-icon>
@@ -1935,12 +2212,12 @@
                         </svg>
                     </div>
                     <div class="nav-item">
-                        <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-                        <span class="nav-label">Rollz</span>
+                        <iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon>
+                        <span class="nav-label">Circle</span>
                     </div>
                     <div class="nav-item">
-                        <iconify-icon icon="solar:inbox-linear"></iconify-icon>
-                        <span class="nav-label">Inbox</span>
+                        <iconify-icon icon="solar:user-circle-linear"></iconify-icon>
+                        <span class="nav-label">Profile</span>
                     </div>
                 </div>
             </div>
@@ -1952,7 +2229,7 @@
         <div class="bottom-nav-bar">
             <div @click="$root.goToScreen('08')" class="nav-item" :class="activeTab === 'home' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
                 <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
-                <span class="nav-label">Home</span>
+                <span class="nav-label">For you</span>
             </div>
             <div @click="$root.goToScreen('12')" class="nav-item" :class="activeTab === 'explore' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
                 <iconify-icon icon="solar:compass-linear"></iconify-icon>
@@ -1967,13 +2244,13 @@
                 </div>
                 <span class="nav-label nav-label-create">Create</span>
             </div>
-            <div @click="$root.goToScreen('44')" class="nav-item" :class="activeTab === 'rollz' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
-                <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-                <span class="nav-label">Rollz</span>
+            <div @click="$root.goToScreen('37')" class="nav-item" :class="activeTab === 'circle' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
+                <iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon>
+                <span class="nav-label">Circle</span>
             </div>
-            <div @click="$root.goToScreen(activeTab === 'more' ? '28' : '40')" class="nav-item" :class="activeTab === 'inbox' || activeTab === 'more' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
-                <iconify-icon :icon="activeTab === 'more' ? 'solar:user-circle-linear' : 'solar:inbox-linear'"></iconify-icon>
-                <span class="nav-label">{{ activeTab === 'more' ? 'Profile' : 'Inbox' }}</span>
+            <div @click="$root.goToScreen('28')" class="nav-item" :class="activeTab === 'more' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
+                <iconify-icon icon="solar:user-circle-linear"></iconify-icon>
+                <span class="nav-label">Profile</span>
             </div>
         </div>
     </template>
@@ -2321,7 +2598,7 @@
                 <section class="mb-7">
                     <div class="mb-3 flex items-center justify-between">
                         <div>
-                            <h3 class="text-base font-semibold tracking-tight text-white">Taste Circle</h3>
+                            <h3 class="text-base font-semibold tracking-tight text-white">Expand Your Circle</h3>
                             <p class="mt-0.5 text-xs text-gray-500">People with matching saves</p>
                         </div>
                         <button class="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-semibold text-rose-100" @click="$root.goToScreen('76')">
@@ -2331,49 +2608,25 @@
                     </div>
 
                     <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
-                        <article class="min-w-[172px] shrink-0 rounded-[1.55rem] border border-rose-300/15 bg-white/[0.035] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-                            <div class="mb-3 flex items-center gap-2">
-                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=96&amp;h=96&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Lina">
-                                <div class="min-w-0">
-                                    <p class="truncate text-sm font-semibold text-white">Lina K.</p>
-                                    <p class="text-xs font-medium text-rose-300">94% shared taste</p>
-                                </div>
-                            </div>
-                            <p class="mb-3 text-xs leading-5 text-gray-300">Nori handrolls, quiet counters, gallery nights.</p>
-                            <button class="flex w-full items-center justify-center gap-1.5 rounded-xl bg-white px-3 py-2 text-xs font-bold text-black transition hover:bg-gray-200" @click="$root.goToScreen('76')">
-                                <iconify-icon icon="solar:user-plus-bold" class="text-sm"></iconify-icon>
-                                Follow
-                            </button>
+                        <article class="min-w-[142px] shrink-0 rounded-[1.55rem] border border-rose-300/15 bg-white/[0.035] p-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="Lina">
+                            <p class="truncate text-xs font-medium text-white">Lina K.</p>
+                            <p class="mt-0.5 text-xs text-rose-300">94% match</p>
+                            <button class="mt-2.5 w-full rounded-lg bg-white py-1.5 text-xs font-semibold text-black transition hover:bg-gray-200" @click="$root.goToScreen('76')">Follow</button>
                         </article>
 
-                        <article class="min-w-[172px] shrink-0 rounded-[1.55rem] border border-purple-300/15 bg-purple-500/[0.06] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-                            <div class="mb-3 flex items-center gap-2">
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=96&amp;h=96&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Omar">
-                                <div class="min-w-0">
-                                    <p class="truncate text-sm font-semibold text-white">Omar D.</p>
-                                    <p class="text-xs font-medium text-purple-300">Saved yesterday</p>
-                                </div>
-                            </div>
-                            <p class="mb-3 text-xs leading-5 text-gray-300">Golden hour rooftops and late Mediterranean.</p>
-                            <button class="flex w-full items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-bold text-white transition hover:bg-white/10" @click="$root.goToScreen('76')">
-                                <iconify-icon icon="solar:user-plus-bold" class="text-sm"></iconify-icon>
-                                Follow
-                            </button>
+                        <article class="min-w-[142px] shrink-0 rounded-[1.55rem] border border-purple-300/15 bg-purple-500/[0.06] p-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="Omar">
+                            <p class="truncate text-xs font-medium text-white">Omar D.</p>
+                            <p class="mt-0.5 text-xs text-purple-300">89% match</p>
+                            <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.06] py-1.5 text-xs font-medium text-white transition hover:bg-white/10" @click="$root.goToScreen('76')">Follow</button>
                         </article>
 
-                        <article class="min-w-[172px] shrink-0 rounded-[1.55rem] border border-emerald-300/15 bg-white/[0.035] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-                            <div class="mb-3 flex items-center gap-2">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&amp;h=96&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Maya">
-                                <div class="min-w-0">
-                                    <p class="truncate text-sm font-semibold text-white">Maya Chen</p>
-                                    <p class="text-xs font-medium text-emerald-300">86% match</p>
-                                </div>
-                            </div>
-                            <p class="mb-3 text-xs leading-5 text-gray-300">Cozy indie films and brunch corners.</p>
-                            <button class="flex w-full items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-bold text-white transition hover:bg-white/10" @click="$root.goToScreen('76')">
-                                <iconify-icon icon="solar:user-plus-bold" class="text-sm"></iconify-icon>
-                                Follow
-                            </button>
+                        <article class="min-w-[142px] shrink-0 rounded-[1.55rem] border border-emerald-300/15 bg-white/[0.035] p-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&amp;h=120&amp;fit=crop" class="mx-auto mb-2 h-14 w-14 rounded-full object-cover" alt="Maya">
+                            <p class="truncate text-xs font-medium text-white">Maya Chen</p>
+                            <p class="mt-0.5 text-xs text-emerald-300">86% match</p>
+                            <button class="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.06] py-1.5 text-xs font-medium text-white transition hover:bg-white/10" @click="$root.goToScreen('76')">Follow</button>
                         </article>
                     </div>
                 </section>
@@ -2425,66 +2678,6 @@
                                 <p class="text-sm font-semibold leading-4 text-white">Quiet cafe test</p>
                                 <p class="mt-1 text-xs text-gray-300">Maya · 9 saves</p>
                             </div>
-                        </button>
-                    </div>
-                </section>
-
-                <section class="mb-8">
-                    <div class="mb-3 flex items-center justify-between">
-                        <div>
-                            <h3 class="text-base font-semibold tracking-tight text-white">Communities for you</h3>
-                            <p class="mt-0.5 text-xs text-gray-500">New groups based on your taste</p>
-                        </div>
-                        <button class="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-semibold text-rose-100" @click="$root.goToScreen('78')">
-                            View more
-                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm"></iconify-icon>
-                        </button>
-                    </div>
-
-                    <div class="space-y-3">
-                        <button class="flex w-full items-center gap-3 rounded-[1.55rem] border border-rose-300/15 bg-white/[0.04] p-3 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.26)] backdrop-blur-2xl transition hover:bg-white/[0.065]" @click="$root.goToScreen('79')">
-                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-rose-500/12 text-rose-200">
-                                <iconify-icon icon="solar:cup-hot-bold" class="text-2xl"></iconify-icon>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <div class="flex items-center gap-2">
-                                    <h4 class="truncate text-sm font-semibold text-white">Quiet Cafe Hunters</h4>
-                                    <span class="rounded-full border border-rose-300/15 bg-rose-500/10 px-2 py-0.5 text-xs font-semibold text-rose-100">92%</span>
-                                </div>
-                                <p class="mt-1 truncate text-xs text-gray-400">Low-noise coffee, work corners, late seats</p>
-                                <p class="mt-1 text-xs text-gray-500">247 members · 8 new posts</p>
-                            </div>
-                            <span class="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-black">Join</span>
-                        </button>
-
-                        <button class="flex w-full items-center gap-3 rounded-[1.55rem] border border-purple-300/15 bg-purple-500/[0.055] p-3 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.26)] backdrop-blur-2xl transition hover:bg-purple-500/[0.08]" @click="$root.goToScreen('79')">
-                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-purple-500/15 text-purple-200">
-                                <iconify-icon icon="solar:clapperboard-play-bold" class="text-2xl"></iconify-icon>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <div class="flex items-center gap-2">
-                                    <h4 class="truncate text-sm font-semibold text-white">Indie Film Nights</h4>
-                                    <span class="rounded-full border border-purple-300/15 bg-purple-500/10 px-2 py-0.5 text-xs font-semibold text-purple-100">84%</span>
-                                </div>
-                                <p class="mt-1 truncate text-xs text-gray-400">Small theaters, post-screening dinners</p>
-                                <p class="mt-1 text-xs text-gray-500">119 members · 3 plans tonight</p>
-                            </div>
-                            <span class="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-bold text-white">Discover</span>
-                        </button>
-
-                        <button class="flex w-full items-center gap-3 rounded-[1.55rem] border border-emerald-300/15 bg-white/[0.04] p-3 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_34px_rgba(0,0,0,0.26)] backdrop-blur-2xl transition hover:bg-white/[0.065]" @click="$root.goToScreen('79')">
-                            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/12 text-emerald-200">
-                                <iconify-icon icon="solar:chef-hat-bold" class="text-2xl"></iconify-icon>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <div class="flex items-center gap-2">
-                                    <h4 class="truncate text-sm font-semibold text-white">Small Plates LA</h4>
-                                    <span class="rounded-full border border-emerald-300/15 bg-emerald-500/10 px-2 py-0.5 text-xs font-semibold text-emerald-100">78%</span>
-                                </div>
-                                <p class="mt-1 truncate text-xs text-gray-400">Shared menus, patio tables, walkable plans</p>
-                                <p class="mt-1 text-xs text-gray-500">391 members · 14 recs nearby</p>
-                            </div>
-                            <span class="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-bold text-white">Discover</span>
                         </button>
                     </div>
                 </section>
@@ -5300,7 +5493,7 @@
             </div>
 
             <div class="content-scroll pt-28 px-5 relative z-10 flex flex-col items-center pb-24">
-                <p class="text-sm text-gray-400 mb-6 text-center">Swipe to find people with similar taste.</p>
+                <p class="text-sm text-gray-400 mb-6 text-center">Swipe to find Expand Your Circle.</p>
                 
                 <!-- Stacked Cards -->
                 <div class="relative w-full max-w-[300px] aspect-[3/4] mt-4">
@@ -8677,7 +8870,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         { id: '34', title: 'Settings', component: 'screen-34', showNav: false, showRexy: false },
                         { id: '35', title: 'Help / FAQ', component: 'screen-35', showNav: false, showRexy: false },
                         { id: '36', title: 'Logout Confirm', component: 'screen-36', showNav: false, showRexy: false },
-                        { id: '37', title: 'Taste Circle Hub', component: 'screen-37', showNav: true, activeTab: 'more', showRexy: false },
+                        { id: '37', title: 'Taste Circle Hub', component: 'screen-37', showNav: true, activeTab: 'circle', showRexy: false },
                         { id: '76', title: 'Similar Taste Users', component: 'screen-76', showNav: false, showRexy: false },
                         { id: '38', title: 'Taste Circle Empty State', component: 'screen-38', showNav: false, showRexy: false },
                         { id: '39', title: 'Taste Circle Discover', component: 'screen-39', showNav: false, showRexy: false },
