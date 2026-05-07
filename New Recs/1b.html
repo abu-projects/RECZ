@@ -297,19 +297,19 @@
             left: 18px;
             right: 18px;
             bottom: 18px;
-            height: 74px;
+            height: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 16px;
-            background: rgba(255, 255, 255, 0.055);
-            backdrop-filter: blur(38px) saturate(160%);
-            -webkit-backdrop-filter: blur(38px) saturate(160%);
-            border: 1px solid rgba(255, 255, 255, 0.065);
+            padding: 0 14px;
+            background: rgba(16, 16, 18, 0.84);
+            backdrop-filter: blur(24px) saturate(135%);
+            -webkit-backdrop-filter: blur(24px) saturate(135%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 999px;
             box-shadow:
-                0 18px 52px rgba(0, 0, 0, 0.62),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+                0 14px 36px rgba(0, 0, 0, 0.52),
+                inset 0 1px 0 rgba(255, 255, 255, 0.055);
             z-index: 50;
         }
 
@@ -501,20 +501,26 @@
         }
 
         .nav-item {
-            width: 58px;
-            height: 52px;
+            width: 54px;
+            height: 48px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.28rem;
-            border-radius: 18px;
+            gap: 0.24rem;
+            border-radius: 999px;
             cursor: pointer;
             transition: all 180ms ease;
         }
 
+        .bottom-nav-bar .nav-item.text-white {
+            color: #fecdd3;
+            background: rgba(244, 63, 94, 0.12);
+            box-shadow: inset 0 0 0 1px rgba(244, 63, 94, 0.1), 0 0 18px rgba(244, 63, 94, 0.08);
+        }
+
         .bottom-nav-bar .nav-item:not(.text-white) {
-            color: #b7bac3;
+            color: #9699a2;
         }
 
         .nav-item iconify-icon {
@@ -534,28 +540,71 @@
         }
 
         .nav-create {
-            width: 72px;
-            height: 84px;
-            margin-top: -30px;
-            gap: 0.38rem;
+            width: 66px;
+            height: 78px;
+            margin-top: -28px;
+            gap: 0.34rem;
+            background: transparent !important;
+            box-shadow: none !important;
         }
 
         .nav-create-button {
-            width: 58px;
-            height: 58px;
+            width: 56px;
+            height: 56px;
             border-radius: 999px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%);
-            border: 0;
+            background: #f4728b;
+            border: 1px solid rgba(255,255,255,0.18);
             box-shadow:
-                0 12px 30px rgba(244, 63, 94, 0.42),
-                0 0 32px rgba(244, 63, 94, 0.28);
+                0 12px 26px rgba(244, 63, 94, 0.28),
+                inset 0 1px 0 rgba(255,255,255,0.28);
         }
 
         .nav-label-create {
             color: #ffffff;
+        }
+
+        .create-sheet-backdrop {
+            position: absolute;
+            inset: 0;
+            z-index: 60;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 18px 104px;
+            background: rgba(0, 0, 0, 0.38);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .create-sheet {
+            width: 100%;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(18, 18, 20, 0.94);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            padding: 14px;
+        }
+
+        .create-sheet-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            border-radius: 18px;
+            padding: 12px;
+            color: #fff;
+            text-align: left;
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        .create-sheet-option:hover {
+            background: rgba(255, 255, 255, 0.055);
+        }
+
+        .create-sheet-option:active {
+            transform: scale(0.985);
         }
 
         .he-screen .screen-scroll {
@@ -1120,10 +1169,6 @@
 
         </div>
 
-        <button class="rexy-float" aria-label="Ask Rexy">
-          <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-[24px]"></iconify-icon>
-        </button>
-
         <!-- Explore Filter Sheet -->
         <div v-if="showExploreFilters" class="absolute inset-0 z-[70] bg-black/55 backdrop-blur-sm flex items-end" @click.self="showExploreFilters = false">
           <div class="w-full rounded-t-[2rem] border border-white/10 bg-[#0b0b0d]/95 p-5 pb-7 shadow-[0_-18px_50px_rgba(0,0,0,0.55)]">
@@ -1185,31 +1230,7 @@
           </div>
         </div>
 
-        <!-- Bottom Nav -->
-        <div class="nav-bar">
-          <div class="nav-item">
-            <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
-            <span class="nav-label">Home</span>
-          </div>
-          <div class="nav-item active">
-            <iconify-icon icon="solar:compass-bold"></iconify-icon>
-            <span class="nav-label">Explore</span>
-          </div>
-          <div class="nav-create">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-          <div class="nav-item">
-            <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-            <span class="nav-label">Rollz</span>
-          </div>
-          <div class="nav-item">
-            <iconify-icon icon="solar:inbox-linear"></iconify-icon>
-            <span class="nav-label">Inbox</span>
-          </div>
-        </div>
+        <bottom-nav active-tab="explore"></bottom-nav>
       </div>
     </div>
 
@@ -1397,30 +1418,7 @@
           </div>
         </div>
 
-        <div class="nav-bar">
-          <div class="nav-item">
-            <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
-            <span class="nav-label">Home</span>
-          </div>
-          <div class="nav-item active">
-            <iconify-icon icon="solar:compass-bold"></iconify-icon>
-            <span class="nav-label">Explore</span>
-          </div>
-          <div class="nav-create">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-          <div class="nav-item">
-            <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-            <span class="nav-label">Rollz</span>
-          </div>
-          <div class="nav-item">
-            <iconify-icon icon="solar:inbox-linear"></iconify-icon>
-            <span class="nav-label">Inbox</span>
-          </div>
-        </div>
+        <bottom-nav active-tab="explore"></bottom-nav>
       </div>
     </div>
                 </div>
@@ -1601,162 +1599,113 @@
     <template id="tmpl-home-taste-screen">
         <div class="he-screen">
             <div class="flow-screen-label">{{ screenLabel }}</div>
-            <div class="iphone-frame">
+            <div class="iphone-frame phone-with-nav">
                 <div class="notch"></div>
 
-                <div class="screen-scroll no-scrollbar pb-28">
-                    <div class="px-5 pt-14 pb-2">
-                        <div class="flex items-center justify-between mb-3">
+                <div class="screen-scroll no-scrollbar pb-32">
+                    <header class="px-5 pt-14 pb-4">
+                        <div class="mb-4 flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&amp;h=100&amp;fit=crop" class="w-10 h-10 rounded-full object-cover cursor-pointer" alt="" @click="$root.goToScreen('28')">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&amp;h=100&amp;fit=crop" class="h-10 w-10 cursor-pointer rounded-full border border-white/10 object-cover" alt="Alex profile" @click="$root.goToScreen('28')">
                                 <div>
-                                    <p class="text-xs text-neutral-500">Good evening, Alex</p>
-                                    <p class="text-sm font-medium tracking-tight-m">{{ isLocked ? '6 recz to unlock.' : 'Taste sharper.' }}</p>
+                                    <p class="text-xs text-neutral-500">For You</p>
+                                    <h1 class="max-w-[230px] text-[21px] font-medium leading-[1.15] tracking-tight-m text-white">{{ isLocked ? 'Post more recs to unlock your vibe' : 'Your circle is into cozy cafes tonight' }}</h1>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <button class="w-9 h-9 rounded-full bg-white/[0.04] border border-white/5 flex items-center justify-center relative">
+                                <button class="relative flex h-9 w-9 items-center justify-center rounded-full border border-white/5 bg-white/[0.04]" aria-label="Activity" @click="$root.goToScreen('27')">
                                     <iconify-icon icon="solar:bell-linear" class="text-[16px]"></iconify-icon>
-                                    <span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                                    <span class="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-rose-400"></span>
                                 </button>
-                                <button class="w-9 h-9 rounded-full bg-white/[0.04] border border-white/5 flex items-center justify-center">
+                                <button class="flex h-9 w-9 items-center justify-center rounded-full border border-white/5 bg-white/[0.04]" aria-label="Search" @click="$root.goToScreen('13')">
                                     <iconify-icon icon="solar:magnifer-linear" class="text-[16px]"></iconify-icon>
                                 </button>
                             </div>
                         </div>
+                        <div class="flex gap-2 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                            <span class="shrink-0 rounded-full border border-rose-300/20 bg-rose-500/[0.10] px-3 py-1.5 text-xs font-medium text-rose-100">Cozy</span>
+                            <span class="shrink-0 rounded-full border border-purple-300/15 bg-purple-500/[0.08] px-3 py-1.5 text-xs font-medium text-purple-100">Film Lover</span>
+                            <span class="shrink-0 rounded-full border border-sky-300/15 bg-sky-500/[0.07] px-3 py-1.5 text-xs font-medium text-sky-100">Rooftops</span>
+                            <span class="shrink-0 rounded-full border border-amber-300/15 bg-amber-500/[0.08] px-3 py-1.5 text-xs font-medium text-amber-100">Foodie</span>
+                            <span class="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-neutral-300">Late Night</span>
+                        </div>
+                    </header>
 
-                    </div>
-
-                    <div class="px-5 mb-5">
-                        <article v-if="!isLocked" class="card p-4 border-rose-500/20 relative overflow-hidden cursor-pointer" style="background: radial-gradient(circle at 50% 54%, rgba(244,63,94,0.18), transparent 36%), radial-gradient(circle at 88% 14%, rgba(168,85,247,0.14), transparent 28%), linear-gradient(135deg, rgba(244,63,94,0.14), rgba(168,85,247,0.1) 44%, rgba(0,0,0,0.86));" @click="$root.goToScreen('75')">
-                            <div class="flex items-start justify-between gap-3 mb-3">
-                                <div>
-                                    <h2 class="text-base font-medium tracking-tight-m">Taste Identity</h2>
-                                    <p class="text-sm font-semibold text-rose-200 mt-1">Cozy Foodie</p>
-                                    <p class="text-xs text-neutral-400 mt-0.5">From your recz</p>
+                    <section class="px-5 mb-5">
+                        <article v-if="!isLocked" class="card cursor-pointer border-rose-500/20 bg-white/[0.035] p-4" @click="$root.goToScreen('75')">
+                            <div class="flex items-center gap-3">
+                                <div class="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-rose-200/20 bg-rose-500/[0.08]">
+                                    <div class="absolute inset-2 rounded-full border border-purple-200/20"></div>
+                                    <div class="h-8 w-8 rounded-full bg-[radial-gradient(circle_at_35%_30%,#fecdd3,#fb7185_52%,#3f1d2a)] shadow-[0_0_22px_rgba(244,63,94,0.22)]"></div>
                                 </div>
-                                <button class="w-8 h-8 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center" @click.stop="$root.goToScreen('10')">
-                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-rose-300 text-[15px]"></iconify-icon>
-                                </button>
+                                <div class="min-w-0 flex-1">
+                                    <p class="text-xs uppercase tracking-[0.15em] text-neutral-500">Taste Identity</p>
+                                    <h2 class="mt-0.5 text-lg font-semibold tracking-tight-m text-white">Midnight Explorer</h2>
+                                    <p class="mt-1 text-xs leading-5 text-neutral-400">Quiet cafes • Indie films • Rooftop bars</p>
+                                </div>
                             </div>
-
-                            <div class="relative h-36 mb-3">
-                                <div class="absolute left-1/2 top-1/2 w-[36%] origin-left -rotate-[145deg]">
-                                    <div class="h-px w-full bg-rose-200/15"></div>
-                                    <div class="absolute right-0 top-1/2 h-2 w-2 translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-300/80 shadow-[0_0_14px_rgba(244,63,94,0.35)]"></div>
-                                </div>
-                                <div class="absolute left-1/2 top-1/2 w-[34%] origin-left -rotate-[35deg]">
-                                    <div class="h-px w-full bg-purple-200/15"></div>
-                                    <div class="absolute right-0 top-1/2 h-2.5 w-2.5 translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-300/90 shadow-[0_0_16px_rgba(168,85,247,0.42)]"></div>
-                                </div>
-                                <div class="absolute left-1/2 top-1/2 w-[36%] origin-left rotate-[145deg]">
-                                    <div class="h-px w-full bg-rose-200/15"></div>
-                                    <div class="absolute right-0 top-1/2 h-2.5 w-2.5 translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-500 shadow-[0_0_18px_rgba(244,63,94,0.45)]"></div>
-                                </div>
-
-                                <div class="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border border-rose-200/30 bg-black shadow-[0_0_34px_rgba(244,63,94,0.28)]">
-                                    <img src="https://i.pravatar.cc/200?img=1" class="h-full w-full object-cover" alt="Taste profile">
-                                </div>
-
-                                <div class="absolute left-5 -top-2 text-xs font-bold uppercase tracking-[0.14em] text-rose-100/80">Coffee</div>
-                                <div class="absolute right-6 top-5 text-xs font-bold uppercase tracking-[0.14em] text-purple-100/80">Art</div>
-                                <div class="absolute -bottom-2 left-6 text-xs font-bold uppercase tracking-[0.14em] text-emerald-100/80">Outdoors</div>
-                            </div>
-
-                            <p class="text-[12px] text-neutral-300 leading-relaxed mb-2">Cafes. Calm spaces. Late nights.</p>
-                            <p class="text-xs text-rose-300 mb-3">8 similar tastes</p>
-                            <div class="flex gap-2">
-                                <button class="flex-1 bg-white text-black rounded-xl py-2.5 text-xs font-semibold" @click.stop="$root.goToScreen('28')">Full taste</button>
-                                <button class="flex-1 bg-white/[0.05] border border-white/10 rounded-xl py-2.5 text-xs font-medium" @click.stop="$root.goToScreen('62')">Compare</button>
+                            <div class="mt-4 grid grid-cols-2 gap-2">
+                                <button class="rounded-xl bg-white px-3 py-2.5 text-xs font-semibold text-black" @click.stop="$root.goToScreen('75')">View Taste Identity</button>
+                                <button class="rounded-xl border border-white/10 bg-white/[0.05] px-3 py-2.5 text-xs font-medium text-white" @click.stop="$root.goToScreen('77')">Compare Taste</button>
                             </div>
                         </article>
 
-                        <article v-else class="card p-4 border-purple-500/20 relative overflow-hidden" style="background: radial-gradient(circle at 18% 18%, rgba(168,85,247,0.18), transparent 32%), radial-gradient(circle at 82% 18%, rgba(244,63,94,0.13), transparent 34%), rgba(255,255,255,0.03);">
-                            <div class="flex items-start gap-3 mb-4">
-                                <div class="relative h-14 w-14 shrink-0 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center">
-                                    <div class="absolute inset-1 rounded-full border-4 border-purple-500/30 border-t-rose-400"></div>
-                                    <iconify-icon icon="solar:lock-keyhole-bold" class="text-rose-300 text-[18px]"></iconify-icon>
+                        <article v-else class="card border-rose-500/20 bg-white/[0.035] p-4">
+                            <div class="mb-3 flex items-start gap-3">
+                                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-rose-300/15 bg-rose-500/[0.10]">
+                                    <iconify-icon icon="solar:lock-keyhole-bold" class="text-lg text-rose-200"></iconify-icon>
                                 </div>
-                                <div>
-                                    <h2 class="text-base font-medium tracking-tight-m">Unlock Taste</h2>
-                                    <p class="text-sm font-semibold text-purple-200 mt-1">Persona waiting</p>
-                                    <p class="text-xs text-rose-200/80 mt-1">Cozy Foodie? Hidden Gem Hunter?</p>
-                                    <p class="text-xs text-neutral-400 leading-relaxed mt-1">Post 10 recz to reveal it.</p>
+                                <div class="flex-1">
+                                    <h2 class="text-base font-semibold tracking-tight-m">Unlock Your Taste Identity</h2>
+                                    <p class="mt-1 text-xs leading-5 text-neutral-400">4 / 10 recommendations posted</p>
                                 </div>
                             </div>
-
-                            <div class="mb-3">
-                                <div class="flex items-center justify-between text-xs mb-2">
-                                    <span class="text-neutral-400">4 / 10 posted</span>
-                                    <span class="text-rose-300 font-medium">40%</span>
-                                </div>
-                                <div class="h-2 rounded-full bg-white/[0.08] overflow-hidden">
-                                    <div class="h-full w-[40%] rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div>
-                                </div>
+                            <div class="mb-3 h-2 overflow-hidden rounded-full bg-white/[0.08]">
+                                <div class="h-full w-[40%] rounded-full bg-rose-400"></div>
                             </div>
-
-                            <div class="flex gap-2 mb-3">
-                                <span class="rounded-full bg-white/[0.05] border border-white/10 px-3 py-1 text-xs text-neutral-300">Foodie</span>
-                                <span class="rounded-full bg-white/[0.05] border border-white/10 px-3 py-1 text-xs text-neutral-300">Indie Films</span>
-                                <span class="rounded-full bg-white/[0.05] border border-white/10 px-3 py-1 text-xs text-neutral-300">Rooftops</span>
-                            </div>
-
-                            <p class="text-xs text-neutral-400 mb-3">More recz, better Rexy.</p>
-                            <div class="flex gap-2 mb-3">
-                                <button class="flex-1 bg-white text-black rounded-xl py-2.5 text-xs font-semibold" @click="$root.goToScreen('21')">Post a Rec</button>
-                                <button class="flex-1 bg-white/[0.05] border border-white/10 rounded-xl py-2.5 text-xs font-medium" @click="$root.goToScreen('60')">How</button>
-                            </div>
-                            <div class="flex gap-2 overflow-x-auto no-scrollbar -mx-1 px-1 pb-1">
-                                <button class="shrink-0 rounded-full bg-rose-500/10 border border-rose-500/20 px-3 py-1.5 text-xs text-rose-200" @click="$root.goToScreen('21')">Cafe rec</button>
-                                <button class="shrink-0 rounded-full bg-white/[0.04] border border-white/10 px-3 py-1.5 text-xs text-neutral-300" @click="$root.goToScreen('21')">Movie rec</button>
-                            </div>
+                            <button class="w-full rounded-xl bg-white px-3 py-2.5 text-xs font-semibold text-black" @click="$root.goToScreen('21')">Post more recs to unlock your vibe</button>
                         </article>
-                    </div>
+                    </section>
 
-                    <div class="px-5 mb-5">
-                        <div class="card p-3 border-white/10 bg-white/[0.025]">
-                            <div class="mb-2">
-                                <h3 class="text-[12px] font-medium tracking-tight-m text-white">Tonight?</h3>
-                            </div>
-                            <div class="grid grid-cols-4 gap-1.5">
-                                <button class="rounded-full bg-white/[0.05] border border-white/10 px-2 py-1.5 text-xs text-neutral-300">Eat</button>
-                                <button class="rounded-full bg-white/[0.05] border border-white/10 px-2 py-1.5 text-xs text-neutral-300">Watch</button>
-                                <button class="rounded-full bg-white/[0.05] border border-white/10 px-2 py-1.5 text-xs text-neutral-300">Go out</button>
-                                <button class="rounded-full bg-rose-500/10 border border-rose-500/25 px-2 py-1.5 text-xs font-medium text-rose-200">Surprise</button>
-                            </div>
+                    <section class="px-5 mb-7">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h2 class="text-base font-medium tracking-tight-m">Your Circle Tonight</h2>
+                            <button class="text-xs font-medium text-neutral-400" @click="$root.goToScreen('37')">Open</button>
                         </div>
-                    </div>
-
-                    <div class="px-5 mb-7">
-                        <div class="card p-4 border-rose-500/15 relative overflow-hidden cursor-pointer" style="background: linear-gradient(135deg, rgba(244,63,94,0.06), rgba(168,85,247,0.04));" @click="$root.goToScreen('10')">
-                            <div class="flex items-start gap-3">
-                                <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-rose-500/15 border border-rose-500/20">
-                                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-[18px] text-rose-300"></iconify-icon>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm font-medium tracking-tight-m">Rexy picks</h3>
-                                    <p class="text-xs text-neutral-400 mt-0.5">Mood + taste</p>
-                                </div>
-                                <iconify-icon icon="solar:arrow-right-linear" class="text-neutral-500 text-[18px]"></iconify-icon>
-                            </div>
+                        <div class="space-y-2.5">
+                            <article class="card flex items-center gap-3 p-3">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&amp;h=80&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Sarah">
+                                <p class="min-w-0 flex-1 text-xs leading-5 text-neutral-300"><span class="font-semibold text-white">Sarah</span> saved Nori Handrolls for a quiet dinner.</p>
+                                <span class="text-xs text-neutral-600">12m</span>
+                            </article>
+                            <article class="card flex items-center gap-3 p-3">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&amp;h=80&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Mike">
+                                <p class="min-w-0 flex-1 text-xs leading-5 text-neutral-300"><span class="font-semibold text-white">Mike</span> wants to try Golden Hour after 8.</p>
+                                <span class="text-xs text-neutral-600">31m</span>
+                            </article>
+                            <article class="card flex items-center gap-3 p-3">
+                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Emma">
+                                <p class="min-w-0 flex-1 text-xs leading-5 text-neutral-300"><span class="font-semibold text-white">Emma</span> is planning dinner with the Cozy Foodies group.</p>
+                                <span class="text-xs text-neutral-600">1h</span>
+                            </article>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="px-5 mb-7">
+                    <section class="px-5 mb-7">
                         <div class="flex items-center justify-between mb-3">
-                            <h2 class="text-base font-medium tracking-tight-m">Top pick</h2>
-                            <span class="text-xs uppercase tracking-[0.15em] text-rose-400 font-medium">Tonight</span>
+                            <h2 class="text-base font-medium tracking-tight-m">Perfect For Your Mood</h2>
+                            <span class="text-xs font-medium text-rose-300">94% fit</span>
                         </div>
 
                         <article class="card overflow-hidden">
                             <div class="relative h-52">
-                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover" alt="">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover" alt="Warm restaurant patio">
                                 <div class="absolute right-3 top-3 flex flex-col gap-2">
                                     <button class="h-9 w-9 rounded-full bg-black/45 backdrop-blur-md border border-white/10 flex items-center justify-center" aria-label="Save">
                                         <iconify-icon icon="solar:bookmark-linear" class="text-white text-[16px]"></iconify-icon>
                                     </button>
-                                    <button class="h-9 w-9 rounded-full bg-rose-500/90 backdrop-blur-md border border-white/10 flex items-center justify-center" aria-label="Ask Rexy" @click="$root.goToScreen('10')">
-                                        <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-[16px]"></iconify-icon>
+                                    <button class="h-9 w-9 rounded-full bg-rose-400/90 backdrop-blur-md border border-white/10 flex items-center justify-center" aria-label="Share" @click="$root.goToScreen('43')">
+                                        <iconify-icon icon="solar:forward-linear" class="text-white text-[16px]"></iconify-icon>
                                     </button>
                                 </div>
                             </div>
@@ -1768,213 +1717,285 @@
                                     </div>
                                     <span class="rounded-full bg-white/[0.06] border border-white/10 px-3 py-1.5 text-[12px] text-neutral-200">4.8</span>
                                 </div>
-                                <p class="text-sm text-neutral-300 leading-relaxed mb-3">Patio. Small plates. Communities.</p>
+                                <p class="text-sm text-neutral-300 leading-relaxed mb-3">Matches your cozy vibe, late dinner saves, and quiet-room history.</p>
+                                <div class="mb-3 flex flex-wrap gap-2">
+                                    <span class="rounded-full bg-rose-500/[0.10] px-2.5 py-1 text-xs text-rose-200">Loved by 4 people in your circle</span>
+                                    <span class="rounded-full bg-white/[0.05] px-2.5 py-1 text-xs text-neutral-300">Popular among film lovers</span>
+                                </div>
                                 <div class="flex items-center gap-2 text-xs text-neutral-400">
                                     <div class="flex -space-x-1.5">
-                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=64&amp;h=64&amp;fit=crop" class="w-5 h-5 rounded-full border border-black object-cover" alt="">
-                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=64&amp;h=64&amp;fit=crop" class="w-5 h-5 rounded-full border border-black object-cover" alt="">
+                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=64&amp;h=64&amp;fit=crop" class="w-5 h-5 rounded-full border border-black object-cover" alt="Emma">
+                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=64&amp;h=64&amp;fit=crop" class="w-5 h-5 rounded-full border border-black object-cover" alt="Mike">
                                     </div>
-                                    <span>3 Circle saves</span>
+                                    <span>Sarah and Emma saved this tonight</span>
                                 </div>
                             </div>
                         </article>
-                    </div>
+                    </section>
 
-                    <div class="px-5 mb-7">
+                    <section class="px-5 mb-7">
                         <div class="flex items-center justify-between mb-3">
-                            <h2 class="text-base font-medium tracking-tight-m">More for you</h2>
+                            <h2 class="text-base font-medium tracking-tight-m">Circle Picks</h2>
                             <button class="text-xs text-neutral-400 font-medium">All</button>
-                        </div>
-
-                        <div class="space-y-2.5">
-                            <article class="card p-2.5 flex gap-3 items-center">
-                                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&amp;q=80" class="w-16 h-16 rounded-xl object-cover shrink-0" alt="">
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm font-medium truncate">Golden Hour</h3>
-                                    <p class="text-xs text-neutral-500 mt-0.5">Rooftops · $$ · 0.7 mi</p>
-                                    <div class="flex items-center gap-1.5 mt-1.5">
-                                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-xs"></iconify-icon>
-                                        <span class="text-xs text-neutral-400">4.7</span>
-                                        <span class="text-neutral-700">·</span>
-                                        <span class="text-xs text-rose-400">Rooftop saves</span>
-                                    </div>
-                                </div>
-                                <button class="w-8 h-8 rounded-full bg-white/[0.04] border border-white/5 flex items-center justify-center shrink-0">
-                                    <iconify-icon icon="solar:bookmark-linear" class="text-[14px]"></iconify-icon>
-                                </button>
-                            </article>
-
-                            <article class="card p-2.5 flex gap-3 items-center">
-                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=200&amp;q=80" class="w-16 h-16 rounded-xl object-cover shrink-0" alt="">
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm font-medium truncate">Vista Cinema</h3>
-                                    <p class="text-xs text-neutral-500 mt-0.5">Indie Films · $$ · 1.2 mi</p>
-                                    <div class="flex items-center gap-1.5 mt-1.5">
-                                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-xs"></iconify-icon>
-                                        <span class="text-xs text-neutral-400">4.8</span>
-                                        <span class="text-neutral-700">·</span>
-                                        <span class="text-xs text-neutral-400">Lina's list</span>
-                                    </div>
-                                </div>
-                                <button class="w-8 h-8 rounded-full bg-white/[0.04] border border-white/5 flex items-center justify-center shrink-0">
-                                    <iconify-icon icon="solar:bookmark-linear" class="text-[14px]"></iconify-icon>
-                                </button>
-                            </article>
-
-                            <article class="card p-2.5 flex gap-3 items-center">
-                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&amp;q=80" class="w-16 h-16 rounded-xl object-cover shrink-0" alt="">
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm font-medium truncate">Patio Kitchen</h3>
-                                    <p class="text-xs text-neutral-500 mt-0.5">Foodie · $$ · 0.9 mi</p>
-                                    <div class="flex items-center gap-1.5 mt-1.5">
-                                        <iconify-icon icon="solar:star-bold" class="text-amber-400 text-xs"></iconify-icon>
-                                        <span class="text-xs text-neutral-400">4.6</span>
-                                        <span class="text-neutral-700">·</span>
-                                        <span class="text-xs text-neutral-400">3 Circle saves</span>
-                                    </div>
-                                </div>
-                                <button class="w-8 h-8 rounded-full bg-white/[0.04] border border-white/5 flex items-center justify-center shrink-0">
-                                    <iconify-icon icon="solar:bookmark-linear" class="text-[14px]"></iconify-icon>
-                                </button>
-                            </article>
-                        </div>
-                    </div>
-
-                    <div class="px-5 mb-7">
-                        <div class="flex items-center justify-between mb-3">
-                            <h2 class="text-base font-medium tracking-tight-m">Taste Circle</h2>
-                            <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('76')">All</button>
                         </div>
 
                         <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
                             <article class="card min-w-[170px] p-3 shrink-0">
                                 <div class="flex items-center gap-2 mb-2.5">
-                                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="">
+                                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="Lina">
                                     <div class="min-w-0">
                                         <p class="text-xs font-medium truncate">Lina</p>
-                                        <p class="text-xs text-rose-400">Shared taste</p>
+                                        <p class="text-xs text-rose-300">Saved Nori</p>
                                     </div>
                                 </div>
-                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Nori Handrolls. Quiet.</p>
-                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">View</button>
+                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">"Counter seats, calm energy."</p>
+                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">Save</button>
                             </article>
                             <article class="card min-w-[170px] p-3 shrink-0">
                                 <div class="flex items-center gap-2 mb-2.5">
-                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="Omar">
                                     <div class="min-w-0">
                                         <p class="text-xs font-medium truncate">Omar</p>
-                                        <p class="text-xs text-purple-400">Saved yesterday</p>
+                                        <p class="text-xs text-purple-300">Wants to try</p>
                                     </div>
                                 </div>
-                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Golden Hour. Skyline.</p>
-                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">View</button>
+                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Golden Hour. Rooftop at dusk.</p>
+                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">Plan</button>
                             </article>
                             <article class="card min-w-[170px] p-3 shrink-0">
                                 <div class="flex items-center gap-2 mb-2.5">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&amp;h=80&amp;fit=crop" class="w-6 h-6 rounded-full object-cover" alt="Maya">
                                     <div class="min-w-0">
                                         <p class="text-xs font-medium truncate">Maya</p>
-                                        <p class="text-xs text-emerald-400">Rated 5.0</p>
+                                        <p class="text-xs text-emerald-300">Rated 5.0</p>
                                     </div>
                                 </div>
-                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Nuart. Cozy indie.</p>
-                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">View</button>
+                                <p class="text-xs text-neutral-300 leading-relaxed mb-3">Nuart. Cozy indie screening.</p>
+                                <button class="w-full bg-white/[0.05] border border-white/10 rounded-lg py-1.5 text-xs font-medium">Save</button>
                             </article>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="px-5 mb-7">
-                        <h2 class="text-base font-medium tracking-tight-m mb-3">Collections</h2>
-                        <div class="card p-4 border-purple-500/15" style="background: linear-gradient(135deg, rgba(168,85,247,0.06), transparent);">
-                            <p class="text-xs uppercase tracking-[0.15em] text-purple-300 font-medium mb-1.5">Indie Films</p>
-                            <h3 class="text-lg font-medium tracking-tight-m mb-1">Late screenings</h3>
-                            <p class="text-xs text-neutral-400 mb-4">Small theaters · 4.8 avg</p>
-                            <div class="flex gap-2">
-                                <button class="bg-white text-black rounded-lg px-4 py-2 text-xs font-semibold">Browse</button>
-                                <button class="bg-white/[0.05] border border-white/10 rounded-lg px-4 py-2 text-xs font-medium" @click="$root.goToScreen('10')">Ask Rexy</button>
-                            </div>
+                    <section class="px-5 mb-7">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h2 class="text-base font-medium tracking-tight-m">Communities For You</h2>
+                            <button class="text-xs font-medium text-neutral-400" @click="$root.goToScreen('78')">All</button>
                         </div>
-                    </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <article class="card p-3">
+                                <h3 class="text-sm font-semibold leading-tight">Midnight Coffee Society</h3>
+                                <p class="mt-1 text-xs text-neutral-500">2.4k members · active now</p>
+                                <p class="mt-3 text-xs text-rose-200">Quiet cafes • late night</p>
+                            </article>
+                            <article class="card p-3">
+                                <h3 class="text-sm font-semibold leading-tight">Quiet film lovers</h3>
+                                <p class="mt-1 text-xs text-neutral-500">918 members · 12 posts</p>
+                                <p class="mt-3 text-xs text-purple-200">Indie films • small theaters</p>
+                            </article>
+                            <article class="card p-3">
+                                <h3 class="text-sm font-semibold leading-tight">Weekend food explorers</h3>
+                                <p class="mt-1 text-xs text-neutral-500">5.1k members · dinner poll</p>
+                                <p class="mt-3 text-xs text-amber-100">Tasting menus • gems</p>
+                            </article>
+                            <article class="card p-3">
+                                <h3 class="text-sm font-semibold leading-tight">Rooftop regulars</h3>
+                                <p class="mt-1 text-xs text-neutral-500">706 members · 4 plans</p>
+                                <p class="mt-3 text-xs text-sky-100">Views • sunset plans</p>
+                            </article>
+                        </div>
+                    </section>
 
-                    <div class="px-5 mb-4">
-                        <div class="card p-4 cursor-pointer" @click="$root.goToScreen('52')">
-                            <div class="flex items-center justify-between mb-3">
-                                <div>
-                                    <p class="text-xs uppercase tracking-[0.15em] text-neutral-500 font-medium">Saved</p>
-                                    <h3 class="text-sm font-medium mt-0.5">Your shortlist</h3>
+                    <section class="px-5 mb-7">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h2 class="text-base font-medium tracking-tight-m">Add To Your Circle</h2>
+                            <button class="text-xs font-medium text-neutral-400" @click="$root.goToScreen('76')">More</button>
+                        </div>
+                        <div class="space-y-2.5">
+                            <article class="card flex items-center gap-3 p-3">
+                                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=96&amp;h=96&amp;fit=crop" class="h-12 w-12 rounded-2xl object-cover" alt="Nadia">
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="truncate text-sm font-semibold">Nadia, Cozy Curator</h3>
+                                    <p class="text-xs text-rose-300">92% taste overlap</p>
+                                    <p class="mt-0.5 truncate text-xs text-neutral-500">Cozy cafes • Indie films</p>
                                 </div>
-                                <button class="text-xs text-neutral-400 font-medium">Open</button>
-                            </div>
-                            <div class="flex -space-x-2">
-                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=80" class="w-10 h-10 rounded-lg object-cover border-2 border-[#050505]" alt="">
-                                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=80" class="w-10 h-10 rounded-lg object-cover border-2 border-[#050505]" alt="">
-                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=80" class="w-10 h-10 rounded-lg object-cover border-2 border-[#050505]" alt="">
-                                <div class="w-10 h-10 rounded-lg bg-white/[0.04] border-2 border-[#050505] flex items-center justify-center text-xs font-medium text-neutral-400">+9</div>
-                            </div>
+                                <button class="rounded-full bg-white px-3 py-2 text-xs font-semibold text-black">Add</button>
+                            </article>
+                            <article class="card flex items-center gap-3 p-3">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=96&amp;h=96&amp;fit=crop" class="h-12 w-12 rounded-2xl object-cover" alt="Jules">
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="truncate text-sm font-semibold">Jules, Rooftop Regular</h3>
+                                    <p class="text-xs text-rose-300">87% taste overlap</p>
+                                    <p class="mt-0.5 truncate text-xs text-neutral-500">Views • small plates</p>
+                                </div>
+                                <button class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-xs font-medium">Follow</button>
+                            </article>
                         </div>
-                    </div>
+                    </section>
+
+                    <section class="px-5 mb-7">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h2 class="text-base font-medium tracking-tight-m">Taste Rollz</h2>
+                            <button class="text-xs font-medium text-neutral-400">All</button>
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                            <article class="relative h-48 min-w-[128px] shrink-0 overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.04]">
+                                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=360&amp;q=80" class="h-full w-full object-cover" alt="Cafe Rollz">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <p class="text-xs font-semibold">Lina's cafe loop</p>
+                                    <p class="mt-0.5 text-xs text-neutral-300">18 saves</p>
+                                </div>
+                            </article>
+                            <article class="relative h-48 min-w-[128px] shrink-0 overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.04]">
+                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=360&amp;q=80" class="h-full w-full object-cover" alt="Cinema Rollz">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <p class="text-xs font-semibold">Nuart tonight</p>
+                                    <p class="mt-0.5 text-xs text-neutral-300">Film lovers</p>
+                                </div>
+                            </article>
+                            <article class="relative h-48 min-w-[128px] shrink-0 overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.04]">
+                                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=360&amp;q=80" class="h-full w-full object-cover" alt="Rooftop Rollz">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <p class="text-xs font-semibold">Golden Hour</p>
+                                    <p class="mt-0.5 text-xs text-neutral-300">4 friends</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="px-5 mb-7">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h2 class="text-base font-medium tracking-tight-m">Trending In Your Taste</h2>
+                            <button class="text-xs font-medium text-neutral-400">All</button>
+                        </div>
+                        <div class="space-y-2.5">
+                            <article class="card flex items-center gap-3 p-2.5">
+                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=160&amp;q=80" class="h-16 w-16 shrink-0 rounded-xl object-cover" alt="Vista Cinema">
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="truncate text-sm font-medium">Vista Cinema</h3>
+                                    <p class="mt-0.5 text-xs text-neutral-500">Trending among film lovers</p>
+                                    <p class="mt-1 text-xs text-rose-300">Maya and 12 others saved</p>
+                                </div>
+                            </article>
+                            <article class="card flex items-center gap-3 p-2.5">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=160&amp;q=80" class="h-16 w-16 shrink-0 rounded-xl object-cover" alt="The Morning Co.">
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="truncate text-sm font-medium">The Morning Co.</h3>
+                                    <p class="mt-0.5 text-xs text-neutral-500">Popular with cozy foodies</p>
+                                    <p class="mt-1 text-xs text-rose-300">Best before 8</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="px-5 mb-7">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h2 class="text-base font-medium tracking-tight-m">Hidden Gems</h2>
+                            <button class="text-xs font-medium text-neutral-400">Map</button>
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                            <article class="card min-w-[230px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?w=500&amp;q=80" class="h-28 w-full object-cover" alt="The Listening Room">
+                                <div class="p-3">
+                                    <h3 class="text-sm font-medium">The Listening Room</h3>
+                                    <p class="mt-0.5 text-xs text-neutral-500">Hidden jazz room · 1.1 mi</p>
+                                    <p class="mt-2 text-xs text-neutral-300">Found through two quiet-night saves.</p>
+                                </div>
+                            </article>
+                            <article class="card min-w-[230px] shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&amp;q=80" class="h-28 w-full object-cover" alt="Verve Back Patio">
+                                <div class="p-3">
+                                    <h3 class="text-sm font-medium">Verve Back Patio</h3>
+                                    <p class="mt-0.5 text-xs text-neutral-500">Coffee · calm tables</p>
+                                    <p class="mt-2 text-xs text-neutral-300">Matches your saved cafe pattern.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="px-5 mb-4">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h2 class="text-base font-medium tracking-tight-m">Plans Nearby</h2>
+                            <button class="text-xs font-medium text-neutral-400" @click="$root.goToScreen('53')">Plan</button>
+                        </div>
+                        <article class="card p-4">
+                            <div class="mb-3 flex items-center justify-between gap-3">
+                                <div>
+                                    <h3 class="text-sm font-semibold">Dinner + indie film</h3>
+                                    <p class="mt-0.5 text-xs text-neutral-500">Patio Kitchen → Vista Cinema</p>
+                                </div>
+                                <span class="rounded-full bg-rose-500/[0.10] px-2.5 py-1 text-xs text-rose-200">Tonight</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80" class="h-8 w-8 rounded-full border-2 border-[#050505] object-cover" alt="Sarah">
+                                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80" class="h-8 w-8 rounded-full border-2 border-[#050505] object-cover" alt="Emma">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#050505] bg-white/[0.05] text-xs text-neutral-400">+2</span>
+                                </div>
+                                <button class="rounded-xl bg-white px-4 py-2 text-xs font-semibold text-black">Join</button>
+                            </div>
+                        </article>
+                    </section>
                 </div>
 
-                <button class="rexy-float" aria-label="Ask Rexy" @click="$root.goToScreen('10')">
-                    <iconify-icon icon="solar:magic-stick-3-bold" class="text-white text-[24px]"></iconify-icon>
-                </button>
-
-                <div class="nav-bar">
-                    <div class="nav-item active">
-                        <iconify-icon icon="solar:home-smile-bold"></iconify-icon>
-                        <span class="nav-label">Home</span>
-                    </div>
-                    <div class="nav-item">
-                        <iconify-icon icon="solar:compass-linear"></iconify-icon>
-                        <span class="nav-label">Explore</span>
-                    </div>
-                    <div class="nav-create" @click="$root.goToScreen('17')">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                    </div>
-                    <div class="nav-item">
-                        <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-                        <span class="nav-label">Rollz</span>
-                    </div>
-                    <div class="nav-item">
-                        <iconify-icon icon="solar:inbox-linear"></iconify-icon>
-                        <span class="nav-label">Inbox</span>
-                    </div>
-                </div>
+                <bottom-nav active-tab="home"></bottom-nav>
             </div>
         </div>
     </template>
     
     <!-- Component: Bottom Nav -->
     <template id="tmpl-bottom-nav">
-        <div class="bottom-nav-bar">
-            <div @click="$root.goToScreen('08')" class="nav-item" :class="activeTab === 'home' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
-                <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
-                <span class="nav-label">Home</span>
-            </div>
-            <div @click="$root.goToScreen('12')" class="nav-item" :class="activeTab === 'explore' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
-                <iconify-icon icon="solar:compass-linear"></iconify-icon>
-                <span class="nav-label">Explore</span>
-            </div>
-            <div @click="$root.goToScreen('17')" class="nav-item nav-create">
-                <div class="nav-create-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
+        <div>
+            <div v-if="showCreateSheet" class="create-sheet-backdrop" @click.self="showCreateSheet = false">
+                <div class="create-sheet">
+                    <div class="mb-2 px-2">
+                        <p class="text-xs uppercase tracking-[0.16em] text-neutral-500">Create</p>
+                    </div>
+                    <button class="create-sheet-option" @click="goCreate('21')">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-rose-500/[0.14] text-rose-200"><iconify-icon icon="solar:star-shine-linear" class="text-lg"></iconify-icon></span>
+                        <span><span class="block text-sm font-semibold">Recommend</span><span class="block text-xs text-neutral-500">Share a place, film, product, or experience</span></span>
+                    </button>
+                    <button class="create-sheet-option" @click="goCreate('61')">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-purple-500/[0.14] text-purple-200"><iconify-icon icon="solar:question-circle-linear" class="text-lg"></iconify-icon></span>
+                        <span><span class="block text-sm font-semibold">Ask</span><span class="block text-xs text-neutral-500">Start from a mood or a trusted circle</span></span>
+                    </button>
+                    <button class="create-sheet-option" @click="goCreate('53')">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/[0.12] text-emerald-200"><iconify-icon icon="solar:calendar-add-linear" class="text-lg"></iconify-icon></span>
+                        <span><span class="block text-sm font-semibold">Plan</span><span class="block text-xs text-neutral-500">Turn recs into a shared plan</span></span>
+                    </button>
+                    <button class="create-sheet-option" @click="goCreate('64')">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-500/[0.12] text-amber-200"><iconify-icon icon="solar:chart-2-linear" class="text-lg"></iconify-icon></span>
+                        <span><span class="block text-sm font-semibold">Poll</span><span class="block text-xs text-neutral-500">Let your circle choose</span></span>
+                    </button>
                 </div>
-                <span class="nav-label nav-label-create">Create</span>
             </div>
-            <div @click="$root.goToScreen('44')" class="nav-item" :class="activeTab === 'rollz' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
-                <iconify-icon icon="solar:play-stream-linear"></iconify-icon>
-                <span class="nav-label">Rollz</span>
-            </div>
-            <div @click="$root.goToScreen(activeTab === 'more' ? '28' : '40')" class="nav-item" :class="activeTab === 'inbox' || activeTab === 'more' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
-                <iconify-icon :icon="activeTab === 'more' ? 'solar:user-circle-linear' : 'solar:inbox-linear'"></iconify-icon>
-                <span class="nav-label">{{ activeTab === 'more' ? 'Profile' : 'Inbox' }}</span>
-            </div>
+
+            <nav class="bottom-nav-bar" aria-label="Primary">
+                <div @click="$root.goToScreen('08')" class="nav-item" :class="isActive('home') ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
+                    <iconify-icon :icon="isActive('home') ? 'solar:home-smile-bold' : 'solar:home-smile-linear'"></iconify-icon>
+                    <span class="nav-label">For You</span>
+                </div>
+                <div @click="$root.goToScreen('37')" class="nav-item" :class="isActive('circle') ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
+                    <iconify-icon :icon="isActive('circle') ? 'solar:users-group-rounded-bold' : 'solar:users-group-rounded-linear'"></iconify-icon>
+                    <span class="nav-label">Circle</span>
+                </div>
+                <button type="button" @click="showCreateSheet = true" class="nav-item nav-create" aria-label="Create">
+                    <span class="nav-create-button">
+                        <iconify-icon icon="solar:add-circle-bold" class="text-[28px] text-white"></iconify-icon>
+                    </span>
+                    <span class="nav-label nav-label-create">Create</span>
+                </button>
+                <div @click="$root.goToScreen('12')" class="nav-item" :class="isActive('explore') ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
+                    <iconify-icon :icon="isActive('explore') ? 'solar:compass-bold' : 'solar:compass-linear'"></iconify-icon>
+                    <span class="nav-label">Explore</span>
+                </div>
+                <div @click="$root.goToScreen('28')" class="nav-item" :class="isActive('you') ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'">
+                    <iconify-icon :icon="isActive('you') ? 'solar:user-circle-bold' : 'solar:user-circle-linear'"></iconify-icon>
+                    <span class="nav-label">You</span>
+                </div>
+            </nav>
         </div>
     </template>
 
@@ -2166,180 +2187,230 @@
 
     <!-- 08. Home / For You -->
     <template id="screen-08">
-        <div class="w-full h-full relative bg-[#050505]">
-            <div class="ambient-glow aura-purple w-[500px] h-[500px] absolute -top-40 -right-40 opacity-30"></div>
-            
-            <div class="glass-nav absolute top-0 left-0 w-full pt-12 pb-4 px-5 z-40">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/100?img=1" class="w-10 h-10 rounded-full border border-white/20 cursor-pointer" @click="$root.goToScreen('28')">
-                        <div>
-                            <p class="text-xs text-gray-400">Good evening,</p>
-                            <p class="text-sm font-semibold">Alex M.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-3">
-                        <div class="w-10 h-10 rounded-full glass-panel flex items-center justify-center relative cursor-pointer" @click="$root.goToScreen('27')">
-                            <iconify-icon icon="solar:bell-linear" class="text-lg"></iconify-icon>
-                            <div class="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-panel rounded-2xl h-12 flex items-center px-4 cursor-pointer border-white/10" @click="$root.goToScreen('13')">
-                    <iconify-icon icon="solar:magnifer-linear" class="text-gray-400 mr-2 text-lg"></iconify-icon>
-                    <span class="text-sm text-gray-400">Search</span>
-                    <div class="ml-auto w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center">
-                        <iconify-icon icon="solar:microphone-2-linear" class="text-rose-400 text-xs"></iconify-icon>
-                    </div>
-                </div>
-            </div>
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute -top-32 -right-28 h-72 w-72 rounded-full bg-rose-500/10 blur-3xl"></div>
+            <div class="absolute left-0 top-24 h-52 w-52 rounded-full bg-purple-500/[0.08] blur-3xl"></div>
 
-            <div class="content-scroll pt-40 px-5 relative z-10">
-                <div class="mb-4">
-                    <h2 class="text-lg font-bold mb-3">Today?</h2>
-                    <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-5 px-5">
-                        <button class="glass-panel px-4 py-2 rounded-full border-rose-500/50 bg-rose-500/10 whitespace-nowrap text-sm flex items-center gap-2" @click="$root.goToScreen('61')">
-                            <iconify-icon icon="solar:stars-line-linear" class="text-rose-400"></iconify-icon> Surprise
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-14">
+                <header class="mb-5">
+                    <div class="mb-4 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&amp;h=100&amp;fit=crop" class="h-10 w-10 cursor-pointer rounded-full border border-white/10 object-cover" alt="Alex profile" @click="$root.goToScreen('28')">
+                            <div>
+                                <p class="text-xs text-neutral-500">For You</p>
+                                <h1 class="max-w-[230px] text-[21px] font-medium leading-[1.15] tracking-tight text-white">Your circle is into cozy cafes tonight</h1>
+                            </div>
+                        </div>
+                        <button class="relative flex h-9 w-9 items-center justify-center rounded-full border border-white/5 bg-white/[0.04]" aria-label="Activity" @click="$root.goToScreen('27')">
+                            <iconify-icon icon="solar:bell-linear" class="text-[16px]"></iconify-icon>
+                            <span class="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-rose-400"></span>
                         </button>
-                        <div class="glass-panel px-4 py-2 rounded-full whitespace-nowrap text-sm opacity-80 flex items-center gap-2">
-                            <iconify-icon icon="solar:plate-linear"></iconify-icon> Eat
-                        </div>
-                        <div class="glass-panel px-4 py-2 rounded-full whitespace-nowrap text-sm opacity-80 flex items-center gap-2">
-                            <iconify-icon icon="solar:tv-linear"></iconify-icon> Watch
-                        </div>
-                        <div class="glass-panel px-4 py-2 rounded-full whitespace-nowrap text-sm opacity-80 flex items-center gap-2">
-                            <iconify-icon icon="solar:wineglass-linear"></iconify-icon> Go Out
-                        </div>
                     </div>
-                </div>
-
-                <section class="relative mb-5 overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-rose-500/[0.14] via-purple-500/[0.1] to-black p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_18px_44px_rgba(0,0,0,0.36)]">
-                    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,rgba(244,63,94,0.22),transparent_38%),radial-gradient(circle_at_88%_12%,rgba(168,85,247,0.18),transparent_30%)]"></div>
-                    <div class="relative z-10 mb-3 flex items-center justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold tracking-tight text-white">Taste Identity</h3>
-                            <p class="mt-1 text-xs text-gray-400">Cozy Foodie signals</p>
-                        </div>
-                        <button class="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-bold text-white" @click="$root.goToScreen('75')">Full taste</button>
+                    <div class="flex gap-2 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                        <span class="shrink-0 rounded-full border border-rose-300/20 bg-rose-500/[0.10] px-3 py-1.5 text-xs font-medium text-rose-100">Cozy</span>
+                        <span class="shrink-0 rounded-full border border-purple-300/15 bg-purple-500/[0.08] px-3 py-1.5 text-xs font-medium text-purple-100">Film Lover</span>
+                        <span class="shrink-0 rounded-full border border-sky-300/15 bg-sky-500/[0.07] px-3 py-1.5 text-xs font-medium text-sky-100">Rooftops</span>
+                        <span class="shrink-0 rounded-full border border-amber-300/15 bg-amber-500/[0.08] px-3 py-1.5 text-xs font-medium text-amber-100">Foodie</span>
+                        <span class="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-neutral-300">Late Night</span>
                     </div>
-                    <div class="relative z-10 h-[260px]">
-                        <div class="absolute left-1/2 top-1/2 h-[188px] w-[188px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"></div>
-                        <div class="absolute left-1/2 top-1/2 h-[128px] w-[128px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-rose-200/15"></div>
+                </header>
 
-                        <div class="absolute left-1/2 top-1/2 w-[38%] origin-left -rotate-[150deg]">
-                            <div class="h-px w-full bg-rose-200/20"></div>
-                            <div class="absolute right-0 top-1/2 h-3 w-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-300 shadow-[0_0_18px_rgba(244,63,94,0.45)]"></div>
+                <section class="mb-5">
+                    <article class="glass-panel cursor-pointer rounded-[1.5rem] border-rose-500/20 bg-white/[0.035] p-4" @click="$root.goToScreen('75')">
+                        <div class="flex items-center gap-3">
+                            <div class="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-rose-200/20 bg-rose-500/[0.08]">
+                                <div class="absolute inset-2 rounded-full border border-purple-200/20"></div>
+                                <div class="h-8 w-8 rounded-full bg-[radial-gradient(circle_at_35%_30%,#fecdd3,#fb7185_52%,#3f1d2a)] shadow-[0_0_22px_rgba(244,63,94,0.22)]"></div>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <p class="text-xs uppercase tracking-[0.15em] text-neutral-500">Taste Identity</p>
+                                <h2 class="mt-0.5 text-lg font-semibold tracking-tight text-white">Midnight Explorer</h2>
+                                <p class="mt-1 text-xs leading-5 text-neutral-400">Quiet cafes • Indie films • Rooftop bars</p>
+                            </div>
                         </div>
-                        <div class="absolute left-1/2 top-1/2 w-[36%] origin-left -rotate-[38deg]">
-                            <div class="h-px w-full bg-purple-200/20"></div>
-                            <div class="absolute right-0 top-1/2 h-3.5 w-3.5 translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-300 shadow-[0_0_18px_rgba(168,85,247,0.45)]"></div>
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <button class="rounded-xl bg-white px-3 py-2.5 text-xs font-semibold text-black" @click.stop="$root.goToScreen('75')">View Taste Identity</button>
+                            <button class="rounded-xl border border-white/10 bg-white/[0.05] px-3 py-2.5 text-xs font-medium text-white" @click.stop="$root.goToScreen('77')">Compare Taste</button>
                         </div>
-                        <div class="absolute left-1/2 top-1/2 w-[37%] origin-left rotate-[86deg]">
-                            <div class="h-px w-full bg-amber-200/20"></div>
-                            <div class="absolute right-0 top-1/2 h-3 w-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-200 shadow-[0_0_18px_rgba(251,191,36,0.34)]"></div>
-                        </div>
-                        <div class="absolute left-1/2 top-1/2 w-[35%] origin-left rotate-[150deg]">
-                            <div class="h-px w-full bg-emerald-200/20"></div>
-                            <div class="absolute right-0 top-1/2 h-3 w-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-200 shadow-[0_0_18px_rgba(16,185,129,0.34)]"></div>
-                        </div>
+                    </article>
+                </section>
 
-                        <div class="absolute left-1/2 top-1/2 h-[92px] w-[92px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border border-rose-200/30 bg-black p-1 shadow-[0_0_54px_rgba(244,63,94,0.32)]">
-                            <img src="https://i.pravatar.cc/200?img=1" class="h-full w-full rounded-full object-cover" alt="Taste profile">
-                        </div>
-
-                        <div class="absolute left-1 top-4 rounded-full border border-rose-200/20 bg-black/35 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-rose-100 backdrop-blur-md">Coffee</div>
-                        <div class="absolute right-1 top-12 rounded-full border border-purple-200/20 bg-black/35 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-purple-100 backdrop-blur-md">Art</div>
-                        <div class="absolute bottom-5 left-3 rounded-full border border-emerald-200/20 bg-black/35 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-emerald-100 backdrop-blur-md">Outdoors</div>
-                        <div class="absolute bottom-2 right-4 rounded-full border border-amber-200/20 bg-black/35 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-amber-100 backdrop-blur-md">Late nights</div>
+                <section class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h2 class="text-base font-medium tracking-tight">Your Circle Tonight</h2>
+                        <button class="text-xs font-medium text-neutral-400" @click="$root.goToScreen('37')">Open</button>
+                    </div>
+                    <div class="space-y-2.5">
+                        <article class="glass-panel flex items-center gap-3 rounded-2xl p-3">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&amp;h=80&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Sarah">
+                            <p class="min-w-0 flex-1 text-xs leading-5 text-neutral-300"><span class="font-semibold text-white">Sarah</span> saved Nori Handrolls for a quiet dinner.</p>
+                            <span class="text-xs text-neutral-600">12m</span>
+                        </article>
+                        <article class="glass-panel flex items-center gap-3 rounded-2xl p-3">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&amp;h=80&amp;fit=crop" class="h-9 w-9 rounded-full object-cover" alt="Mike">
+                            <p class="min-w-0 flex-1 text-xs leading-5 text-neutral-300"><span class="font-semibold text-white">Mike</span> wants to try Golden Hour after 8.</p>
+                            <span class="text-xs text-neutral-600">31m</span>
+                        </article>
                     </div>
                 </section>
 
-                <div class="glass-panel rounded-[2rem] overflow-hidden mb-5 relative border-white/10">
-                    <div class="h-64 relative">
-                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md">Dining</div>
-                        <div class="absolute top-4 right-4 w-8 h-8 rounded-full glass-panel flex items-center justify-center">
-                            <iconify-icon icon="solar:bookmark-linear" class="text-sm"></iconify-icon>
-                        </div>
+                <section class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h2 class="text-base font-medium tracking-tight">Perfect For Your Mood</h2>
+                        <span class="text-xs font-medium text-rose-300">94% fit</span>
                     </div>
-                    <div class="p-5 -mt-16 relative z-10">
-                        <h3 class="text-2xl font-semibold mb-1">Mizlala At The Park</h3>
-                        <div class="flex items-center gap-2 text-sm text-gray-300 mb-3">
-                            <iconify-icon icon="solar:map-point-linear" class="text-xs text-rose-400"></iconify-icon>
-                            <span>Sherman Oaks</span>
-                        </div>
-                        
-                        <!-- Context Layer tags -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="glass-panel px-2 py-1 rounded-md text-xs text-purple-300 flex items-center gap-1 border-purple-500/30 bg-purple-500/10"><iconify-icon icon="solar:magic-stick-3-bold"></iconify-icon> Foodie taste</span>
-                            <span class="glass-panel px-2 py-1 rounded-md text-xs font-medium border-white/10">$$$</span>
-                            <span class="glass-panel px-2 py-1 rounded-md text-xs font-medium border-white/10">Calm Dinner</span>
-                            <span class="glass-panel px-2 py-1 rounded-md text-xs font-medium border-white/10">Chill</span>
-                        </div>
-
-                        <!-- Social Proof -->
-                        <div class="flex items-center gap-2 mb-4 text-xs">
-                            <div class="flex -space-x-2">
-                                <img src="https://i.pravatar.cc/100?img=11" class="w-5 h-5 rounded-full border border-[#050505]">
-                                <img src="https://i.pravatar.cc/100?img=12" class="w-5 h-5 rounded-full border border-[#050505]">
-                                <img src="https://i.pravatar.cc/100?img=13" class="w-5 h-5 rounded-full border border-[#050505]">
-                            </div>
-                            <span class="text-gray-400">Ahmed + 2 saved</span>
-                        </div>
-
-                        <div class="glass-panel rounded-xl p-3 mb-4 flex gap-3 border-white/5 bg-white/5">
-                            <img src="https://i.pravatar.cc/100?img=5" class="w-10 h-10 rounded-full">
-                            <div>
-                                <p class="text-xs text-gray-400"><span class="text-white font-medium">Sarah</span> tried this</p>
-                                <p class="mt-1 text-sm italic">"Best hummus."</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2 mt-4">
-                            <button class="flex-1 accent-gradient py-3 rounded-xl font-semibold text-sm" @click="$root.goToScreen('25')">Add to List</button>
-                            <button class="w-12 h-12 glass-panel rounded-xl flex items-center justify-center" @click="$root.goToScreen('43')">
-                                <iconify-icon icon="solar:forward-linear" class="text-lg"></iconify-icon>
+                    <article class="glass-panel overflow-hidden rounded-[1.75rem]">
+                        <div class="relative h-52">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&amp;q=80" class="absolute inset-0 h-full w-full object-cover" alt="Warm restaurant patio">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent"></div>
+                            <button class="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/45 backdrop-blur-md" aria-label="Save">
+                                <iconify-icon icon="solar:bookmark-linear" class="text-white text-[16px]"></iconify-icon>
                             </button>
                         </div>
-                    </div>
-                </div>
-
-                <div class="glass-panel rounded-2xl p-5 border-purple-500/30 bg-purple-900/10 mb-6 relative overflow-hidden">
-                    <div class="ambient-glow aura-purple w-full h-full absolute top-0 left-0 opacity-40"></div>
-                    <div class="relative z-10 flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-rose-500 flex items-center justify-center shrink-0">
-                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-xl text-white"></iconify-icon>
+                        <div class="p-4">
+                            <div class="mb-2 flex items-start justify-between gap-3">
+                                <div class="min-w-0">
+                                    <h3 class="truncate text-xl font-medium tracking-tight">Patio Kitchen</h3>
+                                    <p class="mt-0.5 text-[12px] text-neutral-500">Dinner · Foodie · 0.9 mi</p>
+                                </div>
+                                <span class="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[12px] text-neutral-200">4.8</span>
+                            </div>
+                            <p class="mb-3 text-sm leading-relaxed text-neutral-300">Matches your cozy vibe, late dinner saves, and quiet-room history.</p>
+                            <div class="mb-3 flex flex-wrap gap-2">
+                                <span class="rounded-full bg-rose-500/[0.10] px-2.5 py-1 text-xs text-rose-200">Loved by 4 people in your circle</span>
+                                <span class="rounded-full bg-white/[0.05] px-2.5 py-1 text-xs text-neutral-300">Popular among film lovers</span>
+                            </div>
+                            <button class="w-full rounded-xl bg-white py-3 text-sm font-semibold text-black" @click="$root.goToScreen('25')">Save for tonight</button>
                         </div>
-                        <div>
-                            <h4 class="font-medium text-white mb-1">Rexy</h4>
-                            <p class="text-sm text-gray-300 mb-3">4 Circle sushi saves.</p>
-                            <button class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full text-xs font-medium backdrop-blur-md" @click="$root.goToScreen('10')">Show sushi</button>
-                        </div>
-                    </div>
-                </div>
+                    </article>
+                </section>
 
-                <div class="mb-8">
+                <section class="mb-7">
                     <div class="mb-3 flex items-center justify-between">
-                        <h3 class="font-semibold">Quick links</h3>
-                        <button class="text-xs font-semibold uppercase tracking-[0.18em] text-rose-400" @click="$root.goToScreen('28')">Profile</button>
+                        <h2 class="text-base font-medium tracking-tight">Circle Picks</h2>
+                        <button class="text-xs font-medium text-neutral-400">All</button>
                     </div>
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                        <article class="glass-panel min-w-[170px] shrink-0 rounded-2xl p-3">
+                            <div class="mb-2.5 flex items-center gap-2">
+                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&amp;h=80&amp;fit=crop" class="h-6 w-6 rounded-full object-cover" alt="Lina">
+                                <div class="min-w-0">
+                                    <p class="truncate text-xs font-medium">Lina</p>
+                                    <p class="text-xs text-rose-300">Saved Nori</p>
+                                </div>
+                            </div>
+                            <p class="mb-3 text-xs leading-relaxed text-neutral-300">"Counter seats, calm energy."</p>
+                            <button class="w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium">Save</button>
+                        </article>
+                        <article class="glass-panel min-w-[170px] shrink-0 rounded-2xl p-3">
+                            <div class="mb-2.5 flex items-center gap-2">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&amp;h=80&amp;fit=crop" class="h-6 w-6 rounded-full object-cover" alt="Omar">
+                                <div class="min-w-0">
+                                    <p class="truncate text-xs font-medium">Omar</p>
+                                    <p class="text-xs text-purple-300">Wants to try</p>
+                                </div>
+                            </div>
+                            <p class="mb-3 text-xs leading-relaxed text-neutral-300">Golden Hour. Rooftop at dusk.</p>
+                            <button class="w-full rounded-lg border border-white/10 bg-white/[0.05] py-1.5 text-xs font-medium">Plan</button>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="mb-7">
+                    <h2 class="mb-3 text-base font-medium tracking-tight">Communities For You</h2>
                     <div class="grid grid-cols-2 gap-3">
-                        <button class="glass-panel rounded-2xl border-white/10 p-4 text-left" @click="$root.goToScreen('37')">
-                            <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-500/15 text-rose-400">
-                                <iconify-icon icon="solar:users-group-rounded-bold" class="text-xl"></iconify-icon>
-                            </div>
-                            <div class="text-sm font-semibold text-white">Your Taste Circle</div>
-                            <div class="mt-1 text-xs text-gray-400">Similar taste</div>
-                        </button>
-                        <button class="glass-panel rounded-2xl border-purple-500/25 bg-purple-500/10 p-4 text-left" @click="$root.goToScreen('78')">
-                            <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300">
-                                <iconify-icon icon="solar:chat-round-line-bold" class="text-xl"></iconify-icon>
-                            </div>
-                            <div class="text-sm font-semibold text-white">Community Chat</div>
-                            <div class="mt-1 text-xs text-gray-400">Polls + plans</div>
-                        </button>
+                        <article class="glass-panel rounded-2xl p-3">
+                            <h3 class="text-sm font-semibold leading-tight">Midnight Coffee Society</h3>
+                            <p class="mt-1 text-xs text-neutral-500">2.4k members · active now</p>
+                            <p class="mt-3 text-xs text-rose-200">Quiet cafes • late night</p>
+                        </article>
+                        <article class="glass-panel rounded-2xl p-3">
+                            <h3 class="text-sm font-semibold leading-tight">Quiet film lovers</h3>
+                            <p class="mt-1 text-xs text-neutral-500">918 members · 12 posts</p>
+                            <p class="mt-3 text-xs text-purple-200">Indie films • small theaters</p>
+                        </article>
                     </div>
-                </div>
+                </section>
+
+                <section class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h2 class="text-base font-medium tracking-tight">Add To Your Circle</h2>
+                        <button class="text-xs font-medium text-neutral-400" @click="$root.goToScreen('76')">More</button>
+                    </div>
+                    <div class="space-y-2.5">
+                        <article class="glass-panel flex items-center gap-3 rounded-2xl p-3">
+                            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=96&amp;h=96&amp;fit=crop" class="h-12 w-12 rounded-2xl object-cover" alt="Nadia">
+                            <div class="min-w-0 flex-1">
+                                <h3 class="truncate text-sm font-semibold">Nadia, Cozy Curator</h3>
+                                <p class="text-xs text-rose-300">92% taste overlap</p>
+                                <p class="mt-0.5 truncate text-xs text-neutral-500">Cozy cafes • Indie films</p>
+                            </div>
+                            <button class="rounded-full bg-white px-3 py-2 text-xs font-semibold text-black">Add</button>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="mb-7">
+                    <h2 class="mb-3 text-base font-medium tracking-tight">Taste Rollz</h2>
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                        <article class="relative h-48 min-w-[128px] shrink-0 overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.04]">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=360&amp;q=80" class="h-full w-full object-cover" alt="Cafe Rollz">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-xs font-semibold">Lina's cafe loop</p>
+                                <p class="mt-0.5 text-xs text-neutral-300">18 saves</p>
+                            </div>
+                        </article>
+                        <article class="relative h-48 min-w-[128px] shrink-0 overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.04]">
+                            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=360&amp;q=80" class="h-full w-full object-cover" alt="Cinema Rollz">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <p class="text-xs font-semibold">Nuart tonight</p>
+                                <p class="mt-0.5 text-xs text-neutral-300">Film lovers</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="mb-7">
+                    <h2 class="mb-3 text-base font-medium tracking-tight">Trending In Your Taste</h2>
+                    <div class="space-y-2.5">
+                        <article class="glass-panel flex items-center gap-3 rounded-2xl p-2.5">
+                            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=160&amp;q=80" class="h-16 w-16 shrink-0 rounded-xl object-cover" alt="Vista Cinema">
+                            <div class="min-w-0 flex-1">
+                                <h3 class="truncate text-sm font-medium">Vista Cinema</h3>
+                                <p class="mt-0.5 text-xs text-neutral-500">Trending among film lovers</p>
+                                <p class="mt-1 text-xs text-rose-300">Maya and 12 others saved</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="mb-7">
+                    <h2 class="mb-3 text-base font-medium tracking-tight">Hidden Gems</h2>
+                    <article class="glass-panel overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?w=500&amp;q=80" class="h-28 w-full object-cover" alt="The Listening Room">
+                        <div class="p-3">
+                            <h3 class="text-sm font-medium">The Listening Room</h3>
+                            <p class="mt-0.5 text-xs text-neutral-500">Hidden jazz room · 1.1 mi</p>
+                            <p class="mt-2 text-xs text-neutral-300">Found through two quiet-night saves.</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="mb-4">
+                    <h2 class="mb-3 text-base font-medium tracking-tight">Plans Nearby</h2>
+                    <article class="glass-panel rounded-2xl p-4">
+                        <div class="mb-3 flex items-center justify-between gap-3">
+                            <div>
+                                <h3 class="text-sm font-semibold">Dinner + indie film</h3>
+                                <p class="mt-0.5 text-xs text-neutral-500">Patio Kitchen → Vista Cinema</p>
+                            </div>
+                            <span class="rounded-full bg-rose-500/[0.10] px-2.5 py-1 text-xs text-rose-200">Tonight</span>
+                        </div>
+                        <button class="w-full rounded-xl bg-white py-2.5 text-xs font-semibold text-black" @click="$root.goToScreen('53')">Join plan</button>
+                    </article>
+                </section>
             </div>
         </div>
     </template>
@@ -8400,13 +8471,11 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         {
                             title: 'Primary Tabs',
                             items: [
-                                { id: '08', label: 'Home' },
-                                { id: '12', label: 'Explore' },
-                                { id: '67', label: 'Explore Food' },
-                                { id: '13', label: 'Search' },
+                                { id: '08', label: 'For You' },
+                                { id: '37', label: 'Circle' },
                                 { id: '17', label: 'Create' },
-                                { id: '44', label: 'Rollz' },
-                                { id: '28', label: 'Profile' }
+                                { id: '12', label: 'Explore' },
+                                { id: '28', label: 'You' }
                             ]
                         },
                         {
@@ -8447,7 +8516,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                                 { id: '75', label: 'Taste Identity' },
                                 { id: '76', label: 'Similar Taste Users' },
                                 { id: '77', label: 'Compare Taste' },
-                                { id: '28', label: 'Profile' },
+                                { id: '28', label: 'You' },
                                 { id: '27', label: 'Activity' },
                                 { id: '34', label: 'Settings' },
                                 { id: '64', label: 'Poll Creation' }
@@ -8470,11 +8539,11 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         { id: '05', title: 'Interest Selection', component: 'screen-05', showNav: false, showRexy: false },
                         { id: '06', title: 'Taste Details', component: 'screen-06', showNav: false, showRexy: false },
                         { id: '07', title: 'Follow Taste Circle', component: 'screen-07', showNav: false, showRexy: false },
-                        { id: '08', title: 'Home / For You', component: 'screen-08', showNav: true, activeTab: 'home', showRexy: true },
+                        { id: '08', title: 'Home / For You', component: 'screen-08', showNav: true, activeTab: 'home', showRexy: false },
                         { id: '09', title: 'Home Bottom Sheet', component: 'screen-09', showNav: true, activeTab: 'home', showRexy: false },
                         { id: '10', title: '09. Rexy - AI Assistant', component: 'screen-10', showNav: false, showRexy: false },
                         { id: '11', title: '11. Rexy - Conversational Answer', component: 'screen-11', showNav: false, showRexy: false },
-                        { id: '12', title: 'Explore', component: 'screen-12', showNav: true, activeTab: 'explore', showRexy: true },
+                        { id: '12', title: 'Explore', component: 'screen-12', showNav: true, activeTab: 'explore', showRexy: false },
                         { id: '13', title: 'Search', component: 'screen-13', showNav: false, showRexy: false },
                         { id: '14', title: 'Recommendation Detail', component: 'screen-14', showNav: false, showRexy: false },
                         { id: '15', title: 'Comments / Discussion', component: 'screen-15', showNav: false, showRexy: false },
@@ -8506,7 +8575,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         { id: '34', title: 'Settings', component: 'screen-34', showNav: false, showRexy: false },
                         { id: '35', title: 'Help / FAQ', component: 'screen-35', showNav: false, showRexy: false },
                         { id: '36', title: 'Logout Confirm', component: 'screen-36', showNav: false, showRexy: false },
-                        { id: '37', title: 'Taste Circle Hub', component: 'screen-37', showNav: true, activeTab: 'more', showRexy: false },
+                        { id: '37', title: 'Taste Circle Hub', component: 'screen-37', showNav: true, activeTab: 'circle', showRexy: false },
                         { id: '76', title: 'Similar Taste Users', component: 'screen-76', showNav: false, showRexy: false },
                         { id: '38', title: 'Taste Circle Empty State', component: 'screen-38', showNav: false, showRexy: false },
                         { id: '39', title: 'Taste Circle Discover', component: 'screen-39', showNav: false, showRexy: false },
@@ -8514,7 +8583,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         { id: '41', title: 'Message Detail', component: 'screen-41', showNav: false, showRexy: false },
                         { id: '42', title: 'Voice Msg Chat', component: 'screen-42', showNav: false, showRexy: false },
                         { id: '43', title: 'Share Rec in Chat', component: 'screen-43', showNav: false, showRexy: false },
-                        { id: '44', title: 'Rollz Feed', component: 'screen-44', showNav: true, activeTab: 'rollz', showRexy: false },
+                        { id: '44', title: 'Rollz Feed', component: 'screen-44', showNav: false, showRexy: false },
                         { id: '45', title: 'Rollz Comments', component: 'screen-45', showNav: false, showRexy: false },
                         { id: '46', title: 'Thread Feed', component: 'screen-46', showNav: true, activeTab: 'explore', showRexy: false },
                         { id: '47', title: 'Thread Detail', component: 'screen-47', showNav: false, showRexy: false },
@@ -8779,7 +8848,28 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
 
         app.component('bottom-nav', {
             template: '#tmpl-bottom-nav',
-            props: ['activeTab']
+            props: ['activeTab'],
+            data() {
+                return {
+                    showCreateSheet: false
+                };
+            },
+            methods: {
+                isActive(tab) {
+                    const current = this.activeTab || '';
+                    const aliases = {
+                        home: ['home', 'forYou', 'foryou'],
+                        circle: ['circle'],
+                        explore: ['explore'],
+                        you: ['you', 'more', 'profile']
+                    };
+                    return (aliases[tab] || []).includes(current);
+                },
+                goCreate(screenId) {
+                    this.showCreateSheet = false;
+                    this.$root.goToScreen(screenId);
+                }
+            }
         });
 
         // Register screen components dynamically

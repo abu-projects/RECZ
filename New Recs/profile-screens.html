@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recz Onboarding &amp; Authentication</title>
+    <title>Recz Profile Screens - Dark and Light</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -732,9 +733,206 @@
                 padding: 1.5rem;
             }
         }
+
+        .profile-screen-pack .storyboard-section {
+            display: none;
+        }
+
+        .profile-screen-pack .profile-section-pack {
+            display: block;
+            min-height: 100vh;
+            padding-top: 3rem;
+        }
+
+        .profile-screen-pack .profile-section-pack .screens-container {
+            padding-top: 0;
+        }
+
+        .profile-screen-pack .profile-section-pack .iphone-frame {
+            height: auto;
+            min-height: 80px;
+            overflow: hidden;
+        }
+
+        .profile-screen-pack .profile-section-pack .iphone-frame > div:not(.notch),
+        .profile-screen-pack .profile-section-pack .content-scroll {
+            height: auto !important;
+            min-height: 80px;
+            overflow: visible !important;
+        }
+
+        .profile-screen-pack .profile-section-pack .content-scroll {
+            flex-grow: 0;
+        }
+
+        .profile-screen-pack .profile-section-pack .bottom-nav-bar {
+            position: relative;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            width: calc(100% - 36px);
+            margin: 0 18px 18px;
+            flex-shrink: 0;
+        }
+
+        .profile-screen-pack {
+            --lt-noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        .profile-screen-pack .profile-light-section {
+            padding-top: 1rem;
+        }
+
+        .profile-screen-pack .light-theme-frame {
+            border-radius: 3.5rem;
+            border: 6px solid #d8d8d8;
+            background-color: #f3f3f3;
+            background-image: var(--lt-noise-bg);
+            color: #262626;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .profile-screen-pack .light-theme-frame .notch {
+            width: 140px;
+            height: 32px;
+            background-color: #d8d8d8;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .profile-screen-pack .light-theme-frame > div:not(.notch),
+        .profile-screen-pack .light-theme-frame .content-scroll,
+        .profile-screen-pack .light-theme-frame [class*="bg-[#050505]"],
+        .profile-screen-pack .light-theme-frame [class*="bg-[#0a0a0a]"],
+        .profile-screen-pack .light-theme-frame [class*="bg-black"] {
+            background-color: #f3f3f3 !important;
+            background-image: var(--lt-noise-bg) !important;
+            color: #262626 !important;
+        }
+
+        .profile-screen-pack .light-theme-frame .glass-panel,
+        .profile-screen-pack .light-theme-frame .apple-glass,
+        .profile-screen-pack .light-theme-frame .apple-glass-light,
+        .profile-screen-pack .light-theme-frame [class*="bg-white/"],
+        .profile-screen-pack .light-theme-frame [class*="bg-white["],
+        .profile-screen-pack .light-theme-frame [class*="bg-rose-500/10"],
+        .profile-screen-pack .light-theme-frame [class*="bg-purple-500/10"],
+        .profile-screen-pack .light-theme-frame [class*="bg-emerald-500/10"] {
+            background-color: rgba(255, 255, 255, 0.7) !important;
+            background-image: var(--lt-noise-bg) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            border-color: rgba(255, 255, 255, 0.8) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .profile-screen-pack .light-theme-frame [class*="bg-rose-500/"],
+        .profile-screen-pack .light-theme-frame [class*="bg-purple-500/"],
+        .profile-screen-pack .light-theme-frame [class*="bg-emerald-500/"],
+        .profile-screen-pack .light-theme-frame [class*="bg-amber-500/"] {
+            background-color: rgba(244, 63, 94, 0.16) !important;
+            border-color: rgba(244, 63, 94, 0.34) !important;
+            box-shadow: 0 8px 24px rgba(244, 63, 94, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.88) !important;
+        }
+
+        .profile-screen-pack .light-theme-frame [class*="bg-gradient-to"],
+        .profile-screen-pack .light-theme-frame [class*="bg-[radial-gradient"] {
+            background-color: transparent !important;
+        }
+
+        .profile-screen-pack .light-theme-frame section[class*="to-black"],
+        .profile-screen-pack .light-theme-frame div[class*="to-black"],
+        .profile-screen-pack .light-theme-frame [class*="from-black"],
+        .profile-screen-pack .light-theme-frame [class*="via-black"] {
+            background: var(--lt-noise-bg), linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%) !important;
+            border-color: rgba(255, 255, 255, 0.8) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .profile-screen-pack .light-theme-frame [class*="text-white"],
+        .profile-screen-pack .light-theme-frame [class*="text-gray-100"],
+        .profile-screen-pack .light-theme-frame [class*="text-neutral-100"] {
+            color: #171717 !important;
+        }
+
+        .profile-screen-pack .light-theme-frame [class*="text-gray-300"],
+        .profile-screen-pack .light-theme-frame [class*="text-gray-400"],
+        .profile-screen-pack .light-theme-frame [class*="text-gray-500"],
+        .profile-screen-pack .light-theme-frame [class*="text-gray-600"],
+        .profile-screen-pack .light-theme-frame [class*="text-neutral-300"],
+        .profile-screen-pack .light-theme-frame [class*="text-neutral-400"],
+        .profile-screen-pack .light-theme-frame [class*="text-neutral-500"],
+        .profile-screen-pack .light-theme-frame [class*="text-neutral-600"] {
+            color: #737373 !important;
+        }
+
+        .profile-screen-pack .light-theme-frame [class*="text-rose-"],
+        .profile-screen-pack .light-theme-frame [class*="text-pink-"],
+        .profile-screen-pack .light-theme-frame [class*="text-purple-"],
+        .profile-screen-pack .light-theme-frame [class*="text-emerald-"],
+        .profile-screen-pack .light-theme-frame [class*="text-amber-"] {
+            color: #e11d48 !important;
+            text-shadow: none !important;
+        }
+
+        .profile-screen-pack .light-theme-frame [class*="border-white/"],
+        .profile-screen-pack .light-theme-frame [class*="border-white["],
+        .profile-screen-pack .light-theme-frame [class*="border-b-white"],
+        .profile-screen-pack .light-theme-frame [class*="border-black/"] {
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .profile-screen-pack .light-theme-frame [class*="border-rose-"],
+        .profile-screen-pack .light-theme-frame [class*="border-pink-"],
+        .profile-screen-pack .light-theme-frame [class*="border-purple-"],
+        .profile-screen-pack .light-theme-frame [class*="border-emerald-"],
+        .profile-screen-pack .light-theme-frame [class*="border-amber-"] {
+            border-color: rgba(244, 63, 94, 0.38) !important;
+        }
+
+        .profile-screen-pack .light-theme-frame button.bg-white,
+        .profile-screen-pack .light-theme-frame [class*="bg-white"][class*="text-black"] {
+            background: linear-gradient(135deg, #f43f5e 0%, #db2777 100%) !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 8px 24px -6px rgba(244, 63, 94, 0.5) !important;
+        }
+
+        .profile-screen-pack .light-theme-frame .bottom-nav-bar {
+            background-color: rgba(255, 255, 255, 0.7);
+            background-image: var(--lt-noise-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .profile-screen-pack .light-theme-frame .bottom-nav-bar .nav-item {
+            color: #737373;
+        }
+
+        .profile-screen-pack .light-theme-frame .bottom-nav-bar .nav-item.text-white {
+            color: #171717 !important;
+        }
+
+        .profile-screen-pack .light-theme-frame .nav-item iconify-icon {
+            filter: none;
+        }
+
+        .profile-screen-pack .light-theme-frame .nav-label {
+            text-shadow: none;
+        }
+
+        .profile-screen-pack .light-theme-frame .nav-label-create {
+            color: #e11d48;
+        }
+
+        .profile-screen-pack .light-theme-frame .nav-create-button {
+            box-shadow: 0 8px 24px -6px rgba(244, 63, 94, 0.5) !important;
+        }
     </style>
 </head>
-<body>
+<body class="profile-screen-pack">
     <div id="app">
         <section class="storyboard-section onboarding-storyboard">
             <div class="prototype-wrapper">
@@ -1454,12 +1652,12 @@
             </div>
         </section>
 
-        <section class="storyboard-section onboarding-storyboard">
+        <section class="storyboard-section onboarding-storyboard profile-section-pack">
             <div class="prototype-wrapper">
                 <div class="max-w-[1400px] mx-auto mb-12">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
-                        <h2 class="section-title text-2xl text-white">Profile</h2>
+                        <h2 class="section-title text-2xl text-white">Profile Screens</h2>
                         <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
                     </div>
                 </div>
@@ -1471,6 +1669,33 @@
                                 <div class="screen-title-inline">{{ screen.id }}. {{ screen.title }}</div>
                             </div>
                             <div class="iphone-frame relative" :class="[screen.showNav ? 'phone-with-nav' : '', screen.showRexy ? 'phone-with-rexy' : '']">
+                                <div class="notch"></div>
+                                <component :is="screen.component" :screen-id="screen.id"></component>
+                                <bottom-nav v-if="screen.showNav" :active-tab="screen.activeTab"></bottom-nav>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <section class="storyboard-section onboarding-storyboard profile-section-pack profile-light-section">
+            <div class="prototype-wrapper">
+                <div class="max-w-[1400px] mx-auto mb-12">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
+                        <h2 class="section-title text-2xl text-white">Profile Screens - Light Theme</h2>
+                        <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
+                    </div>
+                </div>
+
+                <div class="screens-container onboarding-screens">
+                    <template v-for="screen in profileScreens" :key="`light-${screen.id}`">
+                        <div class="storyboard-card">
+                            <div class="mb-3 flex items-center justify-between gap-3">
+                                <div class="screen-title-inline">{{ screen.id }}. {{ screen.title }} - Light</div>
+                            </div>
+                            <div class="iphone-frame light-theme-frame relative" :class="[screen.showNav ? 'phone-with-nav' : '', screen.showRexy ? 'phone-with-rexy' : '']">
                                 <div class="notch"></div>
                                 <component :is="screen.component" :screen-id="screen.id"></component>
                                 <bottom-nav v-if="screen.showNav" :active-tab="screen.activeTab"></bottom-nav>
@@ -8552,7 +8777,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         .filter(Boolean);
                 },
                 profileScreens() {
-                    const profileScreenIds = ['28', '70', '71', '72', '73', '74', '69', '33', '34', '35', '36'];
+                    const profileScreenIds = ['28', '70', '71', '72', '73', '74', '69', '33'];
                     return profileScreenIds
                         .map(id => this.screens.find(screen => screen.id === id))
                         .filter(Boolean);
