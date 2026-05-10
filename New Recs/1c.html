@@ -1032,6 +1032,48 @@
           <div class="px-5 mb-7">
             <div class="flex items-center justify-between mb-3">
               <div>
+                <h2 class="text-base font-medium tracking-tight-m">Active Plans</h2>
+                <p class="text-xs text-neutral-500 mt-0.5">Tonight, upcoming, and drafts with your circle</p>
+              </div>
+              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('51')">Plan together</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-3">
+              <button class="rounded-full bg-rose-500/10 border border-rose-500/20 px-3 py-2 text-xs font-medium text-rose-200">Tonight</button>
+              <button class="rounded-full bg-white/[0.04] border border-white/10 px-3 py-2 text-xs text-neutral-300">Upcoming</button>
+              <button class="rounded-full bg-white/[0.04] border border-white/10 px-3 py-2 text-xs text-neutral-300">Draft plans</button>
+            </div>
+            <div class="space-y-2.5">
+              <button class="card w-full p-3 flex items-center gap-3 text-left border-rose-500/15" @click="$root.goToScreen('52')">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=120&amp;q=80" class="h-12 w-12 rounded-xl object-cover" alt="">
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm font-medium">Dinner at Nori tonight</p>
+                  <p class="mt-0.5 truncate text-xs text-neutral-500">Lina invited you · 4 people going</p>
+                </div>
+                <span class="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-black">Join</span>
+              </button>
+              <button class="card w-full p-3 flex items-center gap-3 text-left border-purple-500/15" @click="$root.goToScreen('52')">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=120&amp;q=80" class="h-12 w-12 rounded-xl object-cover" alt="">
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm font-medium">Gallery walk Friday</p>
+                  <p class="mt-0.5 truncate text-xs text-neutral-500">2 recs linked · vote on dinner after</p>
+                </div>
+                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-500"></iconify-icon>
+              </button>
+              <button class="card w-full p-3 flex items-center gap-3 text-left border-white/10" @click="$root.goToScreen('51')">
+                <div class="h-12 w-12 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                  <iconify-icon icon="solar:pen-new-square-bold" class="text-lg text-rose-200"></iconify-icon>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm font-medium">Rooftop crawl</p>
+                  <p class="mt-0.5 truncate text-xs text-neutral-500">Draft plan · suggest places with Omar</p>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="px-5 mb-7">
+            <div class="flex items-center justify-between mb-3">
+              <div>
                 <h2 class="text-base font-medium tracking-tight-m">Friends Taste</h2>
                 <p class="text-xs text-neutral-500 mt-0.5">What your circle recommended</p>
               </div>
@@ -1206,10 +1248,10 @@
           <div class="px-5 mb-7">
             <div class="flex items-center justify-between mb-3">
               <h2 class="text-base font-medium tracking-tight-m">Shared plans</h2>
-              <button class="text-xs text-neutral-400 font-medium">Create</button>
+              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('51')">Create</button>
             </div>
             <div class="space-y-2.5">
-              <article class="card p-4 border-rose-500/15" style="background: linear-gradient(135deg, rgba(244,63,94,0.08), rgba(255,255,255,0.025));">
+              <article class="card p-4 border-rose-500/15 cursor-pointer" style="background: linear-gradient(135deg, rgba(244,63,94,0.08), rgba(255,255,255,0.025));" @click="$root.goToScreen('52')">
                 <div class="mb-3 flex items-start justify-between gap-3">
                   <div>
                     <p class="text-xs uppercase tracking-[0.15em] text-rose-300">Tonight</p>
@@ -1217,8 +1259,18 @@
                   </div>
                   <span class="rounded-full bg-white/[0.06] border border-white/10 px-2 py-1 text-xs text-neutral-300">4 going</span>
                 </div>
-                <p class="text-xs text-neutral-400">Lina, Maya, Omar · 7:30 PM</p>
-                <button class="mt-4 w-full rounded-xl bg-white py-2.5 text-xs font-semibold text-black">View plan</button>
+                <p class="text-xs text-neutral-400">Lina invited you · 7:30 PM · 2 recs linked</p>
+                <button class="mt-4 w-full rounded-xl bg-white py-2.5 text-xs font-semibold text-black">Join plan</button>
+              </article>
+              <article class="card p-4 border-purple-500/15 cursor-pointer" style="background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(255,255,255,0.025));" @click="$root.goToScreen('52')">
+                <div class="mb-3 flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.15em] text-purple-300">Circle plan</p>
+                    <h3 class="mt-1 text-base font-medium tracking-tight-m">Rooftop crawl</h3>
+                  </div>
+                  <span class="rounded-full bg-white/[0.06] border border-white/10 px-2 py-1 text-xs text-neutral-300">Open invite</span>
+                </div>
+                <p class="text-xs text-neutral-400">6 people going · vote on stop #2</p>
               </article>
 
             </div>
@@ -2367,7 +2419,7 @@
                 <div class="max-w-[1400px] mx-auto mb-12">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
-                        <h2 class="section-title text-2xl text-white">Other Screen</h2>
+                        <h2 class="section-title text-2xl text-white">Other Screens</h2>
                         <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
                     </div>
                 </div>
@@ -2749,9 +2801,45 @@
                     </section>
 
 
+                    <section class="px-5 mb-7">
+                        <div class="mb-3 flex items-center justify-between">
+                            <div>
+                                <h2 class="text-base font-medium tracking-tight-m">Shared plans</h2>
+                                <p class="mt-0.5 text-xs text-neutral-500">Tonight, nearby, and from your circle</p>
+                            </div>
+                            <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('49')">Discover</button>
+                        </div>
+
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                            <article class="card min-w-[245px] shrink-0 overflow-hidden p-0 border-rose-500/15 cursor-pointer" @click="$root.goToScreen('52')">
+                                <div class="relative h-24">
+                                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=480&amp;q=80" class="h-full w-full object-cover" alt="">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                                    <span class="absolute left-3 top-3 rounded-full bg-rose-500/90 px-2.5 py-1 text-xs font-bold text-white">Tonight</span>
+                                </div>
+                                <div class="p-3">
+                                    <h4 class="text-sm font-semibold text-white">Nori + gallery walk</h4>
+                                    <p class="mt-1 text-xs text-neutral-400">Lina invited you · 4 people going</p>
+                                </div>
+                            </article>
+                            <article class="card min-w-[245px] shrink-0 overflow-hidden p-0 border-purple-500/15 cursor-pointer" @click="$root.goToScreen('52')">
+                                <div class="relative h-24">
+                                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=480&amp;q=80" class="h-full w-full object-cover" alt="">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                                    <span class="absolute left-3 top-3 rounded-full bg-purple-500/90 px-2.5 py-1 text-xs font-bold text-white">Nearby</span>
+                                </div>
+                                <div class="p-3">
+                                    <h4 class="text-sm font-semibold text-white">Rooftop crawl tonight</h4>
+                                    <p class="mt-1 text-xs text-neutral-400">Open invite · vote on stop #2</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+
 
                     <div class="px-5 mb-4">
-                        <div class="card p-4 cursor-pointer" @click="$root.goToScreen('52')">
+                        <div class="card p-4 cursor-pointer" @click="$root.goToScreen('25')">
                             <div class="flex items-center justify-between mb-3">
                                 <div>
                                     <p class="text-xs uppercase tracking-[0.15em] text-neutral-500 font-medium">Saved</p>
@@ -3178,6 +3266,44 @@
                         </div>
                     </div>
                 </div>
+
+                <section class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-base font-semibold tracking-tight text-white">Shared plans</h3>
+                            <p class="mt-0.5 text-xs text-gray-500">Tonight, nearby, and from your circle</p>
+                        </div>
+                        <button class="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-semibold text-rose-100" @click="$root.goToScreen('49')">
+                            Discover
+                            <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm"></iconify-icon>
+                        </button>
+                    </div>
+
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                        <article class="min-w-[245px] shrink-0 overflow-hidden rounded-[1.7rem] border border-rose-500/20 bg-white/[0.035] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_38px_rgba(0,0,0,0.32)] backdrop-blur-2xl" @click="$root.goToScreen('52')">
+                            <div class="relative h-24">
+                                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=480&amp;q=80" class="h-full w-full object-cover" alt="">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                                <span class="absolute left-3 top-3 rounded-full bg-rose-500/90 px-2.5 py-1 text-xs font-bold text-white">Tonight</span>
+                            </div>
+                            <div class="p-3">
+                                <h4 class="text-sm font-semibold text-white">Nori + gallery walk</h4>
+                                <p class="mt-1 text-xs text-gray-400">Lina invited you · 4 people going</p>
+                            </div>
+                        </article>
+                        <article class="min-w-[245px] shrink-0 overflow-hidden rounded-[1.7rem] border border-purple-500/20 bg-white/[0.035] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_38px_rgba(0,0,0,0.32)] backdrop-blur-2xl" @click="$root.goToScreen('52')">
+                            <div class="relative h-24">
+                                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=480&amp;q=80" class="h-full w-full object-cover" alt="">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                                <span class="absolute left-3 top-3 rounded-full bg-purple-500/90 px-2.5 py-1 text-xs font-bold text-white">Nearby</span>
+                            </div>
+                            <div class="p-3">
+                                <h4 class="text-sm font-semibold text-white">Rooftop crawl tonight</h4>
+                                <p class="mt-1 text-xs text-gray-400">Open invite · vote on stop #2</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
 
                 <section class="mb-7">
                     <div class="mb-3 flex items-center justify-between">
@@ -3890,7 +4016,7 @@
                     <p class="text-sm text-gray-200 mb-4">You both love Japanese food and have saved places in Downtown LA. You should check out <span class="font-semibold text-rose-400">Izakaya Osen</span> together.</p>
                     <div class="flex gap-2">
                         <button class="flex-1 glass-panel py-2.5 rounded-xl text-xs font-medium border-white/10">View Place</button>
-                        <button class="flex-1 accent-gradient py-2.5 rounded-xl text-xs font-semibold shadow-[0_2px_10px_rgba(244,63,94,0.3)]">Plan Together</button>
+                        <button class="flex-1 accent-gradient py-2.5 rounded-xl text-xs font-semibold shadow-[0_2px_10px_rgba(244,63,94,0.3)]">Plan together</button>
                     </div>
                 </div>
             </div>
@@ -4364,7 +4490,7 @@
                 </div>
 
                 <div v-else class="space-y-3 pb-8">
-                    <article class="flex gap-4 rounded-2xl border border-rose-500/20 bg-gradient-to-r from-rose-500/[0.05] to-transparent p-4">
+                    <article class="flex gap-4 rounded-2xl border border-rose-500/20 bg-gradient-to-r from-rose-500/[0.05] to-transparent p-4 cursor-pointer" @click="$root.goToScreen('52')">
                         <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl border border-rose-500/20 bg-rose-500/10">
                             <div class="text-xs font-medium uppercase text-rose-300">Nov</div>
                             <div class="text-base font-semibold text-rose-100">12</div>
@@ -4376,14 +4502,14 @@
                         </div>
                     </article>
 
-                    <article class="flex gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+                    <article class="flex gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 cursor-pointer" @click="$root.goToScreen('52')">
                         <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl border border-white/10 bg-white/5">
                             <div class="text-xs font-medium uppercase text-gray-500">Sep</div>
                             <div class="text-base font-semibold text-gray-300">28</div>
                         </div>
                         <div class="flex flex-col justify-center">
                             <h4 class="text-sm font-medium text-gray-300">Natural wine night</h4>
-                            <p class="mt-0.5 text-xs text-gray-500">Silver Lake · past event</p>
+                            <p class="mt-0.5 text-xs text-gray-500">Silver Lake · past plan</p>
                         </div>
                     </article>
                 </div>
@@ -5256,7 +5382,7 @@
             <div class="glass-bottom absolute inset-x-0 bottom-0 z-40 px-5 pb-6 pt-8">
                 <div class="grid grid-cols-2 gap-3">
                     <button class="rounded-full border border-white/15 bg-white/[0.07] px-3 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl transition hover:bg-white/[0.11]" @click="$root.goToScreen('41')">Unfollow</button>
-                    <button class="rounded-full border border-white/15 bg-white/[0.07] px-3 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl transition hover:bg-white/[0.11]" @click="$root.goToScreen('52')">Message</button>
+                    <button class="rounded-full border border-white/15 bg-white/[0.07] px-3 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl transition hover:bg-white/[0.11]" @click="$root.goToScreen('41')">Message</button>
                 </div>
             </div>
         </div>
@@ -5744,45 +5870,68 @@
         </div>
     </template>
 
-    <!-- 49. Events Feed -->
+    <!-- 49. Plans Feed -->
     <template id="screen-49">
         <div class="w-full h-full relative bg-[#050505]">
             <div class="glass-nav absolute top-0 left-0 w-full pt-14 pb-4 px-5 z-40 border-b border-white/5">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-bold">Events</h2>
+                    <h2 class="text-2xl font-bold">Plans</h2>
                     <div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
                         <iconify-icon icon="solar:magnifer-linear" class="text-sm"></iconify-icon>
                     </div>
                 </div>
                 <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-                    <div class="glass-panel px-4 py-1.5 rounded-full text-xs border-rose-500/50 text-rose-400 whitespace-nowrap">This Week</div>
-                    <div class="glass-panel px-4 py-1.5 rounded-full text-xs opacity-70 whitespace-nowrap">Music</div>
-                    <div class="glass-panel px-4 py-1.5 rounded-full text-xs opacity-70 whitespace-nowrap">Food & Drink</div>
+                    <div class="glass-panel px-4 py-1.5 rounded-full text-xs border-rose-500/50 text-rose-400 whitespace-nowrap">Tonight</div>
+                    <div class="glass-panel px-4 py-1.5 rounded-full text-xs opacity-70 whitespace-nowrap">Nearby</div>
+                    <div class="glass-panel px-4 py-1.5 rounded-full text-xs opacity-70 whitespace-nowrap">Circle Plans</div>
+                    <div class="glass-panel px-4 py-1.5 rounded-full text-xs opacity-70 whitespace-nowrap">Open Invites</div>
                 </div>
             </div>
 
             <div class="content-scroll pt-36 px-5 relative z-10 pb-24">
-                <div class="glass-panel rounded-2xl overflow-hidden mb-5 border-white/10">
+                <div class="glass-panel rounded-2xl overflow-hidden mb-5 border-rose-500/20" @click="$root.goToScreen('52')">
                     <div class="h-40 relative">
-                        <img src="https://images.unsplash.com/photo-1540039155732-61ee83f6057a?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                         <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-xl p-2 text-center w-12">
-                            <div class="text-xs text-rose-400 font-bold uppercase tracking-wider">OCT</div>
-                            <div class="text-lg font-bold leading-none">24</div>
+                            <div class="text-xs text-rose-400 font-bold uppercase tracking-wider">TON</div>
+                            <div class="text-lg font-bold leading-none">7:30</div>
                         </div>
+                        <div class="absolute bottom-3 left-3 rounded-full bg-rose-500/90 px-3 py-1 text-xs font-bold text-white">Lina invited you</div>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-semibold text-base mb-1">Underground Jazz Night</h3>
+                        <h3 class="font-semibold text-base mb-1">Nori + gallery walk</h3>
                         <p class="text-xs text-gray-400 mb-3 flex items-center gap-1">
-                            <iconify-icon icon="solar:map-point-linear" class="text-rose-400"></iconify-icon> The Blue Whale, DTLA
+                            <iconify-icon icon="solar:map-point-linear" class="text-rose-400"></iconify-icon> Nori Handrolls, Los Feliz
                         </p>
                         <div class="flex justify-between items-center">
                             <div class="flex -space-x-2">
                                 <img src="https://i.pravatar.cc/100?img=5" class="w-6 h-6 rounded-full border border-black">
                                 <img src="https://i.pravatar.cc/100?img=3" class="w-6 h-6 rounded-full border border-black">
-                                <div class="w-6 h-6 rounded-full bg-white/20 border border-black flex items-center justify-center text-[8px]">+12</div>
+                                <div class="w-6 h-6 rounded-full bg-white/20 border border-black flex items-center justify-center text-[8px]">+2</div>
                             </div>
-                            <button class="bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-full text-xs font-semibold">RSVP</button>
+                            <button class="bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-full text-xs font-semibold">Join Plan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden mb-5 border-purple-500/20" @click="$root.goToScreen('52')">
+                    <div class="p-4">
+                        <div class="mb-3 flex items-start justify-between gap-3">
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.15em] text-purple-300">Open invite</p>
+                                <h3 class="mt-1 text-base font-semibold">Rooftop crawl tonight</h3>
+                            </div>
+                            <span class="rounded-full bg-white/[0.06] border border-white/10 px-2 py-1 text-xs text-neutral-300">Nearby</span>
+                        </div>
+                        <p class="mb-3 text-xs text-gray-400">Weekend crawl tonight · 6 people going · vote on the second stop</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-2">
+                                <img src="https://i.pravatar.cc/100?img=12" class="w-6 h-6 rounded-full border border-black">
+                                <img src="https://i.pravatar.cc/100?img=15" class="w-6 h-6 rounded-full border border-black">
+                                <div class="w-6 h-6 rounded-full bg-white/20 border border-black flex items-center justify-center text-[8px]">+4</div>
+                            </div>
+                            <button class="bg-white text-black px-4 py-1.5 rounded-full text-xs font-semibold">Plan together</button>
                         </div>
                     </div>
                 </div>
@@ -5791,44 +5940,246 @@
         </div>
     </template>
 
-    <!-- 52. Saved Hub -->
+    <!-- 52. Plan Details -->
     <template id="screen-52">
         <div class="w-full h-full relative bg-[#050505]">
             <div class="glass-nav absolute top-0 left-0 w-full pt-14 pb-4 px-5 z-40 border-b border-white/5">
-                <h2 class="text-2xl font-bold mb-4">Saved</h2>
-                <div class="flex gap-4 items-center">
-                    <span class="font-bold text-sm text-white border-b-2 border-rose-500 pb-1">All Items</span>
-                    <span class="font-medium text-sm text-gray-500">Places</span>
-                    <span class="font-medium text-sm text-gray-500">Movies</span>
+                <div class="flex items-center justify-between">
+                    <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center" @click="$root.goToScreen('08')" aria-label="Back">
+                        <iconify-icon icon="solar:alt-arrow-left-linear" class="text-lg"></iconify-icon>
+                    </button>
+                    <h2 class="text-sm font-semibold text-white">Plan Details</h2>
+                    <button class="w-9 h-9 rounded-full glass-panel flex items-center justify-center" aria-label="Plan menu" @click="$root.planMenuOpen = true">
+                        <iconify-icon icon="solar:menu-dots-bold" class="text-lg"></iconify-icon>
+                    </button>
                 </div>
             </div>
 
-            <div class="content-scroll pt-32 px-5 relative z-10 pb-24">
-                <div class="grid grid-cols-2 gap-3 mt-4">
-                    <div class="glass-panel rounded-2xl p-2 border-white/10">
-                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=200" class="w-full h-24 object-cover rounded-xl mb-2">
-                        <div class="px-1 mb-1">
-                            <h4 class="font-semibold text-xs truncate">Mizlala At The Park</h4>
-                            <p class="text-xs text-gray-400 truncate">Restaurant</p>
+            <div class="content-scroll no-scrollbar absolute inset-0 z-10 overflow-y-auto overflow-x-hidden px-5 pb-44 pt-28">
+                <div class="mb-4 rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_18px_42px_rgba(0,0,0,0.34)] backdrop-blur-2xl">
+                    <div class="relative h-40 overflow-hidden rounded-[1.35rem]">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80&w=600" class="h-full w-full object-cover opacity-90" alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                        <div class="absolute left-3 top-3 flex h-14 w-14 flex-col items-center justify-center rounded-2xl border border-rose-300/20 bg-black/55 backdrop-blur-xl">
+                            <span class="text-xs font-bold uppercase tracking-[0.12em] text-rose-300">Nov</span>
+                            <span class="text-lg font-bold leading-none text-white">12</span>
+                        </div>
+                        <span class="absolute right-3 top-3 rounded-full border border-white/10 bg-black/45 px-3 py-1 text-xs font-semibold text-white backdrop-blur-xl">Upcoming</span>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h1 class="text-2xl font-bold tracking-tight text-white">Gallery dinner crawl</h1>
+                            <div class="mt-2 flex flex-wrap items-center gap-2 text-xs text-gray-300">
+                                <span class="inline-flex items-center gap-1"><iconify-icon icon="solar:map-point-bold" class="text-rose-300"></iconify-icon> Downtown</span>
+                                <span class="text-gray-600">·</span>
+                                <span>6 people interested</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="glass-panel rounded-2xl p-2 border-white/10">
-                        <img src="https://images.unsplash.com/photo-1542051842-125026bb46d2?auto=format&fit=crop&q=80&w=200" class="w-full h-24 object-cover rounded-xl mb-2">
-                        <div class="px-1 mb-1">
-                            <h4 class="font-semibold text-xs truncate">Tokyo Trip Idea</h4>
-                            <p class="text-xs text-gray-400 truncate">List</p>
+                    <div class="p-4">
+                        <div class="mb-3 flex items-center justify-between gap-3">
+                            <span class="rounded-full border border-purple-500/25 bg-purple-500/10 px-3 py-1.5 text-xs font-semibold text-purple-100">Circle Plan</span>
+                            <span class="text-xs text-gray-500">Starts at 7:30 PM</span>
+                        </div>
+                        <p class="text-sm leading-6 text-gray-300">Dinner, gallery walk, and late coffee with your circle.</p>
+                    </div>
+                </div>
+
+                <section class="mb-5">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h3 class="text-sm font-semibold text-white">Going tonight</h3>
+                        <span class="text-xs font-medium text-rose-200">Invited by Lina</span>
+                    </div>
+                    <div class="rounded-3xl border border-rose-500/15 bg-rose-500/[0.045] p-4">
+                        <div class="mb-3 flex items-center justify-between gap-3">
+                            <div class="flex -space-x-3">
+                                <img src="https://i.pravatar.cc/100?img=5" class="h-11 w-11 rounded-full border-2 border-[#050505] object-cover" alt="Lina">
+                                <img src="https://i.pravatar.cc/100?img=12" class="h-11 w-11 rounded-full border-2 border-[#050505] object-cover" alt="Omar">
+                                <img src="https://i.pravatar.cc/100?img=32" class="h-11 w-11 rounded-full border-2 border-[#050505] object-cover" alt="Maya">
+                                <img src="https://i.pravatar.cc/100?img=1" class="h-11 w-11 rounded-full border-2 border-[#050505] object-cover" alt="Alex">
+                                <div class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#050505] bg-white/10 text-xs font-bold text-white">+4</div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-white">Lina, Omar, Maya, Alex</p>
+                                <p class="mt-0.5 text-xs text-gray-400">3 people from your Taste Circle</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 overflow-x-auto no-scrollbar">
+                            <button class="shrink-0 rounded-full border border-white/10 bg-white/[0.07] px-3 py-2 text-xs font-semibold text-white">Invite</button>
+                            <button class="shrink-0 rounded-full border border-white/10 bg-white/[0.07] px-3 py-2 text-xs font-semibold text-white">Group Chat</button>
+                            <button class="shrink-0 rounded-full border border-white/10 bg-white/[0.07] px-3 py-2 text-xs font-semibold text-white">Share</button>
+                            <button class="shrink-0 rounded-full border border-purple-500/25 bg-purple-500/10 px-3 py-2 text-xs font-semibold text-purple-100">Edit</button>
                         </div>
                     </div>
-                    <div class="glass-panel rounded-2xl p-2 border-white/10">
-                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=200" class="w-full h-24 object-cover rounded-xl mb-2">
-                        <div class="px-1 mb-1">
-                            <h4 class="font-semibold text-xs truncate">Paris Fall 2026</h4>
-                            <p class="text-xs text-gray-400 truncate">Plan</p>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="mb-3 text-sm font-semibold text-white">Activity</h3>
+                    <div class="rounded-3xl border border-white/10 bg-white/[0.03] px-4 py-1">
+                        <div class="flex items-center gap-3 py-3">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/15 text-purple-200"><iconify-icon icon="solar:chart-square-bold" class="text-sm"></iconify-icon></span>
+                            <p class="flex-1 text-sm text-gray-300"><span class="font-semibold text-white">Omar</span> voted on dinner spot</p>
+                            <span class="text-xs text-gray-500">4m</span>
                         </div>
+                        <div class="h-px bg-white/5"></div>
+                        <div class="flex items-center gap-3 py-3">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-rose-500/15 text-rose-200"><iconify-icon icon="solar:map-point-bold" class="text-sm"></iconify-icon></span>
+                            <p class="flex-1 text-sm text-gray-300"><span class="font-semibold text-white">Lina</span> added Late Coffee Bar</p>
+                            <span class="text-xs text-gray-500">18m</span>
+                        </div>
+                        <div class="h-px bg-white/5"></div>
+                        <div class="flex items-center gap-3 py-3">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.07] text-gray-300"><iconify-icon icon="solar:user-plus-bold" class="text-sm"></iconify-icon></span>
+                            <p class="flex-1 text-sm text-gray-300"><span class="font-semibold text-white">Maya</span> invited 2 people</p>
+                            <span class="text-xs text-gray-500">31m</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="mb-3 text-sm font-semibold text-white">Places in this plan</h3>
+                    <div class="space-y-2.5">
+                        <article class="rounded-2xl border border-white/10 bg-white/[0.04] p-3">
+                            <div class="flex items-start gap-3">
+                                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=160" class="h-14 w-14 rounded-xl object-cover" alt="">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center justify-between gap-3">
+                                        <h4 class="truncate text-sm font-semibold text-white">Nori Handrolls</h4>
+                                        <button class="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-black">View</button>
+                                    </div>
+                                    <p class="mt-0.5 truncate text-xs text-gray-500">Quiet sushi counter · 4.8 · 12 saves</p>
+                                    <p class="mt-2 text-xs leading-5 text-gray-300">Nori before the gallery. Added by Lina because it fits your low-key dinner taste.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="rounded-2xl border border-white/10 bg-white/[0.04] p-3">
+                            <div class="flex items-start gap-3">
+                                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80&w=160" class="h-14 w-14 rounded-xl object-cover" alt="">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center justify-between gap-3">
+                                        <h4 class="truncate text-sm font-semibold text-white">Museum of Art</h4>
+                                        <button class="rounded-full bg-white/[0.07] border border-white/10 px-3 py-1.5 text-xs font-bold text-white">View</button>
+                                    </div>
+                                    <p class="mt-0.5 truncate text-xs text-gray-500">Gallery stop · 4.7 · 8 saves</p>
+                                    <p class="mt-2 text-xs leading-5 text-gray-300">Maya added this for the new photo show. Short walk from dinner.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="rounded-2xl border border-white/10 bg-white/[0.04] p-3">
+                            <div class="flex items-start gap-3">
+                                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=160" class="h-14 w-14 rounded-xl object-cover" alt="">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center justify-between gap-3">
+                                        <h4 class="truncate text-sm font-semibold text-white">Late Coffee Bar</h4>
+                                        <button class="rounded-full bg-white/[0.07] border border-white/10 px-3 py-1.5 text-xs font-bold text-white">View</button>
+                                    </div>
+                                    <p class="mt-0.5 truncate text-xs text-gray-500">Coffee after 9pm · 4.6 · 5 saves</p>
+                                    <p class="mt-2 text-xs leading-5 text-gray-300">Alex suggested it for an easy last stop if the group wants to keep talking.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="mb-5 rounded-3xl border border-purple-500/15 bg-white/[0.035] p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-semibold text-white">Vote on the plan</h3>
+                            <p class="mt-0.5 text-xs text-gray-500">Where should we start?</p>
+                        </div>
+                        <span class="text-xs font-medium text-gray-400">Poll closes tonight</span>
+                    </div>
+                    <div class="space-y-2.5">
+                        <button class="relative flex h-11 w-full items-center overflow-hidden rounded-2xl border border-rose-500/20 bg-white/[0.05] px-3 text-left">
+                            <div class="absolute left-0 top-0 h-full bg-rose-500/16" style="width: 65%"></div>
+                            <span class="relative z-10 text-xs font-semibold text-white">Nori Handrolls</span>
+                            <span class="relative z-10 ml-auto text-xs font-semibold text-rose-100">65%</span>
+                        </button>
+                        <button class="relative flex h-11 w-full items-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] px-3 text-left">
+                            <div class="absolute left-0 top-0 h-full bg-white/10" style="width: 35%"></div>
+                            <span class="relative z-10 text-xs font-medium text-gray-300">Museum first</span>
+                            <span class="relative z-10 ml-auto text-xs text-gray-400">35%</span>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="mb-3 text-sm font-semibold text-white">Schedule</h3>
+                    <div class="rounded-3xl border border-white/10 bg-white/[0.035] p-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-300">Dinner</span>
+                                <span class="text-sm font-semibold text-white">7:30 PM</span>
+                            </div>
+                            <div class="h-px bg-white/5"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-300">Gallery walk</span>
+                                <span class="text-sm font-semibold text-white">9:00 PM</span>
+                            </div>
+                            <div class="h-px bg-white/5"></div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-300">Coffee</span>
+                                <span class="text-sm font-semibold text-white">10:15 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h3 class="text-sm font-semibold text-white">Group chat preview</h3>
+                        <button class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-semibold text-rose-200">Open Chat</button>
+                    </div>
+                    <div class="space-y-2.5">
+                        <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                            <p class="text-sm text-gray-200"><span class="font-semibold text-white">Lina:</span> Nori before the gallery?</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                            <p class="text-sm text-gray-200"><span class="font-semibold text-white">Omar:</span> I'm good after 7:30.</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                            <p class="text-sm text-gray-200"><span class="font-semibold text-white">Maya:</span> I can bring Sam too.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div v-if="$root.planMenuOpen" class="absolute inset-0 z-50 bg-black/55 backdrop-blur-sm" @click.self="$root.planMenuOpen = false">
+                <div class="absolute bottom-0 left-0 w-full rounded-t-[2rem] border-t border-white/10 bg-[#101010] p-5 pb-8 shadow-[0_-20px_60px_rgba(0,0,0,0.55)]">
+                    <div class="mx-auto mb-5 h-1.5 w-12 rounded-full bg-white/20"></div>
+                    <h3 class="mb-4 text-center text-base font-semibold text-white">Plan options</h3>
+                    <div class="space-y-2">
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-left text-sm font-semibold text-white">
+                            <iconify-icon icon="solar:pen-new-square-linear" class="text-lg text-gray-300"></iconify-icon> Edit Plan
+                        </button>
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-left text-sm font-semibold text-white">
+                            <iconify-icon icon="solar:user-plus-linear" class="text-lg text-gray-300"></iconify-icon> Invite People
+                        </button>
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-left text-sm font-semibold text-white">
+                            <iconify-icon icon="solar:share-linear" class="text-lg text-gray-300"></iconify-icon> Share Plan
+                        </button>
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-left text-sm font-semibold text-white">
+                            <iconify-icon icon="solar:logout-2-linear" class="text-lg text-gray-300"></iconify-icon> Leave Plan
+                        </button>
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-rose-500/20 bg-rose-500/[0.06] px-4 py-3 text-left text-sm font-semibold text-rose-100">
+                            <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="text-lg text-rose-200"></iconify-icon> Cancel Plan
+                        </button>
+                        <button class="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-left text-sm font-semibold text-gray-300">
+                            <iconify-icon icon="solar:flag-linear" class="text-lg text-gray-400"></iconify-icon> Report
+                        </button>
                     </div>
                 </div>
             </div>
             
+            <div class="glass-bottom absolute bottom-0 left-0 w-full p-5 pb-8 z-40 border-t border-white/5">
+                <div class="grid grid-cols-[48px_48px_1fr] gap-3">
+                    <button class="rounded-2xl border border-white/10 bg-white/[0.06] text-white flex items-center justify-center" aria-label="Message">
+                        <iconify-icon icon="solar:chat-round-dots-linear" class="text-lg"></iconify-icon>
+                    </button>
+                    <button class="rounded-2xl border border-white/10 bg-white/[0.06] text-white flex items-center justify-center" aria-label="Share">
+                        <iconify-icon icon="solar:share-linear" class="text-lg"></iconify-icon>
+                    </button>
+                    <button class="accent-gradient rounded-2xl py-3 text-sm font-bold text-white shadow-[0_4px_20px_rgba(244,63,94,0.35)]">Join Plan</button>
+                </div>
+            </div>
         </div>
     </template>
 
@@ -6228,7 +6579,7 @@
         </div>
     </template>
 
-    <!-- 50. Event Detail -->
+    <!-- 50. Plan Detail Alt -->
     <template id="screen-50">
         <div class="w-full h-full relative bg-[#050505]">
             <div class="h-64 relative">
@@ -6249,8 +6600,8 @@
 
             <div class="content-scroll px-5 relative z-10 -mt-16 pb-24">
                 <div class="glass-panel rounded-3xl p-5 border-white/10 mb-6 bg-[#050505]/80 backdrop-blur-xl">
-                    <div class="text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">Live Music</div>
-                    <h2 class="text-2xl font-bold mb-4">Underground Jazz Night</h2>
+                    <div class="text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">Open invite</div>
+                    <h2 class="text-2xl font-bold mb-4">Underground jazz plan</h2>
                     
                     <div class="space-y-4 mb-6">
                         <div class="flex items-center gap-3">
@@ -6285,7 +6636,7 @@
                 </div>
 
                 <h3 class="font-semibold mb-2">About</h3>
-                <p class="text-sm text-gray-400 leading-relaxed mb-6">Join us for an intimate evening of live jazz featuring the Marcus Roberts Trio. Exclusive cocktails and a low-key vibe.</p>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">A low-key jazz night with cocktails after. Vote on whether to meet for dinner first.</p>
                 
                 <button class="w-full glass-panel py-3 rounded-2xl border-white/20 font-semibold mb-3 flex justify-center items-center gap-2">
                     <iconify-icon icon="solar:magic-stick-3-bold" class="text-purple-400"></iconify-icon> Ask Rexy if this fits my vibe
@@ -6293,7 +6644,7 @@
             </div>
             
             <div class="glass-bottom absolute bottom-0 left-0 w-full p-5 pb-8 z-40 border-t border-white/5">
-                <button class="w-full accent-gradient py-4 rounded-2xl font-semibold shadow-[0_4px_20px_rgba(244,63,94,0.4)]">RSVP Going</button>
+                <button class="w-full accent-gradient py-4 rounded-2xl font-semibold shadow-[0_4px_20px_rgba(244,63,94,0.4)]">Join Plan</button>
             </div>
         </div>
     </template>
@@ -6678,70 +7029,146 @@
     <!-- 31. Plan Detail -->
     <template id="screen-31">
         <div class="w-full h-full relative bg-[#050505]">
-            <div class="h-60 relative rounded-b-[2rem] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover opacity-80">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-black/60"></div>
+            <div class="h-72 relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover opacity-85">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/45 to-black/55"></div>
                 
                 <div class="absolute top-14 left-5 right-5 flex justify-between items-center z-20">
                     <div class="w-10 h-10 rounded-full glass-panel bg-black/40 flex items-center justify-center">
                         <iconify-icon icon="solar:alt-arrow-left-linear" class="text-xl"></iconify-icon>
                     </div>
-                    <div class="w-10 h-10 rounded-full glass-panel bg-black/40 flex items-center justify-center">
-                        <iconify-icon icon="solar:menu-dots-linear" class="text-xl"></iconify-icon>
+                    <div class="flex gap-2">
+                        <div class="w-10 h-10 rounded-full glass-panel bg-black/40 flex items-center justify-center">
+                            <iconify-icon icon="solar:bookmark-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <div class="w-10 h-10 rounded-full glass-panel bg-black/40 flex items-center justify-center">
+                            <iconify-icon icon="solar:share-linear" class="text-xl"></iconify-icon>
+                        </div>
                     </div>
                 </div>
 
-                <div class="absolute bottom-6 left-5 z-20">
-                    <h2 class="text-3xl font-bold text-white mb-1">Paris Fall 2026</h2>
-                    <p class="text-sm text-gray-300 flex items-center gap-2"><iconify-icon icon="solar:calendar-date-linear"></iconify-icon> Nov 12 - Nov 15</p>
+                <div class="absolute bottom-6 left-5 right-5 z-20">
+                    <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-rose-300/20 bg-rose-500/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-rose-100 backdrop-blur-xl">Tonight</div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Nori + gallery walk</h2>
+                    <p class="text-sm text-gray-300 flex items-center gap-2"><iconify-icon icon="solar:user-circle-bold"></iconify-icon> Hosted by Lina K. · Circle plan</p>
                 </div>
             </div>
 
-            <div class="content-scroll px-5 pt-6 relative z-10 pb-20">
-                <!-- Day Tabs -->
-                <div class="flex gap-3 overflow-x-auto no-scrollbar mb-6 pb-2">
-                    <div class="glass-panel px-5 py-2.5 rounded-full border-rose-500/50 bg-rose-500/20 text-sm font-bold shrink-0">Day 1 • Nov 12</div>
-                    <div class="glass-panel px-5 py-2.5 rounded-full border-white/10 text-sm font-medium text-gray-400 shrink-0">Day 2</div>
-                    <div class="glass-panel px-5 py-2.5 rounded-full border-white/10 text-sm font-medium text-gray-400 shrink-0">Day 3</div>
-                </div>
-
-                <!-- Timeline -->
-                <div class="relative pl-6 border-l-2 border-white/10 space-y-8">
-                    <!-- Morning -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 w-4 h-4 bg-rose-500 rounded-full border-4 border-[#050505]"></div>
-                        <h3 class="text-xs font-bold text-rose-400 uppercase tracking-wider mb-3">Morning</h3>
-                        
-                        <div class="glass-panel p-3 rounded-2xl flex gap-3 items-center bg-white/5 border-white/10">
-                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=200" class="w-16 h-16 rounded-xl object-cover">
-                            <div class="flex-1">
-                                <h4 class="font-bold text-sm">Café de Flore</h4>
-                                <p class="text-xs text-gray-400">Coffee & Pastries</p>
-                            </div>
-                            <div class="text-xs font-bold text-white bg-black/50 px-2 py-1 rounded">10:00 AM</div>
+            <div class="content-scroll px-5 pt-5 relative z-10 pb-32">
+                <div class="glass-panel rounded-3xl p-4 border-white/10 bg-white/[0.045] mb-5">
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-3">
+                            <div class="text-xs uppercase tracking-[0.16em] text-gray-500">When</div>
+                            <div class="mt-1 text-sm font-semibold text-white">Today · 7:30 PM</div>
+                        </div>
+                        <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-3">
+                            <div class="text-xs uppercase tracking-[0.16em] text-gray-500">Where</div>
+                            <div class="mt-1 text-sm font-semibold text-white">Los Feliz</div>
                         </div>
                     </div>
-
-                    <!-- Afternoon -->
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1 w-4 h-4 bg-gray-500 rounded-full border-4 border-[#050505]"></div>
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Afternoon</h3>
-                        
-                        <div class="glass-panel p-3 rounded-2xl flex gap-3 items-center bg-white/5 border-white/10">
-                            <div class="w-16 h-16 rounded-xl bg-black/40 flex items-center justify-center border border-white/5 text-gray-500">
-                                <iconify-icon icon="solar:add-circle-linear" class="text-2xl"></iconify-icon>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="flex -space-x-2">
+                                <img src="https://i.pravatar.cc/100?img=5" class="w-8 h-8 rounded-full border-2 border-[#050505]">
+                                <img src="https://i.pravatar.cc/100?img=12" class="w-8 h-8 rounded-full border-2 border-[#050505]">
+                                <img src="https://i.pravatar.cc/100?img=15" class="w-8 h-8 rounded-full border-2 border-[#050505]">
+                                <div class="w-8 h-8 rounded-full bg-white/15 border-2 border-[#050505] flex items-center justify-center text-[10px] font-bold">+1</div>
                             </div>
-                            <div class="flex-1">
-                                <h4 class="font-bold text-sm text-gray-400">Add Lunch Spot</h4>
+                            <span class="text-xs font-medium text-gray-300">4 people going</span>
+                        </div>
+                        <button class="rounded-full bg-white/[0.06] border border-white/10 px-3 py-2 text-xs font-semibold text-white">Invite</button>
+                    </div>
+                </div>
+
+                <section class="mb-5">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h3 class="text-sm font-semibold text-white">Linked recommendations</h3>
+                        <button class="text-xs font-medium text-rose-300">Suggest places</button>
+                    </div>
+                    <div class="space-y-2.5">
+                        <div class="glass-panel p-3 rounded-2xl flex gap-3 items-center bg-white/5 border-rose-500/15">
+                            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=200" class="w-14 h-14 rounded-xl object-cover">
+                            <div class="min-w-0 flex-1">
+                                <h4 class="font-bold text-sm truncate">Nori Handrolls</h4>
+                                <p class="text-xs text-gray-400">Dinner · 94% fit · Lina saved</p>
+                            </div>
+                            <span class="rounded-full bg-rose-500/15 px-2 py-1 text-xs text-rose-200">Pick</span>
+                        </div>
+                        <div class="glass-panel p-3 rounded-2xl flex gap-3 items-center bg-white/5 border-white/10">
+                            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80&w=200" class="w-14 h-14 rounded-xl object-cover">
+                            <div class="min-w-0 flex-1">
+                                <h4 class="font-bold text-sm truncate">Hillhurst Gallery</h4>
+                                <p class="text-xs text-gray-400">After dinner · 8 min walk</p>
+                            </div>
+                            <span class="rounded-full bg-white/[0.06] px-2 py-1 text-xs text-gray-300">Linked</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-5 glass-panel rounded-3xl p-4 border-purple-500/20 bg-purple-900/10">
+                    <div class="mb-3 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-semibold text-white">Vote</h3>
+                            <p class="text-xs text-gray-500">Pick the after-dinner stop</p>
+                        </div>
+                        <span class="text-xs text-purple-200">8 votes</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="relative h-10 overflow-hidden rounded-2xl border border-rose-500/20 bg-white/5 px-3 flex items-center">
+                            <div class="absolute left-0 top-0 h-full bg-rose-500/20" style="width: 62%"></div>
+                            <span class="relative z-10 text-xs font-semibold text-white">Gallery first</span>
+                            <span class="relative z-10 ml-auto text-xs text-rose-100">62%</span>
+                        </div>
+                        <div class="relative h-10 overflow-hidden rounded-2xl border border-white/10 bg-white/5 px-3 flex items-center">
+                            <div class="absolute left-0 top-0 h-full bg-white/10" style="width: 38%"></div>
+                            <span class="relative z-10 text-xs text-gray-300">Coffee after</span>
+                            <span class="relative z-10 ml-auto text-xs text-gray-400">38%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="mb-3 text-sm font-semibold text-white">Chat</h3>
+                    <div class="space-y-3">
+                        <div class="flex gap-2">
+                            <img src="https://i.pravatar.cc/100?img=5" class="w-8 h-8 rounded-full">
+                            <div class="rounded-2xl rounded-tl-sm bg-white/[0.06] border border-white/10 px-3 py-2">
+                                <p class="text-xs font-semibold text-rose-200">Lina</p>
+                                <p class="text-sm text-gray-200">I booked 4 seats at the counter.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <div class="rounded-2xl rounded-tr-sm bg-rose-500/15 border border-rose-500/20 px-3 py-2">
+                                <p class="text-sm text-white">I'm in. Gallery after?</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h3 class="text-sm font-semibold text-white">Shared media</h3>
+                        <button class="text-xs font-medium text-gray-400">Add</button>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=180&amp;q=80" class="h-20 w-full rounded-xl object-cover" alt="">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=180&amp;q=80" class="h-20 w-full rounded-xl object-cover" alt="">
+                        <div class="h-20 rounded-xl border border-dashed border-white/20 bg-white/[0.04] flex items-center justify-center">
+                            <iconify-icon icon="solar:gallery-add-linear" class="text-xl text-gray-500"></iconify-icon>
+                        </div>
+                    </div>
+                </section>
             </div>
             
-            <div class="absolute bottom-6 right-5 z-40">
-                <button class="w-14 h-14 rounded-full bg-rose-500 text-white flex items-center justify-center shadow-[0_4px_20px_rgba(244,63,94,0.5)]">
-                    <iconify-icon icon="solar:map-bold" class="text-2xl"></iconify-icon>
+            <div class="glass-bottom absolute bottom-0 left-0 w-full p-5 pb-8 z-40 border-t border-white/5">
+                <div class="mb-3 grid grid-cols-4 gap-2">
+                    <button class="rounded-xl border border-white/10 bg-white/[0.05] py-2 text-xs font-semibold text-white">Save</button>
+                    <button class="rounded-xl border border-white/10 bg-white/[0.05] py-2 text-xs font-semibold text-white">Invite</button>
+                    <button class="rounded-xl border border-white/10 bg-white/[0.05] py-2 text-xs font-semibold text-white">Share</button>
+                    <button class="rounded-xl border border-white/10 bg-white/[0.05] py-2 text-xs font-semibold text-white">Vote</button>
+                </div>
+                <button class="w-full accent-gradient py-4 rounded-2xl font-bold shadow-[0_4px_20px_rgba(244,63,94,0.4)]">
+                    Join Plan
                 </button>
             </div>
         </div>
@@ -6784,18 +7211,18 @@
                     </div>
                 </div>
 
-                <!-- Event Invite -->
+                <!-- Plan Invite -->
                 <div class="glass-panel rounded-3xl p-5 border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-black shadow-lg shadow-purple-900/20">
                     <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-4">
                         <img src="https://i.pravatar.cc/100?img=8" class="w-10 h-10 rounded-full">
                         <div>
-                            <p class="text-sm"><span class="font-bold">David K.</span> invited you to an event</p>
+                            <p class="text-sm"><span class="font-bold">David K.</span> invited you to a plan</p>
                             <p class="text-xs text-gray-400">1 day ago</p>
                         </div>
                     </div>
                     
                     <div class="glass-panel rounded-xl p-3 bg-black/40 border-white/5 flex flex-col gap-1 mb-4">
-                        <h4 class="font-bold text-sm text-white">Underground Jazz Night</h4>
+                        <h4 class="font-bold text-sm text-white">Underground jazz plan</h4>
                         <p class="text-xs text-purple-400"><iconify-icon icon="solar:calendar-date-bold"></iconify-icon> Sat, Oct 24 • 8:00 PM</p>
                     </div>
                     
@@ -7157,14 +7584,14 @@
         </div>
     </template>
 
-    <!-- 51. Event Creation / Host Flow -->
+    <!-- 51. Plan Creation Flow -->
     <template id="screen-51">
         <div class="w-full h-full relative bg-[#050505]">
             <div class="glass-nav absolute top-0 left-0 w-full pt-14 pb-4 px-5 z-40 border-b border-white/5 flex justify-between items-center">
                 <div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center">
                     <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
                 </div>
-                <h2 class="font-bold text-sm">Host Event</h2>
+                <h2 class="font-bold text-sm">Create Plan</h2>
                 <div class="w-8 h-8"></div>
             </div>
 
@@ -7172,17 +7599,28 @@
                 <!-- Cover Image -->
                 <div class="w-full h-32 rounded-3xl glass-panel border-dashed border-2 border-white/20 flex flex-col items-center justify-center text-gray-400 mb-6 bg-white/5">
                     <iconify-icon icon="solar:gallery-add-linear" class="text-3xl mb-1"></iconify-icon>
-                    <span class="text-xs">Add Event Cover</span>
+                    <span class="text-xs">Add Plan Cover</span>
                 </div>
 
                 <div class="space-y-4 mb-6">
                     <div class="glass-panel rounded-2xl px-4 py-3 bg-white/5 border-white/10">
-                        <input type="text" placeholder="Event Name" class="bg-transparent border-none outline-none w-full text-white font-bold text-lg placeholder-gray-500">
+                        <input type="text" placeholder="Plan Name" class="bg-transparent border-none outline-none w-full text-white font-bold text-lg placeholder-gray-500">
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-4 bg-white/5 border-white/10">
+                        <p class="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-gray-500">Plan Type</p>
+                        <div class="flex gap-2 overflow-x-auto no-scrollbar">
+                            <button class="shrink-0 rounded-full bg-rose-500/15 border border-rose-500/30 px-3 py-2 text-xs font-semibold text-rose-100">Dinner plan</button>
+                            <button class="shrink-0 rounded-full bg-white/[0.05] border border-white/10 px-3 py-2 text-xs text-gray-300">Coffee crawl</button>
+                            <button class="shrink-0 rounded-full bg-white/[0.05] border border-white/10 px-3 py-2 text-xs text-gray-300">Movie night</button>
+                            <button class="shrink-0 rounded-full bg-white/[0.05] border border-white/10 px-3 py-2 text-xs text-gray-300">Group plan</button>
+                        </div>
                     </div>
                     
                     <div class="glass-panel rounded-2xl p-1 flex bg-white/5 border-white/10">
-                        <div class="flex-1 py-2 text-center text-sm font-bold bg-white/10 rounded-xl shadow-sm">Public</div>
-                        <div class="flex-1 py-2 text-center text-sm font-medium text-gray-500">Invite Only</div>
+                        <div class="flex-1 py-2 text-center text-xs font-bold bg-white/10 rounded-xl shadow-sm">Public Plan</div>
+                        <div class="flex-1 py-2 text-center text-xs font-medium text-gray-500">Circle Only</div>
+                        <div class="flex-1 py-2 text-center text-xs font-medium text-gray-500">Invite Only</div>
                     </div>
 
                     <div class="glass-panel rounded-2xl p-4 bg-white/5 border-white/10 flex items-center gap-3">
@@ -7206,11 +7644,52 @@
                         </div>
                         <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-500"></iconify-icon>
                     </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="glass-panel rounded-2xl p-3 bg-white/5 border-white/10 text-left">
+                            <div class="mb-2 h-9 w-9 rounded-full bg-purple-500/15 text-purple-200 flex items-center justify-center">
+                                <iconify-icon icon="solar:user-plus-bold" class="text-base"></iconify-icon>
+                            </div>
+                            <p class="text-sm font-semibold text-white">Invite people</p>
+                            <p class="mt-1 text-xs text-gray-500">Circle or friends</p>
+                        </button>
+                        <button class="glass-panel rounded-2xl p-3 bg-white/5 border-white/10 text-left">
+                            <div class="mb-2 h-9 w-9 rounded-full bg-emerald-500/15 text-emerald-200 flex items-center justify-center">
+                                <iconify-icon icon="solar:chart-square-bold" class="text-base"></iconify-icon>
+                            </div>
+                            <p class="text-sm font-semibold text-white">Add poll</p>
+                            <p class="mt-1 text-xs text-gray-500">Vote on place or time</p>
+                        </button>
+                        <button class="glass-panel rounded-2xl p-3 bg-white/5 border-white/10 text-left">
+                            <div class="mb-2 h-9 w-9 rounded-full bg-rose-500/15 text-rose-200 flex items-center justify-center">
+                                <iconify-icon icon="solar:map-point-bold" class="text-base"></iconify-icon>
+                            </div>
+                            <p class="text-sm font-semibold text-white">Suggest places</p>
+                            <p class="mt-1 text-xs text-gray-500">Start from recs</p>
+                        </button>
+                        <button class="glass-panel rounded-2xl p-3 bg-white/5 border-white/10 text-left">
+                            <div class="mb-2 h-9 w-9 rounded-full bg-amber-500/15 text-amber-200 flex items-center justify-center">
+                                <iconify-icon icon="solar:bookmark-square-bold" class="text-base"></iconify-icon>
+                            </div>
+                            <p class="text-sm font-semibold text-white">Add shared recs</p>
+                            <p class="mt-1 text-xs text-gray-500">Link what inspired it</p>
+                        </button>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-4 bg-white/5 border-rose-500/15">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-rose-300 mb-3">Start from</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="rounded-xl bg-white/[0.05] border border-white/10 px-3 py-2 text-xs font-medium text-gray-200">Recommendation</button>
+                            <button class="rounded-xl bg-white/[0.05] border border-white/10 px-3 py-2 text-xs font-medium text-gray-200">Community</button>
+                            <button class="rounded-xl bg-white/[0.05] border border-white/10 px-3 py-2 text-xs font-medium text-gray-200">Circle</button>
+                            <button class="rounded-xl bg-white/[0.05] border border-white/10 px-3 py-2 text-xs font-medium text-gray-200">Messages</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="glass-bottom absolute bottom-0 left-0 w-full p-6 pb-8 z-20 border-t border-white/5">
-                <button class="w-full accent-gradient py-4 rounded-2xl font-bold shadow-[0_4px_20px_rgba(244,63,94,0.4)]">Create Event</button>
+                <button class="w-full accent-gradient py-4 rounded-2xl font-bold shadow-[0_4px_20px_rgba(244,63,94,0.4)]">Create Plan</button>
             </div>
         </div>
     </template>
@@ -7833,11 +8312,11 @@
                     </button>
 
                     <button class="group glass-panel rounded-[1.75rem] border-white/10 bg-white/[0.045] p-4 text-left transition-transform duration-500 hover:-translate-y-1" @click="$root.goToScreen('51')">
-                        <div class="mb-4 h-14 w-14 rounded-2xl bg-white/10 text-white flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-105">
+                        <div class="mb-4 h-14 w-14 rounded-2xl bg-rose-500/15 border border-rose-300/20 text-rose-100 flex items-center justify-center shadow-[0_0_20px_rgba(244,63,94,0.16)] transition-transform duration-700 ease-out group-hover:scale-105">
                             <iconify-icon icon="solar:calendar-date-bold" class="text-3xl"></iconify-icon>
                         </div>
-                        <h3 class="text-base font-semibold text-white">Event</h3>
-                        <p class="mt-1 text-xs leading-4 text-gray-500">Host a plan.</p>
+                        <h3 class="text-base font-semibold text-white">Plan</h3>
+                        <p class="mt-1 text-xs leading-4 text-gray-500">Make something happen.</p>
                     </button>
 
                     <button class="group col-span-2 glass-panel rounded-[1.75rem] border-purple-500/20 bg-purple-500/[0.08] p-4 text-left transition-transform duration-500 hover:-translate-y-1" @click="$root.goToScreen('64')">
@@ -9013,7 +9492,7 @@
 
             <!-- Glass Bottom Bar with Create Button -->
             <div class="glass-bottom absolute inset-x-0 bottom-0 z-40 px-5 pb-6 pt-8">
-a                <button class="w-full rounded-full border border-white/15 bg-white/[0.07] px-4 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl transition hover:bg-white/[0.11] flex items-center justify-center gap-2" @click="$root.goToScreen('80')">
+                <button class="w-full rounded-full border border-white/15 bg-white/[0.07] px-4 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl transition hover:bg-white/[0.11] flex items-center justify-center gap-2" @click="$root.goToScreen('80')">
                     <iconify-icon icon="solar:add-folder-bold" class="text-lg"></iconify-icon>
                     Create Community
                 </button>
@@ -9249,8 +9728,43 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                 </div>
             </div>
 
+            <div class="shrink-0 border-b border-white/5 px-4 py-3">
+                <div class="flex gap-2 overflow-x-auto no-scrollbar">
+                    <button class="rounded-full px-3 py-1.5 text-xs font-medium text-neutral-400">Feed</button>
+                    <button class="rounded-full px-3 py-1.5 text-xs font-medium text-neutral-400">Recs</button>
+                    <button class="rounded-full px-3 py-1.5 text-xs font-medium text-neutral-400">Threads</button>
+                    <button class="rounded-full bg-white text-black px-3 py-1.5 text-xs font-bold">Plans</button>
+                </div>
+            </div>
+
             <!-- Channel-style Feed -->
             <div class="flex-1 overflow-y-auto no-scrollbar px-4 pt-3 pb-2">
+                <!-- Plans Tab Snapshot -->
+                <div class="mb-4 rounded-2xl border border-rose-500/20 bg-rose-500/[0.06] p-3">
+                    <div class="mb-3 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.16em] text-rose-300">Plans</p>
+                            <h3 class="mt-1 text-sm font-semibold text-white">Upcoming with NYC Foodies</h3>
+                        </div>
+                        <button class="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-black" @click="$root.goToScreen('51')">Plan together</button>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="rounded-xl border border-white/10 bg-white/[0.05] p-3 cursor-pointer" @click="$root.goToScreen('52')">
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="text-sm font-medium text-white">Dinner at Nori tonight</span>
+                                <span class="text-xs text-rose-200">4 going</span>
+                            </div>
+                            <p class="mt-1 text-xs text-neutral-400">Poll open · vote on dessert after</p>
+                        </div>
+                        <div class="rounded-xl border border-white/10 bg-white/[0.05] p-3 cursor-pointer" @click="$root.goToScreen('52')">
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="text-sm font-medium text-white">Pizza crawl Friday</span>
+                                <span class="text-xs text-neutral-400">Open invite</span>
+                            </div>
+                            <p class="mt-1 text-xs text-neutral-400">Shared planning · 3 recs linked</p>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Message Post - Poll -->
                 <div class="mb-4">
@@ -9261,7 +9775,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                                 <span class="text-sm font-medium text-white">Sarah</span>
                                 <span class="text-xs text-neutral-500">• Just now</span>
                             </div>
-                            <p class="text-sm text-neutral-200 mb-2">Where should we host the meetup next month?</p>
+                            <p class="text-sm text-neutral-200 mb-2">Where should we plan together next month?</p>
                             
                             <!-- Poll -->
                             <div class="space-y-1.5">
@@ -9333,10 +9847,10 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                             </div>
                             
                             <!-- Compact Plan Card -->
-                            <div class="bg-white/5 rounded-2xl p-3 border border-white/5">
+                            <div class="bg-white/5 rounded-2xl p-3 border border-white/5 cursor-pointer" @click="$root.goToScreen('52')">
                                 <div class="flex items-center gap-2 mb-2">
                                     <iconify-icon icon="solar:calendar-bold" class="text-blue-400 text-lg"></iconify-icon>
-                                    <span class="text-sm font-medium text-white">Brunch Meetup</span>
+                                    <span class="text-sm font-medium text-white">Brunch plan</span>
                                 </div>
                                 <p class="text-[12px] text-neutral-400 mb-2">Saturday, May 10 • 11:00 AM</p>
                                 <div class="flex items-center gap-2">
@@ -9436,8 +9950,43 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                 </div>
             </div>
 
+            <div class="shrink-0 border-b border-white/5 px-4 py-3">
+                <div class="flex gap-2 overflow-x-auto no-scrollbar">
+                    <button class="rounded-full px-3 py-1.5 text-xs font-medium text-neutral-400">Feed</button>
+                    <button class="rounded-full px-3 py-1.5 text-xs font-medium text-neutral-400">Recs</button>
+                    <button class="rounded-full px-3 py-1.5 text-xs font-medium text-neutral-400">Threads</button>
+                    <button class="rounded-full bg-white text-black px-3 py-1.5 text-xs font-bold">Plans</button>
+                </div>
+            </div>
+
             <!-- Channel-style Feed -->
             <div class="flex-1 overflow-y-auto no-scrollbar px-4 pt-3 pb-64">
+                <!-- Plans Tab Snapshot -->
+                <div class="mb-4 rounded-2xl border border-rose-500/20 bg-rose-500/[0.06] p-3">
+                    <div class="mb-3 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.16em] text-rose-300">Plans</p>
+                            <h3 class="mt-1 text-sm font-semibold text-white">Upcoming with NYC Foodies</h3>
+                        </div>
+                        <button class="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-black" @click="$root.goToScreen('51')">Plan together</button>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="rounded-xl border border-white/10 bg-white/[0.05] p-3 cursor-pointer" @click="$root.goToScreen('52')">
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="text-sm font-medium text-white">Dinner at Nori tonight</span>
+                                <span class="text-xs text-rose-200">4 going</span>
+                            </div>
+                            <p class="mt-1 text-xs text-neutral-400">Poll open · vote on dessert after</p>
+                        </div>
+                        <div class="rounded-xl border border-white/10 bg-white/[0.05] p-3 cursor-pointer" @click="$root.goToScreen('52')">
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="text-sm font-medium text-white">Pizza crawl Friday</span>
+                                <span class="text-xs text-neutral-400">Open invite</span>
+                            </div>
+                            <p class="mt-1 text-xs text-neutral-400">Shared planning · 3 recs linked</p>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Message Post - Poll -->
                 <div class="mb-4">
@@ -9448,7 +9997,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                                 <span class="text-sm font-medium text-white">Sarah</span>
                                 <span class="text-xs text-neutral-500">• Just now</span>
                             </div>
-                            <p class="text-sm text-neutral-200 mb-2">Where should we host the meetup next month?</p>
+                            <p class="text-sm text-neutral-200 mb-2">Where should we plan together next month?</p>
                             
                             <!-- Poll -->
                             <div class="space-y-1.5">
@@ -9520,10 +10069,10 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                             </div>
                             
                             <!-- Compact Plan Card -->
-                            <div class="bg-white/5 rounded-2xl p-3 border border-white/5">
+                            <div class="bg-white/5 rounded-2xl p-3 border border-white/5 cursor-pointer" @click="$root.goToScreen('52')">
                                 <div class="flex items-center gap-2 mb-2">
                                     <iconify-icon icon="solar:calendar-bold" class="text-blue-400 text-lg"></iconify-icon>
-                                    <span class="text-sm font-medium text-white">Brunch Meetup</span>
+                                    <span class="text-sm font-medium text-white">Brunch plan</span>
                                 </div>
                                 <p class="text-[12px] text-neutral-400 mb-2">Saturday, May 10 • 11:00 AM</p>
                                 <div class="flex items-center gap-2">
@@ -9737,12 +10286,12 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                             <span class="text-xs text-white font-medium">Poll</span>
                         </div>
                         
-                        <!-- Event -->
+                        <!-- Plan -->
                         <div class="flex flex-col items-center gap-2 cursor-pointer" @click="$root.goToScreen('51')">
                             <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-400/30 backdrop-blur-xl flex items-center justify-center shadow-[0_8px_32px_rgba(59,130,246,0.25)] hover:shadow-[0_8px_32px_rgba(59,130,246,0.4)] transition-all">
                                 <iconify-icon icon="solar:calendar-bold" class="text-2xl text-blue-300"></iconify-icon>
                             </div>
-                            <span class="text-xs text-white font-medium">Event</span>
+                            <span class="text-xs text-white font-medium">Plan</span>
                         </div>
                     </div>
                 </div>
@@ -9884,7 +10433,6 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
         </div>
     </template>
 
-    <!-- 81. Entry Actions Modal -->
     <script>
         function openRexySheet() {}
 
@@ -9899,6 +10447,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                     recCategory: 'Food',
                     threadIntent: 'Ask',
                     communityViewMode: 'list',
+                    planMenuOpen: false,
                     profileTab: 'Recs',
                     profileTabOverrides: {},
                     profileTabDefaults: {
@@ -9907,9 +10456,9 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         '71': 'Rollz',
                         '72': 'Lists',
                         '73': 'Polls',
-                        '74': 'Events'
+                        '74': 'Plans'
                     },
-                    profileTabs: ['Recs', 'Threads', 'Rollz', 'Lists', 'Polls', 'Events'],
+                    profileTabs: ['Recs', 'Threads', 'Rollz', 'Lists', 'Polls', 'Plans'],
                     recommendationCategories: ['Food', 'Movies', 'Coffee', 'Travel', 'Art', 'Outdoors', 'Rooftops', 'Gems', 'Shopping', 'Books', 'Music', 'Experiences'],
                     screenGroups: [
                         {
@@ -9930,9 +10479,8 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                             title: 'Social + Planning',
                             items: [
                                 { id: '37', label: 'Your Taste Circle' },
-                                { id: '52', label: 'Saved Hub' },
                                 { id: '53', label: 'Itinerary Builder' },
-                                { id: '49', label: 'Events' }
+                                { id: '49', label: 'Plans' }
                             ]
                         },
                         {
@@ -9950,7 +10498,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                                 { id: '71', label: 'My Profile - Rollz' },
                                 { id: '72', label: 'My Profile - Lists' },
                                 { id: '73', label: 'My Profile - Polls' },
-                                { id: '74', label: 'My Profile - Events' },
+                                { id: '74', label: 'My Profile - Plans' },
                                 { id: '69', label: 'My Profile - New User' },
                                 { id: '33', label: 'Other Profile' },
                                 { id: '34', label: 'Settings' },
@@ -9979,8 +10527,9 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                             ]
                         },
                         {
-                            title: 'Other Screen',
+                            title: 'Other Screens',
                             items: [
+                                { id: '52', label: 'Plan Details' },
                                 { id: '58', label: 'Business Promo Card' },
                                 { id: '59', label: 'Premium Membership' }
                             ]
@@ -10024,7 +10573,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         { id: '71', title: 'My Profile - Rollz', component: 'screen-28', showNav: true, activeTab: 'more', showRexy: false },
                         { id: '72', title: 'My Profile - Lists', component: 'screen-28', showNav: true, activeTab: 'more', showRexy: false },
                         { id: '73', title: 'My Profile - Polls', component: 'screen-28', showNav: true, activeTab: 'more', showRexy: false },
-                        { id: '74', title: 'My Profile - Events', component: 'screen-28', showNav: true, activeTab: 'more', showRexy: false },
+                        { id: '74', title: 'My Profile - Plans', component: 'screen-28', showNav: true, activeTab: 'more', showRexy: false },
                         { id: '69', title: 'My Profile - New User', component: 'screen-69', showNav: true, activeTab: 'more', showRexy: false },
                         { id: '31', title: 'Plan Detail', component: 'screen-31', showNav: false, showRexy: false },
                         { id: '32', title: 'Activity/Invites', component: 'screen-32', showNav: false, showRexy: false },
@@ -10045,10 +10594,10 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         { id: '46', title: 'Thread Feed', component: 'screen-46', showNav: true, activeTab: 'explore', showRexy: false },
                         { id: '47', title: 'Thread Detail', component: 'screen-47', showNav: false, showRexy: false },
                         { id: '48', title: 'Start a thread', component: 'screen-48', showNav: false, showRexy: false },
-                        { id: '49', title: 'Events Feed', component: 'screen-49', showNav: true, activeTab: 'explore', showRexy: false },
-                        { id: '50', title: 'Event Detail', component: 'screen-50', showNav: false, showRexy: false },
-                        { id: '51', title: 'Event Creation', component: 'screen-51', showNav: false, showRexy: false },
-                        { id: '52', title: 'Saved Hub', component: 'screen-52', showNav: true, activeTab: 'more', showRexy: false },
+                        { id: '49', title: 'Plans Feed', component: 'screen-49', showNav: true, activeTab: 'explore', showRexy: false },
+                        { id: '50', title: 'Plan Detail Alt', component: 'screen-50', showNav: false, showRexy: false },
+                        { id: '51', title: 'Plan Creation', component: 'screen-51', showNav: false, showRexy: false },
+                        { id: '52', title: 'Plan Details', component: 'screen-52', showNav: false, showRexy: false },
                         { id: '53', title: 'Itinerary Builder', component: 'screen-53', showNav: false, showRexy: false },
                         { id: '54', title: 'Taste Circle Discovery', component: 'screen-54', showNav: true, activeTab: 'explore', showRexy: false },
                         { id: '56', title: 'Taste Circle Requests', component: 'screen-56', showNav: false, showRexy: false },
@@ -10105,7 +10654,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         .filter(Boolean);
                 },
                 otherScreens() {
-                    return ['58', '59']
+                    return ['81', '52', '58', '59']
                         .map(id => this.screens.find(screen => screen.id === id))
                         .filter(Boolean);
                 },
@@ -10177,7 +10726,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         this.profileTab = tab;
                     }
 
-                    if (event?.currentTarget && ['Recs', 'Threads', 'Polls', 'Events'].includes(tab)) {
+                    if (event?.currentTarget && ['Recs', 'Threads', 'Polls', 'Plans'].includes(tab)) {
                         event.currentTarget.scrollIntoView({
                             behavior: 'smooth',
                             block: 'nearest',
@@ -10219,7 +10768,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         Rollz: 'Create Rollz',
                         Lists: 'Create List',
                         Polls: 'Create Poll',
-                        Events: 'Create Event'
+                        Plans: 'Create Plan'
                     };
 
                     return labels[tab] || 'Create';
@@ -10231,7 +10780,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         Rollz: '18',
                         Lists: '23',
                         Polls: '64',
-                        Events: '51'
+                        Plans: '51'
                     };
 
                     return targets[tab] || '17';
@@ -10243,7 +10792,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         Rollz: 'solar:play-stream-linear',
                         Lists: 'solar:list-heart-linear',
                         Polls: 'solar:chart-2-linear',
-                        Events: 'solar:calendar-date-linear'
+                        Plans: 'solar:calendar-date-linear'
                     };
 
                     return icons[tab] || 'solar:add-circle-linear';
@@ -10255,7 +10804,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         Rollz: 'No Rollz yet',
                         Lists: 'No lists yet',
                         Polls: 'No polls yet',
-                        Events: 'No events yet'
+                        Plans: 'No plans yet'
                     };
 
                     return titles[tab] || 'Nothing here yet';
@@ -10267,7 +10816,7 @@ a                <button class="w-full rounded-full border border-white/15 bg-wh
                         Rollz: 'Short video recs will appear here after you create them.',
                         Lists: 'Group your favorite recz into lists as your taste grows.',
                         Polls: 'Use polls when your circle has enough people to vote.',
-                        Events: 'Plans and hosted events will show here later.'
+                        Plans: 'Shared plans and circle invites will show here later.'
                     };
 
                     return copy[tab] || 'Start creating to fill this profile.';
