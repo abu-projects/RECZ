@@ -10,15 +10,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        :root {
-            --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background: #0a0a0a !important;
         }
 
         ::-webkit-scrollbar {
@@ -29,24 +23,11 @@
             width: 375px;
             min-height: 812px;
             height: max-content;
-            border-radius: 3.5rem;
-            border: 6px solid #1c1c1e;
+            border-radius: 3rem;
+            border: 8px solid #1a1a1a;
             overflow: hidden;
             position: relative;
-            background-color: #030303;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
-        }
-
-        .iphone-frame.bg-\[\#060608\] {
-            background-color: #030303 !important;
-        }
-
-        .iphone-frame.bg-\[\#f3f3f3\],
-        .iphone-frame:has(.glass-panel-light) {
-            background-color: #f3f3f3 !important;
-            background-image: var(--noise-bg);
-            border-color: #d8d8d8;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.34), inset 0 0 0 2px rgba(255, 255, 255, 0.05);
         }
 
         .notch {
@@ -54,35 +35,28 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 140px;
-            height: 32px;
-            background-color: #1c1c1e;
+            width: 150px;
+            height: 30px;
+            background-color: #1a1a1a;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
             z-index: 50;
         }
 
-        .iphone-frame:has(.glass-panel-light) > .notch {
-            background-color: #d8d8d8;
-        }
-
         .glass-panel-dark {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-top-color: rgba(255, 255, 255, 0.2);
-            border-left-color: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .glass-panel-light {
-            background-color: rgba(255, 255, 255, 0.7);
-            background-image: var(--noise-bg);
+            background-color: rgba(255, 255, 255, 0.66);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
         }
 
         .glass-nav-dark {
@@ -92,47 +66,9 @@
         }
 
         .glass-nav-light {
-            background: var(--noise-bg), linear-gradient(180deg, rgba(243, 243, 243, 0.95) 0%, rgba(243, 243, 243, 0) 100%);
+            background: linear-gradient(180deg, rgba(243, 243, 243, 0.92) 0%, rgba(243, 243, 243, 0) 100%);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-        }
-
-        .iphone-frame button:has(iconify-icon[icon="solar:alt-arrow-left-linear"]) {
-            width: 36px !important;
-            height: 36px !important;
-            border-radius: 9999px !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .iphone-frame button.glass-panel-dark:has(iconify-icon[icon="solar:alt-arrow-left-linear"]) {
-            background: rgba(255, 255, 255, 0.06) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            box-shadow: none !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .iphone-frame button.glass-panel-light:has(iconify-icon[icon="solar:alt-arrow-left-linear"]) {
-            background: rgba(0, 0, 0, 0.05) !important;
-            border: 1px solid rgba(0, 0, 0, 0.08) !important;
-            box-shadow: none !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .iphone-frame button:has(iconify-icon[icon="solar:alt-arrow-left-linear"]) iconify-icon {
-            font-size: 18px !important;
-        }
-
-        .iphone-frame button.glass-panel-dark:has(iconify-icon[icon="solar:alt-arrow-left-linear"]) iconify-icon {
-            color: #ffffff !important;
-        }
-
-        .iphone-frame button.glass-panel-light:has(iconify-icon[icon="solar:alt-arrow-left-linear"]) iconify-icon {
-            color: #171717 !important;
         }
 
         .aura-purple {
@@ -545,6 +481,12 @@
                         </div>
 
                         <!-- Row 6 - Selected -->
+                        <div
+                            class="interest-chip interest-chip-dark selected rounded-xl px-4 py-2.5 flex items-center gap-2">
+                            <iconify-icon icon="solar:wine-glass-bold"
+                                style="font-size: 18px; color: #ec4899;"></iconify-icon>
+                            <span class="text-[14px] text-white font-medium">Wine & Spirits</span>
+                        </div>
                         <div class="interest-chip interest-chip-dark rounded-xl px-4 py-2.5 flex items-center gap-2">
                             <iconify-icon icon="solar:menu-dots-bold"
                                 style="font-size: 18px; color: #6b7280;"></iconify-icon>
@@ -657,6 +599,12 @@
                         </div>
 
                         <!-- Row 6 - Selected -->
+                        <div
+                            class="interest-chip interest-chip-light selected rounded-xl px-4 py-2.5 flex items-center gap-2">
+                            <iconify-icon icon="solar:wine-glass-bold"
+                                style="font-size: 18px; color: #ec4899;"></iconify-icon>
+                            <span class="text-[14px] text-neutral-900 font-medium">Wine & Spirits</span>
+                        </div>
                         <div class="interest-chip interest-chip-light rounded-xl px-4 py-2.5 flex items-center gap-2">
                             <iconify-icon icon="solar:menu-dots-bold"
                                 style="font-size: 18px; color: #6b7280;"></iconify-icon>
@@ -1389,7 +1337,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Recz Buddies</h1>
@@ -1452,7 +1400,19 @@
                         </button>
                     </div>
 
-                    
+                    <!-- Action Buttons -->
+                    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 z-0">
+                        <button
+                            class="w-16 h-16 rounded-full glass-panel-dark flex items-center justify-center transition-all hover:scale-110 active:scale-95">
+                            <iconify-icon icon="solar:close-circle-bold"
+                                style="font-size: 32px; color: #ef4444;"></iconify-icon>
+                        </button>
+                        <button
+                            class="w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                            style="background: linear-gradient(135deg, #f43f5e, #db2777); box-shadow: 0 0 30px rgba(244,63,94,0.4);">
+                            <iconify-icon icon="solar:heart-bold" style="font-size: 32px; color: white;"></iconify-icon>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -1487,7 +1447,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Recz Buddies</h1>
@@ -1550,7 +1510,19 @@
                         </button>
                     </div>
 
-                    
+                    <!-- Action Buttons -->
+                    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 z-0">
+                        <button
+                            class="w-16 h-16 rounded-full glass-panel-light flex items-center justify-center transition-all hover:scale-110 active:scale-95">
+                            <iconify-icon icon="solar:close-circle-bold"
+                                style="font-size: 32px; color: #ef4444;"></iconify-icon>
+                        </button>
+                        <button
+                            class="w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                            style="background: linear-gradient(135deg, #f43f5e, #db2777); box-shadow: 0 0 30px rgba(244,63,94,0.3);">
+                            <iconify-icon icon="solar:heart-bold" style="font-size: 32px; color: white;"></iconify-icon>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -1585,7 +1557,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Recz Buddy</h1>
@@ -1692,7 +1664,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Recz Buddy</h1>
@@ -1800,7 +1772,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Details</h1>
@@ -1823,10 +1795,10 @@
                     <!-- Common Connections -->
                     <div class="glass-panel-dark rounded-2xl p-4 mb-6">
                         <div class="flex items-center gap-3">
-                            <div class="flex -space-x-2 flex-shrink-0">
-                                <img src="https://i.pravatar.cc/150?img=24" class="w-8 h-8 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
-                                <img src="https://i.pravatar.cc/150?img=41" class="w-8 h-8 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
-                                <img src="https://i.pravatar.cc/150?img=12" class="w-8 h-8 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                            <div class="flex -space-x-2">
+                                <img src="https://i.pravatar.cc/150?img=64" class="w-8 h-8 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                                <img src="https://i.pravatar.cc/150?img=48" class="w-8 h-8 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                                <img src="https://i.pravatar.cc/150?img=38" class="w-8 h-8 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
                             </div>
                             <p class="text-[13px] text-neutral-300">
                                 <span class="font-semibold">Karon Sha, Mrunal Tim</span> and <span
@@ -1953,7 +1925,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Details</h1>
@@ -1977,10 +1949,10 @@
                     <!-- Common Connections -->
                     <div class="glass-panel-light rounded-2xl p-4 mb-6">
                         <div class="flex items-center gap-3">
-                            <div class="flex -space-x-2 flex-shrink-0">
-                                <img src="https://i.pravatar.cc/150?img=28" class="w-8 h-8 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
-                                <img src="https://i.pravatar.cc/150?img=19" class="w-8 h-8 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
-                                <img src="https://i.pravatar.cc/150?img=42" class="w-8 h-8 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
+                            <div class="flex -space-x-2">
+                                <img src="https://i.pravatar.cc/150?img=61" class="w-8 h-8 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
+                                <img src="https://i.pravatar.cc/150?img=16" class="w-8 h-8 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
+                                <img src="https://i.pravatar.cc/150?img=67" class="w-8 h-8 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
                             </div>
                             <p class="text-[13px] text-neutral-700">
                                 <span class="font-semibold">Karon Sha, Mrunal Tim</span> and <span
@@ -2150,63 +2122,63 @@
                     <!-- Connection Item 1 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=49" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=27" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Karamani</span>
                     </div>
 
                     <!-- Connection Item 2 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=21" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=27" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Diksha Patel</span>
                     </div>
 
                     <!-- Connection Item 3 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=41" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=40" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Ranjin Karan</span>
                     </div>
 
                     <!-- Connection Item 4 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=4" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=34" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Ajay Malkan</span>
                     </div>
 
                     <!-- Connection Item 5 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=18" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=60" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Lilly John</span>
                     </div>
 
                     <!-- Connection Item 6 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=23" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=28" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Diksha Patel</span>
                     </div>
 
                     <!-- Connection Item 7 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=50" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=15" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Saggy Roy</span>
                     </div>
 
                     <!-- Connection Item 8 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=25" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=58" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Rihaan Jain</span>
                     </div>
 
                     <!-- Connection Item 9 -->
                     <div
                         class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=51" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=28" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-white font-medium">Bchamp Dac</span>
                     </div>
 
@@ -2267,63 +2239,63 @@
                     <!-- Connection Item 1 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=64" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=55" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Karamani</span>
                     </div>
 
                     <!-- Connection Item 2 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=56" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=1" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Diksha Patel</span>
                     </div>
 
                     <!-- Connection Item 3 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=61" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=9" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Ranjin Karan</span>
                     </div>
 
                     <!-- Connection Item 4 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=15" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Ajay Malkan</span>
                     </div>
 
                     <!-- Connection Item 5 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=3" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=61" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Lilly John</span>
                     </div>
 
                     <!-- Connection Item 6 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=42" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=48" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Diksha Patel</span>
                     </div>
 
                     <!-- Connection Item 7 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=16" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=42" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Saggy Roy</span>
                     </div>
 
                     <!-- Connection Item 8 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=38" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=28" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Rihaan Jain</span>
                     </div>
 
                     <!-- Connection Item 9 -->
                     <div
                         class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 transition-all hover:scale-[1.02] cursor-pointer">
-                        <img src="https://i.pravatar.cc/150?img=13" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <span class="text-[15px] text-neutral-900 font-medium">Bchamp Dac</span>
                     </div>
 
@@ -2369,7 +2341,7 @@
                             <div class="relative">
                                 <div class="w-32 h-40 rounded-3xl glass-panel-dark overflow-hidden"
                                     style="box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
-                                    <div class="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=52" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                    <div class="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=4" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                             </div>
 
@@ -2385,7 +2357,7 @@
                             <div class="relative">
                                 <div class="w-32 h-40 rounded-3xl glass-panel-dark overflow-hidden"
                                     style="box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
-                                    <div class="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=29" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                    <div class="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=12" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                             </div>
                         </div>
@@ -2456,7 +2428,7 @@
                             <div class="relative">
                                 <div class="w-32 h-40 rounded-3xl glass-panel-light overflow-hidden"
                                     style="box-shadow: 0 8px 24px rgba(15,23,42,0.1);">
-                                    <div class="w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=8" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                    <div class="w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=21" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                             </div>
 
@@ -2472,7 +2444,7 @@
                             <div class="relative">
                                 <div class="w-32 h-40 rounded-3xl glass-panel-light overflow-hidden"
                                     style="box-shadow: 0 8px 24px rgba(15,23,42,0.1);">
-                                    <div class="w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=48" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                    <div class="w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=48" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                             </div>
                         </div>
@@ -2519,7 +2491,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Match</h1>
@@ -2536,7 +2508,7 @@
                             <!-- Match 1 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=5" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=32" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-400">Karan</span>
                             </div>
@@ -2544,7 +2516,7 @@
                             <!-- Match 2 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=26" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=28" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-400">Diya</span>
                             </div>
@@ -2552,7 +2524,7 @@
                             <!-- Match 3 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-pink-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=47" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=18" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-400">Saha</span>
                             </div>
@@ -2560,7 +2532,7 @@
                             <!-- Match 4 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=26" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=38" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-400">Aruna</span>
                             </div>
@@ -2568,7 +2540,7 @@
                             <!-- Match 5 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=50" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=5" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-400">Chari</span>
                             </div>
@@ -2582,7 +2554,7 @@
                         <!-- Message 1 -->
                         <div
                             class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=44" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-white font-semibold">Hawkins</span>
@@ -2600,7 +2572,7 @@
                         <!-- Message 2 -->
                         <div
                             class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=44" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=36" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-white font-semibold">Raj Sharma</span>
@@ -2617,7 +2589,7 @@
                         <!-- Message 3 -->
                         <div
                             class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=27" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=57" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-white font-semibold">Kiran Patel</span>
@@ -2630,7 +2602,7 @@
                         <!-- Message 4 -->
                         <div
                             class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-white font-semibold">Vinit Ranjan</span>
@@ -2643,7 +2615,7 @@
                         <!-- Message 5 -->
                         <div
                             class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=64" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=68" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-white font-semibold">Paresh Singh</span>
@@ -2656,7 +2628,7 @@
                         <!-- Message 6 -->
                         <div
                             class="glass-panel-dark rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=61" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-white font-semibold">Vinit Ranjan</span>
@@ -2702,7 +2674,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Match</h1>
@@ -2719,7 +2691,7 @@
                             <!-- Match 1 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=19" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=10" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-600">Karan</span>
                             </div>
@@ -2727,7 +2699,7 @@
                             <!-- Match 2 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=44" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=5" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-600">Diya</span>
                             </div>
@@ -2735,7 +2707,7 @@
                             <!-- Match 3 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-pink-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=47" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=38" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-600">Saha</span>
                             </div>
@@ -2743,7 +2715,7 @@
                             <!-- Match 4 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=42" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=21" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-600">Aruna</span>
                             </div>
@@ -2751,7 +2723,7 @@
                             <!-- Match 5 -->
                             <div class="flex flex-col items-center gap-2 flex-shrink-0">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-0.5">
-                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=48" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                    <div class="w-full h-full rounded-full"><img src="https://i.pravatar.cc/150?img=28" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 </div>
                                 <span class="text-[12px] text-neutral-600">Chari</span>
                             </div>
@@ -2765,7 +2737,7 @@
                         <!-- Message 1 -->
                         <div
                             class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=57" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=7" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-neutral-900 font-semibold">Hawkins</span>
@@ -2783,7 +2755,7 @@
                         <!-- Message 2 -->
                         <div
                             class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=58" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-neutral-900 font-semibold">Raj Sharma</span>
@@ -2800,7 +2772,7 @@
                         <!-- Message 3 -->
                         <div
                             class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=13" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=17" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-neutral-900 font-semibold">Kiran Patel</span>
@@ -2813,7 +2785,7 @@
                         <!-- Message 4 -->
                         <div
                             class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=13" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=69" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-neutral-900 font-semibold">Vinit Ranjan</span>
@@ -2826,7 +2798,7 @@
                         <!-- Message 5 -->
                         <div
                             class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=16" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=9" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-neutral-900 font-semibold">Paresh Singh</span>
@@ -2839,7 +2811,7 @@
                         <!-- Message 6 -->
                         <div
                             class="glass-panel-light rounded-2xl p-4 mb-3 flex items-center gap-3 cursor-pointer transition-all hover:scale-[1.01]">
-                            <img src="https://i.pravatar.cc/150?img=37" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=67" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[15px] text-neutral-900 font-semibold">Vinit Ranjan</span>
@@ -2886,11 +2858,11 @@
                 <div class="pt-12 pb-4 px-6 z-30 relative glass-panel-dark flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                            <iconify-icon icon="solar:alt-arrow-left-linear"
+                            <iconify-icon icon="solar:alt-arrow-left-bold"
                                 style="font-size: 20px; color: white;"></iconify-icon>
                         </button>
                         <div class="flex items-center gap-3">
-                            <img src="https://i.pravatar.cc/150?img=32" class="w-10 h-10 rounded-full object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=25" class="w-10 h-10 rounded-full object-cover" alt="Avatar" />
                             <div>
                                 <h2 class="text-[15px] font-semibold text-white">Hawkins</h2>
                                 <p class="text-[11px] text-neutral-500">Online</p>
@@ -2917,7 +2889,7 @@
 
                     <!-- Received Message -->
                     <div class="flex items-end gap-2 mb-4">
-                        <img src="https://i.pravatar.cc/150?img=67" class="w-8 h-8 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=16" class="w-8 h-8 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <div>
                             <div class="glass-panel-dark rounded-2xl rounded-bl-sm px-4 py-3 max-w-[240px]">
                                 <p class="text-[14px] text-white">Hi, How are you?</p>
@@ -2977,11 +2949,11 @@
                 <div class="pt-12 pb-4 px-6 z-30 relative glass-panel-light flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                            <iconify-icon icon="solar:alt-arrow-left-linear"
+                            <iconify-icon icon="solar:alt-arrow-left-bold"
                                 style="font-size: 20px; color: #171717;"></iconify-icon>
                         </button>
                         <div class="flex items-center gap-3">
-                            <img src="https://i.pravatar.cc/150?img=38" class="w-10 h-10 rounded-full object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=3" class="w-10 h-10 rounded-full object-cover" alt="Avatar" />
                             <div>
                                 <h2 class="text-[15px] font-semibold text-neutral-900">Hawkins</h2>
                                 <p class="text-[11px] text-neutral-500">Online</p>
@@ -3009,7 +2981,7 @@
 
                     <!-- Received Message -->
                     <div class="flex items-end gap-2 mb-4">
-                        <img src="https://i.pravatar.cc/150?img=36" class="w-8 h-8 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
+                        <img src="https://i.pravatar.cc/150?img=64" class="w-8 h-8 rounded-full flex-shrink-0 object-cover" alt="Avatar" />
                         <div>
                             <div class="glass-panel-light rounded-2xl rounded-bl-sm px-4 py-3 max-w-[240px]">
                                 <p class="text-[14px] text-neutral-900">Hi, How are you?</p>
@@ -3068,7 +3040,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Profile</h1>
@@ -3083,7 +3055,7 @@
                         <div class="relative mb-4">
                             <div class="w-32 h-32 rounded-full p-1"
                                 style="background: linear-gradient(135deg, #f43f5e, #db2777);">
-                                <div class="w-full h-full rounded-full bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=57" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                <div class="w-full h-full rounded-full bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=66" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                             </div>
                             <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-semibold text-white"
                                 style="background: linear-gradient(135deg, #f43f5e, #db2777);">
@@ -3230,7 +3202,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Profile</h1>
@@ -3245,7 +3217,7 @@
                         <div class="relative mb-4">
                             <div class="w-32 h-32 rounded-full p-1"
                                 style="background: linear-gradient(135deg, #f43f5e, #db2777);">
-                                <div class="w-full h-full rounded-full bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=50" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                <div class="w-full h-full rounded-full bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=22" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                             </div>
                             <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-semibold text-white"
                                 style="background: linear-gradient(135deg, #f43f5e, #db2777);">
@@ -3392,7 +3364,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Recz Buddies</h1>
@@ -3402,25 +3374,9 @@
                 <!-- Main Content -->
                 <div class="flex-1 flex flex-col items-center justify-center px-6 pb-20">
 
-                                        <!-- Background Card -->
-                    <div class="absolute inset-x-6 top-20 bottom-32 glass-panel-dark rounded-3xl overflow-hidden relative">
-                        <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900">
-                            <img src="https://i.pravatar.cc/300?img=12" class="w-full h-full object-cover opacity-50" alt="Background Avatar" />
-                        </div>
-                        
-                        <!-- Action Buttons -->
-                        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
-                            <button
-                                class="w-16 h-16 rounded-full glass-panel-dark flex items-center justify-center transition-all hover:scale-110 active:scale-95">
-                                <iconify-icon icon="solar:close-circle-bold"
-                                    style="font-size: 32px; color: #ef4444;"></iconify-icon>
-                            </button>
-                            <button
-                                class="w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
-                                style="background: linear-gradient(135deg, #f43f5e, #db2777); box-shadow: 0 0 30px rgba(244,63,94,0.4);">
-                                <iconify-icon icon="solar:heart-bold" style="font-size: 32px; color: white;"></iconify-icon>
-                            </button>
-                        </div>
+                    <!-- Background Card -->
+                    <div class="absolute inset-x-6 top-20 bottom-32 glass-panel-dark rounded-3xl overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900"></div>
                     </div>
 
                     <!-- Upgrade Modal -->
@@ -3429,11 +3385,11 @@
 
                         <!-- Avatars Row -->
                         <div class="flex justify-center -space-x-3 mb-6">
-                            <img src="https://i.pravatar.cc/150?img=18" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
-                            <img src="https://i.pravatar.cc/150?img=66" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
-                            <img src="https://i.pravatar.cc/150?img=54" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
-                            <img src="https://i.pravatar.cc/150?img=59" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
-                            <img src="https://i.pravatar.cc/150?img=49" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=39" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=42" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=29" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=50" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=50" class="w-14 h-14 rounded-full border-2 border-[#060608] object-cover" alt="Avatar" />
                         </div>
 
                         <!-- Title -->
@@ -3460,7 +3416,19 @@
                         </button>
                     </div>
 
-
+                    <!-- Action Buttons -->
+                    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 z-0">
+                        <button
+                            class="w-16 h-16 rounded-full glass-panel-dark flex items-center justify-center transition-all hover:scale-110 active:scale-95">
+                            <iconify-icon icon="solar:close-circle-bold"
+                                style="font-size: 32px; color: #ef4444;"></iconify-icon>
+                        </button>
+                        <button
+                            class="w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                            style="background: linear-gradient(135deg, #f43f5e, #db2777); box-shadow: 0 0 30px rgba(244,63,94,0.4);">
+                            <iconify-icon icon="solar:heart-bold" style="font-size: 32px; color: white;"></iconify-icon>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -3496,7 +3464,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Recz Buddies</h1>
@@ -3506,25 +3474,9 @@
                 <!-- Main Content -->
                 <div class="flex-1 flex flex-col items-center justify-center px-6 pb-20">
 
-                                        <!-- Background Card -->
-                    <div class="absolute inset-x-6 top-20 bottom-32 glass-panel-light rounded-3xl overflow-hidden relative">
-                        <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200">
-                            <img src="https://i.pravatar.cc/300?img=12" class="w-full h-full object-cover opacity-50" alt="Background Avatar" />
-                        </div>
-                        
-                        <!-- Action Buttons -->
-                        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
-                            <button
-                                class="w-16 h-16 rounded-full glass-panel-light flex items-center justify-center transition-all hover:scale-110 active:scale-95 border border-neutral-300">
-                                <iconify-icon icon="solar:close-circle-bold"
-                                    style="font-size: 32px; color: #ef4444;"></iconify-icon>
-                            </button>
-                            <button
-                                class="w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
-                                style="background: linear-gradient(135deg, #f43f5e, #db2777); box-shadow: 0 0 30px rgba(244,63,94,0.4);">
-                                <iconify-icon icon="solar:heart-bold" style="font-size: 32px; color: white;"></iconify-icon>
-                            </button>
-                        </div>
+                    <!-- Background Card -->
+                    <div class="absolute inset-x-6 top-20 bottom-32 glass-panel-light rounded-3xl overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200"></div>
                     </div>
 
                     <!-- Upgrade Modal -->
@@ -3533,11 +3485,11 @@
 
                         <!-- Avatars Row -->
                         <div class="flex justify-center -space-x-3 mb-6">
-                            <img src="https://i.pravatar.cc/150?img=19" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=25" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=31" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=6" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
+                            <img src="https://i.pravatar.cc/150?img=13" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
                             <img src="https://i.pravatar.cc/150?img=18" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
-                            <img src="https://i.pravatar.cc/150?img=35" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
-                            <img src="https://i.pravatar.cc/150?img=18" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
-                            <img src="https://i.pravatar.cc/150?img=64" class="w-14 h-14 rounded-full border-2 border-[#f3f3f3] object-cover" alt="Avatar" />
                         </div>
 
                         <!-- Title -->
@@ -3564,7 +3516,19 @@
                         </button>
                     </div>
 
-
+                    <!-- Action Buttons -->
+                    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 z-0">
+                        <button
+                            class="w-16 h-16 rounded-full glass-panel-light flex items-center justify-center transition-all hover:scale-110 active:scale-95">
+                            <iconify-icon icon="solar:close-circle-bold"
+                                style="font-size: 32px; color: #ef4444;"></iconify-icon>
+                        </button>
+                        <button
+                            class="w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                            style="background: linear-gradient(135deg, #f43f5e, #db2777); box-shadow: 0 0 30px rgba(244,63,94,0.3);">
+                            <iconify-icon icon="solar:heart-bold" style="font-size: 32px; color: white;"></iconify-icon>
+                        </button>
+                    </div>
 
                 </div>
 
@@ -3600,7 +3564,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Details</h1>
@@ -3615,7 +3579,7 @@
                     <!-- Profile Image Card -->
                     <div class="glass-panel-dark rounded-3xl overflow-hidden mb-6"
                         style="box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
-                        <div class="w-full h-48 bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=44" class="w-full h-full object-cover" alt="Avatar" /></div>
+                        <div class="w-full h-48 bg-gradient-to-br from-neutral-800 to-neutral-900"><img src="https://i.pravatar.cc/150?img=54" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                     </div>
 
                     <!-- Set Search Distance Section -->
@@ -3662,7 +3626,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Details</h1>
@@ -3678,7 +3642,7 @@
                     <!-- Profile Image Card -->
                     <div class="glass-panel-light rounded-3xl overflow-hidden mb-6"
                         style="box-shadow: 0 8px 24px rgba(15,23,42,0.1);">
-                        <div class="w-full h-48 bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=20" class="w-full h-full object-cover" alt="Avatar" /></div>
+                        <div class="w-full h-48 bg-gradient-to-br from-neutral-100 to-neutral-200"><img src="https://i.pravatar.cc/150?img=43" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                     </div>
 
                     <!-- Set Search Distance Section -->
@@ -3724,7 +3688,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Recz Buddies</h1>
@@ -3769,7 +3733,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=19" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=14" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -3799,7 +3763,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=49" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=2" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -3829,7 +3793,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=58" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=46" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -3859,7 +3823,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=58" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=5" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -3920,7 +3884,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Recz Buddies</h1>
@@ -3966,7 +3930,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=47" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=48" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -3996,7 +3960,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=62" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=66" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4026,7 +3990,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=12" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=37" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4056,7 +4020,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=17" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=20" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4120,7 +4084,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Profile</h1>
@@ -4138,7 +4102,7 @@
                         <div class="relative mb-4">
                             <div class="w-32 h-32 rounded-full p-1"
                                 style="background: linear-gradient(135deg, #f43f5e, #db2777);">
-                                <div class="w-full h-full rounded-full bg-gradient-to-br from-purple-500 to-pink-500"><img src="https://i.pravatar.cc/150?img=30" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                <div class="w-full h-full rounded-full bg-gradient-to-br from-purple-500 to-pink-500"><img src="https://i.pravatar.cc/150?img=5" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                             </div>
                             <!-- Completion Badge -->
                             <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-semibold text-white"
@@ -4250,7 +4214,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Profile</h1>
@@ -4269,7 +4233,7 @@
                         <div class="relative mb-4">
                             <div class="w-32 h-32 rounded-full p-1"
                                 style="background: linear-gradient(135deg, #f43f5e, #db2777);">
-                                <div class="w-full h-full rounded-full bg-gradient-to-br from-purple-500 to-pink-500"><img src="https://i.pravatar.cc/150?img=69" class="w-full h-full object-cover rounded-full" alt="Avatar" /></div>
+                                <div class="w-full h-full rounded-full bg-gradient-to-br from-purple-500 to-pink-500"><img src="https://i.pravatar.cc/150?img=65" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                             </div>
                             <!-- Completion Badge -->
                             <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-semibold text-white"
@@ -4381,7 +4345,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Recz Buddies</h1>
@@ -4431,7 +4395,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=7" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=17" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4461,7 +4425,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=8" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=1" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4491,7 +4455,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=38" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=4" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4521,7 +4485,7 @@
                         <div
                             class="glass-panel-dark rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-900">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=31" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=34" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4582,7 +4546,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Recz Buddies</h1>
@@ -4633,7 +4597,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=35" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=29" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4663,7 +4627,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=39" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=45" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4693,7 +4657,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=41" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=50" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -4723,7 +4687,7 @@
                         <div
                             class="glass-panel-light rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]">
                             <div class="relative w-full aspect-[3/4] bg-gradient-to-br from-neutral-100 to-neutral-200">
-                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=68" class="w-full h-full object-cover" alt="Avatar" /></div>
+                                <div class="absolute inset-0"><img src="https://i.pravatar.cc/150?img=56" class="w-full h-full rounded-full object-cover" alt="Avatar" /></div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                                 </div>
@@ -5573,6 +5537,12 @@
                         </div>
                         <div
                             class="interest-chip interest-chip-dark rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
+                            <iconify-icon icon="solar:wine-glass-bold"
+                                style="font-size: 20px; color: #ec4899;"></iconify-icon>
+                            <span class="text-[12px] text-white font-medium">Wine & Spirits</span>
+                        </div>
+                        <div
+                            class="interest-chip interest-chip-dark rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
                             <iconify-icon icon="solar:menu-dots-bold"
                                 style="font-size: 20px; color: #6b7280;"></iconify-icon>
                             <span class="text-[12px] text-white font-medium">Anything</span>
@@ -5693,6 +5663,12 @@
                         </div>
                         <div
                             class="interest-chip interest-chip-light rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
+                            <iconify-icon icon="solar:wine-glass-bold"
+                                style="font-size: 20px; color: #ec4899;"></iconify-icon>
+                            <span class="text-[12px] text-neutral-900 font-medium">Wine & Spirits</span>
+                        </div>
+                        <div
+                            class="interest-chip interest-chip-light rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
                             <iconify-icon icon="solar:menu-dots-bold"
                                 style="font-size: 20px; color: #6b7280;"></iconify-icon>
                             <span class="text-[12px] text-neutral-900 font-medium">Anything</span>
@@ -5724,7 +5700,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Recz Buddy</h1>
@@ -5821,7 +5797,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Recz Buddy</h1>
@@ -5919,7 +5895,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Recz Buddy</h1>
@@ -5997,7 +5973,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Recz Buddy</h1>
@@ -6076,7 +6052,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Interest</h1>
@@ -6170,6 +6146,12 @@
                         </div>
                         <div
                             class="interest-chip interest-chip-dark rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
+                            <iconify-icon icon="solar:wine-glass-bold"
+                                style="font-size: 20px; color: #ec4899;"></iconify-icon>
+                            <span class="text-[12px] text-white font-medium">Wine & Spirits</span>
+                        </div>
+                        <div
+                            class="interest-chip interest-chip-dark rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
                             <iconify-icon icon="solar:menu-dots-bold"
                                 style="font-size: 20px; color: #6b7280;"></iconify-icon>
                             <span class="text-[12px] text-white font-medium">Anything</span>
@@ -6201,7 +6183,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Interest</h1>
@@ -6295,6 +6277,12 @@
                         </div>
                         <div
                             class="interest-chip interest-chip-light rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
+                            <iconify-icon icon="solar:wine-glass-bold"
+                                style="font-size: 20px; color: #ec4899;"></iconify-icon>
+                            <span class="text-[12px] text-neutral-900 font-medium">Wine & Spirits</span>
+                        </div>
+                        <div
+                            class="interest-chip interest-chip-light rounded-xl px-3 py-2.5 flex flex-col items-center gap-1.5">
                             <iconify-icon icon="solar:menu-dots-bold"
                                 style="font-size: 20px; color: #6b7280;"></iconify-icon>
                             <span class="text-[12px] text-neutral-900 font-medium">Anything</span>
@@ -6326,7 +6314,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Zodiac</h1>
@@ -6442,7 +6430,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Zodiac</h1>
@@ -6558,7 +6546,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Religion</h1>
@@ -6676,7 +6664,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Religion</h1>
@@ -6794,7 +6782,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Politics</h1>
@@ -6865,7 +6853,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Politics</h1>
@@ -6936,7 +6924,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Education Level</h1>
@@ -7004,7 +6992,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Education Level</h1>
@@ -7072,7 +7060,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Exercise</h1>
@@ -7128,7 +7116,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Exercise</h1>
@@ -7184,7 +7172,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Your language</h1>
@@ -7276,7 +7264,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Your language</h1>
@@ -7368,7 +7356,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-dark flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: white;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-white">Details</h1>
@@ -7429,7 +7417,7 @@
                 <!-- Header -->
                 <div class="pt-12 pb-4 px-6 z-30 relative flex items-center justify-between">
                     <button class="w-10 h-10 rounded-full glass-panel-light flex items-center justify-center">
-                        <iconify-icon icon="solar:alt-arrow-left-linear"
+                        <iconify-icon icon="solar:alt-arrow-left-bold"
                             style="font-size: 20px; color: #171717;"></iconify-icon>
                     </button>
                     <h1 class="text-[18px] font-semibold text-neutral-900">Details</h1>
