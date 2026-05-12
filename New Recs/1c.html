@@ -46,58 +46,71 @@
 
         .glass-panel {
             background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(20px) saturate(145%);
-            -webkit-backdrop-filter: blur(20px) saturate(145%);
+            backdrop-filter: blur(20px) brightness(1.08) saturate(175%);
+            -webkit-backdrop-filter: blur(20px) brightness(1.08) saturate(175%);
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow:
                 0 10px 40px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+                inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.03);
+            isolation: isolate;
         }
 
         .glass-nav {
             background:
                 linear-gradient(180deg, rgba(5, 5, 7, 0.62) 0%, rgba(5, 5, 7, 0.28) 62%, rgba(5, 5, 5, 0) 100%),
                 radial-gradient(circle at 22% 0%, rgba(255, 255, 255, 0.055), transparent 45%);
-            backdrop-filter: blur(34px) saturate(150%);
-            -webkit-backdrop-filter: blur(34px) saturate(150%);
+            backdrop-filter: blur(34px) brightness(1.06) saturate(180%);
+            -webkit-backdrop-filter: blur(34px) brightness(1.06) saturate(180%);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            will-change: transform;
         }
 
         .glass-bottom {
             background:
                 linear-gradient(0deg, rgba(5, 5, 7, 0.68) 0%, rgba(5, 5, 7, 0.34) 58%, rgba(5, 5, 5, 0) 100%),
                 radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.05), transparent 52%);
-            backdrop-filter: blur(34px) saturate(150%);
-            -webkit-backdrop-filter: blur(34px) saturate(150%);
+            backdrop-filter: blur(34px) brightness(1.06) saturate(180%);
+            -webkit-backdrop-filter: blur(34px) brightness(1.06) saturate(180%);
             box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.055);
+            will-change: transform;
         }
 
 
         .apple-glass {
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(28px) saturate(155%);
-            -webkit-backdrop-filter: blur(28px) saturate(155%);
+            backdrop-filter: blur(28px) brightness(1.1) saturate(195%);
+            -webkit-backdrop-filter: blur(28px) brightness(1.1) saturate(195%);
             border: 1px solid rgba(255, 255, 255, 0.055);
             box-shadow:
                 0 14px 44px rgba(0,0,0,0.48),
-                inset 0 1px 0 rgba(255,255,255,0.09);
+                inset 0 1px 0 rgba(255,255,255,0.12),
+                inset 0 -1px 0 rgba(255,255,255,0.04);
+            isolation: isolate;
         }
 
         .apple-glass-light {
             background: rgba(255, 255, 255, 0.035);
-            backdrop-filter: blur(18px) saturate(145%);
-            -webkit-backdrop-filter: blur(18px) saturate(145%);
+            backdrop-filter: blur(18px) brightness(1.08) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) brightness(1.08) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.045);
-            box-shadow: 0 10px 32px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.07);
+            box-shadow:
+                0 10px 32px rgba(0,0,0,0.36),
+                inset 0 1px 0 rgba(255,255,255,0.09),
+                inset 0 -1px 0 rgba(255,255,255,0.03);
+            isolation: isolate;
         }
 
         .apple-input {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px) saturate(135%);
-            -webkit-backdrop-filter: blur(12px) saturate(135%);
-            border: 0;
+            backdrop-filter: blur(12px) brightness(1.06) saturate(155%);
+            -webkit-backdrop-filter: blur(12px) brightness(1.06) saturate(155%);
+            border: 1px solid transparent;
             border-radius: 16px;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.045), 0 8px 28px rgba(0,0,0,0.2);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.045),
+                inset 0 -1px 0 rgba(255,255,255,0.02),
+                0 8px 28px rgba(0,0,0,0.2);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -113,12 +126,13 @@
         .glass-panel:has(textarea),
         textarea.glass-panel {
             background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(12px) saturate(135%);
-            -webkit-backdrop-filter: blur(12px) saturate(135%);
-            border: 0;
+            backdrop-filter: blur(12px) brightness(1.06) saturate(155%);
+            -webkit-backdrop-filter: blur(12px) brightness(1.06) saturate(155%);
+            border: 1px solid transparent;
             border-radius: 16px;
             box-shadow:
                 inset 0 1px 0 rgba(255,255,255,0.04),
+                inset 0 -1px 0 rgba(255,255,255,0.02),
                 0 8px 28px rgba(0,0,0,0.2);
         }
 
@@ -152,9 +166,10 @@
         .sticky-blur {
             background:
                 linear-gradient(180deg, rgba(5,5,7,0.58), rgba(5,5,5,0.28));
-            backdrop-filter: blur(36px) saturate(165%);
-            -webkit-backdrop-filter: blur(36px) saturate(165%);
+            backdrop-filter: blur(36px) brightness(1.07) saturate(185%);
+            -webkit-backdrop-filter: blur(36px) brightness(1.07) saturate(185%);
             border-bottom: 1px solid rgba(255,255,255,0.04);
+            will-change: transform;
         }
 
         .hide-scrollbar,
@@ -265,18 +280,21 @@
             height: 56px;
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.055);
-            backdrop-filter: blur(26px) saturate(150%);
-            -webkit-backdrop-filter: blur(26px) saturate(150%);
+            backdrop-filter: blur(26px) brightness(1.09) saturate(185%);
+            -webkit-backdrop-filter: blur(26px) brightness(1.09) saturate(185%);
             border: 1px solid rgba(255, 255, 255, 0.055);
             box-shadow:
                 0 16px 44px rgba(0, 0, 0, 0.48),
-                inset 0 1px 0 rgba(255,255,255,0.08);
+                inset 0 1px 0 rgba(255,255,255,0.1),
+                inset 0 -1px 0 rgba(255,255,255,0.04);
             display: flex;
             align-items: center;
             gap: 12px;
             padding: 0 14px;
             z-index: 46;
             cursor: pointer;
+            will-change: transform;
+            isolation: isolate;
         }
 
         .fab-rexy-icon {
@@ -303,28 +321,30 @@
             align-items: center;
             padding: 0 16px;
             background: rgba(255, 255, 255, 0.055);
-            backdrop-filter: blur(38px) saturate(160%);
-            -webkit-backdrop-filter: blur(38px) saturate(160%);
+            backdrop-filter: blur(38px) brightness(1.08) saturate(195%);
+            -webkit-backdrop-filter: blur(38px) brightness(1.08) saturate(195%);
             border: 1px solid rgba(255, 255, 255, 0.065);
             border-radius: 999px;
             box-shadow:
                 0 18px 52px rgba(0, 0, 0, 0.62),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.04);
             z-index: 50;
+            will-change: transform;
+            isolation: isolate;
         }
 
         .detail-action-glass {
             background: rgba(255, 255, 255, 0.055);
-            backdrop-filter: blur(38px) saturate(160%);
-            -webkit-backdrop-filter: blur(38px) saturate(160%);
+            backdrop-filter: blur(38px) brightness(1.08) saturate(195%);
+            -webkit-backdrop-filter: blur(38px) brightness(1.08) saturate(195%);
             border-top: 1px solid rgba(255, 255, 255, 0.065);
             box-shadow:
                 0 -18px 52px rgba(0, 0, 0, 0.62),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        }
-
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+            will-change: transform;
+            isolation: isolate;
         }
 
         .prototype-shell {
@@ -566,11 +586,14 @@
 
         .he-screen .card {
             background: rgba(255,255,255,0.04);
-            backdrop-filter: blur(20px) saturate(145%);
-            -webkit-backdrop-filter: blur(20px) saturate(145%);
+            backdrop-filter: blur(20px) brightness(1.08) saturate(175%);
+            -webkit-backdrop-filter: blur(20px) brightness(1.08) saturate(175%);
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 1.25rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.06);
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.42),
+                inset 0 1px 0 rgba(255,255,255,0.08),
+                inset 0 -1px 0 rgba(255,255,255,0.03);
         }
 
         .home-rollz-modern {
@@ -614,8 +637,8 @@
             inset: 0;
             pointer-events: none;
             opacity: 0.12;
-            background-image: url("https://picsum.photos/seed/rollz-grain/700/900");
-            background-size: cover;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
             mix-blend-mode: screen;
         }
 
@@ -836,14 +859,17 @@
             justify-content: space-between;
             padding: 0 14px;
             background: rgba(255,255,255,0.055);
-            backdrop-filter: blur(38px) saturate(160%);
-            -webkit-backdrop-filter: blur(38px) saturate(160%);
+            backdrop-filter: blur(38px) brightness(1.08) saturate(195%);
+            -webkit-backdrop-filter: blur(38px) brightness(1.08) saturate(195%);
             border: 1px solid rgba(255,255,255,0.065);
             border-radius: 999px;
             box-shadow:
                 0 16px 46px rgba(0,0,0,0.58),
-                inset 0 1px 0 rgba(255,255,255,0.08);
+                inset 0 1px 0 rgba(255,255,255,0.1),
+                inset 0 -1px 0 rgba(255,255,255,0.04);
             z-index: 50;
+            will-change: transform;
+            isolation: isolate;
         }
 
         .he-screen .nav-item {
@@ -936,9 +962,44 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Apple Liquid Glass — displacement filter utility */
+        .liquid-glass {
+            filter: url(#liquid-glass-filter);
+            backdrop-filter: blur(28px) brightness(1.12) saturate(210%);
+            -webkit-backdrop-filter: blur(28px) brightness(1.12) saturate(210%);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.065);
+            box-shadow:
+                0 14px 44px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.14),
+                inset 0 -1px 0 rgba(255,255,255,0.05);
+            isolation: isolate;
+        }
+
+        .he-screen .card {
+            will-change: transform;
+            isolation: isolate;
+        }
+
+        .he-screen .nav-bar {
+            will-change: transform;
+            isolation: isolate;
+        }
     </style>
 </head>
 <body>
+    <!-- SVG filter for Apple Liquid Glass displacement -->
+    <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+        <defs>
+            <filter id="liquid-glass-filter" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+                <feTurbulence type="fractalNoise" baseFrequency="0.018 0.022" numOctaves="3" seed="2" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+                <feGaussianBlur in="displaced" stdDeviation="0.4" result="blurred"/>
+                <feComposite in="blurred" in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
     <div id="app">
         <section class="storyboard-section onboarding-storyboard">
             <div class="prototype-wrapper">
