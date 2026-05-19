@@ -1033,6 +1033,32 @@
                 <div class="max-w-[1400px] mx-auto mb-12">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
+                        <h2 class="section-title text-2xl text-white">Onboarding</h2>
+                        <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
+                    </div>
+                </div>
+
+                <div class="screens-container onboarding-screens">
+                    <template v-for="screen in onboardingJourneyScreens" :key="screen.id">
+                        <div class="storyboard-card">
+                            <div class="mb-3 flex items-center justify-between gap-3">
+                                <div class="screen-title-inline">{{ screen.step }}. {{ screen.title }}</div>
+                            </div>
+                            <div class="iphone-frame relative">
+                                <div class="notch"></div>
+                                <component :is="screen.component" :screen-id="screen.id"></component>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <section class="storyboard-section onboarding-storyboard">
+            <div class="prototype-wrapper">
+                <div class="max-w-[1400px] mx-auto mb-12">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-1 h-8 bg-gradient-accent rounded-full"></div>
                         <h2 class="section-title text-2xl text-white">Home and Explore</h2>
                         <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></div>
                     </div>
@@ -1134,30 +1160,52 @@
 
           <div class="px-5 mb-7">
             <div class="flex items-center justify-between mb-3">
-              <div>
-                <h2 class="text-base font-medium tracking-tight-m">Friends Taste</h2>
-                <p class="text-xs text-neutral-500 mt-0.5">What your circle recommended</p>
-              </div>
+              <h2 class="text-base font-medium tracking-tight-m">Friends Taste</h2>
               <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('11a')">See more</button>
             </div>
-
-            <div class="space-y-2.5">
-              <button class="card w-full p-3 flex items-center gap-3 text-left border-rose-500/15" @click="$root.goToScreen('11a')">
-                <img src="https://i.pravatar.cc/100?img=11" class="h-11 w-11 rounded-full object-cover" alt="Shiv">
-                <div class="min-w-0 flex-1">
-                  <p class="truncate text-sm font-medium"><span class="text-white">Shiv</span> recommended Nori Handrolls</p>
-                  <p class="mt-0.5 truncate text-xs text-neutral-500">Sushi · quiet counter · 94% fit</p>
+            <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+              <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                <div class="relative h-28">
+                  <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Nori Handrolls">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                    <img src="https://i.pravatar.cc/100?img=11" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Shiv">
+                    <span class="text-xs text-white font-medium">Shiv rec'd</span>
+                  </div>
                 </div>
-                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-500"></iconify-icon>
-              </button>
-              <button class="card w-full p-3 flex items-center gap-3 text-left border-purple-500/15" @click="$root.goToScreen('11a')">
-                <img src="https://i.pravatar.cc/100?img=32" class="h-11 w-11 rounded-full object-cover" alt="Prerna">
-                <div class="min-w-0 flex-1">
-                  <p class="truncate text-sm font-medium"><span class="text-white">Prerna</span> recommended Vista Cinema</p>
-                  <p class="mt-0.5 truncate text-xs text-neutral-500">Indie film · late screening</p>
+                <div class="p-3">
+                  <h3 class="text-sm font-medium truncate">Nori Handrolls</h3>
+                  <p class="text-xs text-neutral-500 mt-0.5">Sushi · quiet counter</p>
                 </div>
-                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-500"></iconify-icon>
-              </button>
+              </article>
+              <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                <div class="relative h-28">
+                  <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Vista Cinema">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                    <img src="https://i.pravatar.cc/100?img=32" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Prerna">
+                    <span class="text-xs text-white font-medium">Prerna rec'd</span>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <h3 class="text-sm font-medium truncate">Vista Cinema</h3>
+                  <p class="text-xs text-neutral-500 mt-0.5">Indie film · late screening</p>
+                </div>
+              </article>
+              <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                <div class="relative h-28">
+                  <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Verve Back Patio">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                    <img src="https://i.pravatar.cc/100?img=47" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Pankhuri">
+                    <span class="text-xs text-white font-medium">Pankhuri rec'd</span>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <h3 class="text-sm font-medium truncate">Verve Back Patio</h3>
+                  <p class="text-xs text-neutral-500 mt-0.5">Cafe · calm morning</p>
+                </div>
+              </article>
             </div>
           </div>
 
@@ -1394,49 +1442,67 @@
             </div>
           </div>
 
-          <!-- Friends Taste -->
-          <section class="px-5 mb-7">
-            <div class="mb-4 flex items-start justify-between gap-4">
-              <div>
-                <h2 class="text-[22px] font-semibold tracking-tight-m text-white">Friends Taste</h2>
-                <p class="mt-1 text-sm text-neutral-500">What your circle recommended</p>
-              </div>
-              <button class="pt-1 text-sm font-semibold text-neutral-400" @click="$root.goToScreen('11a')">See more</button>
-            </div>
-
-            <div class="space-y-3">
-              <button class="card w-full rounded-[1.75rem] p-4 text-left" @click="$root.goToScreen('11a')">
-                <div class="flex items-center gap-4">
-                  <img src="https://i.pravatar.cc/100?img=11" class="h-14 w-14 shrink-0 rounded-full object-cover" alt="Shiv">
-                  <div class="min-w-0 flex-1">
-                    <p class="truncate text-lg font-semibold tracking-tight-m text-white">Shiv recommended Nori Ha...</p>
-                    <p class="mt-1 truncate text-sm text-neutral-500">Sushi · quiet counter · 94% fit</p>
-                  </div>
-                  <iconify-icon icon="solar:alt-arrow-right-linear" class="text-2xl text-neutral-500"></iconify-icon>
-                </div>
-              </button>
-
-              <button class="card w-full rounded-[1.75rem] p-4 text-left" @click="$root.goToScreen('11a')">
-                <div class="flex items-center gap-4">
-                  <img src="https://i.pravatar.cc/100?img=32" class="h-14 w-14 shrink-0 rounded-full object-cover" alt="Prerna">
-                  <div class="min-w-0 flex-1">
-                    <p class="truncate text-lg font-semibold tracking-tight-m text-white">Prerna recommended Vista ...</p>
-                    <p class="mt-1 truncate text-sm text-neutral-500">Indie film · late screening</p>
-                  </div>
-                  <iconify-icon icon="solar:alt-arrow-right-linear" class="text-2xl text-neutral-500"></iconify-icon>
-                </div>
-              </button>
-            </div>
-          </section>
-
           <!-- Filter chips -->
           <div class="mb-7">
             <div class="flex gap-2 overflow-x-auto no-scrollbar px-5 pb-1">
               <button class="chip chip-active">All</button>
+              <button class="chip">Friends</button>
               <button class="chip">Near</button>
               <button class="chip">Tonight</button>
               <button class="chip">Trending</button>
               <button class="chip">Gems</button>
+            </div>
+          </div>
+
+          <!-- Friends Taste -->
+          <div class="px-5 mb-7">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-base font-medium tracking-tight-m">Friends Taste</h2>
+              <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('11a')">See more</button>
+            </div>
+            <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+              <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                <div class="relative h-28">
+                  <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Nori Handrolls">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                    <img src="https://i.pravatar.cc/100?img=11" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Shiv">
+                    <span class="text-xs text-white font-medium">Shiv rec'd</span>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <h3 class="text-sm font-medium truncate">Nori Handrolls</h3>
+                  <p class="text-xs text-neutral-500 mt-0.5">Sushi · quiet counter</p>
+                </div>
+              </article>
+              <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                <div class="relative h-28">
+                  <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Vista Cinema">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                    <img src="https://i.pravatar.cc/100?img=32" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Prerna">
+                    <span class="text-xs text-white font-medium">Prerna rec'd</span>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <h3 class="text-sm font-medium truncate">Vista Cinema</h3>
+                  <p class="text-xs text-neutral-500 mt-0.5">Indie film · late screening</p>
+                </div>
+              </article>
+              <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                <div class="relative h-28">
+                  <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Verve Back Patio">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                    <img src="https://i.pravatar.cc/100?img=47" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Pankhuri">
+                    <span class="text-xs text-white font-medium">Pankhuri rec'd</span>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <h3 class="text-sm font-medium truncate">Verve Back Patio</h3>
+                  <p class="text-xs text-neutral-500 mt-0.5">Cafe · calm morning</p>
+                </div>
+              </article>
             </div>
           </div>
 
@@ -2785,30 +2851,52 @@
 
                     <div class="px-5 mb-7">
                         <div class="flex items-center justify-between mb-3">
-                            <div>
-                                <h2 class="text-base font-medium tracking-tight-m">Friends Taste</h2>
-                                <p class="mt-0.5 text-xs text-neutral-500">Recs from people you trust</p>
-                            </div>
+                            <h2 class="text-base font-medium tracking-tight-m">Friends Taste</h2>
                             <button class="text-xs text-neutral-400 font-medium" @click="$root.goToScreen('11a')">See more</button>
                         </div>
-
-                        <div class="space-y-2.5">
-                            <button class="card w-full p-3 flex items-center gap-3 text-left border-rose-500/15" @click="$root.goToScreen('11a')">
-                                <img src="https://i.pravatar.cc/100?img=11" class="h-11 w-11 rounded-full object-cover" alt="Shiv">
-                                <div class="min-w-0 flex-1">
-                                    <p class="truncate text-sm font-medium"><span class="text-white">Shiv</span> recommended Nori Handrolls</p>
-                                    <p class="mt-0.5 truncate text-xs text-neutral-500">Sushi · calm counter · saved today</p>
+                        <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                            <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                                <div class="relative h-28">
+                                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Nori Handrolls">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                                        <img src="https://i.pravatar.cc/100?img=11" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Shiv">
+                                        <span class="text-xs text-white font-medium">Shiv rec'd</span>
+                                    </div>
                                 </div>
-                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-500"></iconify-icon>
-                            </button>
-                            <button class="card w-full p-3 flex items-center gap-3 text-left border-purple-500/15" @click="$root.goToScreen('11a')">
-                                <img src="https://i.pravatar.cc/100?img=32" class="h-11 w-11 rounded-full object-cover" alt="Prerna">
-                                <div class="min-w-0 flex-1">
-                                    <p class="truncate text-sm font-medium"><span class="text-white">Prerna</span> recommended Vista Cinema</p>
-                                    <p class="mt-0.5 truncate text-xs text-neutral-500">Indie film · 9 PM showing</p>
+                                <div class="p-3">
+                                    <h3 class="text-sm font-medium truncate">Nori Handrolls</h3>
+                                    <p class="text-xs text-neutral-500 mt-0.5">Sushi · calm counter</p>
                                 </div>
-                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-neutral-500"></iconify-icon>
-                            </button>
+                            </article>
+                            <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                                <div class="relative h-28">
+                                    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Vista Cinema">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                                        <img src="https://i.pravatar.cc/100?img=32" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Prerna">
+                                        <span class="text-xs text-white font-medium">Prerna rec'd</span>
+                                    </div>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="text-sm font-medium truncate">Vista Cinema</h3>
+                                    <p class="text-xs text-neutral-500 mt-0.5">Indie film · 9 PM showing</p>
+                                </div>
+                            </article>
+                            <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('11a')">
+                                <div class="relative h-28">
+                                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Verve Back Patio">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                                        <img src="https://i.pravatar.cc/100?img=47" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Pankhuri">
+                                        <span class="text-xs text-white font-medium">Pankhuri rec'd</span>
+                                    </div>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="text-sm font-medium truncate">Verve Back Patio</h3>
+                                    <p class="text-xs text-neutral-500 mt-0.5">Cafe · calm morning</p>
+                                </div>
+                            </article>
                         </div>
                     </div>
 
@@ -5772,52 +5860,52 @@
                 <!-- FRIENDS TASTE -->
                 <section class="px-5 mb-6">
                     <div class="mb-3 flex items-center justify-between">
-                        <div>
-                            <h3 class="text-base font-semibold tracking-tight text-white">Friends Taste</h3>
-                            <p class="mt-0.5 text-xs text-gray-500">Recs from people you trust</p>
-                        </div>
+                        <h3 class="text-base font-semibold tracking-tight text-white">Friends Taste</h3>
                         <button class="text-xs font-semibold text-rose-200" @click="$root.goToScreen('11a')">See more</button>
                     </div>
-                    <div class="space-y-2">
-                        <button class="w-full rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-left transition hover:bg-white/[0.06]" @click="$root.goToScreen('14')">
-                            <div class="flex items-center gap-3">
-                                <img src="https://i.pravatar.cc/100?img=11" class="h-11 w-11 rounded-full object-cover shrink-0" alt="Shiv">
-                                <div class="min-w-0 flex-1">
-                                    <p class="truncate text-sm font-semibold text-white">Shiv recommended Nori Handrolls</p>
-                                    <p class="mt-0.5 text-xs text-gray-500">Sushi · calm counter · saved today</p>
-                                </div>
-                                <div class="flex shrink-0 items-center gap-2">
-                                    <span class="rounded-full border border-rose-300/20 bg-rose-500/10 px-2 py-0.5 text-[9px] font-bold text-rose-100">94%</span>
-                                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm text-gray-500"></iconify-icon>
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-5 px-5 pb-1">
+                        <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('14')">
+                            <div class="relative h-28">
+                                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Nori Handrolls">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                                    <img src="https://i.pravatar.cc/100?img=11" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Shiv">
+                                    <span class="text-xs text-white font-medium">Shiv rec'd</span>
                                 </div>
                             </div>
-                        </button>
-                        <button class="w-full rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-left transition hover:bg-white/[0.06]" @click="$root.goToScreen('14')">
-                            <div class="flex items-center gap-3">
-                                <img src="https://i.pravatar.cc/100?img=12" class="h-11 w-11 rounded-full object-cover shrink-0" alt="Prerna">
-                                <div class="min-w-0 flex-1">
-                                    <p class="truncate text-sm font-semibold text-white">Prerna recommended Vista Theatre</p>
-                                    <p class="mt-0.5 text-xs text-gray-500">Indie film · 9 PM showing</p>
-                                </div>
-                                <div class="flex shrink-0 items-center gap-2">
-                                    <span class="rounded-full border border-purple-300/20 bg-purple-500/10 px-2 py-0.5 text-[9px] font-bold text-purple-100">88%</span>
-                                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm text-gray-500"></iconify-icon>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium truncate">Nori Handrolls</h3>
+                                <p class="text-xs text-neutral-500 mt-0.5">Sushi · calm counter</p>
+                            </div>
+                        </article>
+                        <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('14')">
+                            <div class="relative h-28">
+                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Vista Theatre">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                                    <img src="https://i.pravatar.cc/100?img=12" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Prerna">
+                                    <span class="text-xs text-white font-medium">Prerna rec'd</span>
                                 </div>
                             </div>
-                        </button>
-                        <button class="w-full rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-left transition hover:bg-white/[0.06]" @click="$root.goToScreen('14')">
-                            <div class="flex items-center gap-3">
-                                <img src="https://i.pravatar.cc/100?img=47" class="h-11 w-11 rounded-full object-cover shrink-0" alt="Pankhuri">
-                                <div class="min-w-0 flex-1">
-                                    <p class="truncate text-sm font-semibold text-white">Pankhuri recommended Verve Back Patio</p>
-                                    <p class="mt-0.5 text-xs text-gray-500">Cafe · calm morning · 3h ago</p>
-                                </div>
-                                <div class="flex shrink-0 items-center gap-2">
-                                    <span class="rounded-full border border-emerald-300/20 bg-emerald-500/10 px-2 py-0.5 text-[9px] font-bold text-emerald-100">78%</span>
-                                    <iconify-icon icon="solar:alt-arrow-right-linear" class="text-sm text-gray-500"></iconify-icon>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium truncate">Vista Theatre</h3>
+                                <p class="text-xs text-neutral-500 mt-0.5">Indie film · 9 PM showing</p>
+                            </div>
+                        </article>
+                        <article class="card min-w-[210px] shrink-0 overflow-hidden" @click="$root.goToScreen('14')">
+                            <div class="relative h-28">
+                                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Verve Back Patio">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 flex items-center gap-1.5">
+                                    <img src="https://i.pravatar.cc/100?img=47" class="h-5 w-5 rounded-full border border-white/30 object-cover" alt="Pankhuri">
+                                    <span class="text-xs text-white font-medium">Pankhuri rec'd</span>
                                 </div>
                             </div>
-                        </button>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium truncate">Verve Back Patio</h3>
+                                <p class="text-xs text-neutral-500 mt-0.5">Cafe · calm morning</p>
+                            </div>
+                        </article>
                     </div>
                 </section>
 
@@ -6857,6 +6945,481 @@
 
             <div class="glass-bottom absolute bottom-0 left-0 w-full px-5 pb-8 pt-4 z-20">
                 <button class="w-full rounded-2xl bg-white py-4 text-sm font-bold text-black shadow-[0_8px_28px_rgba(255,255,255,0.14)] transition active:scale-[0.99]" @click="$root.goToScreen('08')">Enter Recz</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 01. Taste Journey Intro -->
+    <template id="screen-101">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute -top-28 -right-24 h-80 w-80 rounded-full bg-purple-500/[0.12] blur-3xl"></div>
+            <div class="absolute bottom-12 -left-28 h-80 w-80 rounded-full bg-rose-500/[0.14] blur-3xl"></div>
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-20">
+                <div class="mb-8 flex items-center justify-between">
+                    <span class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-rose-100">Step 1 of 6</span>
+                    <button class="text-xs font-semibold text-gray-500">Skip</button>
+                </div>
+
+                <div class="mb-10 flex justify-center">
+                    <div class="relative h-56 w-56">
+                        <div class="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(244,63,94,0.36),rgba(168,85,247,0.18)_42%,transparent_70%)] blur-xl"></div>
+                        <div class="absolute inset-8 rounded-full border border-white/10 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_70px_rgba(0,0,0,0.5)] backdrop-blur-2xl"></div>
+                        <div class="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-rose-500 via-fuchsia-500 to-purple-500 shadow-[0_22px_56px_rgba(244,63,94,0.28)]">
+                            <iconify-icon icon="solar:magic-stick-3-bold" class="text-4xl text-white"></iconify-icon>
+                        </div>
+                        <div class="absolute left-5 top-9 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-rose-100 backdrop-blur-md">Taste</div>
+                        <div class="absolute bottom-8 right-2 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-purple-100 backdrop-blur-md">Rexy</div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-rose-200/70">Rexy taste journey</p>
+                    <h1 class="mx-auto max-w-[300px] text-[34px] font-semibold leading-[1.02] tracking-tight text-white">Let's build your taste profile</h1>
+                    <p class="mx-auto mt-4 max-w-[290px] text-sm leading-6 text-gray-400">Rexy will ask a few quick questions to understand your vibe.</p>
+                </div>
+
+                <div class="mt-9 rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl">
+                    <div class="mb-3 flex items-center justify-between text-[11px] font-semibold text-gray-500">
+                        <span>Discovery path</span>
+                        <span>01/06</span>
+                    </div>
+                    <div class="h-2 overflow-hidden rounded-full bg-white/[0.07]">
+                        <div class="h-full w-1/6 rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full rounded-2xl bg-white py-4 text-sm font-bold text-black shadow-[0_8px_28px_rgba(255,255,255,0.14)]">Start</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 02. What Brings You Here? -->
+    <template id="screen-102">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-rose-500/[0.12] blur-3xl"></div>
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-rose-100/60">Step 2 of 6</p>
+                        <p class="text-[11px] font-semibold text-gray-500">Multi-select</p>
+                    </div>
+                    <div class="h-1.5 overflow-hidden rounded-full bg-white/[0.07]">
+                        <div class="h-full w-2/6 rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div>
+                    </div>
+                </div>
+
+                <div class="mb-7">
+                    <p class="mb-2 flex items-center gap-2 text-sm font-semibold text-rose-100">
+                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-rose-500/15"><iconify-icon icon="solar:magic-stick-3-bold" class="text-sm"></iconify-icon></span>
+                        Rexy asks
+                    </p>
+                    <h2 class="text-[31px] font-semibold leading-[1.05] tracking-tight text-white">What brings you to Recz?</h2>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="relative overflow-hidden rounded-[1.45rem] border border-rose-300/25 bg-rose-500/[0.12] p-4 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                        <iconify-icon icon="solar:plate-bold" class="mb-7 text-2xl text-rose-100"></iconify-icon>
+                        <p class="text-sm font-semibold text-white">Discover food</p>
+                        <span class="absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full bg-rose-500"><iconify-icon icon="solar:check-read-linear" class="text-[11px]"></iconify-icon></span>
+                    </button>
+                    <button class="rounded-[1.45rem] border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur-xl">
+                        <iconify-icon icon="solar:clapperboard-play-linear" class="mb-7 text-2xl text-gray-300"></iconify-icon>
+                        <p class="text-sm font-semibold text-white">Find movies</p>
+                    </button>
+                    <button class="relative rounded-[1.45rem] border border-purple-300/25 bg-purple-500/[0.10] p-4 text-left">
+                        <iconify-icon icon="solar:routing-2-bold" class="mb-7 text-2xl text-purple-100"></iconify-icon>
+                        <p class="text-sm font-semibold text-white">Explore cities</p>
+                        <span class="absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full bg-purple-500"><iconify-icon icon="solar:check-read-linear" class="text-[11px]"></iconify-icon></span>
+                    </button>
+                    <button class="rounded-[1.45rem] border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur-xl">
+                        <iconify-icon icon="solar:users-group-rounded-bold" class="mb-7 text-2xl text-gray-300"></iconify-icon>
+                        <p class="text-sm font-semibold text-white">Meet people</p>
+                    </button>
+                    <button class="rounded-[1.45rem] border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur-xl">
+                        <iconify-icon icon="solar:calendar-date-bold" class="mb-7 text-2xl text-gray-300"></iconify-icon>
+                        <p class="text-sm font-semibold text-white">Make plans</p>
+                    </button>
+                    <button class="rounded-[1.45rem] border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur-xl">
+                        <iconify-icon icon="solar:star-fall-bold" class="mb-7 text-2xl text-gray-300"></iconify-icon>
+                        <p class="text-sm font-semibold text-white">Surprise me</p>
+                    </button>
+                </div>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full accent-gradient rounded-2xl py-4 text-sm font-bold text-white">Continue</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 03. Your Perfect Evening -->
+    <template id="screen-103">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-rose-100/60">Step 3 of 6</p>
+                        <p class="text-[11px] font-semibold text-gray-500">Pick a mood</p>
+                    </div>
+                    <div class="h-1.5 overflow-hidden rounded-full bg-white/[0.07]">
+                        <div class="h-full w-3/6 rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h2 class="text-[30px] font-semibold leading-[1.06] tracking-tight text-white">What sounds like your perfect evening?</h2>
+                    <p class="mt-3 text-sm leading-6 text-gray-400">Rexy listens for patterns, not answers.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <button class="relative flex w-full items-center gap-4 overflow-hidden rounded-[1.75rem] border border-rose-300/25 bg-rose-500/[0.10] p-4 text-left">
+                        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-rose-500/20 text-rose-100"><iconify-icon icon="solar:cup-hot-bold" class="text-2xl"></iconify-icon></div>
+                        <div class="min-w-0 flex-1">
+                            <p class="text-base font-semibold text-white">Quiet dinner + coffee</p>
+                            <p class="mt-1 text-xs leading-5 text-gray-400">Soft lighting, a table that lets you talk.</p>
+                        </div>
+                        <iconify-icon icon="solar:check-circle-bold" class="text-xl text-rose-200"></iconify-icon>
+                    </button>
+                    <button class="flex w-full items-center gap-4 rounded-[1.75rem] border border-purple-300/20 bg-purple-500/[0.08] p-4 text-left">
+                        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-purple-500/15 text-purple-100"><iconify-icon icon="solar:film-frame-bold" class="text-2xl"></iconify-icon></div>
+                        <div class="min-w-0 flex-1">
+                            <p class="text-base font-semibold text-white">Indie movie + walk</p>
+                            <p class="mt-1 text-xs leading-5 text-gray-400">A slow night with a good ending.</p>
+                        </div>
+                    </button>
+                    <button class="flex w-full items-center gap-4 rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-4 text-left">
+                        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/[0.06] text-gray-300"><iconify-icon icon="solar:confetti-minimalistic-bold" class="text-2xl"></iconify-icon></div>
+                        <div class="min-w-0 flex-1">
+                            <p class="text-base font-semibold text-white">Big social night</p>
+                            <p class="mt-1 text-xs leading-5 text-gray-400">High energy, people, and a reason to stay out.</p>
+                        </div>
+                    </button>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="rounded-[1.35rem] border border-white/10 bg-white/[0.035] p-3 text-left text-sm font-semibold text-white">Stay home + delivery</button>
+                        <button class="rounded-[1.35rem] border border-white/10 bg-white/[0.035] p-3 text-left text-sm font-semibold text-white">Gallery + calm cafe</button>
+                        <button class="col-span-2 rounded-[1.35rem] border border-white/10 bg-white/[0.035] p-3 text-left text-sm font-semibold text-white">Hidden spots crawl</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full accent-gradient rounded-2xl py-4 text-sm font-bold text-white">Continue</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 04. New City Scenario -->
+    <template id="screen-104">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-purple-500/[0.10] blur-3xl"></div>
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-rose-100/60">Step 4 of 6</p>
+                        <p class="text-[11px] font-semibold text-gray-500">New city</p>
+                    </div>
+                    <div class="h-1.5 overflow-hidden rounded-full bg-white/[0.07]">
+                        <div class="h-full w-4/6 rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div>
+                    </div>
+                </div>
+
+                <div class="mb-7 rounded-[1.9rem] border border-white/10 bg-white/[0.035] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl">
+                    <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-500/15 text-rose-100">
+                        <iconify-icon icon="solar:map-point-wave-bold" class="text-2xl"></iconify-icon>
+                    </div>
+                    <h2 class="text-[28px] font-semibold leading-[1.08] tracking-tight text-white">If you landed in a new city, what would you search first?</h2>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5">
+                    <button class="rounded-full border border-rose-300/25 bg-rose-500/[0.12] px-4 py-3 text-sm font-semibold text-rose-50">Best cafes</button>
+                    <button class="rounded-full border border-rose-300/25 bg-rose-500/[0.12] px-4 py-3 text-sm font-semibold text-rose-50">Local food spots</button>
+                    <button class="rounded-full border border-purple-300/25 bg-purple-500/[0.10] px-4 py-3 text-sm font-semibold text-purple-50">Hidden culture</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-gray-200">Cinema</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-gray-200">Rooftops</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-gray-200">Meet people</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-gray-200">Music places</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-gray-200">Shopping gems</button>
+                </div>
+
+                <div class="mt-7 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4">
+                    <p class="text-xs leading-5 text-gray-400"><span class="font-semibold text-white">Rexy note:</span> You seem drawn to places with local signal over tourist certainty.</p>
+                </div>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full accent-gradient rounded-2xl py-4 text-sm font-bold text-white">Continue</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 05. Food Personality -->
+    <template id="screen-105">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-rose-100/60">Step 5 of 6</p>
+                        <p class="text-[11px] font-semibold text-gray-500">Optional taste layer</p>
+                    </div>
+                    <div class="h-1.5 overflow-hidden rounded-full bg-white/[0.07]">
+                        <div class="h-full w-5/6 rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="mb-2 text-sm font-semibold text-rose-100">Because food was selected</p>
+                    <h2 class="text-[30px] font-semibold leading-[1.06] tracking-tight text-white">What kind of food usually pulls you in?</h2>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5">
+                    <button class="rounded-full border border-rose-300/25 bg-rose-500/[0.12] px-4 py-2.5 text-sm font-semibold text-white">Indian</button>
+                    <button class="rounded-full border border-purple-300/25 bg-purple-500/[0.10] px-4 py-2.5 text-sm font-semibold text-white">Japanese</button>
+                    <button class="rounded-full border border-rose-300/25 bg-rose-500/[0.12] px-4 py-2.5 text-sm font-semibold text-white">Mediterranean</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-gray-200">Oriental</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-gray-200">Street food</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-gray-200">Vegan</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-gray-200">Seafood</button>
+                    <button class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-gray-200">Fine dining</button>
+                    <button class="rounded-full border border-rose-300/25 bg-rose-500/[0.12] px-4 py-2.5 text-sm font-semibold text-white">Affordable eats</button>
+                    <button class="rounded-full border border-purple-300/25 bg-purple-500/[0.10] px-4 py-2.5 text-sm font-semibold text-white">Late-night food</button>
+                    <button class="rounded-full border border-rose-300/25 bg-rose-500/[0.12] px-4 py-2.5 text-sm font-semibold text-white">Hidden gems</button>
+                </div>
+
+                <div class="mt-8 overflow-hidden rounded-[1.75rem] border border-rose-300/15 bg-gradient-to-br from-rose-500/[0.12] via-purple-500/[0.08] to-black p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.08]"><iconify-icon icon="solar:chef-hat-bold" class="text-xl text-rose-100"></iconify-icon></div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Rexy is detecting</p>
+                            <p class="mt-1 text-xs text-gray-400">Comfort, late nights, and hidden value.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full accent-gradient rounded-2xl py-4 text-sm font-bold text-white">Continue</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 06. Taste Sliders -->
+    <template id="screen-106">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-7">
+                    <div class="mb-3 flex items-center justify-between">
+                        <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-rose-100/60">Step 6 of 6</p>
+                        <p class="text-[11px] font-semibold text-gray-500">Preference spectrum</p>
+                    </div>
+                    <div class="h-1.5 overflow-hidden rounded-full bg-white/[0.07]">
+                        <div class="h-full w-full rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h2 class="text-[31px] font-semibold leading-[1.05] tracking-tight text-white">Fine-tune your vibe</h2>
+                    <p class="mt-3 text-sm leading-6 text-gray-400">A few sliders help Rexy choose the right context.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="rounded-[1.45rem] border border-white/10 bg-white/[0.035] p-4">
+                        <div class="mb-3 flex justify-between text-xs font-semibold text-gray-400"><span>Quiet</span><span>Lively</span></div>
+                        <div class="relative h-2 rounded-full bg-white/[0.08]"><div class="h-full w-[38%] rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div><div class="absolute left-[38%] top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#050505] bg-white"></div></div>
+                    </div>
+                    <div class="rounded-[1.45rem] border border-white/10 bg-white/[0.035] p-4">
+                        <div class="mb-3 flex justify-between text-xs font-semibold text-gray-400"><span>Planned</span><span>Spontaneous</span></div>
+                        <div class="relative h-2 rounded-full bg-white/[0.08]"><div class="h-full w-[72%] rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div><div class="absolute left-[72%] top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#050505] bg-white"></div></div>
+                    </div>
+                    <div class="rounded-[1.45rem] border border-white/10 bg-white/[0.035] p-4">
+                        <div class="mb-3 flex justify-between text-xs font-semibold text-gray-400"><span>Luxury</span><span>Casual</span></div>
+                        <div class="relative h-2 rounded-full bg-white/[0.08]"><div class="h-full w-[64%] rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div><div class="absolute left-[64%] top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#050505] bg-white"></div></div>
+                    </div>
+                    <div class="rounded-[1.45rem] border border-white/10 bg-white/[0.035] p-4">
+                        <div class="mb-3 flex justify-between text-xs font-semibold text-gray-400"><span>Social</span><span>Private</span></div>
+                        <div class="relative h-2 rounded-full bg-white/[0.08]"><div class="h-full w-[58%] rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div><div class="absolute left-[58%] top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#050505] bg-white"></div></div>
+                    </div>
+                    <div class="rounded-[1.45rem] border border-white/10 bg-white/[0.035] p-4">
+                        <div class="mb-3 flex justify-between text-xs font-semibold text-gray-400"><span>Known places</span><span>Hidden gems</span></div>
+                        <div class="relative h-2 rounded-full bg-white/[0.08]"><div class="h-full w-[82%] rounded-full bg-gradient-to-r from-rose-500 to-purple-500"></div><div class="absolute left-[82%] top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#050505] bg-white"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full accent-gradient rounded-2xl py-4 text-sm font-bold text-white">Continue</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 07. Social Energy -->
+    <template id="screen-107">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-7 rounded-full border border-white/10 bg-white/[0.04] px-4 py-3">
+                    <div class="flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.18em]">
+                        <span class="text-rose-100/70">Social layer</span>
+                        <span class="text-gray-500">Circle setup</span>
+                    </div>
+                </div>
+                <h2 class="mb-3 text-[31px] font-semibold leading-[1.05] tracking-tight text-white">How do you like to discover with people?</h2>
+                <p class="mb-7 text-sm leading-6 text-gray-400">This shapes plans, invites, and who Rexy listens to in your Circle.</p>
+
+                <div class="space-y-3">
+                    <button class="flex w-full items-center justify-between rounded-[1.55rem] border border-rose-300/25 bg-rose-500/[0.12] p-4 text-left">
+                        <span class="flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/20"><iconify-icon icon="solar:users-group-two-rounded-bold" class="text-lg text-rose-100"></iconify-icon></span><span class="text-sm font-semibold text-white">Small circles</span></span>
+                        <iconify-icon icon="solar:check-circle-bold" class="text-xl text-rose-200"></iconify-icon>
+                    </button>
+                    <button class="flex w-full items-center gap-3 rounded-[1.55rem] border border-white/10 bg-white/[0.035] p-4 text-left">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06]"><iconify-icon icon="solar:users-group-rounded-bold" class="text-lg text-gray-300"></iconify-icon></span>
+                        <span class="text-sm font-semibold text-white">Big groups</span>
+                    </button>
+                    <button class="flex w-full items-center gap-3 rounded-[1.55rem] border border-white/10 bg-white/[0.035] p-4 text-left">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06]"><iconify-icon icon="solar:heart-bold" class="text-lg text-gray-300"></iconify-icon></span>
+                        <span class="text-sm font-semibold text-white">Close people only</span>
+                    </button>
+                    <button class="flex w-full items-center gap-3 rounded-[1.55rem] border border-purple-300/20 bg-purple-500/[0.08] p-4 text-left">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500/15"><iconify-icon icon="solar:user-plus-bold" class="text-lg text-purple-100"></iconify-icon></span>
+                        <span class="text-sm font-semibold text-white">Open to meeting new people</span>
+                    </button>
+                    <button class="flex w-full items-center gap-3 rounded-[1.55rem] border border-white/10 bg-white/[0.035] p-4 text-left">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06]"><iconify-icon icon="solar:infinity-bold" class="text-lg text-gray-300"></iconify-icon></span>
+                        <span class="text-sm font-semibold text-white">Both</span>
+                    </button>
+                </div>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full accent-gradient rounded-2xl py-4 text-sm font-bold text-white">Continue</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 08. Build Your Circle -->
+    <template id="screen-108">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute -top-24 -left-20 h-72 w-72 rounded-full bg-rose-500/[0.10] blur-3xl"></div>
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-5">
+                    <p class="mb-2 text-[11px] font-bold uppercase tracking-[0.22em] text-rose-100/60">Taste Circle</p>
+                    <h2 class="text-[31px] font-semibold leading-[1.05] tracking-tight text-white">Build Your Circle</h2>
+                    <p class="mt-3 text-sm leading-6 text-gray-400">Start with trusted taste signals, then tune who shapes your feed.</p>
+                </div>
+
+                <div class="mb-5 flex items-center gap-3 rounded-[1.35rem] border border-white/10 bg-white/[0.035] p-3">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/[0.06]"><iconify-icon icon="solar:contacts-bold" class="text-lg text-rose-100"></iconify-icon></div>
+                    <div class="min-w-0 flex-1">
+                        <p class="text-sm font-semibold text-white">Find people you already trust</p>
+                        <p class="text-[11px] text-gray-500">Contact sync is available anytime.</p>
+                    </div>
+                    <button class="rounded-full border border-rose-300/25 bg-rose-500/[0.10] px-3 py-1.5 text-[11px] font-semibold text-rose-100">Sync Contacts</button>
+                </div>
+
+                <section class="mb-5">
+                    <div class="mb-3 flex items-center justify-between">
+                        <h3 class="text-xs font-bold uppercase tracking-[0.18em] text-white">Recz Insiders</h3>
+                        <span class="rounded-full border border-rose-300/25 bg-rose-500/[0.10] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-rose-100">Auto-followed</span>
+                    </div>
+                    <div class="space-y-3">
+                        <article class="rounded-[1.55rem] border border-rose-300/20 bg-white/[0.04] p-3.5">
+                            <div class="flex gap-3">
+                                <img src="https://i.pravatar.cc/120?img=47" class="h-14 w-14 shrink-0 rounded-2xl object-cover" alt="Pankhuri Rao">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <p class="truncate text-sm font-semibold text-white">Pankhuri Rao</p>
+                                        <button class="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[10px] font-semibold text-gray-300">Unfollow</button>
+                                    </div>
+                                    <p class="mt-1 text-[11px] font-semibold text-rose-200">Quiet cafe and indie film expert</p>
+                                    <p class="mt-1 text-xs leading-5 text-gray-500">Finds low-noise places with strong taste memory.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="rounded-[1.55rem] border border-white/10 bg-white/[0.035] p-3.5">
+                            <div class="flex gap-3">
+                                <img src="https://i.pravatar.cc/120?img=11" class="h-14 w-14 shrink-0 rounded-2xl object-cover" alt="Shiv Kapur">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <p class="truncate text-sm font-semibold text-white">Shiv Kapur</p>
+                                        <button class="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[10px] font-semibold text-gray-300">Unfollow</button>
+                                    </div>
+                                    <p class="mt-1 text-[11px] font-semibold text-purple-200">Late-night counter specialist</p>
+                                    <p class="mt-1 text-xs leading-5 text-gray-500">Affordable food, hidden counters, after-hours saves.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Suggested Taste-Makers</h3>
+                    <div class="space-y-2.5">
+                        <article class="flex items-center gap-3 rounded-[1.35rem] border border-white/10 bg-white/[0.03] p-3">
+                            <img src="https://i.pravatar.cc/100?img=32" class="h-11 w-11 rounded-xl object-cover" alt="Maya Chen">
+                            <div class="min-w-0 flex-1">
+                                <p class="truncate text-sm font-semibold text-white">Maya Chen</p>
+                                <p class="text-[11px] text-gray-500">Hidden screenings · 86% overlap</p>
+                            </div>
+                            <button class="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[11px] font-semibold text-white">Follow</button>
+                        </article>
+                        <article class="flex items-center gap-3 rounded-[1.35rem] border border-white/10 bg-white/[0.03] p-3">
+                            <img src="https://i.pravatar.cc/100?img=21" class="h-11 w-11 rounded-xl object-cover" alt="Prerna Mehta">
+                            <div class="min-w-0 flex-1">
+                                <p class="truncate text-sm font-semibold text-white">Prerna Mehta</p>
+                                <p class="text-[11px] text-gray-500">Patio coffee · city walks</p>
+                            </div>
+                            <button class="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[11px] font-semibold text-white">Follow</button>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full accent-gradient rounded-2xl py-4 text-sm font-bold text-white">Continue</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Onboarding 09. Taste Identity Reveal -->
+    <template id="screen-109">
+        <div class="w-full h-full relative overflow-hidden bg-[#050505]">
+            <div class="absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-rose-500/[0.14] blur-3xl"></div>
+            <div class="content-scroll no-scrollbar relative z-10 px-5 pb-32 pt-16">
+                <div class="mb-6 text-center">
+                    <p class="mb-2 text-[11px] font-bold uppercase tracking-[0.22em] text-rose-100/60">Rexy learned your signal</p>
+                    <h2 class="mx-auto max-w-[300px] text-[32px] font-semibold leading-[1.05] tracking-tight text-white">Your Taste Identity is forming</h2>
+                    <p class="mt-3 text-sm leading-6 text-gray-400">Rexy is ready to personalize your recommendations.</p>
+                </div>
+
+                <section class="relative mb-5 overflow-hidden rounded-[2rem] border border-rose-300/20 bg-gradient-to-br from-rose-500/[0.16] via-purple-500/[0.10] to-black p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_18px_44px_rgba(0,0,0,0.36)]">
+                    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.10),transparent_32%)]"></div>
+                    <div class="relative z-10 mb-5 text-center">
+                        <p class="text-xs font-bold uppercase tracking-[0.2em] text-rose-100/70">Example identity</p>
+                        <h3 class="mt-2 text-3xl font-semibold tracking-tight text-white">Cozy Explorer</h3>
+                    </div>
+                    <div class="relative z-10 mx-auto h-52 w-52">
+                        <div class="absolute inset-0 rounded-full border border-white/10"></div>
+                        <div class="absolute inset-8 rounded-full border border-rose-200/15"></div>
+                        <div class="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white p-1 shadow-[0_0_42px_rgba(244,63,94,0.28)]">
+                            <div class="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-rose-500 to-purple-500">
+                                <iconify-icon icon="solar:stars-bold" class="text-3xl text-white"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="absolute left-0 top-8 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-rose-100 backdrop-blur-md">Cafe</div>
+                        <div class="absolute right-0 top-16 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-purple-100 backdrop-blur-md">Film</div>
+                        <div class="absolute bottom-8 left-6 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-amber-100 backdrop-blur-md">Late</div>
+                    </div>
+                </section>
+
+                <section class="mb-5 rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-4">
+                    <h3 class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Top tags</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full border border-rose-300/25 bg-rose-500/[0.12] px-3 py-2 text-xs font-semibold text-rose-50">Quiet cafes</span>
+                        <span class="rounded-full border border-purple-300/25 bg-purple-500/[0.10] px-3 py-2 text-xs font-semibold text-purple-50">Indie films</span>
+                        <span class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-xs font-semibold text-gray-200">Hidden spots</span>
+                        <span class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-xs font-semibold text-gray-200">Late-night food</span>
+                    </div>
+                </section>
+
+                <section class="rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-4">
+                    <p class="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-gray-500">First summary</p>
+                    <p class="text-sm leading-6 text-gray-300">You prefer calm places with a point of view, food that feels local, and plans small enough to feel personal.</p>
+                </section>
+            </div>
+            <div class="glass-bottom absolute bottom-0 left-0 z-20 w-full px-5 pb-8 pt-4">
+                <button class="w-full rounded-2xl bg-white py-4 text-sm font-bold text-black shadow-[0_8px_28px_rgba(255,255,255,0.14)]">Open Recz</button>
             </div>
         </div>
     </template>
@@ -12117,6 +12680,20 @@
                     recommendationCategories: ['Food', 'Movies', 'Coffee', 'Travel', 'Art', 'Outdoors', 'Rooftops', 'Gems', 'Shopping', 'Books', 'Music', 'Experiences'],
                     screenGroups: [
                         {
+                            title: 'Onboarding',
+                            items: [
+                                { id: '101', label: 'Taste Journey Intro' },
+                                { id: '102', label: 'What Brings You Here?' },
+                                { id: '103', label: 'Your Perfect Evening' },
+                                { id: '104', label: 'New City Scenario' },
+                                { id: '105', label: 'Food Personality' },
+                                { id: '106', label: 'Taste Sliders' },
+                                { id: '107', label: 'Social Energy' },
+                                { id: '108', label: 'Build Your Circle' },
+                                { id: '109', label: 'Taste Identity Reveal' }
+                            ]
+                        },
+                        {
                             title: 'Primary Tabs',
                             items: [
                                 { id: '08', label: 'Home' },
@@ -12212,6 +12789,15 @@
                         { id: '05', title: 'Interest Selection', component: 'screen-05', showNav: false, showRexy: false },
                         { id: '06', title: 'Taste Details', component: 'screen-06', showNav: false, showRexy: false },
                         { id: '07', title: 'Follow Taste Circle', component: 'screen-07', showNav: false, showRexy: false },
+                        { id: '101', step: '01', title: 'Taste Journey Intro', component: 'screen-101', showNav: false, showRexy: false },
+                        { id: '102', step: '02', title: 'What Brings You Here?', component: 'screen-102', showNav: false, showRexy: false },
+                        { id: '103', step: '03', title: 'Your Perfect Evening', component: 'screen-103', showNav: false, showRexy: false },
+                        { id: '104', step: '04', title: 'New City Scenario', component: 'screen-104', showNav: false, showRexy: false },
+                        { id: '105', step: '05', title: 'Food Personality', component: 'screen-105', showNav: false, showRexy: false },
+                        { id: '106', step: '06', title: 'Taste Sliders', component: 'screen-106', showNav: false, showRexy: false },
+                        { id: '107', step: '07', title: 'Social Energy', component: 'screen-107', showNav: false, showRexy: false },
+                        { id: '108', step: '08', title: 'Build Your Circle', component: 'screen-108', showNav: false, showRexy: false },
+                        { id: '109', step: '09', title: 'Taste Identity Reveal', component: 'screen-109', showNav: false, showRexy: false },
                         { id: '08', title: 'Home / For You', component: 'screen-08', showNav: true, activeTab: 'home', showRexy: true },
                         { id: '09', title: 'Home Bottom Sheet', component: 'screen-09', showNav: true, activeTab: 'home', showRexy: false },
                         { id: '10', title: '09. Rexy - AI Assistant', component: 'screen-10', showNav: false, showRexy: false },
@@ -12297,6 +12883,11 @@
             computed: {
                 onboardingScreens() {
                     return this.screens.filter(screen => Number(screen.id) >= 1 && Number(screen.id) <= 7);
+                },
+                onboardingJourneyScreens() {
+                    return ['101', '102', '103', '104', '105', '106', '107', '108', '109']
+                        .map(id => this.screens.find(screen => screen.id === id))
+                        .filter(Boolean);
                 },
                 createScreens() {
                     const createScreenIds = ['17', '21', '48', '18', '19', '68', '20', '22', '23', '24', '51', '64'];
@@ -12546,7 +13137,7 @@
         });
 
         // Register screen components dynamically
-        ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '11a', '12', '13', '13a', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '57', '58', '59', '60', '61', '62', '63', '64', '67', '68', '69', '75', '76', '77', '79', '80', '81', '90', '91', '92', '93', '94', '95', '96', '97', '98'].forEach(id => {
+        ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '11a', '12', '13', '13a', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '57', '58', '59', '60', '61', '62', '63', '64', '67', '68', '69', '75', '76', '77', '79', '80', '81', '90', '91', '92', '93', '94', '95', '96', '97', '98', '101', '102', '103', '104', '105', '106', '107', '108', '109'].forEach(id => {
             app.component(`screen-${id}`, {
                 template: `#screen-${id}`
             });
